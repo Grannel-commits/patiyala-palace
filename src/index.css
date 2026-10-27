@@ -1,0 +1,202 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Mobile global fixes ── */
+html {
+  overflow-x: hidden;
+  /* Support notched phones (iPhone X+) */
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
+}
+
+/* Remove 300ms tap delay on all interactive elements */
+button, a, [role="button"] {
+  touch-action: manipulation;
+}
+
+/* Prevent body horizontal overflow */
+body {
+  overflow-x: hidden;
+  max-width: 100vw;
+  background-color: #030D26;
+  color: #ffffff;
+}
+
+@media (max-width: 767px) {
+  body {
+    background-color: #030D26;
+  }
+}
+
+@layer base {
+  html.lenis, html.lenis body {
+    height: auto;
+  }
+  
+  .lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+  }
+  
+  .lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+  }
+  
+  .lenis.lenis-stopped {
+    overflow: hidden;
+  }
+  
+  .lenis.lenis-smooth iframe {
+    pointer-events: none;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    cursor: auto !important;
+  }
+  .custom-cursor {
+    display: none !important;
+  }
+}
+
+/* Glassmorphism utilities */
+.glass {
+  @apply bg-white/80 backdrop-blur-md border border-[#00248B]/10 shadow-[0_8px_30px_rgba(7,23,62,0.06)];
+}
+
+.glass-white {
+  @apply bg-white/90 backdrop-blur-xl border border-[#00248B]/15 shadow-[0_12px_40px_rgba(7,23,62,0.08)];
+}
+
+.glass-cobalt {
+  @apply bg-[#00248B]/5 backdrop-blur-md border border-[#00248B]/15;
+}
+
+/* Patiyala Palace Royal Blue Glass Frame Effect */
+.glass-blue-frame {
+  background: linear-gradient(135deg, rgba(0, 36, 139, 0.55) 0%, rgba(7, 23, 62, 0.8) 100%) !important;
+  backdrop-filter: blur(24px) saturate(160%) !important;
+  -webkit-backdrop-filter: blur(24px) saturate(160%) !important;
+  border: 1px solid rgba(200, 168, 91, 0.4) !important;
+  box-shadow: 0 16px 45px rgba(0, 36, 139, 0.25), inset 0 1px 1px rgba(255, 255, 255, 0.2) !important;
+}
+
+.glass-blue-panel {
+  background: linear-gradient(135deg, rgba(0, 36, 139, 0.85) 0%, rgba(7, 23, 62, 0.95) 100%) !important;
+  backdrop-filter: blur(28px) saturate(170%) !important;
+  -webkit-backdrop-filter: blur(28px) saturate(170%) !important;
+  border: 1px solid rgba(200, 168, 91, 0.45) !important;
+  box-shadow: 0 24px 60px rgba(0, 36, 139, 0.35), inset 0 1px 1px rgba(255, 255, 255, 0.25) !important;
+}
+
+/* Patiyala Palace Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #020818;
+}
+::-webkit-scrollbar-thumb {
+  background: #C6A865;
+  border-radius: 10px;
+}
+
+/* Patiyala Palace Transparent Luxury Navbar */
+.navbar-transparent {
+  background: transparent !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+.navbar-transparent-scrolled {
+  background-color: rgba(3, 13, 38, 0.92) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border-bottom: 1px solid rgba(198, 168, 101, 0.25) !important;
+}
+
+.bg-noise {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* Luxury Gold & Silk Gradient Utilities */
+.gold-gradient-text {
+  background: linear-gradient(135deg, #FFF3D1 0%, #D4AF37 45%, #AA7C11 80%, #ECC880 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gold-gradient-bg {
+  background: linear-gradient(135deg, #ECC880 0%, #D4AF37 50%, #B8860B 100%);
+}
+
+.gold-gradient-border {
+  border-image: linear-gradient(135deg, #ECC880, #D4AF37, #996515) 1;
+}
+
+/* Luxury Royal Midnight Navy Cards */
+.glass-card-luxury {
+  background: rgba(4, 18, 53, 0.9) !important;
+  backdrop-filter: blur(24px) saturate(140%) !important;
+  -webkit-backdrop-filter: blur(24px) saturate(140%) !important;
+  border: 1px solid rgba(198, 168, 101, 0.3) !important;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.08) !important;
+}
+
+.glass-card-luxury:hover {
+  border-color: rgba(198, 168, 101, 0.6) !important;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.85), 0 0 30px rgba(198, 168, 101, 0.25) !important;
+}
+
+/* Tactile Patiyala Palace Royal Gold Buttons */
+.gold-cta-btn, .monkey-cta-btn {
+  background: #C6A865;
+  color: #000000;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 8px 25px rgba(198, 168, 101, 0.35);
+}
+
+.gold-cta-btn:hover, .monkey-cta-btn:hover {
+  background: #E7C97C;
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 14px 35px rgba(212, 175, 55, 0.5);
+  color: #000000;
+}
+
+.glass-ghost-btn {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(12px);
+  color: #FFFFFF;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+}
+
+.glass-ghost-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: #D4AF37;
+  color: #F3E5AB;
+  transform: translateY(-2px);
+}
+
+/* Continuous Marquee Ticker */
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: 200%;
+  animation: marquee 28s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}

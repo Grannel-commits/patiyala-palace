@@ -1,0 +1,41 @@
+{
+  "name": "patiala-palace",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "preview": "vite preview",
+    "postinstall": "node -e \"const fs = require('fs'); const p = 'node_modules/rollup/dist/native.js'; if(fs.existsSync(p)){ let c = fs.readFileSync(p, 'utf8'); if(!c.includes('@rollup/wasm-node')) { c = c.replace(/const \\{ parse, parseAsync.+?= requireWithFriendlyError\\([\\s\\S]+?\\);/, 'let nativeBindings;\\ntry { nativeBindings = require(existsSync(path.join(__dirname, localName)) ? localName : \\`@rollup/rollup-\\${packageBase}\\`); } catch (e) { nativeBindings = require(\\'@rollup/wasm-node/dist/native.js\\'); }\\nconst { parse, parseAsync, xxhashBase64Url, xxhashBase36, xxhashBase16 } = nativeBindings;'); fs.writeFileSync(p, c); } }\""
+  },
+  "dependencies": {
+    "@react-three/drei": "^9.105.6",
+    "@react-three/fiber": "^8.16.2",
+    "@studio-freight/lenis": "^1.0.42",
+    "clsx": "^2.1.1",
+    "framer-motion": "^11.2.6",
+    "gsap": "^3.12.5",
+    "lucide-react": "^0.378.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "sharp": "^0.35.4",
+    "tailwind-merge": "^2.3.0",
+    "three": "^0.164.0"
+  },
+  "devDependencies": {
+    "@rollup/rollup-darwin-arm64": "^4.65.1",
+    "@rollup/wasm-node": "^4.64.5",
+    "@types/node": "^26.4.0",
+    "@types/react": "^18.2.66",
+    "@types/react-dom": "^18.2.22",
+    "@types/three": "^0.164.0",
+    "@vitejs/plugin-react": "^4.2.1",
+    "autoprefixer": "^10.4.19",
+    "postcss": "^8.4.38",
+    "tailwindcss": "^3.4.3",
+    "typescript": "^5.2.2",
+    "vite": "^5.2.0"
+  }
+}
