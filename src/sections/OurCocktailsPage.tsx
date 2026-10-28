@@ -36,6 +36,18 @@ export const OurCocktailsPage = ({
     window.scrollTo(0, 0);
   }, []);
 
+  useEffect(() => {
+    if (selectedRecipe) {
+      const prevOverflow = document.body.style.overflow;
+      document.body.style.overflow = "hidden";
+      (window as any).__lenis?.stop();
+      return () => {
+        document.body.style.overflow = prevOverflow;
+        (window as any).__lenis?.start();
+      };
+    }
+  }, [selectedRecipe]);
+
   const handleOpenRecipe = (recipe: CocktailRecipe) => {
     setSelectedRecipe(recipe);
     if (typeof window !== "undefined") {
@@ -335,13 +347,15 @@ export const OurCocktailsPage = ({
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 overflow-y-auto bg-black/75 backdrop-blur-md flex items-start justify-center p-3 sm:p-6 lg:p-10"
+            data-lenis-prevent="true"
+            className="fixed inset-0 z-50 overflow-y-auto overscroll-contain bg-black/75 backdrop-blur-md flex items-start justify-center p-3 sm:p-6 lg:p-10"
           >
             <motion.div
               initial={{ y: 40, scale: 0.96 }}
               animate={{ y: 0, scale: 1 }}
               exit={{ y: 40, scale: 0.96 }}
               transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+              data-lenis-prevent="true"
               className="relative w-full max-w-4xl bg-[#04153B]/95 rounded-3xl overflow-hidden shadow-2xl my-auto text-white border border-[#62A4C6]/30 backdrop-blur-2xl"
             >
               {/* Top Action Bar */}

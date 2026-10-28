@@ -105,6 +105,7 @@ function App() {
       touchMultiplier: 1.8,
     });
     lenisRef.current = lenis;
+    (window as any).__lenis = lenis;
 
     lenis.on("scroll", ScrollTrigger.update);
     gsap.ticker.add((time) => {
@@ -116,6 +117,7 @@ function App() {
 
     return () => {
       window.removeEventListener("popstate", handlePopState);
+      (window as any).__lenis = null;
       lenis.destroy();
     };
   }, []);

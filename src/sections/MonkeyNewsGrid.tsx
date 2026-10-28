@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 interface DispatchArticle {
@@ -128,6 +128,18 @@ const HISTORICAL_DISPATCHES: DispatchArticle[] = [
 
 export const MonkeyNewsGrid: React.FC = () => {
   const [selectedArticle, setSelectedArticle] = useState<DispatchArticle | null>(null);
+
+  useEffect(() => {
+    if (selectedArticle) {
+      const prevOverflow = document.body.style.overflow;
+      document.body.style.overflow = "hidden";
+      (window as any).__lenis?.stop();
+      return () => {
+        document.body.style.overflow = prevOverflow;
+        (window as any).__lenis?.start();
+      };
+    }
+  }, [selectedArticle]);
 
   return (
     <section id="dispatches" className="relative w-full p-2 sm:p-3 md:p-4 my-2 sm:my-4 select-none">
@@ -297,56 +309,70 @@ export const MonkeyNewsGrid: React.FC = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[140] bg-black/92 backdrop-blur-2xl flex items-center justify-center p-3 sm:p-6 md:p-8"
+            data-lenis-prevent="true"
+            className="fixed inset-0 z-[140] bg-black/92 backdrop-blur-2xl flex items-center justify-center p-2 sm:p-4 md:p-6 overflow-y-auto overscroll-contain"
             onClick={() => setSelectedArticle(null)}
           >
             <motion.div
-              initial={{ scale: 0.95, opacity: 0, y: 20 }}
+              initial={{ scale: 0.96, opacity: 0, y: 20 }}
               animate={{ scale: 1, opacity: 1, y: 0 }}
-              exit={{ scale: 0.95, opacity: 0, y: 20 }}
+              exit={{ scale: 0.96, opacity: 0, y: 20 }}
+              transition={{ duration: 0.3 }}
+              data-lenis-prevent="true"
               onClick={(e) => e.stopPropagation()}
-              className="relative w-full max-w-3xl bg-[#030d24] text-white rounded-2xl sm:rounded-3xl overflow-hidden border-2 border-[#CBD5E1]/50 shadow-2xl max-h-[92vh] flex flex-col"
+              className="relative w-full max-w-4xl bg-[#030d24] text-white rounded-2xl sm:rounded-3xl overflow-hidden border-2 border-[#CBD5E1]/50 shadow-2xl max-h-[92vh] flex flex-col my-auto"
             >
-              {/* Modal Hero Banner */}
-              <div className="relative h-64 sm:h-80 w-full overflow-hidden flex-shrink-0">
-                <img
-                  src={selectedArticle.image}
-                  alt={selectedArticle.title}
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#030d24] via-[#030d24]/50 to-black/30" />
-
-                {/* Close Button */}
+              {/* Sticky Top Header Bar */}
+              <div className="flex items-center justify-between px-5 sm:px-8 py-4 border-b border-white/10 bg-[#030d24]/95 backdrop-blur-md z-30 flex-shrink-0">
+                <div className="flex items-center gap-2.5 sm:gap-3">
+                  <span className="px-3 py-1 rounded-full text-[9px] font-mono tracking-widest uppercase bg-[#E2E8F0] text-[#020818] font-bold">
+                    {selectedArticle.tag}
+                  </span>
+                  <span className="font-mono text-[10px] text-[#CBD5E1]/80 tracking-widest uppercase">
+                    {selectedArticle.readTime}
+                  </span>
+                  <span className="hidden sm:inline font-mono text-[10px] text-[#CBD5E1]/50 tracking-widest uppercase">
+                    • {selectedArticle.date}
+                  </span>
+                </div>
                 <button
                   onClick={() => setSelectedArticle(null)}
-                  className="absolute top-5 right-5 z-20 w-10 h-10 rounded-full bg-black/70 hover:bg-[#E2E8F0] hover:text-black text-white flex items-center justify-center font-bold text-sm transition-all border border-white/20 cursor-pointer shadow-lg"
+                  className="w-9 h-9 rounded-full bg-white/10 hover:bg-[#E2E8F0] hover:text-[#020818] text-white flex items-center justify-center font-bold text-sm transition-all border border-white/20 cursor-pointer shadow-lg"
                   aria-label="Close Article"
                 >
                   ✕
                 </button>
-
-                {/* Article Header Meta */}
-                <div className="absolute bottom-6 left-6 right-6 z-10">
-                  <div className="flex items-center gap-3 mb-2">
-                    <span className="px-3 py-1 rounded-full text-[9px] font-mono tracking-widest uppercase bg-[#E2E8F0] text-[#020818] font-bold">
-                      {selectedArticle.tag}
-                    </span>
-                    <span className="font-mono text-[10px] text-[#CBD5E1]/80 tracking-widest uppercase">
-                      {selectedArticle.readTime}
-                    </span>
-                  </div>
-                  <h3 className="font-serif font-normal text-2xl sm:text-4xl text-white tracking-tight leading-tight">
-                    {selectedArticle.title}
-                  </h3>
-                </div>
               </div>
 
-              {/* Modal Article Content */}
-              <div className="p-6 sm:p-10 overflow-y-auto space-y-8 select-text">
-                <p className="font-serif italic text-base sm:text-lg text-[#E2E8F0] leading-relaxed border-l-2 border-[#CBD5E1] pl-4">
-                  {selectedArticle.subtitle}
-                </p>
+              {/* Scrollable Article Body with Full Image */}
+              <div
+                data-lenis-prevent="true"
+                className="p-5 sm:p-8 md:p-10 overflow-y-auto overscroll-contain space-y-8 select-text flex-1"
+                style={{ WebkitOverflowScrolling: "touch" }}
+              >
+                {/* Article Header */}
+                <div className="space-y-3">
+                  <span className="font-mono text-[9px] sm:text-[10px] tracking-[0.25em] text-[#CBD5E1]/70 uppercase block">
+                    {selectedArticle.category}
+                  </span>
+                  <h2 className="font-serif font-normal text-2xl sm:text-4xl md:text-5xl text-white tracking-tight leading-tight">
+                    {selectedArticle.title}
+                  </h2>
+                  <p className="font-serif italic text-base sm:text-xl text-[#E2E8F0] leading-relaxed border-l-2 border-[#CBD5E1] pl-4 pt-1">
+                    {selectedArticle.subtitle}
+                  </p>
+                </div>
 
+                {/* FULL UN-CROPPED ARTICLE IMAGE */}
+                <div className="relative w-full rounded-2xl overflow-hidden bg-black/60 border border-white/15 shadow-2xl">
+                  <img
+                    src={selectedArticle.image}
+                    alt={selectedArticle.title}
+                    className="w-full h-auto max-h-[70vh] object-contain sm:object-cover mx-auto"
+                  />
+                </div>
+
+                {/* Article Text Sections */}
                 {selectedArticle.content.map((section, idx) => (
                   <div key={idx} className="space-y-4">
                     <h4 className="font-serif font-normal text-xl sm:text-2xl text-white tracking-wide border-b border-white/10 pb-2">
@@ -360,7 +386,7 @@ export const MonkeyNewsGrid: React.FC = () => {
                     ))}
 
                     {section.quote && (
-                      <div className="my-6 p-5 rounded-xl bg-black/40 border border-[#CBD5E1]/30 text-center">
+                      <div className="my-6 p-5 sm:p-6 rounded-xl bg-black/40 border border-[#CBD5E1]/30 text-center">
                         <p className="font-serif italic text-base sm:text-lg text-[#E2E8F0]">
                           "{section.quote}"
                         </p>
@@ -370,7 +396,7 @@ export const MonkeyNewsGrid: React.FC = () => {
                 ))}
 
                 {/* Bottom Dismiss / Navigation */}
-                <div className="pt-6 border-t border-white/15 flex items-center justify-between">
+                <div className="pt-6 border-t border-white/15 flex flex-wrap items-center justify-between gap-4">
                   <span className="font-mono text-[10px] text-[#CBD5E1]/60 tracking-widest uppercase">
                     PATIYALA PALACE • THE DISPATCHES
                   </span>

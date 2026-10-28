@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 interface CocktailItem {
@@ -134,6 +134,18 @@ interface Props {
 
 export const MonkeyCocktailsCarousel: React.FC<Props> = ({ onSeeAllRecipes }) => {
   const [activeCocktail, setActiveCocktail] = useState<CocktailItem | null>(null);
+
+  useEffect(() => {
+    if (activeCocktail) {
+      const prevOverflow = document.body.style.overflow;
+      document.body.style.overflow = "hidden";
+      (window as any).__lenis?.stop();
+      return () => {
+        document.body.style.overflow = prevOverflow;
+        (window as any).__lenis?.start();
+      };
+    }
+  }, [activeCocktail]);
 
   return (
     <section className="relative w-full p-2 sm:p-3 md:p-4 my-2 sm:my-4 select-none">
@@ -390,18 +402,21 @@ export const MonkeyCocktailsCarousel: React.FC<Props> = ({ onSeeAllRecipes }) =>
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[130] bg-black/90 backdrop-blur-2xl flex items-center justify-center p-4 sm:p-8"
+            data-lenis-prevent="true"
+            className="fixed inset-0 z-[130] bg-black/90 backdrop-blur-2xl flex items-center justify-center p-3 sm:p-6 md:p-8 overflow-y-auto overscroll-contain"
             onClick={() => setActiveCocktail(null)}
           >
             <motion.div
-              initial={{ scale: 0.95, opacity: 0, y: 20 }}
+              initial={{ scale: 0.96, opacity: 0, y: 20 }}
               animate={{ scale: 1, opacity: 1, y: 0 }}
-              exit={{ scale: 0.95, opacity: 0, y: 20 }}
+              exit={{ scale: 0.96, opacity: 0, y: 20 }}
+              transition={{ duration: 0.3 }}
+              data-lenis-prevent="true"
               onClick={(e) => e.stopPropagation()}
-              className="relative w-full max-w-3xl bg-[#041235] text-white rounded-3xl overflow-hidden border-2 border-[#CBD5E1]/60 shadow-2xl max-h-[90vh] flex flex-col"
+              className="relative w-full max-w-3xl bg-[#041235] text-white rounded-2xl sm:rounded-3xl overflow-hidden border-2 border-[#CBD5E1]/60 shadow-2xl max-h-[90vh] flex flex-col my-auto"
             >
-              {/* Modal Header */}
-              <div className="relative h-64 sm:h-72 w-full overflow-hidden flex-shrink-0">
+              {/* Modal Header Banner */}
+              <div className="relative h-60 sm:h-72 w-full overflow-hidden flex-shrink-0">
                 <img
                   src={activeCocktail.image}
                   alt={activeCocktail.name}
@@ -413,6 +428,7 @@ export const MonkeyCocktailsCarousel: React.FC<Props> = ({ onSeeAllRecipes }) =>
                 <button
                   onClick={() => setActiveCocktail(null)}
                   className="absolute top-5 right-5 z-20 w-10 h-10 rounded-full bg-black/70 hover:bg-[#CBD5E1] hover:text-black text-white flex items-center justify-center font-bold text-base transition-all border border-white/20 cursor-pointer shadow-lg"
+                  aria-label="Close Recipe"
                 >
                   ✕
                 </button>
@@ -435,8 +451,12 @@ export const MonkeyCocktailsCarousel: React.FC<Props> = ({ onSeeAllRecipes }) =>
                 </div>
               </div>
 
-              {/* Modal Body */}
-              <div className="p-6 sm:p-8 overflow-y-auto space-y-6">
+              {/* Scrollable Modal Body */}
+              <div
+                data-lenis-prevent="true"
+                className="p-6 sm:p-8 overflow-y-auto overscroll-contain space-y-6 flex-1 select-text"
+                style={{ WebkitOverflowScrolling: "touch" }}
+              >
                 <p className="font-sans text-sm text-white/80 leading-relaxed font-light">
                   {activeCocktail.description}
                 </p>
