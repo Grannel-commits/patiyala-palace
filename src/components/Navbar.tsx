@@ -63,7 +63,6 @@ export const Navbar: React.FC<Props> = ({
           <ul className="hidden md:flex items-center gap-1.5 lg:gap-3">
             {[
               { id: "home", label: "HOME" },
-              { id: "whiskies", label: "OUR WHISKIES" },
               { id: "cocktails", label: "COCKTAILS" },
               { id: "story", label: "OUR STORY" },
               { id: "sessions", label: "PALACE SESSIONS" },
@@ -72,7 +71,7 @@ export const Navbar: React.FC<Props> = ({
                 (currentPage === "story" && link.id === "story") ||
                 (currentPage === "cocktails" && link.id === "cocktails") ||
                 (currentPage === "sessions" && link.id === "sessions") ||
-                (currentPage === "home" && (link.id === "home" || (link.id === "whiskies" && !isScrolled)));
+                (currentPage === "home" && link.id === "home");
               return (
                 <li key={link.id}>
                   <button

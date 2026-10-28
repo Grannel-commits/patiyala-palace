@@ -15,7 +15,6 @@ export const MenuOverlay: React.FC<Props> = ({ isOpen, onClose, onNavigate }) =>
 
   const navLinks = [
     { label: "Home", id: "home", tag: "The Entry" },
-    { label: "Our Whiskies", id: "whiskies", tag: "Crafted Malt" },
     { label: "Palace Cocktails", id: "cocktails", tag: "Mixology" },
     { label: "Our Story", id: "story", tag: "Patrimony & Roots" },
     { label: "Palace Sessions", id: "sessions", tag: "Ghazal & Spirit" },
