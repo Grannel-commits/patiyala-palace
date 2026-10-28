@@ -46,8 +46,8 @@ export const MonkeyClubSection: React.FC = () => {
         <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-black/60 pointer-events-none" />
 
         {/* Right Floating Dark Red Card */}
-        <div className="relative z-10 w-full max-w-md p-6 sm:p-8 rounded-2xl sm:rounded-3xl bg-[#061b4c]/95 backdrop-blur-md border border-[#C6A865]/40 text-white shadow-2xl">
-          <span className="font-mono text-xs font-bold uppercase tracking-[0.2em] text-[#E7C97C] block mb-2">
+        <div className="relative z-10 w-full max-w-md p-6 sm:p-8 rounded-2xl sm:rounded-3xl bg-[#061b4c]/95 backdrop-blur-md border border-[#CBD5E1]/40 text-white shadow-2xl">
+          <span className="font-mono text-xs font-bold uppercase tracking-[0.2em] text-[#E2E8F0] block mb-2">
             EXCLUSIVE ROYAL PRIVILEGES
           </span>
 
@@ -61,7 +61,7 @@ export const MonkeyClubSection: React.FC = () => {
 
           <button
             onClick={() => setIsOpenModal(true)}
-            className="w-full py-4 rounded-full bg-[#C6A865] hover:bg-[#B3934F] text-black font-sans font-black text-xs uppercase tracking-[0.16em] transition-all flex items-center justify-center gap-2 cursor-pointer shadow-lg hover:scale-105"
+            className="w-full py-4 rounded-full bg-[#CBD5E1] hover:bg-[#B3934F] text-black font-sans font-black text-xs uppercase tracking-[0.16em] transition-all flex items-center justify-center gap-2 cursor-pointer shadow-lg hover:scale-105"
           >
             <span>JOIN CLUB PATIYALA PALACE</span>
             <span>↗</span>
@@ -83,21 +83,21 @@ export const MonkeyClubSection: React.FC = () => {
               initial={{ scale: 0.95, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.95, opacity: 0 }}
-              className="relative w-full max-w-lg rounded-3xl bg-[#061b4c] border-2 border-[#C6A865] p-8 text-center text-white shadow-2xl"
+              className="relative w-full max-w-lg rounded-3xl bg-[#061b4c] border-2 border-[#CBD5E1] p-8 text-center text-white shadow-2xl"
               onClick={(e) => e.stopPropagation()}
             >
               <button
                 onClick={() => setIsOpenModal(false)}
-                className="absolute top-5 right-5 w-8 h-8 rounded-full bg-black/60 hover:bg-[#C6A865] hover:text-black text-white flex items-center justify-center font-bold text-sm transition-all cursor-pointer"
+                className="absolute top-5 right-5 w-8 h-8 rounded-full bg-black/60 hover:bg-[#CBD5E1] hover:text-black text-white flex items-center justify-center font-bold text-sm transition-all cursor-pointer"
               >
                 ✕
               </button>
 
-              <div className="w-16 h-16 mx-auto mb-4 p-1 rounded-full border border-[#C6A865] bg-black/40">
-                <img src="/assets/logo/pp_logo_gold_clean.png" alt="PP Logo" className="w-full h-full object-contain" />
+              <div className="w-16 h-16 mx-auto mb-4 p-1 rounded-full border border-[#CBD5E1] bg-black/40">
+                <img src="/assets/logo/pp_logo_silver_clean.png" alt="PP Logo" className="w-full h-full object-contain" />
               </div>
 
-              <h3 className="font-serif font-black text-3xl uppercase tracking-tight mb-2 text-[#E7C97C]">
+              <h3 className="font-serif font-black text-3xl uppercase tracking-tight mb-2 text-[#E2E8F0]">
                 CLUB PATIYALA PALACE
               </h3>
               <p className="font-sans text-xs text-white/80 mb-6 font-light">
@@ -105,7 +105,7 @@ export const MonkeyClubSection: React.FC = () => {
               </p>
 
               {isRegistered ? (
-                <div className="p-4 rounded-2xl bg-[#C6A865] text-black font-bold text-sm uppercase tracking-wider shadow-lg">
+                <div className="p-4 rounded-2xl bg-[#CBD5E1] text-black font-bold text-sm uppercase tracking-wider shadow-lg">
                   🎉 Welcome to the Club! Check your inbox soon.
                 </div>
               ) : (
@@ -116,11 +116,11 @@ export const MonkeyClubSection: React.FC = () => {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="Enter your email"
-                    className="px-5 py-3.5 rounded-full bg-black/60 border border-white/20 text-white placeholder-white/40 text-xs font-sans focus:outline-none focus:border-[#C6A865]"
+                    className="px-5 py-3.5 rounded-full bg-black/60 border border-white/20 text-white placeholder-white/40 text-xs font-sans focus:outline-none focus:border-[#CBD5E1]"
                   />
                   <button
                     type="submit"
-                    className="py-3.5 rounded-full bg-[#C6A865] hover:bg-[#b89547] text-black font-sans font-black text-xs uppercase tracking-wider cursor-pointer shadow-lg transition-all"
+                    className="py-3.5 rounded-full bg-[#CBD5E1] hover:bg-[#b89547] text-black font-sans font-black text-xs uppercase tracking-wider cursor-pointer shadow-lg transition-all"
                   >
                     SIGN UP NOW
                   </button>

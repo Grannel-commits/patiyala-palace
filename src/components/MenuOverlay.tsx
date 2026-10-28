@@ -32,16 +32,16 @@ export const MenuOverlay: React.FC<Props> = ({ isOpen, onClose, onNavigate }) =>
           className="fixed inset-0 z-[120] bg-[#02091c]/98 backdrop-blur-3xl text-white flex flex-col justify-between overflow-y-auto"
         >
           {/* Header Row */}
-          <div className="w-full max-w-screen-xl mx-auto px-6 sm:px-12 py-6 flex items-center justify-between border-b border-[#C6A865]/25">
+          <div className="w-full max-w-screen-xl mx-auto px-6 sm:px-12 py-6 flex items-center justify-between border-b border-[#CBD5E1]/25">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-full border border-[#C6A865]/60 p-1 flex items-center justify-center bg-black/60 shadow-lg">
+              <div className="w-10 h-10 rounded-full border border-[#CBD5E1]/60 p-1 flex items-center justify-center bg-black/60 shadow-lg">
                 <img
-                  src="/assets/logo/pp_logo_gold_clean.png"
+                  src="/assets/logo/pp_logo_silver_clean.png"
                   alt="Patiyala Palace Royal Seal"
                   className="w-full h-full object-contain filter drop-shadow"
                 />
               </div>
-              <span className="font-serif font-bold text-lg uppercase tracking-[0.2em] text-[#E7C97C]">
+              <span className="font-serif font-bold text-lg uppercase tracking-[0.2em] text-[#E2E8F0]">
                 PATIYALA PALACE
               </span>
             </div>
@@ -49,12 +49,12 @@ export const MenuOverlay: React.FC<Props> = ({ isOpen, onClose, onNavigate }) =>
             <button
               onClick={onClose}
               aria-label="Close Menu"
-              className="flex items-center gap-2 group p-2 text-white hover:text-[#E7C97C] transition-colors cursor-pointer"
+              className="flex items-center gap-2 group p-2 text-white hover:text-[#E2E8F0] transition-colors cursor-pointer"
             >
               <span className="font-mono text-xs font-bold uppercase tracking-[0.2em]">
                 CLOSE
               </span>
-              <div className="w-8 h-8 rounded-full border border-white/20 group-hover:border-[#E7C97C] flex items-center justify-center font-bold text-xs bg-white/5">
+              <div className="w-8 h-8 rounded-full border border-white/20 group-hover:border-[#E2E8F0] flex items-center justify-center font-bold text-xs bg-white/5">
                 ✕
               </div>
             </button>
@@ -74,13 +74,13 @@ export const MenuOverlay: React.FC<Props> = ({ isOpen, onClose, onNavigate }) =>
                     onClick={() => handleSelect(link.id)}
                     className="group flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-6 text-left cursor-pointer"
                   >
-                    <span className="font-mono text-base sm:text-lg text-[#C6A865] font-bold">
+                    <span className="font-mono text-base sm:text-lg text-[#CBD5E1] font-bold">
                       0{idx + 1}
                     </span>
-                    <span className="font-sans font-black text-3xl sm:text-5xl md:text-6xl uppercase tracking-tight text-white group-hover:text-[#E7C97C] group-hover:translate-x-2 transition-all duration-300">
+                    <span className="font-sans font-black text-3xl sm:text-5xl md:text-6xl uppercase tracking-tight text-white group-hover:text-[#E2E8F0] group-hover:translate-x-2 transition-all duration-300">
                       {link.label}
                     </span>
-                    <span className="text-[10px] font-mono font-bold tracking-widest uppercase text-white/40 group-hover:text-[#E7C97C] transition-colors sm:ml-auto">
+                    <span className="text-[10px] font-mono font-bold tracking-widest uppercase text-white/40 group-hover:text-[#E2E8F0] transition-colors sm:ml-auto">
                       {link.tag}
                     </span>
                   </button>
@@ -91,15 +91,15 @@ export const MenuOverlay: React.FC<Props> = ({ isOpen, onClose, onNavigate }) =>
 
           {/* Footer inside Menu */}
           <div className="w-full max-w-screen-xl mx-auto px-6 sm:px-16 py-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-white/50 font-light">
-            <span className="font-mono tracking-[0.2em] text-[#C6A865] uppercase text-[10px] font-bold">
+            <span className="font-mono tracking-[0.2em] text-[#CBD5E1] uppercase text-[10px] font-bold">
               SAKSHAM SPIRITS PVT. LTD. • STRICTLY 25+ ENJOY RESPONSIBLY
             </span>
             <div className="flex gap-6 font-mono text-xs uppercase tracking-wider">
-              <a href="https://www.instagram.com/patiyalapalace/" target="_blank" rel="noreferrer" className="hover:text-[#E7C97C] transition-colors flex items-center gap-1.5 font-bold">
+              <a href="https://www.instagram.com/patiyalapalace/" target="_blank" rel="noreferrer" className="hover:text-[#E2E8F0] transition-colors flex items-center gap-1.5 font-bold">
                 <span>Instagram</span>
-                <span className="text-[10px] text-[#E7C97C]">(@patiyalapalace)</span>
+                <span className="text-[10px] text-[#E2E8F0]">(@patiyalapalace)</span>
               </a>
-              <a href="https://facebook.com" target="_blank" rel="noreferrer" className="hover:text-[#E7C97C] transition-colors font-bold">
+              <a href="https://facebook.com" target="_blank" rel="noreferrer" className="hover:text-[#E2E8F0] transition-colors font-bold">
                 Facebook
               </a>
             </div>

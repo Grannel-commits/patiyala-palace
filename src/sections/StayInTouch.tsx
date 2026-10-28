@@ -17,7 +17,7 @@ export const StayInTouch = () => {
       <div className="max-w-4xl mx-auto px-6 md:px-12 text-center">
         
         <div className="space-y-4 mb-10">
-          <span className="font-sans text-[11px] tracking-[0.35em] text-[#C8A85B] uppercase font-semibold block">
+          <span className="font-sans text-[11px] tracking-[0.35em] text-[#CBD5E1] uppercase font-semibold block">
             PALACE DISPATCHES
           </span>
 

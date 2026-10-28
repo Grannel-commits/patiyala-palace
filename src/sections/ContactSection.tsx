@@ -34,7 +34,7 @@ export const ContactSection = () => {
               </div>
               <h2 className="font-serif text-4xl sm:text-5xl text-[#00248B] font-light leading-tight uppercase">
                 Enter the<br />
-                <span className="italic text-[#C8A85B] font-normal">Inner Circle.</span>
+                <span className="italic text-[#CBD5E1] font-normal">Inner Circle.</span>
               </h2>
             </div>
 
@@ -61,7 +61,7 @@ export const ContactSection = () => {
                 <span className="text-[10px] tracking-widest uppercase text-[#00248B] font-semibold block mb-1">
                   REGULATORY JURISDICTION
                 </span>
-                <span className="text-[#C8A85B] font-medium">
+                <span className="text-[#CBD5E1] font-medium">
                   For Sale in Haryana Only • Product of India
                 </span>
               </div>

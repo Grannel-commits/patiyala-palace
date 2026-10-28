@@ -46,7 +46,7 @@ const SplitCard = ({
     {/* Text Content */}
     <div className="p-8 md:p-12 space-y-5 bg-white flex flex-col flex-1 justify-between">
       <div className="space-y-3">
-        <span className="font-sans text-[10px] tracking-[0.3em] uppercase text-[#C8A85B] font-semibold block">
+        <span className="font-sans text-[10px] tracking-[0.3em] uppercase text-[#CBD5E1] font-semibold block">
           {subtitle}
         </span>
         <h3 className="font-serif text-3xl sm:text-4xl text-[#00248B] font-light uppercase tracking-tight group-hover:text-[#0F51CF] transition-colors">

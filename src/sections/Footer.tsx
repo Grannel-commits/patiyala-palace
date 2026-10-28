@@ -17,7 +17,7 @@ export const Footer: React.FC<Props> = ({ onNavigate, onOpenAgeGate }) => {
           <div className="flex items-center gap-4">
             <div className="w-12 h-12 rounded-full border-2 border-[#E6501E]/70 p-1 flex items-center justify-center bg-[#1A1A1A] shadow-[0_0_15px_rgba(230,80,30,0.3)]">
               <img
-                src="/assets/logo/official_gold_seal.png"
+                src="/assets/logo/official_silver_seal.png"
                 alt="Patiyala Palace Official Gold Seal"
                 className="w-full h-full object-contain filter drop-shadow"
               />

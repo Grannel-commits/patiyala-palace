@@ -36,9 +36,9 @@ const pillars: CraftPillar[] = [
   {
     number: "04",
     title: "The Royal Decanter",
-    subtitle: "Hand-Crafted Ceramic & 24K Gold",
+    subtitle: "Hand-Crafted Ceramic & Polished Silver",
     description:
-      "Every bottle is individually cast, hand-glazed with royal cobalt motifs, and crowned with a weighted gold seal honoring the Maharaja's court.",
+      "Every bottle is individually cast, hand-glazed with royal cobalt motifs, and crowned with a weighted silver seal honoring the Maharaja's court.",
     detail: "Individually numbered bottles",
   },
 ];
@@ -97,7 +97,7 @@ export const HandsThatCreate = () => {
 
             {/* Poetic Quote & Heritage Column */}
             <div className="lg:col-span-6 space-y-6">
-              <span className="font-sans text-[10px] tracking-[0.3em] uppercase text-[#C8A85B] font-semibold block">
+              <span className="font-sans text-[10px] tracking-[0.3em] uppercase text-[#CBD5E1] font-semibold block">
                 THE SOVEREIGN PROMISE
               </span>
 
@@ -125,9 +125,9 @@ export const HandsThatCreate = () => {
                 </div>
                 <div className="w-[1px] h-8 bg-[#00248B]/20" />
                 <div>
-                  <span className="font-serif text-2xl text-[#00248B] font-normal">24K</span>
+                  <span className="font-serif text-2xl text-[#00248B] font-normal">Pure</span>
                   <span className="block font-sans text-[9px] tracking-widest uppercase text-[#45516E]">
-                    Gold Leaf Emblem
+                    Silver Leaf Emblem
                   </span>
                 </div>
               </div>
@@ -152,7 +152,7 @@ export const HandsThatCreate = () => {
                   <h3 className="font-serif text-xl text-[#00248B] font-normal mb-1">
                     {pillar.title}
                   </h3>
-                  <span className="font-sans text-[10px] tracking-widest uppercase text-[#C8A85B] font-semibold block">
+                  <span className="font-sans text-[10px] tracking-widest uppercase text-[#CBD5E1] font-semibold block">
                     {pillar.subtitle}
                   </span>
                 </div>

@@ -53,7 +53,7 @@ export const CraftSection = () => {
     <section
       id="craft"
       ref={containerRef}
-      className="relative w-full py-32 md:py-48 bg-[#050D15] text-[#F3EEE4] overflow-hidden border-b border-[#C8A85B]/15"
+      className="relative w-full py-32 md:py-48 bg-[#050D15] text-[#F3EEE4] overflow-hidden border-b border-[#CBD5E1]/15"
     >
       {/* Background Ambience */}
       <motion.div 
@@ -72,11 +72,11 @@ export const CraftSection = () => {
             transition={{ duration: 0.9 }}
             className="flex items-center justify-center gap-3 mb-6"
           >
-            <span className="w-8 h-[1px] bg-[#C8A85B]" />
-            <span className="font-sans text-[11px] tracking-[0.35em] text-[#C8A85B] uppercase font-medium">
+            <span className="w-8 h-[1px] bg-[#CBD5E1]" />
+            <span className="font-sans text-[11px] tracking-[0.35em] text-[#CBD5E1] uppercase font-medium">
               OUR CRAFT • PROCESS
             </span>
-            <span className="w-8 h-[1px] bg-[#C8A85B]" />
+            <span className="w-8 h-[1px] bg-[#CBD5E1]" />
           </motion.div>
 
           <motion.h2
@@ -87,7 +87,7 @@ export const CraftSection = () => {
             className="font-serif text-4xl sm:text-6xl md:text-7xl font-light tracking-wide text-[#F3EEE4] leading-tight"
           >
             CRAFTED<br />
-            <span className="italic text-[#C8A85B] font-normal">WITH CHARACTER.</span>
+            <span className="italic text-[#CBD5E1] font-normal">WITH CHARACTER.</span>
           </motion.h2>
 
           <motion.p
@@ -110,18 +110,18 @@ export const CraftSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 1, delay: idx * 0.15, ease: [0.16, 1, 0.3, 1] }}
-              className="group relative p-8 border border-[#C8A85B]/20 bg-[#071522]/60 backdrop-blur-md rounded-sm flex flex-col justify-between hover:border-[#C8A85B]/60 transition-all duration-500 hover:-translate-y-1 shadow-lg"
+              className="group relative p-8 border border-[#CBD5E1]/20 bg-[#071522]/60 backdrop-blur-md rounded-sm flex flex-col justify-between hover:border-[#CBD5E1]/60 transition-all duration-500 hover:-translate-y-1 shadow-lg"
             >
               {/* Top number and accent */}
               <div>
-                <div className="flex items-baseline justify-between mb-8 pb-4 border-b border-[#C8A85B]/15">
-                  <span className="font-serif text-4xl lg:text-5xl text-[#C8A85B] font-light">
+                <div className="flex items-baseline justify-between mb-8 pb-4 border-b border-[#CBD5E1]/15">
+                  <span className="font-serif text-4xl lg:text-5xl text-[#CBD5E1] font-light">
                     {step.number}
                   </span>
-                  <span className="w-2 h-2 rounded-full bg-[#C8A85B]/40 group-hover:bg-[#C8A85B] transition-colors" />
+                  <span className="w-2 h-2 rounded-full bg-[#CBD5E1]/40 group-hover:bg-[#CBD5E1] transition-colors" />
                 </div>
 
-                <span className="font-sans text-[9px] uppercase tracking-[0.25em] text-[#C8A85B] font-semibold block mb-2">
+                <span className="font-sans text-[9px] uppercase tracking-[0.25em] text-[#CBD5E1] font-semibold block mb-2">
                   {step.subtitle}
                 </span>
 
@@ -135,7 +135,7 @@ export const CraftSection = () => {
               </div>
 
               {/* Bottom detail pill */}
-              <div className="pt-4 border-t border-[#C8A85B]/10">
+              <div className="pt-4 border-t border-[#CBD5E1]/10">
                 <span className="font-sans text-[10px] text-[#F3EEE4]/50 leading-relaxed block font-light">
                   {step.details}
                 </span>

@@ -13,11 +13,11 @@ export const ExpressionsHeritage = () => {
           transition={{ duration: 0.8 }}
           className="mb-6 relative"
         >
-          <div className="w-16 h-16 md:w-20 md:h-20 rounded-full border border-[#C8A85B]/40 p-2 flex items-center justify-center bg-[#F0F2FC] shadow-[0_4px_20px_rgba(0,36,139,0.08)]">
+          <div className="w-16 h-16 md:w-20 md:h-20 rounded-full border border-[#CBD5E1]/40 p-2 flex items-center justify-center bg-[#F0F2FC] shadow-[0_4px_20px_rgba(0,36,139,0.08)]">
             <img
-              src="/assets/logo/official_gold_seal.png"
+              src="/assets/logo/official_silver_seal.png"
               alt="Patiyala Palace Royal Medallion"
-              className="w-full h-full object-contain filter drop-shadow-[0_2px_8px_rgba(200,168,91,0.4)]"
+              className="w-full h-full object-contain filter drop-shadow-[0_2px_8px_rgba(203,213,225,0.4)]"
             />
           </div>
         </motion.div>

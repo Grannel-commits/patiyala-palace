@@ -9,22 +9,22 @@ export const TheInvitation = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
-          className="relative glass-blue-panel border border-[#C8A85B]/30 rounded-lg p-6 sm:p-10 md:p-20 text-center shadow-2xl overflow-hidden"
+          className="relative glass-blue-panel border border-[#CBD5E1]/30 rounded-lg p-6 sm:p-10 md:p-20 text-center shadow-2xl overflow-hidden"
         >
           {/* Subtle Decorative Royal Frame */}
-          <div className="absolute inset-2 sm:inset-4 border border-[#C8A85B]/20 pointer-events-none rounded-lg" />
+          <div className="absolute inset-2 sm:inset-4 border border-[#CBD5E1]/20 pointer-events-none rounded-lg" />
 
           {/* Crest Seal */}
           <div className="flex justify-center mb-5 sm:mb-6">
             <img
-              src="/assets/logo/official_gold_seal.png"
+              src="/assets/logo/official_silver_seal.png"
               alt="Patiyala Palace Royal Seal"
-              className="w-14 h-14 sm:w-20 sm:h-20 object-contain drop-shadow-[0_4px_12px_rgba(200,168,91,0.5)]"
+              className="w-14 h-14 sm:w-20 sm:h-20 object-contain drop-shadow-[0_4px_12px_rgba(203,213,225,0.5)]"
             />
           </div>
 
           <div className="space-y-3 sm:space-y-4 max-w-2xl mx-auto">
-            <span className="font-sans text-[10px] sm:text-[11px] tracking-[0.25em] sm:tracking-[0.35em] text-[#C8A85B] uppercase font-semibold block">
+            <span className="font-sans text-[10px] sm:text-[11px] tracking-[0.25em] sm:tracking-[0.35em] text-[#CBD5E1] uppercase font-semibold block">
               MEMBERSHIP &amp; CELLAR ALLOCATION
             </span>
 
@@ -41,7 +41,7 @@ export const TheInvitation = () => {
           <div className="pt-8 sm:pt-10 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-5">
             <a
               href="#contact"
-              className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-[#C8A85B] text-[#010817] font-sans text-[11px] sm:text-xs tracking-[0.2em] sm:tracking-[0.25em] uppercase font-semibold hover:bg-white transition-all duration-300 shadow-md hover:shadow-xl rounded"
+              className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-[#CBD5E1] text-[#010817] font-sans text-[11px] sm:text-xs tracking-[0.2em] sm:tracking-[0.25em] uppercase font-semibold hover:bg-white transition-all duration-300 shadow-md hover:shadow-xl rounded"
             >
               Request Private Invitation
             </a>

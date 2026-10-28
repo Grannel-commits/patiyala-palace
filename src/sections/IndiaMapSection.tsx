@@ -133,15 +133,15 @@ export const IndiaMapSection: React.FC<Props> = ({ onContactClick: _onContactCli
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#1A1A1A] border border-[#C6A865]/40 backdrop-blur-md mb-4">
-            <span className="w-2 h-2 rounded-full bg-[#E7C97C] animate-pulse" />
-            <span className="font-mono text-[10px] sm:text-xs font-bold uppercase tracking-[0.25em] text-[#E7C97C]">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#1A1A1A] border border-[#CBD5E1]/40 backdrop-blur-md mb-4">
+            <span className="w-2 h-2 rounded-full bg-[#E2E8F0] animate-pulse" />
+            <span className="font-mono text-[10px] sm:text-xs font-bold uppercase tracking-[0.25em] text-[#E2E8F0]">
               REGIONAL ALLOCATIONS
             </span>
           </div>
 
           <h2 className="font-sans font-black uppercase tracking-tight text-4xl sm:text-6xl text-white leading-none">
-            REGIONAL <span className="text-[#E7C97C]">PRESENCE.</span>
+            REGIONAL <span className="text-[#E2E8F0]">PRESENCE.</span>
           </h2>
 
           <p className="mt-4 font-sans text-xs sm:text-sm md:text-base text-[#F1E6DA]/80 leading-relaxed font-light max-w-2xl mx-auto">
@@ -220,14 +220,14 @@ export const IndiaMapSection: React.FC<Props> = ({ onContactClick: _onContactCli
                   <radialGradient id="pulse-beacon-active">
                     <stop offset="0%" stopColor="#FFFFFF" stopOpacity="1" />
                     <stop offset="30%" stopColor="#FFE082" stopOpacity="0.9" />
-                    <stop offset="60%" stopColor="#C8A85B" stopOpacity="0.4" />
-                    <stop offset="100%" stopColor="#C8A85B" stopOpacity="0" />
+                    <stop offset="60%" stopColor="#CBD5E1" stopOpacity="0.4" />
+                    <stop offset="100%" stopColor="#CBD5E1" stopOpacity="0" />
                   </radialGradient>
 
                   <radialGradient id="pulse-beacon-regular">
                     <stop offset="0%" stopColor="#FFE082" stopOpacity="0.95" />
-                    <stop offset="50%" stopColor="#C8A85B" stopOpacity="0.35" />
-                    <stop offset="100%" stopColor="#C8A85B" stopOpacity="0" />
+                    <stop offset="50%" stopColor="#CBD5E1" stopOpacity="0.35" />
+                    <stop offset="100%" stopColor="#CBD5E1" stopOpacity="0" />
                   </radialGradient>
                 </defs>
 
@@ -267,9 +267,9 @@ export const IndiaMapSection: React.FC<Props> = ({ onContactClick: _onContactCli
                           : isHighlighted
                           ? loc.id === "delhi" || loc.id === "goa" || loc.id === "daman_diu"
                             ? "#E5A828"
-                            : "rgba(200, 168, 91, 0.55)"
-                          : "rgba(200, 168, 91, 0.2)",
-                        stroke: isFocused ? "#FFFFFF" : isHighlighted ? "#FFE082" : "rgba(200, 168, 91, 0.4)",
+                            : "rgba(203, 213, 225, 0.55)"
+                          : "rgba(203, 213, 225, 0.2)",
+                        stroke: isFocused ? "#FFFFFF" : isHighlighted ? "#FFE082" : "rgba(203, 213, 225, 0.4)",
                         strokeWidth: isFocused ? 3 : isHighlighted ? 2 : 1,
                         strokeLinejoin: "round",
                       }}
@@ -344,7 +344,7 @@ export const IndiaMapSection: React.FC<Props> = ({ onContactClick: _onContactCli
                         cy={loc.pin.y}
                         r={isFocused ? 8 : 6}
                         fill="#FFFFFF"
-                        stroke={isFocused ? "#FFE082" : "#C8A85B"}
+                        stroke={isFocused ? "#FFE082" : "#CBD5E1"}
                         strokeWidth={isFocused ? 3.5 : 2.5}
                       />
 
@@ -352,7 +352,7 @@ export const IndiaMapSection: React.FC<Props> = ({ onContactClick: _onContactCli
                       <polyline
                         points={`${loc.leader.start.x},${loc.leader.start.y} ${loc.leader.elbow.x},${loc.leader.elbow.y} ${loc.leader.end.x},${loc.leader.end.y}`}
                         fill="none"
-                        stroke={isFocused ? "#FFFFFF" : "#C8A85B"}
+                        stroke={isFocused ? "#FFFFFF" : "#CBD5E1"}
                         strokeWidth={isFocused ? 2.2 : 1.6}
                         strokeDasharray={isFocused ? undefined : "3,3"}
                       />
@@ -362,7 +362,7 @@ export const IndiaMapSection: React.FC<Props> = ({ onContactClick: _onContactCli
                         cx={loc.leader.end.x}
                         cy={loc.leader.end.y}
                         r={isFocused ? 4.5 : 3.5}
-                        fill={isFocused ? "#FFFFFF" : "#C8A85B"}
+                        fill={isFocused ? "#FFFFFF" : "#CBD5E1"}
                       />
 
                       {/* State Title */}

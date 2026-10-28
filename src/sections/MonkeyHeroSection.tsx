@@ -24,12 +24,12 @@ export const MonkeyHeroSection: React.FC = () => {
 
           {/* Bottom Left Bold Statement */}
           <div className="absolute bottom-6 left-6 sm:bottom-10 sm:left-10 z-10 max-w-xl">
-            <span className="font-serif tracking-[0.3em] uppercase text-xs sm:text-sm text-[#E7C97C] font-bold block mb-2 drop-shadow">
+            <span className="font-serif tracking-[0.3em] uppercase text-xs sm:text-sm text-[#E2E8F0] font-bold block mb-2 drop-shadow">
               WHERE ROYALTY MEETS THE BARREL
             </span>
             <h1 className="font-sans font-black uppercase text-3xl sm:text-5xl md:text-6xl lg:text-7xl tracking-tight leading-[0.95] text-white drop-shadow-[0_4px_20px_rgba(0,0,0,0.9)]">
               PATIYALA PALACE. <br />
-              <span className="text-[#E7C97C]">INDIAN CRAFTED MALT WHISKY.</span>
+              <span className="text-[#E2E8F0]">INDIAN CRAFTED MALT WHISKY.</span>
             </h1>
           </div>
         </motion.div>
@@ -39,15 +39,15 @@ export const MonkeyHeroSection: React.FC = () => {
           initial={{ opacity: 0, scale: 0.98 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.1 }}
-          className="relative lg:col-span-4 h-full rounded-2xl sm:rounded-3xl overflow-hidden bg-[#061b4c] group select-none shadow-2xl border border-[#C6A865]/40 flex flex-col items-center justify-between p-6 sm:p-8 text-center"
+          className="relative lg:col-span-4 h-full rounded-2xl sm:rounded-3xl overflow-hidden bg-[#061b4c] group select-none shadow-2xl border border-[#CBD5E1]/40 flex flex-col items-center justify-between p-6 sm:p-8 text-center"
         >
           {/* Ambient Glows */}
-          <div className="absolute -inset-10 bg-[radial-gradient(circle_at_center,rgba(212,175,55,0.25)_0%,transparent_70%)] pointer-events-none" />
+          <div className="absolute -inset-10 bg-[radial-gradient(circle_at_center,rgba(226,232,240,0.25)_0%,transparent_70%)] pointer-events-none" />
 
           {/* Top subtle badge overlay */}
           <div className="relative z-10 w-full flex justify-end">
-            <div className="bg-black/60 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-[#C6A865]/50 flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-[#E7C97C] animate-pulse" />
+            <div className="bg-black/60 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-[#CBD5E1]/50 flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-[#E2E8F0] animate-pulse" />
               <span className="font-mono text-[10px] font-bold text-white uppercase tracking-widest">
                 42.8% ABV • INDIAN CRAFTED MALT WHISKY
               </span>
@@ -57,15 +57,15 @@ export const MonkeyHeroSection: React.FC = () => {
           {/* New Official Royal Emblem Badge */}
           <div className="relative z-10 w-44 h-44 sm:w-52 sm:h-52 md:w-60 md:h-60 my-auto flex items-center justify-center">
             <img
-              src="/assets/logo/pp_logo_gold_clean.png"
+              src="/assets/logo/pp_logo_silver_clean.png"
               alt="Patiyala Palace Official Seal - Where Royalty Meets The Barrel"
-              className="w-full h-full object-contain filter drop-shadow-[0_4px_30px_rgba(212,175,55,0.6)] group-hover:scale-105 group-hover:rotate-3 transition-transform duration-700"
+              className="w-full h-full object-contain filter drop-shadow-[0_4px_30px_rgba(226,232,240,0.6)] group-hover:scale-105 group-hover:rotate-3 transition-transform duration-700"
             />
           </div>
 
           {/* Bottom Card Title */}
-          <div className="relative z-10 w-full pt-4 border-t border-[#C6A865]/30">
-            <h3 className="font-serif font-black text-lg sm:text-xl uppercase tracking-[0.2em] text-[#E7C97C]">
+          <div className="relative z-10 w-full pt-4 border-t border-[#CBD5E1]/30">
+            <h3 className="font-serif font-black text-lg sm:text-xl uppercase tracking-[0.2em] text-[#E2E8F0]">
               PATIYALA PALACE
             </h3>
             <p className="font-mono text-[10px] tracking-widest uppercase text-white/70 mt-1">

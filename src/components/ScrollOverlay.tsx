@@ -74,20 +74,20 @@ export const ScrollOverlay = ({ activeHotspot, onSelectHotspot, onToggle360Mode,
   const HOTSPOT_INFO: Record<string, { title: string; subtitle: string; body: string; spec: string }> = {
     cap: {
       title: 'ROYAL CROWN SEAL',
-      subtitle: 'Metallic Royal Blue & Gold Medallion',
+      subtitle: 'Metallic Royal Blue & Silver Medallion',
       body: 'Sealed with the official royal mark: "WHERE ROYALTY MEETS THE BARREL". Fluted aluminum hermetic security cap engineered for preservation.',
       spec: '28mm Tamper-Evident Seal',
     },
     emblem: {
       title: 'ARCHED PALACE CREST',
-      subtitle: 'Gold Foil Stamped Architectural Label',
-      body: 'Features the intricate hand-drawn engraving of the Patiyala Palace facade, bordered in deep sapphire blue with gold foil typography.',
+      subtitle: 'Silver Foil Stamped Architectural Label',
+      body: 'Features the intricate hand-drawn engraving of the Patiyala Palace facade, bordered in deep sapphire blue with silver foil typography.',
       spec: 'Haryana State Registered',
     },
     crest: {
       title: 'ARCHED PALACE CREST',
-      subtitle: 'Gold Foil Stamped Architectural Label',
-      body: 'Features the intricate hand-drawn engraving of the Patiyala Palace facade, bordered in deep sapphire blue with gold foil typography.',
+      subtitle: 'Silver Foil Stamped Architectural Label',
+      body: 'Features the intricate hand-drawn engraving of the Patiyala Palace facade, bordered in deep sapphire blue with silver foil typography.',
       spec: 'Haryana State Registered',
     },
     liquid: {

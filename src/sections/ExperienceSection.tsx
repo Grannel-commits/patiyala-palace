@@ -40,7 +40,7 @@ export const ExperienceSection = () => {
   return (
     <section
       id="experience"
-      className="relative w-full py-32 md:py-48 bg-[#071522] text-[#F3EEE4] overflow-hidden border-b border-[#C8A85B]/15"
+      className="relative w-full py-32 md:py-48 bg-[#071522] text-[#F3EEE4] overflow-hidden border-b border-[#CBD5E1]/15"
     >
       {/* Ambient warm amber backlight */}
       <div className="absolute bottom-1/4 right-1/3 w-[650px] h-[650px] bg-[radial-gradient(circle,rgba(169,104,32,0.18)_0%,rgba(7,21,34,0)_70%)] pointer-events-none" />
@@ -56,11 +56,11 @@ export const ExperienceSection = () => {
             transition={{ duration: 0.9 }}
             className="flex items-center justify-center gap-3 mb-6"
           >
-            <span className="w-8 h-[1px] bg-[#C8A85B]" />
-            <span className="font-sans text-[11px] tracking-[0.35em] text-[#C8A85B] uppercase font-medium">
+            <span className="w-8 h-[1px] bg-[#CBD5E1]" />
+            <span className="font-sans text-[11px] tracking-[0.35em] text-[#CBD5E1] uppercase font-medium">
               RITUALS OF TASTE
             </span>
-            <span className="w-8 h-[1px] bg-[#C8A85B]" />
+            <span className="w-8 h-[1px] bg-[#CBD5E1]" />
           </motion.div>
 
           <motion.h2
@@ -71,7 +71,7 @@ export const ExperienceSection = () => {
             className="font-serif text-4xl sm:text-6xl md:text-7xl font-light tracking-wide text-[#F3EEE4] leading-tight"
           >
             THE PATIYALA PALACE<br />
-            <span className="italic text-[#C8A85B] font-normal">EXPERIENCE.</span>
+            <span className="italic text-[#CBD5E1] font-normal">EXPERIENCE.</span>
           </motion.h2>
 
           <p className="font-sans text-xs sm:text-sm text-[#F3EEE4]/70 mt-4 tracking-wider font-light">
@@ -88,21 +88,21 @@ export const ExperienceSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 1.1, delay: idx * 0.15, ease: [0.16, 1, 0.3, 1] }}
-              className="group p-8 md:p-10 border border-[#C8A85B]/20 bg-[#040B12]/75 backdrop-blur-md rounded-sm flex flex-col justify-between hover:border-[#C8A85B]/60 transition-all duration-500 shadow-xl"
+              className="group p-8 md:p-10 border border-[#CBD5E1]/20 bg-[#040B12]/75 backdrop-blur-md rounded-sm flex flex-col justify-between hover:border-[#CBD5E1]/60 transition-all duration-500 shadow-xl"
             >
               <div>
-                <div className="flex items-center justify-between pb-4 mb-6 border-b border-[#C8A85B]/15">
-                  <span className="font-sans text-[10px] tracking-[0.3em] uppercase text-[#C8A85B]">
+                <div className="flex items-center justify-between pb-4 mb-6 border-b border-[#CBD5E1]/15">
+                  <span className="font-sans text-[10px] tracking-[0.3em] uppercase text-[#CBD5E1]">
                     RITUAL 0{idx + 1}
                   </span>
-                  <span className="w-2 h-2 rounded-full bg-[#C8A85B]/40 group-hover:bg-[#C8A85B] transition-colors" />
+                  <span className="w-2 h-2 rounded-full bg-[#CBD5E1]/40 group-hover:bg-[#CBD5E1] transition-colors" />
                 </div>
 
                 <h3 className="font-serif text-3xl md:text-4xl text-[#F3EEE4] font-light tracking-wide mb-2">
                   {item.title}
                 </h3>
 
-                <span className="font-sans text-xs text-[#C8A85B] tracking-widest uppercase font-medium block mb-6">
+                <span className="font-sans text-xs text-[#CBD5E1] tracking-widest uppercase font-medium block mb-6">
                   {item.ritual}
                 </span>
 
@@ -111,14 +111,14 @@ export const ExperienceSection = () => {
                 </p>
               </div>
 
-              <div className="pt-6 border-t border-[#C8A85B]/15 space-y-2 font-sans text-[11px]">
+              <div className="pt-6 border-t border-[#CBD5E1]/15 space-y-2 font-sans text-[11px]">
                 <div className="flex justify-between text-[#F3EEE4]/60">
                   <span>TEMP:</span>
                   <span className="text-[#F3EEE4]">{item.temperature}</span>
                 </div>
                 <div className="flex justify-between text-[#F3EEE4]/60">
                   <span>VESSEL:</span>
-                  <span className="text-[#C8A85B]">{item.glassware}</span>
+                  <span className="text-[#CBD5E1]">{item.glassware}</span>
                 </div>
               </div>
             </motion.div>
@@ -131,9 +131,9 @@ export const ExperienceSection = () => {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 1 }}
-          className="mt-16 p-6 border border-[#C8A85B]/15 bg-[#071522]/40 rounded-sm text-center max-w-2xl mx-auto"
+          className="mt-16 p-6 border border-[#CBD5E1]/15 bg-[#071522]/40 rounded-sm text-center max-w-2xl mx-auto"
         >
-          <span className="font-sans text-[9px] uppercase tracking-[0.3em] text-[#C8A85B] block mb-1 font-semibold">
+          <span className="font-sans text-[9px] uppercase tracking-[0.3em] text-[#CBD5E1] block mb-1 font-semibold">
             RESPONSIBLE CONSUMPTION
           </span>
           <p className="font-sans text-xs text-[#F3EEE4]/50 tracking-wider">

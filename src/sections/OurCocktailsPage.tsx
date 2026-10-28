@@ -87,17 +87,17 @@ export const OurCocktailsPage = ({
           <div className="flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-white/60 mb-6">
             <button
               onClick={onBackToHome}
-              className="hover:text-[#C8A85B] transition-colors flex items-center gap-1.5 font-semibold"
+              className="hover:text-[#CBD5E1] transition-colors flex items-center gap-1.5 font-semibold"
             >
               <span>←</span> HOME
             </button>
             <span>/</span>
-            <span className="text-[#C8A85B] font-bold">OUR COCKTAILS</span>
+            <span className="text-[#CBD5E1] font-bold">OUR COCKTAILS</span>
           </div>
 
           <div className="flex flex-col lg:flex-row items-start lg:items-end justify-between gap-6">
             <div className="max-w-3xl">
-              <span className="font-sans text-[11px] sm:text-xs font-bold uppercase tracking-[0.35em] text-[#C8A85B] block mb-2">
+              <span className="font-sans text-[11px] sm:text-xs font-bold uppercase tracking-[0.35em] text-[#CBD5E1] block mb-2">
                 THE ROYAL COCKTAIL COLLECTION
               </span>
               <h1
@@ -141,13 +141,13 @@ export const OurCocktailsPage = ({
 
                   {/* Don Julio Hover Dark Glass Overlay */}
                   <div className="absolute inset-0 z-10 flex flex-col items-center justify-center p-6 bg-[#04153B]/85 opacity-0 group-hover:opacity-100 transition-opacity duration-300 backdrop-blur-[2px] rounded-[24px]">
-                    <span className="font-sans text-[11px] uppercase tracking-[0.3em] text-[#C8A85B] mb-2 font-bold">
+                    <span className="font-sans text-[11px] uppercase tracking-[0.3em] text-[#CBD5E1] mb-2 font-bold">
                       {recipe.classicName}
                     </span>
                     <p className="font-serif text-center uppercase text-white text-3xl sm:text-5xl lg:text-5xl tracking-wide leading-tight px-4 drop-shadow-md">
                       {recipe.name}
                     </p>
-                    <div className="font-sans text-xs sm:text-sm uppercase tracking-[0.25em] text-white underline mt-5 group-hover:text-[#C8A85B] transition-colors">
+                    <div className="font-sans text-xs sm:text-sm uppercase tracking-[0.25em] text-white underline mt-5 group-hover:text-[#CBD5E1] transition-colors">
                       VIEW RECIPE
                     </div>
                   </div>
@@ -156,7 +156,7 @@ export const OurCocktailsPage = ({
                 {/* Content Details Below Frame */}
                 <div className="pt-6">
                   <div className="flex items-center justify-between gap-2 mb-2">
-                    <span className="font-sans text-[11px] sm:text-xs font-extrabold uppercase tracking-[0.25em] text-[#C8A85B]">
+                    <span className="font-sans text-[11px] sm:text-xs font-extrabold uppercase tracking-[0.25em] text-[#CBD5E1]">
                       {recipe.classicName}
                     </span>
                     <span className="font-sans text-[11px] uppercase tracking-wider text-white/60 font-medium">
@@ -164,11 +164,11 @@ export const OurCocktailsPage = ({
                     </span>
                   </div>
 
-                  <h2 className="font-serif text-3xl sm:text-4xl capitalize text-white tracking-tight group-hover:text-[#C8A85B] transition-colors">
+                  <h2 className="font-serif text-3xl sm:text-4xl capitalize text-white tracking-tight group-hover:text-[#CBD5E1] transition-colors">
                     {recipe.name}
                   </h2>
 
-                  <p className="font-sans pt-1.5 text-xs sm:text-[13px] font-bold uppercase tracking-wider text-[#C8A85B]">
+                  <p className="font-sans pt-1.5 text-xs sm:text-[13px] font-bold uppercase tracking-wider text-[#CBD5E1]">
                     {recipe.subtitle}
                   </p>
 
@@ -179,7 +179,7 @@ export const OurCocktailsPage = ({
                   <div className="pt-1 flex items-center gap-2">
                     <button
                       type="button"
-                      className="font-sans text-[12.5px] sm:text-[13px] font-bold uppercase tracking-[0.2em] underline text-white group-hover:text-[#C8A85B] transition-colors inline-flex items-center gap-1.5"
+                      className="font-sans text-[12.5px] sm:text-[13px] font-bold uppercase tracking-[0.2em] underline text-white group-hover:text-[#CBD5E1] transition-colors inline-flex items-center gap-1.5"
                     >
                       <span>View Recipe</span>
                       <span>→</span>
@@ -209,13 +209,13 @@ export const OurCocktailsPage = ({
 
                   {/* Don Julio Hover Dark Glass Overlay */}
                   <div className="absolute inset-0 z-10 flex flex-col items-center justify-center p-6 bg-[#04153B]/85 opacity-0 group-hover:opacity-100 transition-opacity duration-300 backdrop-blur-[2px] rounded-[24px]">
-                    <span className="font-sans text-[10.5px] uppercase tracking-[0.3em] text-[#C8A85B] mb-1 font-bold">
+                    <span className="font-sans text-[10.5px] uppercase tracking-[0.3em] text-[#CBD5E1] mb-1 font-bold">
                       {recipe.classicName}
                     </span>
                     <p className="font-serif text-center uppercase text-white text-2xl sm:text-3xl lg:text-3xl tracking-wide leading-tight px-3 drop-shadow-md">
                       {recipe.name}
                     </p>
-                    <div className="font-sans text-xs uppercase tracking-[0.25em] text-white underline mt-4 group-hover:text-[#C8A85B] transition-colors">
+                    <div className="font-sans text-xs uppercase tracking-[0.25em] text-white underline mt-4 group-hover:text-[#CBD5E1] transition-colors">
                       VIEW RECIPE
                     </div>
                   </div>
@@ -224,7 +224,7 @@ export const OurCocktailsPage = ({
                 {/* Content Details Below Frame */}
                 <div className="pt-5">
                   <div className="flex items-center justify-between gap-2 mb-1.5">
-                    <span className="font-sans text-[10.5px] sm:text-[11px] font-extrabold uppercase tracking-[0.25em] text-[#C8A85B]">
+                    <span className="font-sans text-[10.5px] sm:text-[11px] font-extrabold uppercase tracking-[0.25em] text-[#CBD5E1]">
                       {recipe.classicName}
                     </span>
                     <span className="font-sans text-[10.5px] uppercase tracking-wider text-white/60 font-medium">
@@ -232,11 +232,11 @@ export const OurCocktailsPage = ({
                     </span>
                   </div>
 
-                  <h3 className="font-serif text-2xl sm:text-3xl capitalize text-white tracking-tight group-hover:text-[#C8A85B] transition-colors">
+                  <h3 className="font-serif text-2xl sm:text-3xl capitalize text-white tracking-tight group-hover:text-[#CBD5E1] transition-colors">
                     {recipe.name}
                   </h3>
 
-                  <p className="font-sans pt-1 text-[11.5px] sm:text-xs font-bold uppercase tracking-wider text-[#C8A85B]">
+                  <p className="font-sans pt-1 text-[11.5px] sm:text-xs font-bold uppercase tracking-wider text-[#CBD5E1]">
                     {recipe.subtitle}
                   </p>
 
@@ -247,7 +247,7 @@ export const OurCocktailsPage = ({
                   <div className="pt-1 flex items-center gap-2">
                     <button
                       type="button"
-                      className="font-sans text-[12px] sm:text-[12.5px] font-bold uppercase tracking-[0.2em] underline text-white group-hover:text-[#C8A85B] transition-colors inline-flex items-center gap-1.5"
+                      className="font-sans text-[12px] sm:text-[12.5px] font-bold uppercase tracking-[0.2em] underline text-white group-hover:text-[#CBD5E1] transition-colors inline-flex items-center gap-1.5"
                     >
                       <span>View Recipe</span>
                       <span>→</span>
@@ -348,7 +348,7 @@ export const OurCocktailsPage = ({
               <div className="p-6 sm:px-10 sm:pt-8 flex items-center justify-between border-b border-[#62A4C6]/20 bg-[#04153B]/90">
                 <button
                   onClick={handleCloseRecipe}
-                  className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-[#C8A85B] hover:text-white transition-colors"
+                  className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-[#CBD5E1] hover:text-white transition-colors"
                 >
                   <span>←</span> BACK TO COCKTAILS
                 </button>
@@ -376,13 +376,13 @@ export const OurCocktailsPage = ({
                   </div>
 
                   <div>
-                    <span className="text-[11px] font-bold uppercase tracking-[0.3em] text-[#C8A85B] block mb-1">
+                    <span className="text-[11px] font-bold uppercase tracking-[0.3em] text-[#CBD5E1] block mb-1">
                       PATIYALA PALACE ROYAL COLLECTION
                     </span>
                     <h2 className="font-serif text-3xl sm:text-5xl uppercase tracking-tight text-white leading-tight">
                       {selectedRecipe.name}
                     </h2>
-                    <p className="font-sans pt-2 text-xs sm:text-sm font-bold uppercase tracking-wider text-[#C8A85B]">
+                    <p className="font-sans pt-2 text-xs sm:text-sm font-bold uppercase tracking-wider text-[#CBD5E1]">
                       {selectedRecipe.subtitle}
                     </p>
                     <p className="font-sans pt-4 text-sm leading-relaxed text-white/80">
@@ -436,7 +436,7 @@ export const OurCocktailsPage = ({
                   <div className="md:col-span-5 bg-white/10 p-6 rounded-2xl border border-white/10">
                     <h3 className="font-serif text-2xl uppercase tracking-tight text-white mb-4 pb-2 border-b border-white/10 flex items-center justify-between">
                       <span>Ingredients</span>
-                      <span className="text-xs font-sans font-bold text-[#C8A85B] tracking-widest">
+                      <span className="text-xs font-sans font-bold text-[#CBD5E1] tracking-widest">
                         {selectedRecipe.ingredients.length} ITEMS
                       </span>
                     </h3>
@@ -449,7 +449,7 @@ export const OurCocktailsPage = ({
                           <span className="text-white/90 font-medium">
                             {ing.name}
                             {ing.notes && (
-                              <span className="text-xs text-[#C8A85B] italic block">
+                              <span className="text-xs text-[#CBD5E1] italic block">
                                 ({ing.notes})
                               </span>
                             )}
@@ -466,14 +466,14 @@ export const OurCocktailsPage = ({
                   <div className="md:col-span-7 bg-white/10 p-6 rounded-2xl border border-white/10">
                     <h3 className="font-serif text-2xl uppercase tracking-tight text-white mb-4 pb-2 border-b border-white/10 flex items-center justify-between">
                       <span>Preparation</span>
-                      <span className="text-xs font-sans font-bold text-[#C8A85B] tracking-widest">
+                      <span className="text-xs font-sans font-bold text-[#CBD5E1] tracking-widest">
                         STEP BY STEP
                       </span>
                     </h3>
                     <ol className="space-y-4">
                       {selectedRecipe.preparation.map((step, idx) => (
                         <li key={idx} className="flex gap-4 text-sm leading-relaxed text-white/85">
-                          <span className="flex-shrink-0 w-6 h-6 rounded-full bg-[#C8A85B] text-black flex items-center justify-center text-xs font-bold mt-0.5">
+                          <span className="flex-shrink-0 w-6 h-6 rounded-full bg-[#CBD5E1] text-black flex items-center justify-center text-xs font-bold mt-0.5">
                             {idx + 1}
                           </span>
                           <span>{step}</span>
@@ -513,7 +513,7 @@ export const OurCocktailsPage = ({
                     </button>
                     <button
                       onClick={() => handleShareRecipe(selectedRecipe)}
-                      className="px-5 py-2.5 rounded-full bg-[#C8A85B] text-black text-xs font-bold uppercase tracking-widest hover:bg-white transition-all shadow-md"
+                      className="px-5 py-2.5 rounded-full bg-[#CBD5E1] text-black text-xs font-bold uppercase tracking-widest hover:bg-white transition-all shadow-md"
                     >
                       Share Cocktail
                     </button>
@@ -521,7 +521,7 @@ export const OurCocktailsPage = ({
 
                   <button
                     onClick={handleCloseRecipe}
-                    className="text-xs font-bold uppercase tracking-[0.2em] underline text-white hover:text-[#C8A85B]"
+                    className="text-xs font-bold uppercase tracking-[0.2em] underline text-white hover:text-[#CBD5E1]"
                   >
                     Back to All Cocktails
                   </button>

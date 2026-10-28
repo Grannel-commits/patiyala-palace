@@ -141,7 +141,7 @@ function App() {
   };
 
   return (
-    <div className="relative w-full min-h-screen bg-gradient-to-b from-[#020818] via-[#041235] to-[#020818] text-white overflow-x-hidden selection:bg-[#C6A865] selection:text-black font-sans border-[4px] sm:border-[6px] md:border-[8px] border-[#C6A865]/30">
+    <div className="relative w-full min-h-screen bg-gradient-to-b from-[#020818] via-[#041235] to-[#020818] text-white overflow-x-hidden selection:bg-[#CBD5E1] selection:text-black font-sans border-[4px] sm:border-[6px] md:border-[8px] border-[#CBD5E1]/30">
       
       {/* Luxury Custom Cursor */}
       <CustomCursor />

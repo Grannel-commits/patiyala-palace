@@ -47,7 +47,7 @@ export const CustomCursor = () => {
       y: mousePosition.y - 5,
       width: 10,
       height: 10,
-      backgroundColor: '#C6A865', // Regal Gold
+      backgroundColor: '#CBD5E1', // Regal Gold
       border: '1px solid transparent',
     },
     hover: {
@@ -55,14 +55,14 @@ export const CustomCursor = () => {
       y: mousePosition.y - (cursorText ? 40 : 20),
       width: cursorText ? 80 : 40,
       height: cursorText ? 80 : 40,
-      backgroundColor: 'rgba(198, 168, 101, 0.12)',
-      border: '1.5px solid #C6A865', // Regal Gold
+      backgroundColor: 'rgba(203, 213, 225, 0.12)',
+      border: '1.5px solid #CBD5E1', // Regal Gold
     }
   };
 
   return (
     <motion.div
-      className="custom-cursor fixed top-0 left-0 rounded-full pointer-events-none z-[9999] flex items-center justify-center text-[#E7C97C] font-sans text-xs tracking-widest uppercase transition-colors"
+      className="custom-cursor fixed top-0 left-0 rounded-full pointer-events-none z-[9999] flex items-center justify-center text-[#E2E8F0] font-sans text-xs tracking-widest uppercase transition-colors"
       variants={variants}
       animate={isHovered ? 'hover' : 'default'}
       transition={{ type: 'tween', ease: 'backOut', duration: 0.15 }}

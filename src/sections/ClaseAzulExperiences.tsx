@@ -107,7 +107,7 @@ export const ClaseAzulExperiences = () => {
               {/* Card Body */}
               <div className="p-5 sm:p-8 flex flex-col flex-1 justify-between space-y-4 sm:space-y-6">
                 <div className="space-y-3">
-                  <span className="font-sans text-[10px] tracking-[0.25em] text-[#C8A85B] uppercase font-semibold block">
+                  <span className="font-sans text-[10px] tracking-[0.25em] text-[#CBD5E1] uppercase font-semibold block">
                     {exp.category}
                   </span>
                   

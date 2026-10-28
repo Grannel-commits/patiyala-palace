@@ -48,7 +48,7 @@ export const LegacyTimeline = () => {
     <section
       id="legacy"
       ref={containerRef}
-      className="relative w-full py-32 md:py-48 bg-[#071522] text-[#F3EEE4] overflow-hidden border-b border-[#C8A85B]/15"
+      className="relative w-full py-32 md:py-48 bg-[#071522] text-[#F3EEE4] overflow-hidden border-b border-[#CBD5E1]/15"
     >
       {/* Subtle radial atmosphere */}
       <div className="absolute top-1/3 right-1/4 w-[600px] h-[600px] bg-[radial-gradient(circle,rgba(18,54,90,0.3)_0%,rgba(7,21,34,0)_70%)] pointer-events-none" />
@@ -64,11 +64,11 @@ export const LegacyTimeline = () => {
             transition={{ duration: 0.9 }}
             className="flex items-center justify-center gap-3 mb-6"
           >
-            <span className="w-8 h-[1px] bg-[#C8A85B]" />
-            <span className="font-sans text-[11px] tracking-[0.35em] text-[#C8A85B] uppercase font-medium">
+            <span className="w-8 h-[1px] bg-[#CBD5E1]" />
+            <span className="font-sans text-[11px] tracking-[0.35em] text-[#CBD5E1] uppercase font-medium">
               THE LEGACY • STORY
             </span>
-            <span className="w-8 h-[1px] bg-[#C8A85B]" />
+            <span className="w-8 h-[1px] bg-[#CBD5E1]" />
           </motion.div>
 
           <motion.h2
@@ -79,10 +79,10 @@ export const LegacyTimeline = () => {
             className="font-serif text-4xl sm:text-6xl md:text-7xl font-light tracking-wide text-[#F3EEE4]"
           >
             THE ROYAL<br />
-            <span className="italic text-[#C8A85B] font-normal">CHRONICLE.</span>
+            <span className="italic text-[#CBD5E1] font-normal">CHRONICLE.</span>
           </motion.h2>
 
-          <p className="font-sans text-xs tracking-[0.3em] uppercase text-[#C8A85B] mt-4 font-light">
+          <p className="font-sans text-xs tracking-[0.3em] uppercase text-[#CBD5E1] mt-4 font-light">
             PAST → PRESENT → FUTURE
           </p>
         </div>
@@ -91,10 +91,10 @@ export const LegacyTimeline = () => {
         <div className="relative">
           
           {/* Vertical Gold Line */}
-          <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-[1px] bg-[#C8A85B]/20 -translate-x-1/2">
+          <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-[1px] bg-[#CBD5E1]/20 -translate-x-1/2">
             <motion.div
               style={{ height: lineHeight }}
-              className="w-full bg-gradient-to-b from-[#C8A85B] via-[#D9C27A] to-[#C8A85B] shadow-[0_0_12px_rgba(200,168,91,0.5)]"
+              className="w-full bg-gradient-to-b from-[#CBD5E1] via-[#E2E8F0] to-[#CBD5E1] shadow-[0_0_12px_rgba(203,213,225,0.5)]"
             />
           </div>
 
@@ -117,14 +117,14 @@ export const LegacyTimeline = () => {
                   <div className={`w-full md:w-1/2 pl-12 md:pl-0 ${
                     isEven ? "md:pl-16 text-left" : "md:pr-16 md:text-right"
                   }`}>
-                    <div className="p-8 border border-[#C8A85B]/20 bg-[#040B12]/80 backdrop-blur-md rounded-sm hover:border-[#C8A85B]/50 transition-all duration-500 shadow-xl">
+                    <div className="p-8 border border-[#CBD5E1]/20 bg-[#040B12]/80 backdrop-blur-md rounded-sm hover:border-[#CBD5E1]/50 transition-all duration-500 shadow-xl">
                       <div className="flex items-center gap-3 mb-2 justify-start md:justify-start">
-                        <span className="font-sans text-[10px] tracking-[0.3em] uppercase text-[#C8A85B] font-semibold">
+                        <span className="font-sans text-[10px] tracking-[0.3em] uppercase text-[#CBD5E1] font-semibold">
                           {item.phase}
                         </span>
                       </div>
 
-                      <h3 className="font-serif text-3xl md:text-4xl text-[#C8A85B] font-light tracking-wide mb-3">
+                      <h3 className="font-serif text-3xl md:text-4xl text-[#CBD5E1] font-light tracking-wide mb-3">
                         {item.concept}
                       </h3>
 
@@ -139,8 +139,8 @@ export const LegacyTimeline = () => {
                   </div>
 
                   {/* Center Node / Gold Dot */}
-                  <div className="absolute left-4 md:left-1/2 -translate-x-1/2 w-8 h-8 rounded-full border border-[#C8A85B] bg-[#071522] flex items-center justify-center z-20 shadow-[0_0_15px_rgba(200,168,91,0.4)]">
-                    <span className="w-2 h-2 rounded-full bg-[#C8A85B]" />
+                  <div className="absolute left-4 md:left-1/2 -translate-x-1/2 w-8 h-8 rounded-full border border-[#CBD5E1] bg-[#071522] flex items-center justify-center z-20 shadow-[0_0_15px_rgba(203,213,225,0.4)]">
+                    <span className="w-2 h-2 rounded-full bg-[#CBD5E1]" />
                   </div>
 
                   {/* Empty placeholder for balance */}

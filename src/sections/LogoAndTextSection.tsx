@@ -15,15 +15,15 @@ export const LogoAndTextSection: React.FC = () => {
               <img
                 alt="Patiyala Palace Royal Crest"
                 loading="lazy"
-                src="/assets/logo/official_gold_seal.png"
-                className="h-16 w-16 object-contain drop-shadow-[0_0_20px_rgba(200,168,91,0.5)]"
+                src="/assets/logo/official_silver_seal.png"
+                className="h-16 w-16 object-contain drop-shadow-[0_0_20px_rgba(203,213,225,0.5)]"
               />
             </div>
           </div>
 
           {/* Subtitle Royal Stamp */}
           <div className="text-center mb-6">
-            <span className="font-sans text-[9px] sm:text-[11px] font-bold tracking-[0.35em] uppercase text-[#C8A85B]">
+            <span className="font-sans text-[9px] sm:text-[11px] font-bold tracking-[0.35em] uppercase text-[#CBD5E1]">
               SHAKSHAM SPIRITS • THE SOVEREIGN HERITAGE
             </span>
           </div>
@@ -40,7 +40,7 @@ export const LogoAndTextSection: React.FC = () => {
 
           {/* Manifesto Concluding Statement */}
           <div
-            className="font-donjulio py-3 text-center text-xl sm:text-2xl md:text-3xl lg:text-[1.75rem] font-light leading-relaxed text-[#C8A85B]"
+            className="font-donjulio py-3 text-center text-xl sm:text-2xl md:text-3xl lg:text-[1.75rem] font-light leading-relaxed text-[#CBD5E1]"
             data-type="text"
           >
             <p className="italic">
@@ -49,7 +49,7 @@ export const LogoAndTextSection: React.FC = () => {
           </div>
 
           {/* Bottom Divider */}
-          <div className="mt-8 mx-auto w-24 h-[1px] bg-gradient-to-r from-transparent via-[#C8A85B]/60 to-transparent" />
+          <div className="mt-8 mx-auto w-24 h-[1px] bg-gradient-to-r from-transparent via-[#CBD5E1]/60 to-transparent" />
         </div>
       </div>
     </section>

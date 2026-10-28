@@ -13,11 +13,11 @@ export const MonkeyFooterSection: React.FC<Props> = ({ onOpenAgeGate, onNavigate
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-2 sm:gap-3 md:gap-4">
         
         {/* Left Card (8 cols): Deep Royal Card with Embossed Watermark */}
-        <div className="lg:col-span-8 rounded-2xl sm:rounded-3xl p-6 sm:p-10 md:p-14 bg-[#061b4c] text-white relative overflow-hidden flex flex-col justify-between shadow-2xl min-h-[550px] border border-[#C6A865]/30">
+        <div className="lg:col-span-8 rounded-2xl sm:rounded-3xl p-6 sm:p-10 md:p-14 bg-[#061b4c] text-white relative overflow-hidden flex flex-col justify-between shadow-2xl min-h-[550px] border border-[#CBD5E1]/30">
           
           {/* Giant Embossed Watermark: PATIYALA PALACE */}
           <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden opacity-10">
-            <span className="font-serif font-black text-[10vw] tracking-wider uppercase text-[#E7C97C] leading-none whitespace-nowrap">
+            <span className="font-serif font-black text-[10vw] tracking-wider uppercase text-[#E2E8F0] leading-none whitespace-nowrap">
               PATIYALA PALACE
             </span>
           </div>
@@ -27,7 +27,7 @@ export const MonkeyFooterSection: React.FC<Props> = ({ onOpenAgeGate, onNavigate
             <div className="mb-10 sm:mb-14">
               <button
                 onClick={onNavigateHome}
-                className="group inline-flex items-center gap-3 font-serif font-black text-xl sm:text-2xl md:text-3xl uppercase tracking-tight text-white hover:text-[#E7C97C] transition-colors cursor-pointer"
+                className="group inline-flex items-center gap-3 font-serif font-black text-xl sm:text-2xl md:text-3xl uppercase tracking-tight text-white hover:text-[#E2E8F0] transition-colors cursor-pointer"
               >
                 <span>JOIN CLUB PATIYALA PALACE</span>
                 <span className="group-hover:translate-x-1 transition-transform">↗</span>
@@ -36,17 +36,17 @@ export const MonkeyFooterSection: React.FC<Props> = ({ onOpenAgeGate, onNavigate
 
             {/* Links Grid */}
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-y-3 gap-x-6 text-xs sm:text-sm font-sans font-bold uppercase tracking-wider text-white/85">
-              <a href="#terms" className="hover:text-[#E7C97C] transition-colors">TERMS & CONDITIONS</a>
-              <a href="#global" className="hover:text-[#E7C97C] transition-colors flex items-center gap-1.5">
+              <a href="#terms" className="hover:text-[#E2E8F0] transition-colors">TERMS & CONDITIONS</a>
+              <a href="#global" className="hover:text-[#E2E8F0] transition-colors flex items-center gap-1.5">
                 <span>🌐</span> INDIA (ORIGIN)
               </a>
-              <a href="#privacy" className="hover:text-[#E7C97C] transition-colors">PRIVACY NOTICE</a>
-              <a href="mailto:info@sakshamspirits.com" className="hover:text-[#E7C97C] transition-colors">CONTACT US</a>
-              <a href="#cookie" className="hover:text-[#E7C97C] transition-colors">COOKIE POLICY</a>
-              <button onClick={onOpenAgeGate} className="text-left text-[#E7C97C] hover:underline cursor-pointer uppercase font-bold">
+              <a href="#privacy" className="hover:text-[#E2E8F0] transition-colors">PRIVACY NOTICE</a>
+              <a href="mailto:info@sakshamspirits.com" className="hover:text-[#E2E8F0] transition-colors">CONTACT US</a>
+              <a href="#cookie" className="hover:text-[#E2E8F0] transition-colors">COOKIE POLICY</a>
+              <button onClick={onOpenAgeGate} className="text-left text-[#E2E8F0] hover:underline cursor-pointer uppercase font-bold">
                 RESET AGE GATE
               </button>
-              <a href="#ugc" className="hover:text-[#E7C97C] transition-colors">UGC POLICY</a>
+              <a href="#ugc" className="hover:text-[#E2E8F0] transition-colors">UGC POLICY</a>
             </div>
           </div>
 
@@ -65,7 +65,7 @@ export const MonkeyFooterSection: React.FC<Props> = ({ onOpenAgeGate, onNavigate
                   href={s.url}
                   target="_blank"
                   rel="noreferrer"
-                  className="px-3.5 py-1 rounded-full bg-black/40 hover:bg-[#C6A865] hover:text-black border border-white/20 text-[10px] font-mono font-bold uppercase transition-all"
+                  className="px-3.5 py-1 rounded-full bg-black/40 hover:bg-[#CBD5E1] hover:text-black border border-white/20 text-[10px] font-mono font-bold uppercase transition-all"
                 >
                   {s.name}
                 </a>
@@ -74,7 +74,7 @@ export const MonkeyFooterSection: React.FC<Props> = ({ onOpenAgeGate, onNavigate
 
             {/* Drink Responsibly Statement */}
             <div className="text-left sm:text-right">
-              <p className="font-bold text-[#E7C97C] uppercase text-[11px] tracking-wider mb-1">
+              <p className="font-bold text-[#E2E8F0] uppercase text-[11px] tracking-wider mb-1">
                 Sip with Royal Elegance. Please drink responsibly.
               </p>
               <p className="text-[10px] text-white/50">
@@ -87,20 +87,20 @@ export const MonkeyFooterSection: React.FC<Props> = ({ onOpenAgeGate, onNavigate
         </div>
 
         {/* Right Card (4 cols): Royal Seal Showcase Card */}
-        <div className="lg:col-span-4 rounded-2xl sm:rounded-3xl overflow-hidden bg-[#03102B] relative shadow-2xl min-h-[400px] lg:min-h-[550px] group border border-[#C6A865]/40 flex flex-col items-center justify-center p-8 text-center">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(212,175,55,0.2)_0%,transparent_70%)] pointer-events-none" />
+        <div className="lg:col-span-4 rounded-2xl sm:rounded-3xl overflow-hidden bg-[#03102B] relative shadow-2xl min-h-[400px] lg:min-h-[550px] group border border-[#CBD5E1]/40 flex flex-col items-center justify-center p-8 text-center">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(226,232,240,0.2)_0%,transparent_70%)] pointer-events-none" />
 
           <div className="relative z-10 w-48 h-48 sm:w-56 sm:h-56 my-auto flex items-center justify-center">
             <img
-              src="/assets/logo/pp_logo_gold_clean.png"
+              src="/assets/logo/pp_logo_silver_clean.png"
               alt="Patiyala Palace Official Crest"
-              className="w-full h-full object-contain filter drop-shadow-[0_4px_30px_rgba(212,175,55,0.7)] group-hover:scale-105 group-hover:rotate-6 transition-transform duration-700"
+              className="w-full h-full object-contain filter drop-shadow-[0_4px_30px_rgba(226,232,240,0.7)] group-hover:scale-105 group-hover:rotate-6 transition-transform duration-700"
             />
           </div>
 
           {/* Floating Royal Motto Badge */}
-          <div className="relative z-10 pt-4 border-t border-[#C6A865]/30 w-full text-center">
-            <h4 className="font-serif font-black text-base uppercase tracking-[0.2em] text-[#E7C97C]">
+          <div className="relative z-10 pt-4 border-t border-[#CBD5E1]/30 w-full text-center">
+            <h4 className="font-serif font-black text-base uppercase tracking-[0.2em] text-[#E2E8F0]">
               PATIYALA PALACE
             </h4>
             <span className="font-mono text-[9px] font-bold uppercase tracking-[0.25em] text-white/80 block mt-1">

@@ -44,7 +44,7 @@ export const Navbar: React.FC<Props> = ({
             <div className="relative w-8 h-8 sm:w-10 sm:h-10 rounded-full border border-[#E6501E]/60 p-1 flex items-center justify-center bg-[#1A1A1A] shadow-[0_0_15px_rgba(230,80,30,0.3)] transition-transform duration-300 group-hover:scale-105">
               <img
                 alt="Patiyala Palace Official Seal"
-                src="/assets/logo/official_gold_seal.png"
+                src="/assets/logo/official_silver_seal.png"
                 className="w-full h-full object-contain filter drop-shadow"
               />
             </div>
@@ -137,7 +137,7 @@ export const Navbar: React.FC<Props> = ({
                 className="w-9 h-9 rounded-full bg-white/5 hover:bg-white/15 border border-white/20 flex flex-col items-center justify-center gap-1 text-white transition-all cursor-pointer"
               >
                 <span className="w-4 h-[1px] bg-white rounded-full" />
-                <span className="w-4 h-[1px] bg-[#D4AF37] rounded-full" />
+                <span className="w-4 h-[1px] bg-[#CBD5E1] rounded-full" />
                 <span className="w-4 h-[1px] bg-white rounded-full" />
               </button>
             )}

@@ -15,7 +15,7 @@ export const PackagingGallery = () => {
   return (
     <section
       ref={containerRef}
-      className="relative w-full py-32 md:py-48 bg-[#050D15] text-[#F3EEE4] overflow-hidden border-b border-[#C8A85B]/15"
+      className="relative w-full py-32 md:py-48 bg-[#050D15] text-[#F3EEE4] overflow-hidden border-b border-[#CBD5E1]/15"
     >
       {/* Background Ambience */}
       <div className="absolute top-1/2 left-1/3 -translate-y-1/2 w-[800px] h-[800px] bg-[radial-gradient(circle,rgba(18,54,90,0.25)_0%,rgba(5,13,21,0)_70%)] pointer-events-none" />
@@ -31,11 +31,11 @@ export const PackagingGallery = () => {
             transition={{ duration: 0.9 }}
             className="flex items-center justify-center gap-3 mb-4"
           >
-            <span className="w-8 h-[1px] bg-[#C8A85B]" />
-            <span className="font-sans text-[11px] tracking-[0.35em] text-[#C8A85B] uppercase font-medium">
+            <span className="w-8 h-[1px] bg-[#CBD5E1]" />
+            <span className="font-sans text-[11px] tracking-[0.35em] text-[#CBD5E1] uppercase font-medium">
               THE PACKAGING • CRAFT DESIGN
             </span>
-            <span className="w-8 h-[1px] bg-[#C8A85B]" />
+            <span className="w-8 h-[1px] bg-[#CBD5E1]" />
           </motion.div>
 
           <motion.h2
@@ -61,8 +61,8 @@ export const PackagingGallery = () => {
             style={{ y: y1 }}
             className="md:col-span-5 relative group"
           >
-            <div className="relative aspect-[3/4] p-6 border border-[#C8A85B]/20 bg-[#071522]/70 backdrop-blur-md rounded-sm overflow-hidden shadow-2xl flex flex-col justify-between">
-              <div className="flex justify-between items-center text-[10px] tracking-[0.25em] text-[#C8A85B] uppercase font-sans">
+            <div className="relative aspect-[3/4] p-6 border border-[#CBD5E1]/20 bg-[#071522]/70 backdrop-blur-md rounded-sm overflow-hidden shadow-2xl flex flex-col justify-between">
+              <div className="flex justify-between items-center text-[10px] tracking-[0.25em] text-[#CBD5E1] uppercase font-sans">
                 <span>MONO CARTON</span>
                 <span>DEEP ROYAL BLUE</span>
               </div>
@@ -75,7 +75,7 @@ export const PackagingGallery = () => {
                 />
               </div>
 
-              <div className="pt-4 border-t border-[#C8A85B]/15 text-left">
+              <div className="pt-4 border-t border-[#CBD5E1]/15 text-left">
                 <h4 className="font-serif text-xl text-[#F3EEE4] font-light">
                   3D Architectural Presentation
                 </h4>
@@ -91,16 +91,16 @@ export const PackagingGallery = () => {
             style={{ y: y2 }}
             className="md:col-span-4 relative group"
           >
-            <div className="relative aspect-[4/5] p-8 border border-[#C8A85B]/30 bg-[#040B12]/80 backdrop-blur-md rounded-sm overflow-hidden shadow-2xl flex flex-col items-center justify-center text-center">
-              <div className="w-20 h-20 rounded-full border border-[#C8A85B]/50 p-2.5 mb-6 flex items-center justify-center bg-[#071522]/90 shadow-[0_0_25px_rgba(200,168,91,0.25)]">
+            <div className="relative aspect-[4/5] p-8 border border-[#CBD5E1]/30 bg-[#040B12]/80 backdrop-blur-md rounded-sm overflow-hidden shadow-2xl flex flex-col items-center justify-center text-center">
+              <div className="w-20 h-20 rounded-full border border-[#CBD5E1]/50 p-2.5 mb-6 flex items-center justify-center bg-[#071522]/90 shadow-[0_0_25px_rgba(203,213,225,0.25)]">
                 <img
                   src="/assets/logo/patiala_logo_transparent.png"
                   alt="Gold Seal"
-                  className="w-full h-full object-contain filter drop-shadow-[0_0_8px_rgba(200,168,91,0.4)]"
+                  className="w-full h-full object-contain filter drop-shadow-[0_0_8px_rgba(203,213,225,0.4)]"
                 />
               </div>
 
-              <span className="font-sans text-[10px] tracking-[0.3em] uppercase text-[#C8A85B] block mb-2 font-medium">
+              <span className="font-sans text-[10px] tracking-[0.3em] uppercase text-[#CBD5E1] block mb-2 font-medium">
                 THE MOTTO
               </span>
               <h3 className="font-serif text-2xl text-[#F3EEE4] font-light italic mb-4">
@@ -110,7 +110,7 @@ export const PackagingGallery = () => {
                 Intaglio gold foil stamping, custom royal crest embossing, and tamper-evident neck band seal.
               </p>
 
-              <div className="w-16 h-[1px] bg-[#C8A85B]/40" />
+              <div className="w-16 h-[1px] bg-[#CBD5E1]/40" />
             </div>
           </motion.div>
 
@@ -119,8 +119,8 @@ export const PackagingGallery = () => {
             style={{ y: y3 }}
             className="md:col-span-3 relative group"
           >
-            <div className="relative aspect-[3/4] p-6 border border-[#C8A85B]/20 bg-[#071522]/70 backdrop-blur-md rounded-sm overflow-hidden shadow-2xl flex flex-col justify-between">
-              <div className="text-[10px] tracking-[0.25em] text-[#C8A85B] uppercase font-sans">
+            <div className="relative aspect-[3/4] p-6 border border-[#CBD5E1]/20 bg-[#071522]/70 backdrop-blur-md rounded-sm overflow-hidden shadow-2xl flex flex-col justify-between">
+              <div className="text-[10px] tracking-[0.25em] text-[#CBD5E1] uppercase font-sans">
                 <span>FACADE ARTWORK</span>
               </div>
 
@@ -132,7 +132,7 @@ export const PackagingGallery = () => {
                 />
               </div>
 
-              <div className="pt-4 border-t border-[#C8A85B]/15 text-left">
+              <div className="pt-4 border-t border-[#CBD5E1]/15 text-left">
                 <h4 className="font-serif text-lg text-[#F3EEE4] font-light">
                   Front Panel Art
                 </h4>

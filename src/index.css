@@ -84,7 +84,7 @@ body {
   background: linear-gradient(135deg, rgba(0, 36, 139, 0.55) 0%, rgba(7, 23, 62, 0.8) 100%) !important;
   backdrop-filter: blur(24px) saturate(160%) !important;
   -webkit-backdrop-filter: blur(24px) saturate(160%) !important;
-  border: 1px solid rgba(200, 168, 91, 0.4) !important;
+  border: 1px solid rgba(203, 213, 225, 0.4) !important;
   box-shadow: 0 16px 45px rgba(0, 36, 139, 0.25), inset 0 1px 1px rgba(255, 255, 255, 0.2) !important;
 }
 
@@ -92,7 +92,7 @@ body {
   background: linear-gradient(135deg, rgba(0, 36, 139, 0.85) 0%, rgba(7, 23, 62, 0.95) 100%) !important;
   backdrop-filter: blur(28px) saturate(170%) !important;
   -webkit-backdrop-filter: blur(28px) saturate(170%) !important;
-  border: 1px solid rgba(200, 168, 91, 0.45) !important;
+  border: 1px solid rgba(203, 213, 225, 0.45) !important;
   box-shadow: 0 24px 60px rgba(0, 36, 139, 0.35), inset 0 1px 1px rgba(255, 255, 255, 0.25) !important;
 }
 
@@ -104,7 +104,7 @@ body {
   background: #020818;
 }
 ::-webkit-scrollbar-thumb {
-  background: #C6A865;
+  background: #CBD5E1;
   border-radius: 10px;
 }
 
@@ -119,26 +119,29 @@ body {
   background-color: rgba(3, 13, 38, 0.92) !important;
   backdrop-filter: blur(20px) !important;
   -webkit-backdrop-filter: blur(20px) !important;
-  border-bottom: 1px solid rgba(198, 168, 101, 0.25) !important;
+  border-bottom: 1px solid rgba(203, 213, 225, 0.25) !important;
 }
 
 .bg-noise {
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
 }
 
-/* Luxury Gold & Silk Gradient Utilities */
-.gold-gradient-text {
-  background: linear-gradient(135deg, #FFF3D1 0%, #D4AF37 45%, #AA7C11 80%, #ECC880 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+/* Luxury Polished Silver & Platinum Gradient Utilities */
+.gold-gradient-text,
+.silver-gradient-text {
+  background: linear-gradient(135deg, #FFFFFF 0%, #E2E8F0 25%, #94A3B8 50%, #F8FAFC 75%, #CBD5E1 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
 }
 
-.gold-gradient-bg {
-  background: linear-gradient(135deg, #ECC880 0%, #D4AF37 50%, #B8860B 100%);
+.gold-gradient-bg,
+.silver-gradient-bg {
+  background: linear-gradient(135deg, #FFFFFF 0%, #E2E8F0 45%, #94A3B8 100%) !important;
 }
 
-.gold-gradient-border {
-  border-image: linear-gradient(135deg, #ECC880, #D4AF37, #996515) 1;
+.gold-gradient-border,
+.silver-gradient-border {
+  border-image: linear-gradient(135deg, #FFFFFF, #CBD5E1, #94A3B8) 1 !important;
 }
 
 /* Luxury Royal Midnight Navy Cards */
@@ -146,30 +149,30 @@ body {
   background: rgba(4, 18, 53, 0.9) !important;
   backdrop-filter: blur(24px) saturate(140%) !important;
   -webkit-backdrop-filter: blur(24px) saturate(140%) !important;
-  border: 1px solid rgba(198, 168, 101, 0.3) !important;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.08) !important;
+  border: 1px solid rgba(203, 213, 225, 0.3) !important;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.12) !important;
 }
 
 .glass-card-luxury:hover {
-  border-color: rgba(198, 168, 101, 0.6) !important;
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.85), 0 0 30px rgba(198, 168, 101, 0.25) !important;
+  border-color: rgba(226, 232, 240, 0.6) !important;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.85), 0 0 30px rgba(226, 232, 240, 0.25) !important;
 }
 
-/* Tactile Patiyala Palace Royal Gold Buttons */
+/* Tactile Patiyala Palace Royal Silver Buttons */
 .gold-cta-btn, .monkey-cta-btn {
-  background: #C6A865;
+  background: #E2E8F0;
   color: #000000;
   font-weight: 800;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: 0 8px 25px rgba(198, 168, 101, 0.35);
+  box-shadow: 0 8px 25px rgba(226, 232, 240, 0.35);
 }
 
 .gold-cta-btn:hover, .monkey-cta-btn:hover {
-  background: #E7C97C;
+  background: #FFFFFF;
   transform: translateY(-2px) scale(1.02);
-  box-shadow: 0 14px 35px rgba(212, 175, 55, 0.5);
+  box-shadow: 0 14px 35px rgba(255, 255, 255, 0.5);
   color: #000000;
 }
 
@@ -186,8 +189,8 @@ body {
 
 .glass-ghost-btn:hover {
   background: rgba(255, 255, 255, 0.15);
-  border-color: #D4AF37;
-  color: #F3E5AB;
+  border-color: #CBD5E1;
+  color: #F8FAFC;
   transform: translateY(-2px);
 }
 

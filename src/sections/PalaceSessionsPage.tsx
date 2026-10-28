@@ -112,14 +112,14 @@ const GHAZAL_CATALOG: GhazalTrack[] = [
     hindiTitle: "चाँदी जैसा रंग है तेरा",
     artist: "Pankaj Udhas",
     category: "romance",
-    categoryLabel: "Festive Golden Savor",
+    categoryLabel: "Festive Silver Savor",
     duration: "5:45",
-    ragaMood: "Celebratory Golden Charm",
+    ragaMood: "Celebratory Silver Charm",
     poetryBy: "Mumtaz Rashid",
     coupletHindi: "चाँदी जैसा रंग है तेरा सोने जैसे बाल... एक तू ही धनवान है गोरी बाक़ी सब कंगाल।",
     coupletEnglish: "Silver is your complexion, like pure gold is your hair... You alone possess true regal richness, while all else pales.",
-    whiskyPairing: "Patiyala Jam Sour with Gold Dust",
-    tastingNote: "Velvety citrus acidity balanced with spiced Indian malt and subtle golden foam crema.",
+    whiskyPairing: "Patiyala Jam Sour with Silver Mist",
+    tastingNote: "Velvety citrus acidity balanced with spiced Indian malt and subtle silver-dusted foam crema.",
     description: "An upbeat, spirited romantic ghazal celebrated across generations. Crafted for joyful gatherings and evenings of celebration.",
   },
   {
@@ -259,7 +259,7 @@ export const PalaceSessionsPage: React.FC<Props> = ({
       
       {/* Background Royal Sapphire & Gold Aura */}
       <div className="fixed inset-0 pointer-events-none z-0">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[600px] bg-[radial-gradient(circle_at_center,rgba(198,168,101,0.12)_0%,rgba(4,18,53,0.4)_50%,transparent_80%)] blur-[100px]" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[600px] bg-[radial-gradient(circle_at_center,rgba(203,213,225,0.12)_0%,rgba(4,18,53,0.4)_50%,transparent_80%)] blur-[100px]" />
         <div className="absolute bottom-1/4 right-10 w-[500px] h-[500px] bg-[radial-gradient(circle_at_center,rgba(0,36,139,0.25)_0%,transparent_70%)] blur-[120px]" />
       </div>
 
@@ -268,18 +268,18 @@ export const PalaceSessionsPage: React.FC<Props> = ({
         {/* ========================================================
             1. TOP HERO BREADCRUMB & INTRO
         ======================================================== */}
-        <div className="flex items-center justify-between border-b border-[#C6A865]/20 pb-6 mb-8 sm:mb-12">
+        <div className="flex items-center justify-between border-b border-[#CBD5E1]/20 pb-6 mb-8 sm:mb-12">
           <button
             onClick={onBackToHome}
-            className="group inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/5 hover:bg-[#C6A865] hover:text-black border border-[#C6A865]/40 text-[#E7C97C] font-mono text-xs uppercase tracking-widest transition-all duration-300 cursor-pointer shadow-lg"
+            className="group inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/5 hover:bg-[#CBD5E1] hover:text-black border border-[#CBD5E1]/40 text-[#E2E8F0] font-mono text-xs uppercase tracking-widest transition-all duration-300 cursor-pointer shadow-lg"
           >
             <span className="group-hover:-translate-x-1 transition-transform">←</span>
             <span>RETURN TO PALACE HOME</span>
           </button>
 
           <div className="flex items-center gap-3">
-            <span className={`w-2.5 h-2.5 rounded-full ${isPlaying ? "bg-[#E7C97C] animate-pulse shadow-[0_0_12px_#E7C97C]" : "bg-white/40"}`} />
-            <span className="font-mono text-[10px] sm:text-xs uppercase tracking-[0.25em] text-[#E7C97C] font-bold">
+            <span className={`w-2.5 h-2.5 rounded-full ${isPlaying ? "bg-[#E2E8F0] animate-pulse shadow-[0_0_12px_#E2E8F0]" : "bg-white/40"}`} />
+            <span className="font-mono text-[10px] sm:text-xs uppercase tracking-[0.25em] text-[#E2E8F0] font-bold">
               {isPlaying ? "PLAYING IN PALACE" : "PAUSED"}
             </span>
           </div>
@@ -287,22 +287,22 @@ export const PalaceSessionsPage: React.FC<Props> = ({
 
         {/* Hero Title Section */}
         <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-black/60 border border-[#C6A865]/50 backdrop-blur-md mb-4 shadow-xl">
-            <span className="font-serif text-[11px] font-bold tracking-[0.3em] uppercase text-[#E7C97C]">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-black/60 border border-[#CBD5E1]/50 backdrop-blur-md mb-4 shadow-xl">
+            <span className="font-serif text-[11px] font-bold tracking-[0.3em] uppercase text-[#E2E8F0]">
               ROYAL MEHFIL • GHAZAL SESSIONS
             </span>
           </div>
 
           <h1 className="font-serif font-black text-4xl sm:text-6xl md:text-7xl uppercase tracking-tight text-white leading-[1.05] drop-shadow-[0_4px_30px_rgba(0,0,0,0.9)]">
             POETRY IN <br />
-            <span className="gold-gradient-text text-[#E7C97C]">A GLASS.</span>
+            <span className="gold-gradient-text text-[#E2E8F0]">A GLASS.</span>
           </h1>
 
           <p className="mt-4 font-sans text-sm sm:text-base text-white/80 leading-relaxed font-light max-w-2xl mx-auto">
             Ghazals are the soul of the royal Indian darbar. Unwind with timeless melodies from legends like 
-            <strong className="text-[#E7C97C] font-semibold"> Jagjit Singh</strong>, 
-            <strong className="text-[#E7C97C] font-semibold"> Mehdi Hassan</strong>, and 
-            <strong className="text-[#E7C97C] font-semibold"> Ghulam Ali</strong> — paired thoughtfully with 
+            <strong className="text-[#E2E8F0] font-semibold"> Jagjit Singh</strong>, 
+            <strong className="text-[#E2E8F0] font-semibold"> Mehdi Hassan</strong>, and 
+            <strong className="text-[#E2E8F0] font-semibold"> Ghulam Ali</strong> — paired thoughtfully with 
             Patiyala Palace Indian Crafted Malt.
           </p>
         </div>
@@ -311,22 +311,22 @@ export const PalaceSessionsPage: React.FC<Props> = ({
             2. EMBEDDED MAIN STAGE (YouTube Video + Master Control Bar)
         ======================================================== */}
         <div ref={playerRef} className="mb-14 sm:mb-20">
-          <div className="relative rounded-3xl overflow-hidden bg-[#030d24] border-2 border-[#C6A865]/50 shadow-[0_25px_80px_rgba(0,0,0,0.9)] p-3 sm:p-5 md:p-6 backdrop-blur-xl">
+          <div className="relative rounded-3xl overflow-hidden bg-[#030d24] border-2 border-[#CBD5E1]/50 shadow-[0_25px_80px_rgba(0,0,0,0.9)] p-3 sm:p-5 md:p-6 backdrop-blur-xl">
             
             {/* Top Player Header Bar */}
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 mb-4 px-2">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-[#061b4c] border border-[#C6A865]/60 flex items-center justify-center shadow-lg">
-                  <span className={`text-sm font-bold ${isPlaying ? "text-[#E7C97C] animate-spin" : "text-white/60"}`}>
+                <div className="w-10 h-10 rounded-full bg-[#061b4c] border border-[#CBD5E1]/60 flex items-center justify-center shadow-lg">
+                  <span className={`text-sm font-bold ${isPlaying ? "text-[#E2E8F0] animate-spin" : "text-white/60"}`}>
                     💿
                   </span>
                 </div>
                 <div>
-                  <span className="font-mono text-[9px] uppercase tracking-[0.25em] text-[#C6A865] block">
+                  <span className="font-mono text-[9px] uppercase tracking-[0.25em] text-[#CBD5E1] block">
                     NOW PLAYING IN PALACE SESSIONS
                   </span>
                   <h3 className="font-serif font-bold text-base sm:text-lg text-white">
-                    {activeTrack.title} <span className="text-[#E7C97C]/90 font-normal">({activeTrack.hindiTitle})</span>
+                    {activeTrack.title} <span className="text-[#E2E8F0]/90 font-normal">({activeTrack.hindiTitle})</span>
                   </h3>
                 </div>
               </div>
@@ -336,16 +336,16 @@ export const PalaceSessionsPage: React.FC<Props> = ({
                   href={`https://www.youtube.com/watch?v=${activeTrack.youtubeId}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-3.5 py-1 rounded-full bg-[#E7C97C]/15 hover:bg-[#E7C97C] hover:text-black border border-[#C6A865]/50 text-[#E7C97C] font-mono text-[10px] font-bold tracking-widest uppercase transition-all shadow cursor-pointer flex items-center gap-1.5"
+                  className="px-3.5 py-1 rounded-full bg-[#E2E8F0]/15 hover:bg-[#E2E8F0] hover:text-black border border-[#CBD5E1]/50 text-[#E2E8F0] font-mono text-[10px] font-bold tracking-widest uppercase transition-all shadow cursor-pointer flex items-center gap-1.5"
                   title="Open Video on YouTube"
                 >
                   <span>YOUTUBE</span>
                   <span className="text-xs">↗</span>
                 </a>
-                <span className="px-3 py-1 rounded-full bg-black/60 border border-[#C6A865]/40 text-[#E7C97C] font-mono text-[10px] font-bold tracking-widest uppercase hidden sm:inline-block">
+                <span className="px-3 py-1 rounded-full bg-black/60 border border-[#CBD5E1]/40 text-[#E2E8F0] font-mono text-[10px] font-bold tracking-widest uppercase hidden sm:inline-block">
                   {activeTrack.categoryLabel}
                 </span>
-                <span className="px-3 py-1 rounded-full bg-[#E7C97C]/10 border border-[#E7C97C]/30 text-white font-mono text-[10px] tracking-widest uppercase">
+                <span className="px-3 py-1 rounded-full bg-[#E2E8F0]/10 border border-[#E2E8F0]/30 text-white font-mono text-[10px] tracking-widest uppercase">
                   {activeTrack.duration}
                 </span>
               </div>
@@ -367,7 +367,7 @@ export const PalaceSessionsPage: React.FC<Props> = ({
             {/* ========================================================
                 DEDICATED MASTER CONTROL BAR (PAUSE / PLAY / NEXT / MUTE)
             ======================================================== */}
-            <div className="mt-4 p-3 sm:p-4 rounded-2xl bg-[#020818]/95 border border-[#C6A865]/40 shadow-xl flex flex-wrap items-center justify-between gap-4">
+            <div className="mt-4 p-3 sm:p-4 rounded-2xl bg-[#020818]/95 border border-[#CBD5E1]/40 shadow-xl flex flex-wrap items-center justify-between gap-4">
               
               {/* Left: Previous, Play/Pause, Next */}
               <div className="flex items-center gap-2 sm:gap-3">
@@ -375,7 +375,7 @@ export const PalaceSessionsPage: React.FC<Props> = ({
                 <button
                   onClick={playPrevTrack}
                   title="Previous Ghazal"
-                  className="w-10 h-10 rounded-full bg-white/5 hover:bg-[#C6A865] hover:text-black border border-white/20 text-white flex items-center justify-center transition-all cursor-pointer shadow-md"
+                  className="w-10 h-10 rounded-full bg-white/5 hover:bg-[#CBD5E1] hover:text-black border border-white/20 text-white flex items-center justify-center transition-all cursor-pointer shadow-md"
                 >
                   ⏮
                 </button>
@@ -385,8 +385,8 @@ export const PalaceSessionsPage: React.FC<Props> = ({
                   onClick={togglePlayPause}
                   className={`px-5 sm:px-7 py-2.5 rounded-full font-mono text-xs sm:text-sm font-black uppercase tracking-[0.2em] flex items-center gap-2.5 transition-all duration-300 shadow-2xl cursor-pointer ${
                     isPlaying
-                      ? "bg-[#E7C97C] hover:bg-[#C6A865] text-black shadow-[0_0_20px_rgba(231,201,124,0.4)] scale-105"
-                      : "bg-white/10 hover:bg-[#E7C97C] hover:text-black text-white border border-[#C6A865]"
+                      ? "bg-[#E2E8F0] hover:bg-[#CBD5E1] text-black shadow-[0_0_20px_rgba(241,245,249,0.4)] scale-105"
+                      : "bg-white/10 hover:bg-[#E2E8F0] hover:text-black text-white border border-[#CBD5E1]"
                   }`}
                 >
                   <span className="text-base">{isPlaying ? "⏸" : "▶"}</span>
@@ -397,19 +397,19 @@ export const PalaceSessionsPage: React.FC<Props> = ({
                 <button
                   onClick={playNextTrack}
                   title="Next Ghazal"
-                  className="w-10 h-10 rounded-full bg-white/5 hover:bg-[#C6A865] hover:text-black border border-white/20 text-white flex items-center justify-center transition-all cursor-pointer shadow-md"
+                  className="w-10 h-10 rounded-full bg-white/5 hover:bg-[#CBD5E1] hover:text-black border border-white/20 text-white flex items-center justify-center transition-all cursor-pointer shadow-md"
                 >
                   ⏭
                 </button>
               </div>
 
               {/* Middle: Soundwave Status */}
-              <div className="hidden md:flex items-center gap-2 font-mono text-xs text-[#E7C97C]">
+              <div className="hidden md:flex items-center gap-2 font-mono text-xs text-[#E2E8F0]">
                 <div className="flex items-end gap-1 h-4">
-                  <span className={`w-1 bg-[#E7C97C] rounded-full transition-all duration-300 ${isPlaying ? "h-4 animate-pulse" : "h-1"}`} />
-                  <span className={`w-1 bg-[#E7C97C] rounded-full transition-all duration-300 ${isPlaying ? "h-3 animate-pulse delay-100" : "h-1"}`} />
-                  <span className={`w-1 bg-[#E7C97C] rounded-full transition-all duration-300 ${isPlaying ? "h-5 animate-pulse delay-200" : "h-1"}`} />
-                  <span className={`w-1 bg-[#E7C97C] rounded-full transition-all duration-300 ${isPlaying ? "h-2 animate-pulse delay-150" : "h-1"}`} />
+                  <span className={`w-1 bg-[#E2E8F0] rounded-full transition-all duration-300 ${isPlaying ? "h-4 animate-pulse" : "h-1"}`} />
+                  <span className={`w-1 bg-[#E2E8F0] rounded-full transition-all duration-300 ${isPlaying ? "h-3 animate-pulse delay-100" : "h-1"}`} />
+                  <span className={`w-1 bg-[#E2E8F0] rounded-full transition-all duration-300 ${isPlaying ? "h-5 animate-pulse delay-200" : "h-1"}`} />
+                  <span className={`w-1 bg-[#E2E8F0] rounded-full transition-all duration-300 ${isPlaying ? "h-2 animate-pulse delay-150" : "h-1"}`} />
                 </div>
                 <span className="text-[10px] tracking-widest uppercase">
                   {isPlaying ? "MASTER RECORDING STREAMING" : "PLAYBACK PAUSED"}
@@ -443,13 +443,13 @@ export const PalaceSessionsPage: React.FC<Props> = ({
             </div>
 
             {/* Now Playing Detailed Metadata Panel */}
-            <div className="mt-6 grid grid-cols-1 lg:grid-cols-12 gap-6 p-4 sm:p-6 rounded-2xl bg-[#041235]/90 border border-[#C6A865]/30">
+            <div className="mt-6 grid grid-cols-1 lg:grid-cols-12 gap-6 p-4 sm:p-6 rounded-2xl bg-[#041235]/90 border border-[#CBD5E1]/30">
               
               {/* Left Column: Poetry & Couplet */}
               <div className="lg:col-span-7 flex flex-col justify-between">
                 <div>
                   <div className="flex items-center gap-2 mb-2">
-                    <span className="font-mono text-[10px] font-bold tracking-[0.2em] uppercase text-[#E7C97C]">
+                    <span className="font-mono text-[10px] font-bold tracking-[0.2em] uppercase text-[#E2E8F0]">
                       FEATURED SHER (THE COUPLET)
                     </span>
                     <span className="text-white/40">•</span>
@@ -459,7 +459,7 @@ export const PalaceSessionsPage: React.FC<Props> = ({
                   </div>
 
                   {/* Hindi Couplet Quote */}
-                  <blockquote className="font-serif text-base sm:text-lg text-white font-medium italic leading-relaxed border-l-2 border-[#E7C97C] pl-4 py-1 my-3 bg-black/30 rounded-r-xl">
+                  <blockquote className="font-serif text-base sm:text-lg text-white font-medium italic leading-relaxed border-l-2 border-[#E2E8F0] pl-4 py-1 my-3 bg-black/30 rounded-r-xl">
                     "{activeTrack.coupletHindi}"
                   </blockquote>
 
@@ -475,10 +475,10 @@ export const PalaceSessionsPage: React.FC<Props> = ({
               </div>
 
               {/* Right Column: Royal Malt Pairing */}
-              <div className="lg:col-span-5 p-5 rounded-2xl bg-[#020818]/95 border border-[#C6A865]/40 flex flex-col justify-between shadow-xl">
+              <div className="lg:col-span-5 p-5 rounded-2xl bg-[#020818]/95 border border-[#CBD5E1]/40 flex flex-col justify-between shadow-xl">
                 <div>
                   <div className="flex items-center justify-between mb-3">
-                    <span className="font-mono text-[9px] font-bold uppercase tracking-[0.25em] text-[#E7C97C]">
+                    <span className="font-mono text-[9px] font-bold uppercase tracking-[0.25em] text-[#E2E8F0]">
                       CONNOISSEUR'S PAIRING
                     </span>
                     <span className="text-xs">🥃</span>
@@ -493,7 +493,7 @@ export const PalaceSessionsPage: React.FC<Props> = ({
                   </p>
                 </div>
 
-                <div className="mt-4 pt-3 border-t border-white/10 flex items-center justify-between text-[10px] font-mono text-[#E7C97C]">
+                <div className="mt-4 pt-3 border-t border-white/10 flex items-center justify-between text-[10px] font-mono text-[#E2E8F0]">
                   <span className="uppercase tracking-widest">ATMOSPHERE:</span>
                   <span className="uppercase tracking-widest text-white/80">{activeTrack.ragaMood}</span>
                 </div>
@@ -512,7 +512,7 @@ export const PalaceSessionsPage: React.FC<Props> = ({
           {/* Header & Filter Row */}
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8 border-b border-white/10 pb-6">
             <div>
-              <span className="font-mono text-xs font-bold tracking-[0.25em] uppercase text-[#E7C97C] block mb-1">
+              <span className="font-mono text-xs font-bold tracking-[0.25em] uppercase text-[#E2E8F0] block mb-1">
                 PALACE JUKEBOX • SELECT A GHAZAL
               </span>
               <h2 className="font-serif font-black text-2xl sm:text-4xl uppercase tracking-tight text-white">
@@ -533,7 +533,7 @@ export const PalaceSessionsPage: React.FC<Props> = ({
                   onClick={() => setSelectedFilter(f.id as any)}
                   className={`px-3.5 py-1.5 rounded-full text-xs font-mono font-bold uppercase tracking-wider transition-all duration-300 cursor-pointer ${
                     selectedFilter === f.id
-                      ? "bg-[#C6A865] text-black shadow-lg scale-105"
+                      ? "bg-[#CBD5E1] text-black shadow-lg scale-105"
                       : "bg-white/5 hover:bg-white/15 text-white/70 border border-white/10"
                   }`}
                 >
@@ -554,8 +554,8 @@ export const PalaceSessionsPage: React.FC<Props> = ({
                   onClick={() => handleSelectTrack(track)}
                   className={`group relative rounded-2xl overflow-hidden bg-[#041235] p-5 border-2 transition-all duration-300 cursor-pointer flex flex-col justify-between shadow-2xl ${
                     isCurrentTrack
-                      ? "border-[#E7C97C] shadow-[0_10px_40px_rgba(231,201,124,0.25)] bg-[#05194a]"
-                      : "border-[#C6A865]/25 hover:border-[#C6A865]/70"
+                      ? "border-[#E2E8F0] shadow-[0_10px_40px_rgba(241,245,249,0.25)] bg-[#05194a]"
+                      : "border-[#CBD5E1]/25 hover:border-[#CBD5E1]/70"
                   }`}
                 >
                   {/* Card Thumbnail & Badge */}
@@ -571,7 +571,7 @@ export const PalaceSessionsPage: React.FC<Props> = ({
                       {/* Play State Badge */}
                       <div className="absolute top-3 left-3 z-10">
                         {isCurrentTrack && isPlaying ? (
-                          <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#E7C97C] text-black font-mono text-[9px] font-black uppercase tracking-wider shadow-lg">
+                          <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#E2E8F0] text-black font-mono text-[9px] font-black uppercase tracking-wider shadow-lg">
                             <span className="w-2 h-2 rounded-full bg-black animate-ping" />
                             <span>PLAYING NOW</span>
                           </div>
@@ -580,7 +580,7 @@ export const PalaceSessionsPage: React.FC<Props> = ({
                             <span>PAUSED</span>
                           </div>
                         ) : (
-                          <div className="w-8 h-8 rounded-full bg-black/70 backdrop-blur-md border border-[#C6A865]/60 flex items-center justify-center text-[#E7C97C] text-xs font-bold group-hover:scale-110 group-hover:bg-[#C6A865] group-hover:text-black transition-all">
+                          <div className="w-8 h-8 rounded-full bg-black/70 backdrop-blur-md border border-[#CBD5E1]/60 flex items-center justify-center text-[#E2E8F0] text-xs font-bold group-hover:scale-110 group-hover:bg-[#CBD5E1] group-hover:text-black transition-all">
                             ▶
                           </div>
                         )}
@@ -593,14 +593,14 @@ export const PalaceSessionsPage: React.FC<Props> = ({
                     </div>
 
                     {/* Metadata */}
-                    <div className="flex items-center justify-between text-[10px] font-mono text-[#E7C97C] mb-1">
+                    <div className="flex items-center justify-between text-[10px] font-mono text-[#E2E8F0] mb-1">
                       <span className="uppercase tracking-widest">{track.categoryLabel}</span>
                     </div>
 
-                    <h3 className="font-serif font-black text-xl text-white group-hover:text-[#E7C97C] transition-colors leading-tight">
+                    <h3 className="font-serif font-black text-xl text-white group-hover:text-[#E2E8F0] transition-colors leading-tight">
                       {track.title}
                     </h3>
-                    <p className="font-sans text-xs text-[#E7C97C]/90 font-medium mt-0.5">
+                    <p className="font-sans text-xs text-[#E2E8F0]/90 font-medium mt-0.5">
                       {track.hindiTitle} • {track.artist}
                     </p>
 
@@ -629,8 +629,8 @@ export const PalaceSessionsPage: React.FC<Props> = ({
                       }}
                       className={`px-3.5 py-1.5 rounded-full font-mono text-[10px] font-bold uppercase tracking-wider transition-all duration-300 ${
                         isCurrentTrack && isPlaying
-                          ? "bg-[#E7C97C] text-black shadow-lg"
-                          : "bg-white/10 group-hover:bg-[#C6A865] group-hover:text-black text-white"
+                          ? "bg-[#E2E8F0] text-black shadow-lg"
+                          : "bg-white/10 group-hover:bg-[#CBD5E1] group-hover:text-black text-white"
                       }`}
                     >
                       {isCurrentTrack ? (isPlaying ? "⏸ PAUSE" : "▶ RESUME") : "PLAY SONG"}
@@ -646,11 +646,11 @@ export const PalaceSessionsPage: React.FC<Props> = ({
         {/* ========================================================
             4. THE CONNOISSEUR'S SAVOR RITUAL
         ======================================================== */}
-        <div className="mb-16 sm:mb-20 rounded-3xl p-6 sm:p-10 md:p-14 bg-gradient-to-br from-[#061b4c] to-[#020818] border border-[#C6A865]/40 shadow-2xl relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-[radial-gradient(circle_at_center,rgba(198,168,101,0.15)_0%,transparent_70%)] pointer-events-none" />
+        <div className="mb-16 sm:mb-20 rounded-3xl p-6 sm:p-10 md:p-14 bg-gradient-to-br from-[#061b4c] to-[#020818] border border-[#CBD5E1]/40 shadow-2xl relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-96 h-96 bg-[radial-gradient(circle_at_center,rgba(203,213,225,0.15)_0%,transparent_70%)] pointer-events-none" />
 
           <div className="relative z-10 max-w-4xl mx-auto text-center">
-            <span className="font-mono text-xs font-bold tracking-[0.25em] uppercase text-[#E7C97C] block mb-2">
+            <span className="font-mono text-xs font-bold tracking-[0.25em] uppercase text-[#E2E8F0] block mb-2">
               THE ART OF THE SAVOR
             </span>
             <h2 className="font-serif font-black text-3xl sm:text-5xl uppercase tracking-tight text-white mb-4">
@@ -661,24 +661,24 @@ export const PalaceSessionsPage: React.FC<Props> = ({
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
-              <div className="p-5 rounded-2xl bg-black/40 border border-[#C6A865]/25 backdrop-blur-md">
-                <span className="font-mono text-xl font-bold text-[#E7C97C] block mb-2">01</span>
+              <div className="p-5 rounded-2xl bg-black/40 border border-[#CBD5E1]/25 backdrop-blur-md">
+                <span className="font-mono text-xl font-bold text-[#E2E8F0] block mb-2">01</span>
                 <h4 className="font-serif font-bold text-base text-white uppercase mb-1">THE GENTLE POUR</h4>
                 <p className="font-sans text-xs text-white/70 font-light leading-relaxed">
                   Pour 60ml of Patiyala Palace into an amber crystal rocks glass or tumbler. Allow it to breathe for 2 minutes as the harmonium notes begin.
                 </p>
               </div>
 
-              <div className="p-5 rounded-2xl bg-black/40 border border-[#C6A865]/25 backdrop-blur-md">
-                <span className="font-mono text-xl font-bold text-[#E7C97C] block mb-2">02</span>
+              <div className="p-5 rounded-2xl bg-black/40 border border-[#CBD5E1]/25 backdrop-blur-md">
+                <span className="font-mono text-xl font-bold text-[#E2E8F0] block mb-2">02</span>
                 <h4 className="font-serif font-bold text-base text-white uppercase mb-1">THE FIRST COUPLET</h4>
                 <p className="font-sans text-xs text-white/70 font-light leading-relaxed">
                   Take the first gentle sip just as the *Matla* (the opening couplet) finishes. Notice how the velvety vanilla and charred oak tannins blossom.
                 </p>
               </div>
 
-              <div className="p-5 rounded-2xl bg-black/40 border border-[#C6A865]/25 backdrop-blur-md">
-                <span className="font-mono text-xl font-bold text-[#E7C97C] block mb-2">03</span>
+              <div className="p-5 rounded-2xl bg-black/40 border border-[#CBD5E1]/25 backdrop-blur-md">
+                <span className="font-mono text-xl font-bold text-[#E2E8F0] block mb-2">03</span>
                 <h4 className="font-serif font-bold text-base text-white uppercase mb-1">THE ROYAL FINISH</h4>
                 <p className="font-sans text-xs text-white/70 font-light leading-relaxed">
                   As the ghazal reaches its peak, savor the lingering warmth of the Indian malt—rich, resonant, and made for the discerning connoisseur.
@@ -691,10 +691,10 @@ export const PalaceSessionsPage: React.FC<Props> = ({
         {/* ========================================================
             5. BOTTOM NAVIGATION CTA BAR
         ======================================================== */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-8 border-t border-[#C6A865]/30">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-8 border-t border-[#CBD5E1]/30">
           <button
             onClick={onBackToHome}
-            className="w-full sm:w-auto px-8 py-3.5 rounded-full bg-[#C6A865] hover:bg-[#E7C97C] text-black font-mono text-xs font-bold tracking-[0.2em] uppercase transition-all duration-300 shadow-xl cursor-pointer hover:scale-105"
+            className="w-full sm:w-auto px-8 py-3.5 rounded-full bg-[#CBD5E1] hover:bg-[#E2E8F0] text-black font-mono text-xs font-bold tracking-[0.2em] uppercase transition-all duration-300 shadow-xl cursor-pointer hover:scale-105"
           >
             ← BACK TO HOME
           </button>
@@ -711,7 +711,7 @@ export const PalaceSessionsPage: React.FC<Props> = ({
           {onExploreStory && (
             <button
               onClick={onExploreStory}
-              className="w-full sm:w-auto px-8 py-3.5 rounded-full bg-transparent hover:bg-white/5 border border-[#C6A865]/50 text-[#E7C97C] font-mono text-xs font-bold tracking-[0.2em] uppercase transition-all duration-300 cursor-pointer"
+              className="w-full sm:w-auto px-8 py-3.5 rounded-full bg-transparent hover:bg-white/5 border border-[#CBD5E1]/50 text-[#E2E8F0] font-mono text-xs font-bold tracking-[0.2em] uppercase transition-all duration-300 cursor-pointer"
             >
               OUR HERITAGE STORY
             </button>

@@ -30,7 +30,7 @@ export const AgeGate = ({ onVerify }: Props) => {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } }}
       transition={{ duration: 0.8, ease: "easeOut" }}
-      className="fixed inset-0 z-[140] bg-[#020B1F] flex flex-col items-center justify-center p-6 md:p-12 overflow-y-auto selection:bg-[#D4AF37]/30 text-white"
+      className="fixed inset-0 z-[140] bg-[#020B1F] flex flex-col items-center justify-center p-6 md:p-12 overflow-y-auto selection:bg-[#CBD5E1]/30 text-white"
     >
       {/* Textured Royal Damask & Gold Fleck Background */}
       <div 
@@ -42,7 +42,7 @@ export const AgeGate = ({ onVerify }: Props) => {
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_30%,rgba(2,11,31,0.65)_100%)] pointer-events-none" />
 
       {/* Top Brand Header */}
-      <div className="absolute top-8 left-8 right-8 flex justify-between items-center text-[10px] tracking-[0.3em] uppercase text-[#D4AF37] font-display pointer-events-none font-bold drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+      <div className="absolute top-8 left-8 right-8 flex justify-between items-center text-[10px] tracking-[0.3em] uppercase text-[#CBD5E1] font-display pointer-events-none font-bold drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
         <span>PATIYALA PALACE</span>
         <span>WHERE ROYALTY MEETS THE BARREL</span>
       </div>
@@ -52,23 +52,23 @@ export const AgeGate = ({ onVerify }: Props) => {
         initial={{ y: 25, opacity: 0, scale: 0.96 }}
         animate={{ y: 0, opacity: 1, scale: 1 }}
         transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-        className="relative z-10 max-w-xl w-full bg-[#03102B]/85 backdrop-blur-2xl border border-[#D4AF37]/50 shadow-[0_30px_90px_rgba(0,0,0,0.9)] rounded-3xl p-8 sm:p-12 text-center my-auto text-white"
+        className="relative z-10 max-w-xl w-full bg-[#03102B]/85 backdrop-blur-2xl border border-[#CBD5E1]/50 shadow-[0_30px_90px_rgba(0,0,0,0.9)] rounded-3xl p-8 sm:p-12 text-center my-auto text-white"
       >
         {/* Animated Gold Seal */}
         <div className="relative mx-auto mb-6 w-20 h-20 md:w-24 md:h-24">
-          <div className="absolute -inset-2 rounded-full bg-[#D4AF37]/25 blur-xl" />
-          <div className="relative w-full h-full rounded-full border border-[#D4AF37] p-2 flex items-center justify-center bg-[#04153B] shadow-[0_4px_25px_rgba(212,175,55,0.35)]">
+          <div className="absolute -inset-2 rounded-full bg-[#CBD5E1]/25 blur-xl" />
+          <div className="relative w-full h-full rounded-full border border-[#CBD5E1] p-2 flex items-center justify-center bg-[#04153B] shadow-[0_4px_25px_rgba(226,232,240,0.35)]">
             <img 
-              src="/assets/logo/pp_logo_gold_clean.png" 
+              src="/assets/logo/pp_logo_silver_clean.png" 
               alt="Patiyala Palace Official Gold Seal" 
-              className="w-full h-full object-contain filter drop-shadow-[0_2px_8px_rgba(212,175,55,0.5)]"
+              className="w-full h-full object-contain filter drop-shadow-[0_2px_8px_rgba(226,232,240,0.5)]"
             />
           </div>
         </div>
 
         {/* Brand Name */}
         <div className="mb-6">
-          <span className="font-display text-[11px] text-[#D4AF37] tracking-[0.35em] uppercase font-extrabold block mb-1">
+          <span className="font-display text-[11px] text-[#CBD5E1] tracking-[0.35em] uppercase font-extrabold block mb-1">
             ROYAL HOUSE OF
           </span>
           <h1 className="font-display text-3xl sm:text-4xl text-white tracking-[0.12em] font-black uppercase">
@@ -89,13 +89,13 @@ export const AgeGate = ({ onVerify }: Props) => {
               onClick={() => { setSelectedAge("yes"); setErrorMessage(""); }}
               className={`flex items-center justify-between px-5 py-3.5 rounded-xl border transition-all cursor-pointer ${
                 selectedAge === "yes" 
-                  ? "border-[#D4AF37] bg-[#D4AF37]/15 shadow-md text-white" 
-                  : "border-white/15 hover:border-[#D4AF37]/40 text-white/70"
+                  ? "border-[#CBD5E1] bg-[#CBD5E1]/15 shadow-md text-white" 
+                  : "border-white/15 hover:border-[#CBD5E1]/40 text-white/70"
               }`}
             >
               <span className="font-sans text-xs sm:text-sm tracking-wide font-medium">I am of legal drinking age (25+)</span>
               <span className={`w-4 h-4 rounded-full border flex items-center justify-center transition-colors ${
-                selectedAge === "yes" ? "border-[#D4AF37] bg-[#D4AF37]" : "border-white/30"
+                selectedAge === "yes" ? "border-[#CBD5E1] bg-[#CBD5E1]" : "border-white/30"
               }`}>
                 {selectedAge === "yes" && <span className="w-1.5 h-1.5 rounded-full bg-[#04153B]" />}
               </span>
@@ -105,13 +105,13 @@ export const AgeGate = ({ onVerify }: Props) => {
               onClick={() => { setSelectedAge("no"); setErrorMessage(""); }}
               className={`flex items-center justify-between px-5 py-3.5 rounded-xl border transition-all cursor-pointer ${
                 selectedAge === "no" 
-                  ? "border-[#D4AF37] bg-[#D4AF37]/15 shadow-md text-white" 
-                  : "border-white/15 hover:border-[#D4AF37]/40 text-white/70"
+                  ? "border-[#CBD5E1] bg-[#CBD5E1]/15 shadow-md text-white" 
+                  : "border-white/15 hover:border-[#CBD5E1]/40 text-white/70"
               }`}
             >
               <span className="font-sans text-xs sm:text-sm tracking-wide font-medium">I am not of legal age</span>
               <span className={`w-4 h-4 rounded-full border flex items-center justify-center transition-colors ${
-                selectedAge === "no" ? "border-[#D4AF37] bg-[#D4AF37]" : "border-white/30"
+                selectedAge === "no" ? "border-[#CBD5E1] bg-[#CBD5E1]" : "border-white/30"
               }`}>
                 {selectedAge === "no" && <span className="w-1.5 h-1.5 rounded-full bg-[#04153B]" />}
               </span>
@@ -135,7 +135,7 @@ export const AgeGate = ({ onVerify }: Props) => {
             <p className="font-sans text-[11px] text-white/60 leading-relaxed">
               By accessing this website you agree that you are of legal drinking age in your jurisdiction and accept our terms and conditions.
             </p>
-            <p className="font-sans text-[10px] text-[#F3E5AB] font-bold tracking-wide">
+            <p className="font-sans text-[10px] text-[#F8FAFC] font-bold tracking-wide">
               STRICTLY 25+ • SAKSHAM SPIRITS PVT. LTD. • DRINK RESPONSIBLY
             </p>
           </div>

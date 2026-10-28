@@ -54,7 +54,7 @@ export const BottleShowcaseSection: React.FC = () => {
         
         {/* Top Header Row */}
         <div className="w-full max-w-screen-2xl mx-auto px-6 sm:px-12 pt-20 sm:pt-24 flex flex-col items-center text-center z-20 pointer-events-none">
-          <span className="font-sans text-[10px] sm:text-xs font-bold tracking-[0.35em] uppercase text-[#C8A85B] drop-shadow-md mb-2">
+          <span className="font-sans text-[10px] sm:text-xs font-bold tracking-[0.35em] uppercase text-[#CBD5E1] drop-shadow-md mb-2">
             THE ROYAL FLASK • 750 ML
           </span>
           <h2 className="font-serif text-2xl sm:text-4xl md:text-5xl uppercase tracking-[0.15em] font-normal text-white drop-shadow-[0_4px_20px_rgba(0,0,0,0.8)]">
@@ -101,7 +101,7 @@ export const BottleShowcaseSection: React.FC = () => {
               scrollProgress < 0.4 ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-6"
             }`}
           >
-            <span className="font-sans text-[10px] font-extrabold uppercase tracking-[0.25em] text-[#C8A85B] mb-1">
+            <span className="font-sans text-[10px] font-extrabold uppercase tracking-[0.25em] text-[#CBD5E1] mb-1">
               01 • DECANTER SILHOUETTE
             </span>
             <p className="font-serif text-sm text-white/80 leading-relaxed drop-shadow-md">
@@ -115,7 +115,7 @@ export const BottleShowcaseSection: React.FC = () => {
               scrollProgress >= 0.4 ? "opacity-100 translate-x-0" : "opacity-0 translate-x-6"
             }`}
           >
-            <span className="font-sans text-[10px] font-extrabold uppercase tracking-[0.25em] text-[#C8A85B] mb-1">
+            <span className="font-sans text-[10px] font-extrabold uppercase tracking-[0.25em] text-[#CBD5E1] mb-1">
               02 • SOVEREIGN CRAFT
             </span>
             <p className="font-serif text-sm text-white/80 leading-relaxed drop-shadow-md">
@@ -134,7 +134,7 @@ export const BottleShowcaseSection: React.FC = () => {
               onClick={() => setViewMode("scroll")}
               className={`px-3 py-1 text-[10px] sm:text-xs font-sans uppercase tracking-widest rounded-full transition-all ${
                 viewMode === "scroll"
-                  ? "bg-[#C8A85B] text-black font-bold shadow-md"
+                  ? "bg-[#CBD5E1] text-black font-bold shadow-md"
                   : "text-white/80 hover:text-white"
               }`}
             >
@@ -144,7 +144,7 @@ export const BottleShowcaseSection: React.FC = () => {
               onClick={() => setViewMode("front")}
               className={`px-3 py-1 text-[10px] sm:text-xs font-sans uppercase tracking-widest rounded-full transition-all ${
                 viewMode === "front"
-                  ? "bg-[#C8A85B] text-black font-bold shadow-md"
+                  ? "bg-[#CBD5E1] text-black font-bold shadow-md"
                   : "text-white/80 hover:text-white"
               }`}
             >
@@ -154,7 +154,7 @@ export const BottleShowcaseSection: React.FC = () => {
               onClick={() => setViewMode("back")}
               className={`px-3 py-1 text-[10px] sm:text-xs font-sans uppercase tracking-widest rounded-full transition-all ${
                 viewMode === "back"
-                  ? "bg-[#C8A85B] text-black font-bold shadow-md"
+                  ? "bg-[#CBD5E1] text-black font-bold shadow-md"
                   : "text-white/80 hover:text-white"
               }`}
             >
@@ -164,7 +164,7 @@ export const BottleShowcaseSection: React.FC = () => {
               onClick={() => setViewMode(viewMode === "spin" ? "scroll" : "spin")}
               className={`px-3 py-1 text-[10px] sm:text-xs font-sans uppercase tracking-widest rounded-full transition-all ${
                 viewMode === "spin"
-                  ? "bg-[#C8A85B] text-black font-bold shadow-md"
+                  ? "bg-[#CBD5E1] text-black font-bold shadow-md"
                   : "text-white/80 hover:text-white"
               }`}
             >

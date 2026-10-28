@@ -16,7 +16,7 @@ export const CinematicBreak = () => {
   return (
     <section
       ref={containerRef}
-      className="relative w-full h-[85vh] md:h-screen bg-[#071522] overflow-hidden flex items-center justify-center text-[#F3EEE4] border-b border-[#C8A85B]/15"
+      className="relative w-full h-[85vh] md:h-screen bg-[#071522] overflow-hidden flex items-center justify-center text-[#F3EEE4] border-b border-[#CBD5E1]/15"
     >
       {/* Scroll-controlled Video */}
       <motion.div
@@ -45,21 +45,21 @@ export const CinematicBreak = () => {
         style={{ opacity: textOpacity, y: textY }}
         className="relative z-10 max-w-3xl mx-auto px-6 text-center flex flex-col items-center"
       >
-        <div className="w-12 h-12 rounded-full border border-[#C8A85B]/40 p-2 mb-6 flex items-center justify-center bg-[#071522]/60 backdrop-blur-md">
+        <div className="w-12 h-12 rounded-full border border-[#CBD5E1]/40 p-2 mb-6 flex items-center justify-center bg-[#071522]/60 backdrop-blur-md">
           <img
             src="/assets/logo/patiala_logo_transparent.png"
             alt="Patiyala Palace Royal Emblem"
-            className="w-full h-full object-contain filter drop-shadow-[0_0_8px_rgba(200,168,91,0.35)]"
+            className="w-full h-full object-contain filter drop-shadow-[0_0_8px_rgba(203,213,225,0.35)]"
           />
         </div>
 
-        <span className="font-sans text-[11px] tracking-[0.4em] uppercase text-[#C8A85B] mb-3 font-light">
+        <span className="font-sans text-[11px] tracking-[0.4em] uppercase text-[#CBD5E1] mb-3 font-light">
           AN IMMORTAL IMPRESSION
         </span>
 
         <h2 className="font-serif text-5xl sm:text-7xl md:text-8xl tracking-[0.1em] font-light text-[#F3EEE4] leading-[0.95] drop-shadow-xl">
           THE SPIRIT<br />
-          <span className="italic font-normal text-[#C8A85B]">OF A PALACE.</span>
+          <span className="italic font-normal text-[#CBD5E1]">OF A PALACE.</span>
         </h2>
 
         <p className="font-sans text-xs md:text-sm text-[#F3EEE4]/70 max-w-md mt-6 leading-relaxed font-light">
