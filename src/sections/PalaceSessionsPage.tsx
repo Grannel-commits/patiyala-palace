@@ -154,14 +154,96 @@ export const PalaceSessionsPage: React.FC<Props> = ({
 }) => {
   const [activeTrack, setActiveTrack] = useState<GhazalTrack>(GHAZAL_CATALOG[0]);
   const [selectedFilter, setSelectedFilter] = useState<"all" | "jagjit" | "classic" | "romance">("all");
+  const [isPlaying, setIsPlaying] = useState<boolean>(true);
+  const [isMuted, setIsMuted] = useState<boolean>(false);
+  const iframeRef = useRef<HTMLIFrameElement>(null);
   const playerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
 
+  // PostMessage helper to control YouTube IFrame API directly
+  const sendYTCommand = (func: string, args: any[] = []) => {
+    try {
+      if (iframeRef.current?.contentWindow) {
+        iframeRef.current.contentWindow.postMessage(
+          JSON.stringify({ event: "command", func, args }),
+          "*"
+        );
+      }
+    } catch (err) {
+      console.warn("Could not send YouTube command:", err);
+    }
+  };
+
+  // Listen for YouTube player state changes to keep UI synchronized
+  useEffect(() => {
+    const handleYTMessage = (e: MessageEvent) => {
+      try {
+        const data = typeof e.data === "string" ? JSON.parse(e.data) : e.data;
+        if (data?.event === "onStateChange") {
+          // 1 = PLAYING, 2 = PAUSED, 0 = ENDED, 3 = BUFFERING
+          if (data.info === 1) {
+            setIsPlaying(true);
+          } else if (data.info === 2) {
+            setIsPlaying(false);
+          } else if (data.info === 0) {
+            playNextTrack();
+          }
+        }
+      } catch {
+        // Non-JSON messages ignored
+      }
+    };
+
+    window.addEventListener("message", handleYTMessage);
+    return () => window.removeEventListener("message", handleYTMessage);
+  }, [activeTrack]);
+
+  const togglePlayPause = () => {
+    if (isPlaying) {
+      sendYTCommand("pauseVideo");
+      setIsPlaying(false);
+    } else {
+      sendYTCommand("playVideo");
+      setIsPlaying(true);
+    }
+  };
+
+  const toggleMute = () => {
+    if (isMuted) {
+      sendYTCommand("unMute");
+      setIsMuted(false);
+    } else {
+      sendYTCommand("mute");
+      setIsMuted(true);
+    }
+  };
+
+  const restartTrack = () => {
+    sendYTCommand("seekTo", [0, true]);
+    sendYTCommand("playVideo");
+    setIsPlaying(true);
+  };
+
+  const playNextTrack = () => {
+    const currentIndex = GHAZAL_CATALOG.findIndex((t) => t.id === activeTrack.id);
+    const nextIndex = (currentIndex + 1) % GHAZAL_CATALOG.length;
+    setActiveTrack(GHAZAL_CATALOG[nextIndex]);
+    setIsPlaying(true);
+  };
+
+  const playPrevTrack = () => {
+    const currentIndex = GHAZAL_CATALOG.findIndex((t) => t.id === activeTrack.id);
+    const prevIndex = (currentIndex - 1 + GHAZAL_CATALOG.length) % GHAZAL_CATALOG.length;
+    setActiveTrack(GHAZAL_CATALOG[prevIndex]);
+    setIsPlaying(true);
+  };
+
   const handleSelectTrack = (track: GhazalTrack) => {
     setActiveTrack(track);
+    setIsPlaying(true);
     if (playerRef.current) {
       playerRef.current.scrollIntoView({ behavior: "smooth", block: "center" });
     }
@@ -173,7 +255,7 @@ export const PalaceSessionsPage: React.FC<Props> = ({
   });
 
   return (
-    <div className="relative w-full min-h-screen bg-[#020818] text-white pt-20 sm:pt-24 pb-20 select-none">
+    <div className="relative w-full min-h-screen bg-[#020818] text-white pt-20 sm:pt-24 pb-20">
       
       {/* Background Royal Sapphire & Gold Aura */}
       <div className="fixed inset-0 pointer-events-none z-0">
@@ -196,15 +278,15 @@ export const PalaceSessionsPage: React.FC<Props> = ({
           </button>
 
           <div className="flex items-center gap-3">
-            <span className="w-2.5 h-2.5 rounded-full bg-[#E7C97C] animate-pulse shadow-[0_0_12px_#E7C97C]" />
+            <span className={`w-2.5 h-2.5 rounded-full ${isPlaying ? "bg-[#E7C97C] animate-pulse shadow-[0_0_12px_#E7C97C]" : "bg-white/40"}`} />
             <span className="font-mono text-[10px] sm:text-xs uppercase tracking-[0.25em] text-[#E7C97C] font-bold">
-              STREAMING DIRECTLY IN PALACE
+              {isPlaying ? "PLAYING IN PALACE" : "PAUSED"}
             </span>
           </div>
         </div>
 
         {/* Hero Title Section */}
-        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-black/60 border border-[#C6A865]/50 backdrop-blur-md mb-4 shadow-xl">
             <span className="font-serif text-[11px] font-bold tracking-[0.3em] uppercase text-[#E7C97C]">
               ROYAL MEHFIL • GHAZAL SESSIONS
@@ -226,7 +308,7 @@ export const PalaceSessionsPage: React.FC<Props> = ({
         </div>
 
         {/* ========================================================
-            2. EMBEDDED MAIN STAGE (YouTube Video Plays Right Here)
+            2. EMBEDDED MAIN STAGE (YouTube Video + Master Control Bar)
         ======================================================== */}
         <div ref={playerRef} className="mb-14 sm:mb-20">
           <div className="relative rounded-3xl overflow-hidden bg-[#030d24] border-2 border-[#C6A865]/50 shadow-[0_25px_80px_rgba(0,0,0,0.9)] p-3 sm:p-5 md:p-6 backdrop-blur-xl">
@@ -234,8 +316,10 @@ export const PalaceSessionsPage: React.FC<Props> = ({
             {/* Top Player Header Bar */}
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 mb-4 px-2">
               <div className="flex items-center gap-3">
-                <div className="w-9 h-9 rounded-full bg-[#061b4c] border border-[#C6A865]/60 flex items-center justify-center shadow-lg">
-                  <span className="text-[#E7C97C] text-sm font-bold">♪</span>
+                <div className="w-10 h-10 rounded-full bg-[#061b4c] border border-[#C6A865]/60 flex items-center justify-center shadow-lg">
+                  <span className={`text-sm font-bold ${isPlaying ? "text-[#E7C97C] animate-spin" : "text-white/60"}`}>
+                    💿
+                  </span>
                 </div>
                 <div>
                   <span className="font-mono text-[9px] uppercase tracking-[0.25em] text-[#C6A865] block">
@@ -257,16 +341,95 @@ export const PalaceSessionsPage: React.FC<Props> = ({
               </div>
             </div>
 
-            {/* Embedded Responsive YouTube Iframe */}
-            <div className="relative w-full aspect-video rounded-2xl overflow-hidden bg-black shadow-inner border border-white/10">
+            {/* Embedded Responsive YouTube Iframe with Pointer-Events Enabled */}
+            <div className="relative w-full aspect-video rounded-2xl overflow-hidden bg-black shadow-inner border border-white/10 pointer-events-auto">
               <iframe
+                ref={iframeRef}
                 key={activeTrack.youtubeId}
-                src={`https://www.youtube-nocookie.com/embed/${activeTrack.youtubeId}?autoplay=1&rel=0&modestbranding=1&color=white`}
+                src={`https://www.youtube-nocookie.com/embed/${activeTrack.youtubeId}?enablejsapi=1&autoplay=1&rel=0&modestbranding=1&controls=1&playsinline=1`}
                 title={`${activeTrack.title} by ${activeTrack.artist}`}
-                className="absolute inset-0 w-full h-full border-0"
+                className="interactive-iframe absolute inset-0 w-full h-full border-0 pointer-events-auto z-10"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowFullScreen
               />
+            </div>
+
+            {/* ========================================================
+                DEDICATED MASTER CONTROL BAR (PAUSE / PLAY / NEXT / MUTE)
+            ======================================================== */}
+            <div className="mt-4 p-3 sm:p-4 rounded-2xl bg-[#020818]/95 border border-[#C6A865]/40 shadow-xl flex flex-wrap items-center justify-between gap-4">
+              
+              {/* Left: Previous, Play/Pause, Next */}
+              <div className="flex items-center gap-2 sm:gap-3">
+                {/* Previous Button */}
+                <button
+                  onClick={playPrevTrack}
+                  title="Previous Ghazal"
+                  className="w-10 h-10 rounded-full bg-white/5 hover:bg-[#C6A865] hover:text-black border border-white/20 text-white flex items-center justify-center transition-all cursor-pointer shadow-md"
+                >
+                  ⏮
+                </button>
+
+                {/* Primary PLAY / PAUSE Button */}
+                <button
+                  onClick={togglePlayPause}
+                  className={`px-5 sm:px-7 py-2.5 rounded-full font-mono text-xs sm:text-sm font-black uppercase tracking-[0.2em] flex items-center gap-2.5 transition-all duration-300 shadow-2xl cursor-pointer ${
+                    isPlaying
+                      ? "bg-[#E7C97C] hover:bg-[#C6A865] text-black shadow-[0_0_20px_rgba(231,201,124,0.4)] scale-105"
+                      : "bg-white/10 hover:bg-[#E7C97C] hover:text-black text-white border border-[#C6A865]"
+                  }`}
+                >
+                  <span className="text-base">{isPlaying ? "⏸" : "▶"}</span>
+                  <span>{isPlaying ? "PAUSE GHAZAL" : "RESUME GHAZAL"}</span>
+                </button>
+
+                {/* Next Button */}
+                <button
+                  onClick={playNextTrack}
+                  title="Next Ghazal"
+                  className="w-10 h-10 rounded-full bg-white/5 hover:bg-[#C6A865] hover:text-black border border-white/20 text-white flex items-center justify-center transition-all cursor-pointer shadow-md"
+                >
+                  ⏭
+                </button>
+              </div>
+
+              {/* Middle: Soundwave Status */}
+              <div className="hidden md:flex items-center gap-2 font-mono text-xs text-[#E7C97C]">
+                <div className="flex items-end gap-1 h-4">
+                  <span className={`w-1 bg-[#E7C97C] rounded-full transition-all duration-300 ${isPlaying ? "h-4 animate-pulse" : "h-1"}`} />
+                  <span className={`w-1 bg-[#E7C97C] rounded-full transition-all duration-300 ${isPlaying ? "h-3 animate-pulse delay-100" : "h-1"}`} />
+                  <span className={`w-1 bg-[#E7C97C] rounded-full transition-all duration-300 ${isPlaying ? "h-5 animate-pulse delay-200" : "h-1"}`} />
+                  <span className={`w-1 bg-[#E7C97C] rounded-full transition-all duration-300 ${isPlaying ? "h-2 animate-pulse delay-150" : "h-1"}`} />
+                </div>
+                <span className="text-[10px] tracking-widest uppercase">
+                  {isPlaying ? "MASTER RECORDING STREAMING" : "PLAYBACK PAUSED"}
+                </span>
+              </div>
+
+              {/* Right: Mute & Restart Controls */}
+              <div className="flex items-center gap-2">
+                <button
+                  onClick={toggleMute}
+                  className={`px-3 py-1.5 rounded-full font-mono text-[10px] sm:text-xs font-bold uppercase tracking-wider border transition-all cursor-pointer flex items-center gap-1.5 ${
+                    isMuted
+                      ? "bg-red-950/60 border-red-500/50 text-red-300"
+                      : "bg-white/5 hover:bg-white/15 border-white/20 text-white/90"
+                  }`}
+                >
+                  <span>{isMuted ? "🔇" : "🔊"}</span>
+                  <span>{isMuted ? "UNMUTE" : "MUTE"}</span>
+                </button>
+
+                <button
+                  onClick={restartTrack}
+                  title="Restart Track from Beginning"
+                  className="px-3 py-1.5 rounded-full font-mono text-[10px] sm:text-xs font-bold uppercase tracking-wider bg-white/5 hover:bg-white/15 border border-white/20 text-white/90 transition-all cursor-pointer flex items-center gap-1"
+                >
+                  <span>↺</span>
+                  <span className="hidden sm:inline">REPLAY</span>
+                </button>
+              </div>
+
             </div>
 
             {/* Now Playing Detailed Metadata Panel */}
@@ -373,14 +536,14 @@ export const PalaceSessionsPage: React.FC<Props> = ({
           {/* Ghazal Cards Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
             {filteredTracks.map((track) => {
-              const isPlaying = activeTrack.id === track.id;
+              const isCurrentTrack = activeTrack.id === track.id;
               return (
                 <motion.div
                   key={track.id}
                   whileHover={{ y: -4 }}
                   onClick={() => handleSelectTrack(track)}
                   className={`group relative rounded-2xl overflow-hidden bg-[#041235] p-5 border-2 transition-all duration-300 cursor-pointer flex flex-col justify-between shadow-2xl ${
-                    isPlaying
+                    isCurrentTrack
                       ? "border-[#E7C97C] shadow-[0_10px_40px_rgba(231,201,124,0.25)] bg-[#05194a]"
                       : "border-[#C6A865]/25 hover:border-[#C6A865]/70"
                   }`}
@@ -397,10 +560,14 @@ export const PalaceSessionsPage: React.FC<Props> = ({
                       
                       {/* Play State Badge */}
                       <div className="absolute top-3 left-3 z-10">
-                        {isPlaying ? (
+                        {isCurrentTrack && isPlaying ? (
                           <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#E7C97C] text-black font-mono text-[9px] font-black uppercase tracking-wider shadow-lg">
                             <span className="w-2 h-2 rounded-full bg-black animate-ping" />
                             <span>PLAYING NOW</span>
+                          </div>
+                        ) : isCurrentTrack ? (
+                          <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/20 text-white font-mono text-[9px] font-bold uppercase tracking-wider shadow-lg">
+                            <span>PAUSED</span>
                           </div>
                         ) : (
                           <div className="w-8 h-8 rounded-full bg-black/70 backdrop-blur-md border border-[#C6A865]/60 flex items-center justify-center text-[#E7C97C] text-xs font-bold group-hover:scale-110 group-hover:bg-[#C6A865] group-hover:text-black transition-all">
@@ -444,15 +611,19 @@ export const PalaceSessionsPage: React.FC<Props> = ({
                     <button
                       onClick={(e) => {
                         e.stopPropagation();
-                        handleSelectTrack(track);
+                        if (isCurrentTrack) {
+                          togglePlayPause();
+                        } else {
+                          handleSelectTrack(track);
+                        }
                       }}
                       className={`px-3.5 py-1.5 rounded-full font-mono text-[10px] font-bold uppercase tracking-wider transition-all duration-300 ${
-                        isPlaying
+                        isCurrentTrack && isPlaying
                           ? "bg-[#E7C97C] text-black shadow-lg"
                           : "bg-white/10 group-hover:bg-[#C6A865] group-hover:text-black text-white"
                       }`}
                     >
-                      {isPlaying ? "ACTIVE" : "PLAY SONG"}
+                      {isCurrentTrack ? (isPlaying ? "⏸ PAUSE" : "▶ RESUME") : "PLAY SONG"}
                     </button>
                   </div>
                 </motion.div>

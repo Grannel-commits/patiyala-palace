@@ -46,8 +46,14 @@ body {
     overflow: hidden;
   }
   
-  .lenis.lenis-smooth iframe {
+  /* Only disable pointer-events while actively scrolling to prevent jank */
+  .lenis.lenis-scrolling iframe {
     pointer-events: none;
+  }
+
+  .interactive-iframe,
+  iframe.interactive-iframe {
+    pointer-events: auto !important;
   }
 }
 
