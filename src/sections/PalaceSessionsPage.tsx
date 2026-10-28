@@ -33,7 +33,7 @@ const GHAZAL_CATALOG: GhazalTrack[] = [
     poetryBy: "Sudarshan Faakir",
     coupletHindi: "ये दौलत भी ले लो, ये शोहरत भी ले लो, भले छीन लो मुझसे मेरी जवानी... मगर मुझको लौटा दो बचपन का सावन, वो कागज़ की कश्ती, वो बारिश का पानी।",
     coupletEnglish: "Take this wealth, take this fame, take away my youth... But return to me the monsoon of my childhood, that paper boat, that rain water.",
-    whiskyPairing: "Patiyala Palace Royal Reserve Neat",
+    whiskyPairing: "Patiyala Palace Crafted Indian Malt Neat",
     tastingNote: "Toasted oak, warm vanilla, and honeyed butterscotch that unfurls as the nostalgic harmonium notes rise.",
     description: "An immortal masterpiece reflecting on lost innocence and childhood rain. The gentle hum of Jagjit Singh's voice complements an unhurried, thoughtful dram.",
   },

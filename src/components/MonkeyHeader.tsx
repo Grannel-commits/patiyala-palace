@@ -39,7 +39,7 @@ export const MonkeyHeader: React.FC<Props> = ({ onOpenMenu, onNavigateHome }) =>
 
         {/* Text beside icons: ROYAL HERITAGE / WHERE ROYALTY MEETS THE BARREL */}
         <div className="hidden lg:flex flex-col text-[9px] leading-tight font-sans font-black tracking-widest text-[#E7C97C]/90 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
-          <span className="uppercase tracking-widest text-[#E7C97C]">ESTD. PUNJAB & HARYANA</span>
+          <span className="uppercase tracking-widest text-[#E7C97C]">PUNJAB & HARYANA</span>
           <span className="uppercase text-white/80">WHERE ROYALTY MEETS THE BARREL</span>
         </div>
       </div>

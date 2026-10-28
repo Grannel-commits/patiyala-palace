@@ -10,7 +10,7 @@ export const PalaceSessionsSection: React.FC = () => {
       vibe: "Lo-Fi Beats & Velvet Jazz",
       bpm: "84 BPM",
       curator: "The Royal Bar Lounge",
-      pairing: "Tasting with Royal Reserve (Batch 01)",
+      pairing: "Tasting with Crafted Indian Malt (Batch 01)",
       description: "Warm brass horns, acoustic upright bass, and hypnotic tape-saturated beats crafted for candlelit drams and unhurried conversation.",
       tag: "AFTER DARK",
       duration: "1 hr 45 min",

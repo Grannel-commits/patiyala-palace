@@ -109,7 +109,7 @@ const FIVE_FEATURED_COCKTAILS: CocktailItem[] = [
     name: "THE SOVEREIGN ROYAL ROB",
     subtitle: "Sweet Italian Vermouth & Maraschino",
     image: "/assets/cocktails/covers/the_royal_rob.jpg",
-    tags: ["SWEET VERMOUTH", "MANHATTAN TWIST", "ROYAL RESERVE"],
+    tags: ["SWEET VERMOUTH", "MANHATTAN TWIST", "CRAFTED MALT"],
     description: "A regal twist on the classic Rob Roy. Patiyala Palace Indian crafted malt stirred with sweet vermouth and aromatic Angostura bitters, served up in fine stemware.",
     ingredients: [
       { name: "Patiyala Palace Crafted Indian Malt", amount: "50 ml" },

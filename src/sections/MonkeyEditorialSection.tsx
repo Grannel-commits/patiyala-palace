@@ -43,7 +43,7 @@ export const MonkeyEditorialSection: React.FC = () => {
             </p>
             <div className="mt-3 pt-2.5 border-t border-white/10 flex items-center justify-between text-[10px] font-mono text-white/60">
               <span className="uppercase tracking-widest text-[#E7C97C]">BATCH NO. 01</span>
-              <span className="uppercase tracking-widest">42.8% ABV • ROYAL RESERVE</span>
+              <span className="uppercase tracking-widest">42.8% ABV • CRAFTED MALT</span>
             </div>
           </div>
         </motion.div>
@@ -78,9 +78,6 @@ export const MonkeyEditorialSection: React.FC = () => {
                 HERITAGE CRAFTSMANSHIP
               </span>
             </div>
-            <span className="font-serif text-xs font-bold uppercase tracking-[0.2em] text-white/70">
-              ESTD. 1763
-            </span>
           </div>
 
           {/* Overlaid Editorial Headline */}
@@ -104,7 +101,7 @@ export const MonkeyEditorialSection: React.FC = () => {
               </span>
             </div>
             <span className="font-mono text-[10px] text-white/60 uppercase tracking-widest hidden sm:inline-block">
-              BATCH NO. 01 • ROYAL RESERVE
+              BATCH NO. 01 • SAKSHAM SPIRITS
             </span>
           </div>
         </motion.div>

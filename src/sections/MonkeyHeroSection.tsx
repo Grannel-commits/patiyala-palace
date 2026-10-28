@@ -49,7 +49,7 @@ export const MonkeyHeroSection: React.FC = () => {
             <div className="bg-black/60 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-[#C6A865]/50 flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-[#E7C97C] animate-pulse" />
               <span className="font-mono text-[10px] font-bold text-white uppercase tracking-widest">
-                ROYAL RESERVE • 42.8%
+                42.8% ABV • INDIAN MALT
               </span>
             </div>
           </div>

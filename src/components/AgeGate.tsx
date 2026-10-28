@@ -43,7 +43,7 @@ export const AgeGate = ({ onVerify }: Props) => {
 
       {/* Top Brand Header */}
       <div className="absolute top-8 left-8 right-8 flex justify-between items-center text-[10px] tracking-[0.3em] uppercase text-[#D4AF37] font-display pointer-events-none font-bold drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
-        <span>ESTD. PATIYALA</span>
+        <span>PATIYALA PALACE</span>
         <span>WHERE ROYALTY MEETS THE BARREL</span>
       </div>
 
