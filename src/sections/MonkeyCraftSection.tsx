@@ -59,7 +59,7 @@ export const MonkeyCraftSection: React.FC<Props> = ({ onExploreCraft }) => {
             <div className="absolute inset-0 mix-blend-color bg-[#071f54]/20 pointer-events-none" />
 
             {/* Subtle Royal Accent Badge */}
-            <div className="relative z-10 absolute bottom-4 right-4 bg-black/80 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-[#CBD5E1]/40 flex items-center gap-2 shadow-xl">
+            <div className="absolute z-20 bottom-4 right-4 sm:bottom-5 sm:right-5 bg-black/85 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-[#CBD5E1]/40 flex items-center gap-2 shadow-xl">
               <span className="w-2 h-2 rounded-full bg-[#E2E8F0] animate-pulse" />
               <span className="font-mono text-[9px] font-bold text-white uppercase tracking-widest">
                 PATIYALA PALACE • INDIAN CRAFTED MALT WHISKY
