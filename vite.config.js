@@ -7,5 +7,12 @@ export default defineConfig({
         port: 5174,
         host: '0.0.0.0',
         open: false,
+        allowedHosts: true,
+    },
+    preview: {
+        port: 5174,
+        host: '0.0.0.0',
+        open: false,
+        allowedHosts: true,
     }
 });
