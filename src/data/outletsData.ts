@@ -470,6 +470,58 @@ export const HARYANA_OUTLETS: OutletLocation[] = [
   },
 ];
 
+const OTHER_CITIES_AND_STATES = new Set([
+  "mumbai",
+  "bombay",
+  "bengaluru",
+  "bangalore",
+  "hyderabad",
+  "kolkata",
+  "calcutta",
+  "chennai",
+  "madras",
+  "pune",
+  "ahmedabad",
+  "jaipur",
+  "surat",
+  "lucknow",
+  "kanpur",
+  "nagpur",
+  "indore",
+  "thane",
+  "bhopal",
+  "patna",
+  "vadodara",
+  "ghaziabad",
+  "noida",
+  "greater noida",
+  "delhi",
+  "new delhi",
+  "south delhi",
+  "chandigarh",
+  "ludhiana",
+  "amritsar",
+  "jalandhar",
+  "dehradun",
+  "goa",
+  "shimla",
+  "manali",
+  "maharashtra",
+  "karnataka",
+  "tamil nadu",
+  "telangana",
+  "andhra pradesh",
+  "rajasthan",
+  "punjab",
+  "uttar pradesh",
+  "gujarat",
+  "bihar",
+  "west bengal",
+  "kerala",
+  "odisha",
+  "madhya pradesh",
+]);
+
 export function checkLocationAvailability(query: string): {
   matched: boolean;
   outlets: OutletLocation[];
@@ -480,7 +532,18 @@ export function checkLocationAvailability(query: string): {
     return { matched: false, outlets: [], cleanedQuery: "" };
   }
 
-  // Broad state/city matches:
+  // If query is specifically another major city/state outside Haryana
+  const isExplicitHaryana =
+    cleaned.includes("haryana") ||
+    cleaned.includes("gurugram") ||
+    cleaned.includes("gurgaon") ||
+    cleaned.includes("ggn");
+
+  if (!isExplicitHaryana && OTHER_CITIES_AND_STATES.has(cleaned)) {
+    return { matched: false, outlets: [], cleanedQuery: query };
+  }
+
+  // Broad state/city matches for Haryana/Gurugram:
   if (
     cleaned === "haryana" ||
     cleaned === "gurugram" ||
@@ -491,16 +554,34 @@ export function checkLocationAvailability(query: string): {
     return { matched: true, outlets: HARYANA_OUTLETS, cleanedQuery: query };
   }
 
+  // Helper for word-boundary matching
+  const hasWord = (source: string, word: string) => {
+    if (word.length >= 5 && source.includes(word)) return true;
+    const escaped = word.replace(/[-\/\\^$*+?.()|[\]{}]/g, "\\$&");
+    return new RegExp(`(?:^|[^a-z0-9])${escaped}(?:$|[^a-z0-9])`, "i").test(
+      source
+    );
+  };
+
   // Check matching outlets:
   const matches = HARYANA_OUTLETS.filter((outlet) => {
+    const oName = outlet.name.toLowerCase();
+    const oArea = outlet.area.toLowerCase();
+    const oLandmark = outlet.landmark.toLowerCase();
+
     // 1. Direct name match
-    if (outlet.name.toLowerCase().includes(cleaned)) return true;
+    if (hasWord(cleaned, oName) || hasWord(oName, cleaned)) return true;
     // 2. Area match
-    if (outlet.area.toLowerCase().includes(cleaned)) return true;
+    if (hasWord(cleaned, oArea) || hasWord(oArea, cleaned)) return true;
     // 3. Landmark match
-    if (outlet.landmark.toLowerCase().includes(cleaned)) return true;
-    // 4. Keywords match
-    if (outlet.keywords.some((k) => cleaned.includes(k) || k.includes(cleaned))) return true;
+    if (hasWord(cleaned, oLandmark) || hasWord(oLandmark, cleaned)) return true;
+
+    // 4. Keywords match (using word boundary for short keywords to prevent collisions like 'hyde' with 'hyderabad')
+    for (const k of outlet.keywords) {
+      const kw = k.toLowerCase();
+      if (hasWord(cleaned, kw)) return true;
+      if (cleaned.length >= 4 && hasWord(kw, cleaned)) return true;
+    }
 
     // Check sector number if user typed numbers e.g. "29", "40", "47", "56", "65", "62"
     const numberMatches = cleaned.match(/\b\d{1,3}\b/g);
