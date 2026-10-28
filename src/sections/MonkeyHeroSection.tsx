@@ -10,15 +10,16 @@ export const MonkeyHeroSection: React.FC = () => {
         transition={{ duration: 0.8 }}
         className="relative w-full h-[calc(100vh-7.5rem)] min-h-[580px] max-h-[820px] rounded-2xl sm:rounded-3xl overflow-hidden bg-black group select-none shadow-2xl border border-[#CBD5E1]/30 flex flex-col justify-between p-6 sm:p-10 md:p-12"
       >
-        {/* Centered Hero Bottle Image */}
+        {/* Hero Bottle Image - Scaled up for impactful presence */}
         <img
           src="/assets/product/patiyala_hero_bottle_cinematic.jpg"
           alt="Patiyala Palace Indian Crafted Malt Whisky"
-          className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-1000 ease-out group-hover:scale-[1.02]"
+          className="absolute inset-0 w-full h-full object-cover object-[center_55%] scale-115 sm:scale-120 md:scale-125 transition-transform duration-1000 ease-out group-hover:scale-[1.28]"
         />
 
         {/* Vignette & Shadows for Depth & Contrast */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/25 to-black/40 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-black/40 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/25 to-transparent pointer-events-none" />
 
         {/* Top Badges Bar */}
         <div className="relative z-10 w-full flex items-center justify-between">
@@ -33,9 +34,9 @@ export const MonkeyHeroSection: React.FC = () => {
           </span>
         </div>
 
-        {/* Bottom Centered Bold Statement */}
-        <div className="relative z-10 w-full max-w-4xl mx-auto text-center flex flex-col items-center">
-          <span className="font-serif tracking-[0.35em] uppercase text-xs sm:text-sm text-[#E2E8F0] font-bold block mb-2 sm:mb-3 drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)]">
+        {/* Bottom Left Bold Statement (as before) */}
+        <div className="relative z-10 max-w-xl lg:max-w-2xl text-left">
+          <span className="font-serif tracking-[0.3em] uppercase text-xs sm:text-sm text-[#E2E8F0] font-bold block mb-2 sm:mb-3 drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)]">
             WHERE ROYALTY MEETS THE BARREL
           </span>
           <h1 className="font-sans font-black uppercase text-3xl sm:text-5xl md:text-6xl lg:text-7xl tracking-tight leading-[0.95] text-white drop-shadow-[0_4px_30px_rgba(0,0,0,0.95)]">
