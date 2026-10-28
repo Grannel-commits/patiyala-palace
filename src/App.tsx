@@ -24,11 +24,12 @@ import { MonkeyFooterSection } from "./sections/MonkeyFooterSection";
 // Dedicated Sub-Pages
 import { OurCocktailsPage } from "./sections/OurCocktailsPage";
 import { OurStoryPage } from "./sections/OurStoryPage";
+import { PalaceSessionsPage } from "./sections/PalaceSessionsPage";
 
 gsap.registerPlugin(ScrollTrigger);
 
 function App() {
-  const [currentPage, setCurrentPage] = useState<"home" | "cocktails" | "story">(() => {
+  const [currentPage, setCurrentPage] = useState<"home" | "cocktails" | "story" | "sessions">(() => {
     if (typeof window === "undefined") return "home";
     const params = new URLSearchParams(window.location.search);
     const hash = window.location.hash;
@@ -46,6 +47,14 @@ function App() {
       hash === "#story-page"
     ) {
       return "story";
+    }
+    if (
+      params.get("page") === "sessions" ||
+      hash === "#sessions" ||
+      hash === "#palace-sessions" ||
+      hash === "#ghazals"
+    ) {
+      return "sessions";
     }
     return "home";
   });
@@ -73,6 +82,12 @@ function App() {
         hash === "#our-story"
       ) {
         setCurrentPage("story");
+      } else if (
+        params.get("page") === "sessions" ||
+        hash === "#sessions" ||
+        hash === "#palace-sessions"
+      ) {
+        setCurrentPage("sessions");
       } else {
         setCurrentPage("home");
       }
@@ -115,7 +130,7 @@ function App() {
     setIsAgeVerified(false);
   };
 
-  const navigateTo = (page: "home" | "cocktails" | "story") => {
+  const navigateTo = (page: "home" | "cocktails" | "story" | "sessions") => {
     setCurrentPage(page);
     if (page === "home") {
       window.history.pushState({}, "", "/");
@@ -149,6 +164,7 @@ function App() {
         onNavigate={(sectionId) => {
           if (sectionId === "story") navigateTo("story");
           else if (sectionId === "cocktails") navigateTo("cocktails");
+          else if (sectionId === "sessions") navigateTo("sessions");
           else navigateTo("home");
         }}
       />
@@ -166,6 +182,15 @@ function App() {
           <OurStoryPage
             onBackToHome={() => navigateTo("home")}
             onExploreCocktails={() => navigateTo("cocktails")}
+            onExploreSessions={() => navigateTo("sessions")}
+          />
+        </main>
+      ) : currentPage === "sessions" ? (
+        <main className="relative z-10 w-full">
+          <PalaceSessionsPage
+            onBackToHome={() => navigateTo("home")}
+            onExploreCocktails={() => navigateTo("cocktails")}
+            onExploreStory={() => navigateTo("story")}
           />
         </main>
       ) : (
@@ -184,7 +209,7 @@ function App() {
           <MonkeyCocktailsCarousel onSeeAllRecipes={() => navigateTo("cocktails")} />
 
           {/* 5. COLLABORATION & CULTURE: FRED AGAIN.. + STUDIO + SELECTS */}
-          <MonkeyCultureCollab />
+          <MonkeyCultureCollab onExploreSessions={() => navigateTo("sessions")} />
 
           {/* 6. CONTINUOUS MARQUEE TICKER: THREE MONKEYS. THREE MALTS. */}
           <MonkeyMarquee />

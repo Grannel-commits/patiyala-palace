@@ -14,10 +14,11 @@ export const MenuOverlay: React.FC<Props> = ({ isOpen, onClose, onNavigate }) =>
   };
 
   const navLinks = [
+    { label: "Home", id: "home", tag: "THE ROYAL ENTRY" },
     { label: "Our Whiskies", id: "whiskies", tag: "BATCH 27 • 100% MALT" },
     { label: "Cocktails", id: "cocktails", tag: "MADE FOR MIXING" },
     { label: "Our Story", id: "story", tag: "THE ROOTS & CRAFT" },
-    { label: "Palace Sessions", id: "sessions", tag: "SOUND & MUSIC" },
+    { label: "Palace Sessions", id: "sessions", tag: "GHAZAL MUSIC & LOUNGE" },
   ];
 
   return (

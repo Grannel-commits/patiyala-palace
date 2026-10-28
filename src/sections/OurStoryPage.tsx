@@ -4,11 +4,13 @@ import { motion, AnimatePresence } from "framer-motion";
 interface Props {
   onBackToHome?: () => void;
   onExploreCocktails?: () => void;
+  onExploreSessions?: () => void;
 }
 
 export const OurStoryPage: React.FC<Props> = ({
   onBackToHome,
   onExploreCocktails,
+  onExploreSessions,
 }) => {
   const [activeTastingTab, setActiveTastingTab] = useState<"nose" | "palate" | "finish">("nose");
 
@@ -682,6 +684,14 @@ export const OurStoryPage: React.FC<Props> = ({
                 className="w-full sm:w-auto px-8 py-3.5 rounded-full bg-[#D4AF37] hover:bg-[#F3E5AB] text-[#03102B] font-display text-xs font-bold tracking-[0.2em] uppercase transition-all duration-300 shadow-xl cursor-pointer"
               >
                 EXPLORE COCKTAILS
+              </button>
+            )}
+            {onExploreSessions && (
+              <button
+                onClick={onExploreSessions}
+                className="w-full sm:w-auto px-8 py-3.5 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-white font-display text-xs font-bold tracking-[0.2em] uppercase transition-all duration-300 cursor-pointer"
+              >
+                PALACE SESSIONS (GHAZALS)
               </button>
             )}
             {onBackToHome && (

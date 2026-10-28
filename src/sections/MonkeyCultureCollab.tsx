@@ -1,7 +1,11 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-export const MonkeyCultureCollab: React.FC = () => {
+interface Props {
+  onExploreSessions?: () => void;
+}
+
+export const MonkeyCultureCollab: React.FC<Props> = ({ onExploreSessions }) => {
   return (
     <section className="relative w-full p-2 sm:p-3 md:p-4 my-2 sm:my-4 flex flex-col gap-2 sm:gap-3 md:gap-4 select-none">
       
@@ -23,7 +27,10 @@ export const MonkeyCultureCollab: React.FC = () => {
 
         {/* Floating Top-Left Red Badge Card */}
         <div className="absolute top-6 left-6 sm:top-10 sm:left-10 z-10 max-w-md">
-          <div className="p-5 sm:p-6 rounded-2xl sm:rounded-3xl bg-[#061b4c] text-white shadow-2xl border border-[#C6A865]/40 group-hover:scale-105 transition-transform duration-300 cursor-pointer">
+          <div 
+            onClick={onExploreSessions}
+            className="p-5 sm:p-6 rounded-2xl sm:rounded-3xl bg-[#061b4c] text-white shadow-2xl border border-[#C6A865]/40 group-hover:scale-105 transition-transform duration-300 cursor-pointer"
+          >
             <div className="flex items-center justify-between gap-4 mb-2">
               <h3 className="font-serif font-black text-xl sm:text-2xl uppercase tracking-tight leading-tight text-[#E7C97C]">
                 PATIYALA PALACE SESSIONS

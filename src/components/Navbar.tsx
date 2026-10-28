@@ -5,7 +5,7 @@ interface Props {
   onNavigate: (sectionId: string) => void;
   isAudioPlaying?: boolean;
   onToggleAudio?: () => void;
-  currentPage?: "home" | "cocktails" | "story";
+  currentPage?: "home" | "cocktails" | "story" | "sessions";
 }
 
 export const Navbar: React.FC<Props> = ({
@@ -62,6 +62,7 @@ export const Navbar: React.FC<Props> = ({
           {/* CENTER: Desktop Navigation Links (Monkey Shoulder Clean & Bold) */}
           <ul className="hidden md:flex items-center gap-1.5 lg:gap-3">
             {[
+              { id: "home", label: "HOME" },
               { id: "whiskies", label: "OUR WHISKIES" },
               { id: "cocktails", label: "COCKTAILS" },
               { id: "story", label: "OUR STORY" },
@@ -70,7 +71,8 @@ export const Navbar: React.FC<Props> = ({
               const isActive =
                 (currentPage === "story" && link.id === "story") ||
                 (currentPage === "cocktails" && link.id === "cocktails") ||
-                (currentPage === "home" && link.id === "whiskies" && !isScrolled);
+                (currentPage === "sessions" && link.id === "sessions") ||
+                (currentPage === "home" && (link.id === "home" || (link.id === "whiskies" && !isScrolled)));
               return (
                 <li key={link.id}>
                   <button
