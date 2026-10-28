@@ -214,6 +214,7 @@ function App() {
             onBackToHome={() => navigateTo("home")}
             onExploreCocktails={() => navigateTo("cocktails")}
             onExploreSessions={() => navigateTo("sessions")}
+            onNavigateFindUs={() => navigateTo("find-us")}
           />
         </main>
       ) : currentPage === "sessions" ? (

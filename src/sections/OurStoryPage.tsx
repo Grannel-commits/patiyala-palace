@@ -5,14 +5,16 @@ interface Props {
   onBackToHome?: () => void;
   onExploreCocktails?: () => void;
   onExploreSessions?: () => void;
+  onNavigateFindUs?: () => void;
 }
 
 export const OurStoryPage: React.FC<Props> = ({
   onBackToHome,
   onExploreCocktails,
   onExploreSessions,
+  onNavigateFindUs,
 }) => {
-  const [activeTastingTab, setActiveTastingTab] = useState<"nose" | "palate" | "finish">("nose");
+  const [activeSensoryTab, setActiveSensoryTab] = useState<"nose" | "palate" | "finish">("nose");
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -25,39 +27,45 @@ export const OurStoryPage: React.FC<Props> = ({
     }
   };
 
-  const tastingProfiles = {
+  const sensoryProfiles = {
     nose: {
-      headline: "A Rich, Honeyed & Spiced Bouquet",
-      description: "Opens with luscious aromas of sun-ripened orchard fruits, candied orange peel, and golden honeycomb, quickly deepening into delicate Indian cardamom, toasted coconut, and sweet charred American oak.",
+      headline: "Rich Malt & Smoked Vanilla",
+      tagline: "First Impression On The Nose",
+      description:
+        "On the nose, you get rich malt and smoked vanilla. Warm aromas of freshly kilned grain meet delicate sweet vanilla bean kissed by charred oak smoke, creating an immediate sense of grand royal hospitality.",
       notes: [
-        { title: "Golden Sultanas", desc: "Sun-drenched dried orchard fruit sweetness" },
-        { title: "Honey Blossom", desc: "Delicate floral nectar harvested from northern flora" },
-        { title: "Green Cardamom", desc: "A regal whisper of fragrant royal spice" },
-        { title: "Toasted Vanilla", desc: "Deep extraction from first-fill charred American oak" },
+        { title: "Rich Kilned Malt", desc: "Golden toasted barley directly from traditional floor maltings" },
+        { title: "Smoked Vanilla", desc: "Subtle sweet warmth derived from deep charring inside white oak" },
+        { title: "Wild Blossom Nectar", desc: "A gentle floral top note reminiscent of northern orchards" },
+        { title: "Soft Oak Spice", desc: "A fragrant whisper of nutmeg and clove resting in the background" },
       ],
-      intensity: "88%",
+      color: "from-amber-400 to-amber-600",
     },
     palate: {
-      headline: "Silky, Full-Bodied & Regal Complexity",
-      description: "A velvety, mouth-coating texture that reveals waves of creamy butterscotch, roasted almonds, dark caramel, and ripe golden plums, beautifully balanced by dry oak tannins and a touch of roasted malt biscuit.",
+      headline: "Toasted Oak, Warm Spices & Dried Fruits",
+      tagline: "The Sovereign Tasting Experience",
+      description:
+        "Take a sip, and you taste toasted oak, warm spices, and a hint of dried fruits. It tastes like old-world luxury with extreme smoothness and great mouthfeel. Every sip coats the palate in rich, balanced warmth.",
       notes: [
-        { title: "Creamy Butterscotch", desc: "Velvety caramelized sugars with buttery warmth" },
-        { title: "Roasted Almonds", desc: "Warm nutty depth from plump two-row Indian barley" },
-        { title: "Stewed Stone Fruits", desc: "Ripe apricots and golden plums stewed in cane syrup" },
-        { title: "Warm Oak Spices", desc: "Cinnamon bark and clove infused through heavy barrel char" },
+        { title: "Toasted American Oak", desc: "Caramelized wood sugars imparting buttery, vanilla-rich depth" },
+        { title: "Warm Indian Spices", desc: "Gentle warming cinnamon, green cardamom, and subtle clove" },
+        { title: "Sun-Dried Fruits", desc: "Sweet whispers of golden sultanas, sun-dried apricots, and fig" },
+        { title: "Silky Velvety Texture", desc: "Heavy mouth-coating viscosity that drinks exceptionally smooth" },
       ],
-      intensity: "94%",
+      color: "from-amber-500 to-orange-600",
     },
     finish: {
-      headline: "Long, Velvety & Enduring Royal Warmth",
-      description: "A remarkably enduring, warming finish that gently tapers with echoes of vanilla bean, toasted hazelnuts, delicate campfire oak embers, and a lingering sovereign spice.",
+      headline: "Extreme Smoothness & Great Mouthfeel",
+      tagline: "The Royal Enduring Finish",
+      description:
+        "A long, velvety taper that leaves an indelible impression of royal luxury. The warmth gently lingers in the chest with zero harshness, inviting the next celebratory pour.",
       notes: [
-        { title: "Warm Royal Spice", desc: "Lingering pepper and clove that warms the chest" },
-        { title: "Toasted Hazelnut", desc: "A long, dry, sophisticated roasted nut finish" },
-        { title: "Charred Oak Embers", desc: "The indelible signature of first-fill white oak" },
-        { title: "Golden Malt Oil", desc: "Viscous, un-chill filtered texture that coats the glass" },
+        { title: "Enduring Warmth", desc: "A royal chest-warming glow characteristic of genuine high malt" },
+        { title: "Smoked Oak Embers", desc: "Delicate dry wood tannins balancing the rich honeyed sweetness" },
+        { title: "Viscous Golden Tail", desc: "Unctuous finish that stays silky on the tongue for minutes" },
+        { title: "Malt Echoes", desc: "A clean, regal aftertaste that calls for another celebratory toast" },
       ],
-      intensity: "92%",
+      color: "from-orange-500 to-amber-700",
     },
   };
 
@@ -65,372 +73,265 @@ export const OurStoryPage: React.FC<Props> = ({
     <div className="relative w-full min-h-screen selection:bg-[#CBD5E1] selection:text-black font-sans text-white overflow-x-hidden">
       
       {/* =========================================================================
-          ROYAL BLUE & GOLD SILK BACKGROUND CANVAS (PERSISTENT & CINEMATIC)
+          PERSISTENT LUXURY AMBIENCE CANVAS
           ========================================================================= */}
       <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
-        <img
-          src="/assets/backgrounds/our_story_bg.jpg"
-          alt="Our Story Royal Blue and Gold Silk Canvas"
-          className="w-full h-full object-cover object-center filter brightness-[0.9] contrast-[1.05]"
-        />
-        {/* Subtle radial ambient glows for depth */}
-        <div className="absolute top-1/4 left-1/3 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-[#CBD5E1]/10 rounded-full blur-[150px] pointer-events-none" />
-        <div className="absolute bottom-1/4 right-1/4 w-[600px] h-[600px] bg-[#0F51CF]/15 rounded-full blur-[160px] pointer-events-none" />
-        {/* Subtle dark vignette */}
-        <div className="absolute inset-0 bg-black/25 pointer-events-none" />
+        <div className="absolute inset-0 bg-[#020818]" />
+        {/* Ambient royal glow gradients */}
+        <div className="absolute top-1/4 left-1/3 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-[#CBD5E1]/8 rounded-full blur-[150px] pointer-events-none" />
+        <div className="absolute bottom-1/3 right-1/4 w-[600px] h-[600px] bg-[#1e3a8a]/20 rounded-full blur-[160px] pointer-events-none" />
+        <div className="absolute top-3/4 left-1/4 w-[500px] h-[500px] bg-[#d97706]/10 rounded-full blur-[140px] pointer-events-none" />
       </div>
 
       {/* =========================================================================
-          SECTION 1: HERO PRESENTATION — THE PAST, WITH A PULSE.
+          HERO PRESENTATION: PATIALA PALACE WHISKY
+          "It is a spirit that bottles the sheer grandness of a most flamboyant royal era."
           ========================================================================= */}
-      <section className="relative z-10 w-full min-h-screen flex flex-col justify-start items-center pt-20 sm:pt-24 pb-8 px-2 sm:px-4 md:px-6">
-        <div className="w-full max-w-[1880px] mx-auto flex flex-col items-center">
+      <section className="relative z-10 w-full min-h-[92vh] flex flex-col justify-between pt-24 sm:pt-28 md:pt-32 pb-12 px-4 sm:px-6 md:px-12 border-b border-white/10">
+        
+        {/* Breadcrumb Navigation & Chapter Jumper */}
+        <div className="max-w-7xl mx-auto w-full flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-8">
+          <div className="flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-[#CBD5E1]/70">
+            {onBackToHome && (
+              <button
+                onClick={onBackToHome}
+                className="hover:text-white transition-colors cursor-pointer"
+              >
+                Home
+              </button>
+            )}
+            <span>/</span>
+            <span className="text-[#E2E8F0] font-bold">Our Story</span>
+          </div>
+
+          <div className="hidden lg:flex items-center gap-2 text-[10px] font-mono tracking-widest uppercase">
+            {[
+              { id: "legendary-measure", label: "01 The Measure" },
+              { id: "crafted-for-royal", label: "02 Crafted for Royal" },
+              { id: "nose-and-taste", label: "03 Nose & Taste" },
+              { id: "modern-legacy", label: "04 Modern Legacy" },
+            ].map((ch) => (
+              <button
+                key={ch.id}
+                onClick={() => scrollToChapter(ch.id)}
+                className="px-3 py-1 rounded-full bg-white/5 hover:bg-white/15 text-[#CBD5E1] hover:text-white border border-white/10 transition-all cursor-pointer"
+              >
+                {ch.label}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {/* Hero Headline & Split Presentation */}
+        <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-10 items-center my-auto">
           
-          {/* Section Kicker */}
-          <motion.div
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="flex items-center gap-3 mb-2 sm:mb-3 select-none"
-          >
-            <span className="w-8 sm:w-12 h-[1px] bg-[#CBD5E1]" />
-            <span className="font-sans text-[10px] sm:text-xs font-semibold tracking-[0.35em] text-[#CBD5E1] uppercase">
-              PATIYALA PALACE • THE SOVEREIGN CHRONICLE
-            </span>
-            <span className="w-8 sm:w-12 h-[1px] bg-[#CBD5E1]" />
-          </motion.div>
+          {/* Left Column (7 cols): Royal Manifesto */}
+          <div className="lg:col-span-7 flex flex-col items-start">
+            
+            <motion.div
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-black/60 border border-[#CBD5E1]/40 backdrop-blur-md mb-6"
+            >
+              <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
+              <span className="font-mono text-[10px] sm:text-xs font-bold tracking-[0.25em] text-[#E2E8F0] uppercase">
+                THE ROYAL HERITAGE CHRONICLE
+              </span>
+            </motion.div>
 
-          {/* Dynamic & Professional Title */}
-          <motion.h1
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-            className="font-serif italic font-normal text-3xl sm:text-5xl md:text-6xl lg:text-7xl text-white drop-shadow-[0_4px_30px_rgba(0,0,0,0.95)] tracking-tight text-center mb-4 sm:mb-6 leading-tight select-none"
-          >
-            The Past, with a Pulse.
-          </motion.h1>
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.1 }}
+              className="font-serif text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-normal leading-[1.05] tracking-tight text-white"
+            >
+              Patiala Palace <br />
+              <span className="italic font-light text-[#E2E8F0] drop-shadow-[0_0_35px_rgba(226,232,240,0.35)]">
+                Whisky.
+              </span>
+            </motion.h1>
 
-          {/* Curved Full-Screen Luxury Image Frame */}
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="font-serif italic text-xl sm:text-2xl md:text-3xl text-amber-200/90 mt-6 max-w-2xl leading-relaxed font-light"
+            >
+              "It is a spirit that bottles the sheer grandness of a most flamboyant royal era."
+            </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="mt-8 flex flex-wrap items-center gap-4"
+            >
+              <button
+                onClick={() => scrollToChapter("legendary-measure")}
+                className="px-8 py-3.5 rounded-full bg-[#E2E8F0] hover:bg-white text-[#020818] font-mono text-xs font-bold uppercase tracking-[0.15em] transition-all cursor-pointer shadow-lg hover:shadow-[0_0_25px_rgba(226,232,240,0.4)]"
+              >
+                Explore The Story ↓
+              </button>
+              {onExploreCocktails && (
+                <button
+                  onClick={onExploreCocktails}
+                  className="px-8 py-3.5 rounded-full bg-white/10 hover:bg-white/20 text-white font-mono text-xs font-bold uppercase tracking-[0.15em] border border-white/20 transition-all cursor-pointer"
+                >
+                  Cocktail Serves ↗
+                </button>
+              )}
+            </motion.div>
+
+          </div>
+
+          {/* Right Column (5 cols): Cinematic Photo Canvas */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.96 }}
+            initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            className="relative w-full max-w-[96vw] xl:max-w-[98vw] 2xl:max-w-[1850px] mx-auto h-[74vh] sm:h-[80vh] md:h-[83vh] lg:h-[86vh] rounded-[24px] sm:rounded-[36px] md:rounded-[48px] overflow-hidden p-2 sm:p-3 md:p-3.5 bg-gradient-to-b from-[#CBD5E1]/50 via-white/10 to-[#CBD5E1]/40 backdrop-blur-xl border border-[#CBD5E1]/60 shadow-[0_35px_100px_-15px_rgba(0,0,0,0.98),0_0_60px_rgba(226,232,240,0.3)] group"
+            transition={{ duration: 1, delay: 0.2 }}
+            className="lg:col-span-5 relative"
           >
-            {/* Inner Image Container with Matching Curved Corners */}
-            <div className="relative w-full h-full rounded-[18px] sm:rounded-[28px] md:rounded-[40px] overflow-hidden bg-black/50">
+            <div className="relative rounded-3xl overflow-hidden border border-[#CBD5E1]/30 shadow-2xl bg-black/60 group">
               <img
-                src="/assets/editorial/the_past_with_a_pulse.jpg"
-                alt="The Past, with a Pulse - Patiyala Palace Handcrafted Glass and Oak"
-                className="w-full h-full object-cover object-center select-none transition-transform duration-1000 ease-out group-hover:scale-[1.02]"
+                src="/assets/story/royal_palace_architecture.jpg"
+                alt="Grand Indian Royal Palace Architecture"
+                className="w-full h-[460px] sm:h-[540px] object-cover object-center group-hover:scale-105 transition-transform duration-700 brightness-90 contrast-105"
               />
-
-              {/* Gentle inner shadow and cinematic gradient for depth */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-black/15 pointer-events-none" />
-              <div className="absolute inset-0 rounded-[18px] sm:rounded-[28px] md:rounded-[40px] shadow-[inset_0_0_35px_rgba(0,0,0,0.5)] pointer-events-none" />
-
-              {/* Floating Monolithic Glass Stamp */}
-              <div className="absolute bottom-6 left-6 sm:bottom-8 sm:left-8 bg-black/65 backdrop-blur-md px-4 py-2 sm:px-5 sm:py-2.5 rounded-full border border-[#CBD5E1]/40 flex items-center gap-3">
-                <div className="w-2.5 h-2.5 rounded-full bg-[#CBD5E1] animate-pulse" />
-                <span className="font-display text-[10px] sm:text-xs tracking-[0.25em] uppercase text-white font-semibold">
-                  EST. ROYAL DARBAR HERITAGE
-                </span>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+              
+              {/* Floating Badge */}
+              <div className="absolute bottom-6 inset-x-6 p-5 rounded-2xl bg-black/70 backdrop-blur-md border border-white/20 flex items-center justify-between">
+                <div>
+                  <span className="font-mono text-[9px] uppercase tracking-widest text-amber-300 block font-bold">
+                    Historical Genesis
+                  </span>
+                  <span className="font-serif text-lg text-white font-bold">
+                    The Grand Royal Era
+                  </span>
+                </div>
+                <div className="w-10 h-10 rounded-full border border-white/30 flex items-center justify-center text-xs font-mono">
+                  1880s
+                </div>
               </div>
             </div>
           </motion.div>
 
-          {/* Smooth Scroll Indicator */}
+        </div>
+
+        {/* Scroll Indicator */}
+        <div className="max-w-7xl mx-auto w-full pt-8 flex items-center justify-between text-xs font-mono text-white/50 border-t border-white/10">
+          <span>01 / 04 THE SOVEREIGN CHRONICLE</span>
           <button
-            onClick={() => scrollToChapter("chapter-darbar")}
-            className="mt-6 flex flex-col items-center gap-1.5 text-white/60 hover:text-[#CBD5E1] transition-colors cursor-pointer group select-none"
+            onClick={() => scrollToChapter("legendary-measure")}
+            className="hover:text-white transition-colors cursor-pointer"
           >
-            <span className="font-display text-[10px] tracking-[0.25em] uppercase font-semibold">
-              EXPLORE THE CHAPTERS
-            </span>
-            <span className="text-base transition-transform group-hover:translate-y-1">↓</span>
+            Scroll to Chapter 01 ↓
           </button>
-
         </div>
+
       </section>
 
       {/* =========================================================================
-          SECTION 2: DYNAMIC STICKY CHAPTER NAVIGATOR
+          CHAPTER 1: THE LEGENDARY MEASURE
+          "We cannot talk about Patiala without talking about the 'Patiala Peg.'
+           That bold, generous hospitality became the benchmark for a great evening.
+           It is the exact same philosophy blended into every bottle of Patiala Palace Whisky today."
           ========================================================================= */}
-      <nav className="sticky top-16 z-30 w-full py-3 bg-[#020B1F]/80 backdrop-blur-xl border-y border-[#CBD5E1]/25 shadow-xl">
-        <div className="max-w-7xl mx-auto px-4 sm:px-8 flex items-center justify-between gap-4 overflow-x-auto no-scrollbar">
-          <span className="hidden lg:flex items-center gap-2 font-display text-[11px] uppercase tracking-[0.2em] text-[#CBD5E1] font-bold shrink-0">
-            <span>⚜</span> STORY CHAPTERS:
-          </span>
-          <div className="flex items-center gap-2 sm:gap-3 mx-auto lg:mx-0">
-            {[
-              { id: "chapter-darbar", label: "01. The Darbar" },
-              { id: "chapter-terroir", label: "02. Himalayan Terroir" },
-              { id: "chapter-stillhouse", label: "03. Copper Stills" },
-              { id: "chapter-maturation", label: "04. Dynamic Maturation" },
-              { id: "chapter-tasting", label: "05. Tasting Room" },
-            ].map((tab) => (
-              <button
-                key={tab.id}
-                onClick={() => scrollToChapter(tab.id)}
-                className="px-3.5 py-1.5 rounded-full bg-white/5 hover:bg-[#CBD5E1]/20 border border-white/10 hover:border-[#CBD5E1]/40 text-[10px] sm:text-xs font-display uppercase tracking-[0.15em] text-white/80 hover:text-[#F8FAFC] transition-all whitespace-nowrap cursor-pointer"
-              >
-                {tab.label}
-              </button>
-            ))}
-          </div>
-        </div>
-      </nav>
-
-      {/* =========================================================================
-          SECTION 3: CHAPTER 01 — THE SOVEREIGN DARBAR OF PATIALA
-          ========================================================================= */}
-      <section id="chapter-darbar" className="relative z-10 w-full py-24 sm:py-32 px-6 sm:px-12 border-b border-[#CBD5E1]/20">
+      <section
+        id="legendary-measure"
+        className="relative z-10 w-full py-20 sm:py-28 px-4 sm:px-6 md:px-12 border-b border-white/10 bg-[#030b20]/60 backdrop-blur-sm"
+      >
         <div className="max-w-7xl mx-auto">
           
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             
-            {/* Text Column */}
+            {/* Left Photo Card: The Patiala Peg Pour */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-              className="lg:col-span-6 flex flex-col"
+              transition={{ duration: 0.8 }}
+              className="lg:col-span-5 relative"
             >
-              <div className="flex items-center gap-3 mb-3">
-                <span className="font-mono text-xs text-[#CBD5E1] tracking-widest font-semibold">CHAPTER 01</span>
-                <span className="w-8 h-[1px] bg-[#CBD5E1]/60" />
-                <span className="font-display text-[10px] tracking-[0.25em] uppercase text-white/60">THE ROYAL GENESIS</span>
-              </div>
-
-              <h2 className="font-display font-medium text-3xl sm:text-5xl text-white uppercase tracking-[0.06em] leading-tight mb-4">
-                The Darbar of Patiala.
-              </h2>
-              
-              <blockquote className="font-serif italic text-xl sm:text-2xl text-[#F8FAFC] leading-relaxed mb-6 border-l-2 border-[#CBD5E1] pl-4">
-                "In the court of Patiala, hospitality was never measured in drops, but in honour."
-              </blockquote>
-
-              <p className="text-sm sm:text-base text-white/85 leading-relaxed font-light mb-4">
-                During the golden reign of Maharaja Bhupinder Singh in early 20th-century Punjab, Patiala stood as the cultural beacon of northern India. The grand banquet halls of Qila Mubarak and Sheesh Mahal hosted monarchs, viceroys, and international sportsmen in spectacles of peerless splendour.
-              </p>
-
-              <p className="text-sm sm:text-base text-white/75 leading-relaxed font-light mb-8">
-                It was here that the legendary <span className="text-[#CBD5E1] font-semibold">Patiyala Peg</span> was born—not as an ordinary pour, but as an emblem of sovereign brotherhood and hospitality that refused to be restrained by timid measures. Saksham Spirits captures this royal courage, reviving artisanal distillation secrets for a discerning new generation.
-              </p>
-
-              {/* Stat Chips */}
-              <div className="grid grid-cols-2 gap-4 pt-4 border-t border-white/10">
-                <div className="p-4 rounded-xl bg-white/5 border border-white/10">
-                  <span className="block font-serif italic text-2xl text-[#CBD5E1]">1920s</span>
-                  <span className="font-display text-[9px] uppercase tracking-widest text-white/60 mt-1 block">Royal Darbar Era</span>
-                </div>
-                <div className="p-4 rounded-xl bg-white/5 border border-white/10">
-                  <span className="block font-serif italic text-2xl text-[#CBD5E1]">120 ML</span>
-                  <span className="font-display text-[9px] uppercase tracking-widest text-white/60 mt-1 block">Legendary Royal Measure</span>
-                </div>
-              </div>
-            </motion.div>
-
-            {/* Visual Column */}
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-              className="lg:col-span-6 relative"
-            >
-              <div className="relative rounded-[28px] sm:rounded-[36px] overflow-hidden border border-[#CBD5E1]/50 shadow-[0_25px_60px_rgba(0,0,0,0.8)] aspect-[4/3] group">
+              <div className="relative rounded-3xl overflow-hidden border border-[#CBD5E1]/30 shadow-2xl bg-black/80 group">
                 <img
-                  src="/assets/editorial/palace_heritage_corridor.jpg"
-                  alt="Patiyala Palace Architectural Heritage Corridor"
-                  className="w-full h-full object-cover object-center transition-transform duration-1000 group-hover:scale-105"
+                  src="/assets/story/patiala_peg_pour.jpg"
+                  alt="The Iconic Patiala Peg Pour in Crystal Glass"
+                  className="w-full h-[520px] sm:h-[600px] object-cover object-center group-hover:scale-105 transition-transform duration-700"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#020B1F]/90 via-transparent to-transparent pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-black/20" />
                 
-                {/* Gold Seal Corner Stamp */}
-                <div className="absolute top-4 right-4 w-12 h-12 rounded-full border border-[#CBD5E1]/60 p-1 flex items-center justify-center bg-black/60 backdrop-blur-md shadow-xl">
-                  <img
-                    src="/assets/logo/official_silver_seal.png"
-                    alt="Gold Seal"
-                    className="w-full h-full object-contain filter drop-shadow"
-                  />
+                {/* Visual Measure Callout */}
+                <div className="absolute top-6 left-6 px-4 py-1.5 rounded-full bg-black/70 backdrop-blur-md border border-white/20 font-mono text-[10px] uppercase tracking-widest text-[#E2E8F0] font-bold">
+                  The Four-Finger Measure
                 </div>
 
-                <div className="absolute bottom-5 inset-x-5 text-center">
-                  <span className="font-display text-[10px] tracking-[0.25em] uppercase text-[#CBD5E1] block font-semibold">
-                    QILA MUBARAK • ARCHITECTURAL ARCHIVE
+                <div className="absolute bottom-6 inset-x-6 p-6 rounded-2xl bg-black/80 backdrop-blur-md border border-[#CBD5E1]/30">
+                  <span className="font-mono text-[9px] uppercase tracking-[0.25em] text-amber-300 block font-bold mb-1">
+                    ROYAL TRADITION
                   </span>
-                  <p className="font-serif italic text-xs sm:text-sm text-white/80 mt-1">
-                    The ceremonial darbar corridors where the custom of royal hospitality was forged.
+                  <p className="font-serif italic text-base text-white/95 leading-relaxed">
+                    "Bold, generous, unapologetically flamboyant hospitality."
                   </p>
                 </div>
               </div>
             </motion.div>
 
-          </div>
-
-        </div>
-      </section>
-
-      {/* =========================================================================
-          SECTION 4: CHAPTER 02 — THE HIMALAYAN TERROIR & SUN-RIPENED MALT
-          ========================================================================= */}
-      <section id="chapter-terroir" className="relative z-10 w-full py-24 sm:py-32 px-6 sm:px-12 border-b border-[#CBD5E1]/20 bg-[#020B1F]/50">
-        <div className="max-w-7xl mx-auto">
-          
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-            
-            {/* Visual Column */}
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-              className="lg:col-span-6 lg:order-1 order-2 relative"
-            >
-              <div className="relative rounded-[28px] sm:rounded-[36px] overflow-hidden border border-[#CBD5E1]/50 shadow-[0_25px_60px_rgba(0,0,0,0.8)] aspect-[4/3] group">
-                <img
-                  src="/assets/editorial/craft_malt.jpg"
-                  alt="Northern Indian Malted Barley"
-                  className="w-full h-full object-cover object-center transition-transform duration-1000 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#020B1F]/90 via-transparent to-transparent pointer-events-none" />
-                <div className="absolute bottom-5 inset-x-5 text-center">
-                  <span className="font-display text-[10px] tracking-[0.25em] uppercase text-[#CBD5E1] block font-semibold">
-                    PUNJAB ALLUVIAL PLAINS • TWO-ROW & SIX-ROW BARLEY
-                  </span>
-                  <p className="font-serif italic text-xs sm:text-sm text-white/80 mt-1">
-                    Dense grist rich in natural maltose sugars, nurtured by clean Himalayan meltwater.
-                  </p>
-                </div>
-              </div>
-            </motion.div>
-
-            {/* Text Column */}
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-              className="lg:col-span-6 lg:order-2 order-1 flex flex-col"
-            >
-              <div className="flex items-center gap-3 mb-3">
-                <span className="font-mono text-xs text-[#CBD5E1] tracking-widest font-semibold">CHAPTER 02</span>
-                <span className="w-8 h-[1px] bg-[#CBD5E1]/60" />
-                <span className="font-display text-[10px] tracking-[0.25em] uppercase text-white/60">TERROIR & WATER</span>
-              </div>
-
-              <h2 className="font-display font-medium text-3xl sm:text-5xl text-white uppercase tracking-[0.06em] leading-tight mb-4">
-                The Himalayan Terroir.
-              </h2>
+            {/* Right Content Column */}
+            <div className="lg:col-span-7 flex flex-col items-start">
               
-              <blockquote className="font-serif italic text-xl sm:text-2xl text-[#F8FAFC] leading-relaxed mb-6 border-l-2 border-[#CBD5E1] pl-4">
-                "Pure snowmelt from the Shivalik foothills breathes life into every grain of malt."
-              </blockquote>
-
-              <p className="text-sm sm:text-base text-white/85 leading-relaxed font-light mb-4">
-                The soul of Patiyala Palace begins in the alluvial silt of northern India’s river basins. Under uninterrupted sunlight, our hand-selected two-row and six-row barley matures with high diastatic power, yielding deep malt sugars, nutty esters, and natural sweetness that cooler climates cannot replicate.
-              </p>
-
-              <p className="text-sm sm:text-base text-white/75 leading-relaxed font-light mb-8">
-                Every drop of mashing water is drawn from pristine subterranean aquifers replenished by the eternal glaciers of the Shivalik Himalayas. Naturally filtered through mineral-rich mountain limestone, this pure, soft water allows for prolonged 48-hour slow fermentation.
-              </p>
-
-              {/* Terroir Highlights */}
-              <div className="grid grid-cols-2 gap-4 pt-4 border-t border-white/10">
-                <div className="p-4 rounded-xl bg-white/5 border border-white/10">
-                  <span className="block font-serif italic text-2xl text-[#CBD5E1]">100%</span>
-                  <span className="font-display text-[9px] uppercase tracking-widest text-white/60 mt-1 block">Indian Malted Barley</span>
-                </div>
-                <div className="p-4 rounded-xl bg-white/5 border border-white/10">
-                  <span className="block font-serif italic text-2xl text-[#CBD5E1]">48 HRS</span>
-                  <span className="font-display text-[9px] uppercase tracking-widest text-white/60 mt-1 block">Slow Temperature Ferment</span>
-                </div>
-              </div>
-            </motion.div>
-
-          </div>
-
-        </div>
-      </section>
-
-      {/* =========================================================================
-          SECTION 5: CHAPTER 03 — SWAN-NECK COPPER STILLS & THE SACRED CUT
-          ========================================================================= */}
-      <section id="chapter-stillhouse" className="relative z-10 w-full py-24 sm:py-32 px-6 sm:px-12 border-b border-[#CBD5E1]/20">
-        <div className="max-w-7xl mx-auto">
-          
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-            
-            {/* Text Column */}
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-              className="lg:col-span-6 flex flex-col"
-            >
-              <div className="flex items-center gap-3 mb-3">
-                <span className="font-mono text-xs text-[#CBD5E1] tracking-widest font-semibold">CHAPTER 03</span>
-                <span className="w-8 h-[1px] bg-[#CBD5E1]/60" />
-                <span className="font-display text-[10px] tracking-[0.25em] uppercase text-white/60">THE STILLHOUSE ALCHEMY</span>
+              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/5 border border-white/15 mb-4">
+                <span className="font-mono text-[10px] font-bold tracking-[0.25em] text-[#CBD5E1] uppercase">
+                  CHAPTER 01
+                </span>
               </div>
 
-              <h2 className="font-display font-medium text-3xl sm:text-5xl text-white uppercase tracking-[0.06em] leading-tight mb-4">
-                Swan-Neck Copper Stills.
+              <h2 className="font-serif font-normal text-3xl sm:text-5xl md:text-6xl text-white tracking-tight leading-tight">
+                The Legendary Measure
               </h2>
-              
-              <blockquote className="font-serif italic text-xl sm:text-2xl text-[#F8FAFC] leading-relaxed mb-6 border-l-2 border-[#CBD5E1] pl-4">
-                "Only the purest heart of the distillation run is deemed worthy of the royal crest."
-              </blockquote>
 
-              <p className="text-sm sm:text-base text-white/85 leading-relaxed font-light mb-4">
-                In our stillhouse, distillation is treated not as a science, but as high art. Hand-hammered from pure red copper, our swan-neck pot stills feature gently ascending lyne arms that foster generous internal reflux. Heavy sulfur compounds are purged by the copper, allowing only the silkiest vapor to crest the helm.
+              <p className="font-serif italic text-xl sm:text-2xl text-amber-200 mt-4 leading-relaxed font-light">
+                "We cannot talk about Patiala without talking about the 'Patiala Peg.'"
               </p>
 
-              <p className="text-sm sm:text-base text-white/75 leading-relaxed font-light mb-8">
-                Our master distiller enforces a razor-precise "heart cut," setting aside the feints and foreshots to capture the purest, aromatic core of the spirit at <span className="text-[#CBD5E1] font-semibold">42.8% ABV (75° Imperial Proof)</span>.
-              </p>
-
-              {/* Proof Specs */}
-              <div className="grid grid-cols-2 gap-4 pt-4 border-t border-white/10">
-                <div className="p-4 rounded-xl bg-white/5 border border-white/10">
-                  <span className="block font-serif italic text-2xl text-[#CBD5E1]">42.8%</span>
-                  <span className="font-display text-[9px] uppercase tracking-widest text-white/60 mt-1 block">Signature Royal Strength</span>
-                </div>
-                <div className="p-4 rounded-xl bg-white/5 border border-white/10">
-                  <span className="block font-serif italic text-2xl text-[#CBD5E1]">Copper</span>
-                  <span className="font-display text-[9px] uppercase tracking-widest text-white/60 mt-1 block">Hand-Hammered Pot Stills</span>
-                </div>
+              <div className="mt-6 space-y-4 text-sm sm:text-base text-white/80 font-light leading-relaxed">
+                <p>
+                  That bold, generous hospitality became the benchmark for a great evening. In the opulent courtrooms and lavish banquets of royal Patiala, spirits were never served with timid caution — they were poured with open-hearted generosity, four fingers high, measuring true celebration rather than restriction.
+                </p>
+                <p className="text-white/90 font-normal">
+                  It is the exact same philosophy blended into every bottle of Patiala Palace Whisky today. A whisky crafted for those who embrace life with royal vigor, where every glass shared is an invitation to celebrate without reservation.
+                </p>
               </div>
-            </motion.div>
 
-            {/* Visual Column */}
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-              className="lg:col-span-6 relative"
-            >
-              <div className="relative rounded-[28px] sm:rounded-[36px] overflow-hidden border border-[#CBD5E1]/50 shadow-[0_25px_60px_rgba(0,0,0,0.8)] aspect-[4/3] group">
-                <img
-                  src="/assets/editorial/whisky_liquid_amber_swirl.jpg"
-                  alt="Liquid Amber Swirl in Copper Still"
-                  className="w-full h-full object-cover object-center transition-transform duration-1000 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#020B1F]/90 via-transparent to-transparent pointer-events-none" />
-                <div className="absolute bottom-5 inset-x-5 text-center">
-                  <span className="font-display text-[10px] tracking-[0.25em] uppercase text-[#CBD5E1] block font-semibold">
-                    THE SACRED HEART RUN • NATURAL AMBER
+              {/* The Measure Pillars Grid */}
+              <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4 w-full">
+                <div className="p-5 rounded-2xl bg-[#041235]/90 border border-[#CBD5E1]/20">
+                  <span className="font-mono text-[10px] uppercase tracking-widest text-[#CBD5E1] block mb-1">
+                    PHILOSOPHY
                   </span>
-                  <p className="font-serif italic text-xs sm:text-sm text-white/80 mt-1">
-                    Silky floral vapors condensed into brilliant liquid gold.
+                  <h4 className="font-serif font-bold text-lg text-white">
+                    Generous Hospitality
+                  </h4>
+                  <p className="font-sans text-xs text-white/70 mt-1 leading-relaxed">
+                    A royal benchmark that turns an ordinary gathering into a landmark evening.
+                  </p>
+                </div>
+
+                <div className="p-5 rounded-2xl bg-[#041235]/90 border border-[#CBD5E1]/20">
+                  <span className="font-mono text-[10px] uppercase tracking-widest text-[#CBD5E1] block mb-1">
+                    EXECUTION
+                  </span>
+                  <h4 className="font-serif font-bold text-lg text-white">
+                    Master-Blended Boldness
+                  </h4>
+                  <p className="font-sans text-xs text-white/70 mt-1 leading-relaxed">
+                    Designed to hold its character over ice, water, or in sovereign highballs.
                   </p>
                 </div>
               </div>
-            </motion.div>
+
+            </div>
 
           </div>
 
@@ -438,270 +339,412 @@ export const OurStoryPage: React.FC<Props> = ({
       </section>
 
       {/* =========================================================================
-          SECTION 6: CHAPTER 04 — DYNAMIC MATURATION IN CHARRED WHITE OAK
+          CHAPTER 2: CRAFTED FOR ROYAL
+          "Patiala Palace Whisky is not just named after a place.
+           It is engineered to taste like a celebration."
+           • The Blend: Master blenders select the finest Indian grains and select and specialty imported scotch malts.
+           • The Aging: The spirit rests quietly in charred American white oak barrels.
+           • The Climate: The intense and vibrant climate accelerates the wood and spirit interaction to create phenomenal Malt spirits.
+           • The Result: A deep amber liquid with an incredibly smooth finish.
           ========================================================================= */}
-      <section id="chapter-maturation" className="relative z-10 w-full py-24 sm:py-32 px-6 sm:px-12 border-b border-[#CBD5E1]/20 bg-[#020B1F]/50">
+      <section
+        id="crafted-for-royal"
+        className="relative z-10 w-full py-20 sm:py-28 px-4 sm:px-6 md:px-12 border-b border-white/10"
+      >
         <div className="max-w-7xl mx-auto">
           
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-            
-            {/* Visual Column */}
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-              className="lg:col-span-6 lg:order-1 order-2 relative"
-            >
-              <div className="relative rounded-[28px] sm:rounded-[36px] overflow-hidden border border-[#CBD5E1]/50 shadow-[0_25px_60px_rgba(0,0,0,0.8)] aspect-[4/3] group">
-                <img
-                  src="/assets/brand/submerged_bottle.jpg"
-                  alt="Submerged Patiyala Palace Decanter in Azure Water"
-                  className="w-full h-full object-cover object-center transition-transform duration-1000 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#020B1F]/90 via-transparent to-transparent pointer-events-none" />
-                <div className="absolute bottom-5 inset-x-5 text-center">
-                  <span className="font-display text-[10px] tracking-[0.25em] uppercase text-[#CBD5E1] block font-semibold">
-                    FIRST-FILL CHARRED AMERICAN OAK • BARREL CELLARS
-                  </span>
-                  <p className="font-serif italic text-xs sm:text-sm text-white/80 mt-1">
-                    Extreme seasonal swings induce rapid barrel respiration and deep wood extraction.
-                  </p>
-                </div>
-              </div>
-            </motion.div>
-
-            {/* Text Column */}
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-              className="lg:col-span-6 lg:order-2 order-1 flex flex-col"
-            >
-              <div className="flex items-center gap-3 mb-3">
-                <span className="font-mono text-xs text-[#CBD5E1] tracking-widest font-semibold">CHAPTER 04</span>
-                <span className="w-8 h-[1px] bg-[#CBD5E1]/60" />
-                <span className="font-display text-[10px] tracking-[0.25em] uppercase text-white/60">DYNAMIC CLIMATE AGING</span>
-              </div>
-
-              <h2 className="font-display font-medium text-3xl sm:text-5xl text-white uppercase tracking-[0.06em] leading-tight mb-4">
-                Charred White Oak & Climate.
-              </h2>
-              
-              <blockquote className="font-serif italic text-xl sm:text-2xl text-[#F8FAFC] leading-relaxed mb-6 border-l-2 border-[#CBD5E1] pl-4">
-                "The intense heat of northern summer followed by crisp winter chill accelerates liquid alchemy."
-              </blockquote>
-
-              <p className="text-sm sm:text-base text-white/85 leading-relaxed font-light mb-4">
-                Unlike European cellars where maturation crawls under steady cold dampness, Patiyala Palace matures in first-fill charred American white oak casks (Quercus alba) subjected to northern India's dynamic climate swings—from near freezing in winter to over 42°C in summer.
-              </p>
-
-              <p className="text-sm sm:text-base text-white/75 leading-relaxed font-light mb-8">
-                As the temperature rises, the oak staves expand, driving the spirit deep into the charred wood grain. As winter settles, the spirit retracts, pulling rich vanillin, toasted honeycomb, dried stone fruits, and warm caramel notes deep into the liquid.
-              </p>
-
-              {/* Barrel Stats */}
-              <div className="grid grid-cols-2 gap-4 pt-4 border-t border-white/10">
-                <div className="p-4 rounded-xl bg-white/5 border border-white/10">
-                  <span className="block font-serif italic text-2xl text-[#CBD5E1]">1st Fill</span>
-                  <span className="font-display text-[9px] uppercase tracking-widest text-white/60 mt-1 block">Charred White Oak</span>
-                </div>
-                <div className="p-4 rounded-xl bg-white/5 border border-white/10">
-                  <span className="block font-serif italic text-2xl text-[#CBD5E1]">4°C - 44°C</span>
-                  <span className="font-display text-[9px] uppercase tracking-widest text-white/60 mt-1 block">Dynamic Seasonal Variance</span>
-                </div>
-              </div>
-            </motion.div>
-
-          </div>
-
-        </div>
-      </section>
-
-      {/* =========================================================================
-          SECTION 7: CHAPTER 05 — THE DYNAMIC SENSORY TASTING ROOM
-          ========================================================================= */}
-      <section id="chapter-tasting" className="relative z-10 w-full py-24 sm:py-32 px-6 sm:px-12 border-b border-[#CBD5E1]/20">
-        <div className="max-w-7xl mx-auto">
-          
-          <div className="text-center max-w-2xl mx-auto mb-16">
-            <span className="font-mono text-xs text-[#CBD5E1] tracking-widest uppercase font-semibold block mb-2">
-              CHAPTER 05 • SENSORY EVALUATION
+          {/* Chapter Header */}
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <span className="font-mono text-[10px] sm:text-xs uppercase tracking-[0.3em] text-[#CBD5E1] block mb-2 font-bold">
+              CHAPTER 02 • THE CRAFT & THE METRICS
             </span>
-            <h2 className="font-display font-medium text-3xl sm:text-5xl uppercase tracking-[0.08em] text-white">
-              The Royal Tasting Room.
+            <h2 className="font-serif font-normal text-3xl sm:text-5xl md:text-6xl text-white">
+              Crafted for Royal:
             </h2>
-            <div className="w-16 h-[2px] bg-[#CBD5E1] mx-auto mt-4" />
+            <p className="font-serif italic text-xl sm:text-2xl text-amber-200/90 mt-4 font-light">
+              "Patiala Palace Whisky is not just named after a place. It is engineered to taste like a celebration."
+            </p>
           </div>
 
-          {/* Interactive Tasting Tabs */}
-          <div className="flex justify-center gap-3 sm:gap-4 mb-12">
-            {[
-              { key: "nose", label: "01. The Nose" },
-              { key: "palate", label: "02. The Palate" },
-              { key: "finish", label: "03. The Finish" },
-            ].map((tab) => (
-              <button
-                key={tab.key}
-                onClick={() => setActiveTastingTab(tab.key as "nose" | "palate" | "finish")}
-                className={`px-6 sm:px-8 py-3 rounded-full font-display text-xs sm:text-sm uppercase tracking-[0.2em] transition-all cursor-pointer ${
-                  activeTastingTab === tab.key
-                    ? "bg-[#CBD5E1] text-[#03102B] font-bold shadow-[0_0_25px_rgba(226,232,240,0.4)]"
-                    : "bg-white/5 text-white/70 hover:text-white hover:bg-white/10 border border-white/15"
-                }`}
-              >
-                {tab.label}
-              </button>
-            ))}
-          </div>
-
-          {/* Dynamic Tasting Detail Card */}
-          <AnimatePresence mode="wait">
+          {/* 4 Pillars Grid (Direct from User PDF) */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            
+            {/* 1. The Blend */}
             <motion.div
-              key={activeTastingTab}
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -15 }}
-              transition={{ duration: 0.4 }}
-              className="max-w-4xl mx-auto p-8 sm:p-12 rounded-[32px] bg-[#020B1F]/90 backdrop-blur-2xl border border-[#CBD5E1]/40 shadow-[0_25px_60px_rgba(0,0,0,0.9)]"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="group rounded-3xl overflow-hidden bg-[#041235]/90 border border-[#CBD5E1]/30 hover:border-[#E2E8F0] transition-all duration-300 shadow-2xl flex flex-col justify-between"
             >
-              <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-4 mb-6 pb-6 border-b border-white/10">
-                <div>
-                  <span className="font-mono text-xs text-[#CBD5E1] tracking-widest uppercase block mb-1">
-                    SENSORY HARMONY
-                  </span>
-                  <h3 className="font-serif italic text-2xl sm:text-3xl text-[#F8FAFC]">
-                    {tastingProfiles[activeTastingTab].headline}
-                  </h3>
-                </div>
-                <div className="flex items-center gap-2 self-start sm:self-auto px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs font-mono text-white/80">
-                  <span>Profile Depth:</span>
-                  <span className="text-[#CBD5E1] font-bold">{tastingProfiles[activeTastingTab].intensity}</span>
-                </div>
+              <div className="relative h-64 overflow-hidden">
+                <img
+                  src="/assets/story/golden_barley_grains.jpg"
+                  alt="Harvested Golden Indian Grains and Select Scotch Malts"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#041235] via-transparent to-transparent" />
+                <span className="absolute top-4 left-4 font-mono text-[10px] uppercase tracking-widest px-3 py-1 rounded-full bg-black/70 backdrop-blur-md border border-white/20 font-bold text-amber-300">
+                  PILLAR 01
+                </span>
+              </div>
+              <div className="p-6 sm:p-8">
+                <h3 className="font-serif font-bold text-2xl text-white">
+                  The Blend
+                </h3>
+                <p className="font-sans text-sm sm:text-base text-white/80 leading-relaxed mt-3 font-light">
+                  <span className="font-bold text-white">Master blenders select the finest Indian grains and select and specialty imported scotch malts.</span> A harmonious marriage of Scottish heritage distillation and high-grade Indian agricultural character, yielding extraordinary complexity and depth.
+                </p>
+              </div>
+            </motion.div>
+
+            {/* 2. The Aging */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="group rounded-3xl overflow-hidden bg-[#041235]/90 border border-[#CBD5E1]/30 hover:border-[#E2E8F0] transition-all duration-300 shadow-2xl flex flex-col justify-between"
+            >
+              <div className="relative h-64 overflow-hidden">
+                <img
+                  src="/assets/story/oak_barrels_aging.jpg"
+                  alt="Charred American White Oak Barrels Aging in Vault"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#041235] via-transparent to-transparent" />
+                <span className="absolute top-4 left-4 font-mono text-[10px] uppercase tracking-widest px-3 py-1 rounded-full bg-black/70 backdrop-blur-md border border-white/20 font-bold text-amber-300">
+                  PILLAR 02
+                </span>
+              </div>
+              <div className="p-6 sm:p-8">
+                <h3 className="font-serif font-bold text-2xl text-white">
+                  The Aging
+                </h3>
+                <p className="font-sans text-sm sm:text-base text-white/80 leading-relaxed mt-3 font-light">
+                  <span className="font-bold text-white">The spirit rests quietly in charred American white oak barrels.</span> As the spirit breathes through deeply charred staves, it draws forth rich vanillin, toasted wood sugars, warm spices, and a velvety mouthfeel.
+                </p>
+              </div>
+            </motion.div>
+
+            {/* 3. The Climate */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="group rounded-3xl overflow-hidden bg-[#041235]/90 border border-[#CBD5E1]/30 hover:border-[#E2E8F0] transition-all duration-300 shadow-2xl flex flex-col justify-between"
+            >
+              <div className="relative h-64 overflow-hidden">
+                <img
+                  src="/assets/editorial/dispatch_copper_alchemy_stills.jpg"
+                  alt="Distillation stills and dynamic atmospheric climate maturation"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#041235] via-transparent to-transparent" />
+                <span className="absolute top-4 left-4 font-mono text-[10px] uppercase tracking-widest px-3 py-1 rounded-full bg-black/70 backdrop-blur-md border border-white/20 font-bold text-amber-300">
+                  PILLAR 03
+                </span>
+              </div>
+              <div className="p-6 sm:p-8">
+                <h3 className="font-serif font-bold text-2xl text-white">
+                  The Climate
+                </h3>
+                <p className="font-sans text-sm sm:text-base text-white/80 leading-relaxed mt-3 font-light">
+                  <span className="font-bold text-white">The intense and vibrant climate accelerates the wood and spirit interaction to create phenomenal Malt spirits.</span> The dynamic seasonal thermal shifts force the liquid deep into the oak heartwood, extracting decades of flavor in an accelerated, concentrated span.
+                </p>
+              </div>
+            </motion.div>
+
+            {/* 4. The Result */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="group rounded-3xl overflow-hidden bg-[#041235]/90 border border-[#CBD5E1]/30 hover:border-[#E2E8F0] transition-all duration-300 shadow-2xl flex flex-col justify-between"
+            >
+              <div className="relative h-64 overflow-hidden">
+                <img
+                  src="/assets/story/amber_whisky_glass.jpg"
+                  alt="Deep Amber Liquid with Incredibly Smooth Finish"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#041235] via-transparent to-transparent" />
+                <span className="absolute top-4 left-4 font-mono text-[10px] uppercase tracking-widest px-3 py-1 rounded-full bg-black/70 backdrop-blur-md border border-white/20 font-bold text-amber-300">
+                  PILLAR 04
+                </span>
+              </div>
+              <div className="p-6 sm:p-8">
+                <h3 className="font-serif font-bold text-2xl text-white">
+                  The Result
+                </h3>
+                <p className="font-sans text-sm sm:text-base text-white/80 leading-relaxed mt-3 font-light">
+                  <span className="font-bold text-white">A deep amber liquid with an incredibly smooth finish.</span> Luminous, richly reflective, and remarkably rounded, giving every glass an opulent golden presence worthy of royal banquet tables.
+                </p>
+              </div>
+            </motion.div>
+
+          </div>
+
+        </div>
+      </section>
+
+      {/* =========================================================================
+          CHAPTER 3: NOSE AND TASTE
+          "On the nose, you get rich malt and smoked vanilla.
+           Take a sip, and you taste toasted oak, warm spices, and a hint of dried fruits.
+           It tastes like old-world luxury with extreme smoothness and great mouthfeel."
+          ========================================================================= */}
+      <section
+        id="nose-and-taste"
+        className="relative z-10 w-full py-20 sm:py-28 px-4 sm:px-6 md:px-12 border-b border-white/10 bg-[#03091c]/80 backdrop-blur-md"
+      >
+        <div className="max-w-7xl mx-auto">
+          
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            {/* Left Content Column */}
+            <div className="lg:col-span-7 flex flex-col items-start">
+              
+              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/5 border border-white/15 mb-4">
+                <span className="font-mono text-[10px] font-bold tracking-[0.25em] text-[#CBD5E1] uppercase">
+                  CHAPTER 03 • THE TASTING REVELATION
+                </span>
               </div>
 
-              <p className="text-sm sm:text-base text-white/80 font-light leading-relaxed mb-8">
-                {tastingProfiles[activeTastingTab].description}
+              <h2 className="font-serif font-normal text-3xl sm:text-5xl md:text-6xl text-white">
+                Nose and Taste
+              </h2>
+
+              <p className="font-serif italic text-xl sm:text-2xl text-amber-200 mt-4 leading-relaxed font-light">
+                "It tastes like old-world luxury with extreme smoothness and great mouthfeel."
               </p>
 
-              {/* Note Pills */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {tastingProfiles[activeTastingTab].notes.map((n, idx) => (
-                  <div key={idx} className="p-4 rounded-2xl bg-white/5 border border-white/10 hover:border-[#CBD5E1]/40 transition-colors">
-                    <span className="font-display text-xs uppercase tracking-wider text-[#CBD5E1] font-semibold block mb-1">
-                      {n.title}
-                    </span>
-                    <span className="text-xs text-white/70 font-light block">
-                      {n.desc}
-                    </span>
-                  </div>
+              <blockquote className="mt-6 p-6 rounded-2xl bg-white/5 border-l-4 border-amber-400 text-sm sm:text-base text-white/90 leading-relaxed font-light">
+                <p className="font-medium text-white mb-2">
+                  "On the nose, you get rich malt and smoked vanilla."
+                </p>
+                <p>
+                  "Take a sip, and you taste toasted oak, warm spices, and a hint of dried fruits. It tastes like old-world luxury with extreme smoothness and great mouthfeel."
+                </p>
+              </blockquote>
+
+              {/* Interactive Sensory Tabs */}
+              <div className="mt-8 flex gap-2 border-b border-white/15 pb-3 w-full">
+                {(["nose", "palate", "finish"] as const).map((tab) => (
+                  <button
+                    key={tab}
+                    onClick={() => setActiveSensoryTab(tab)}
+                    className={`px-5 py-2 rounded-full font-mono text-xs uppercase tracking-wider font-bold transition-all cursor-pointer ${
+                      activeSensoryTab === tab
+                        ? "bg-[#E2E8F0] text-[#020818] shadow-md"
+                        : "bg-white/5 hover:bg-white/15 text-[#CBD5E1]"
+                    }`}
+                  >
+                    {tab === "nose" ? "The Nose" : tab === "palate" ? "The Palate" : "The Finish"}
+                  </button>
                 ))}
               </div>
+
+              {/* Active Tab Card */}
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={activeSensoryTab}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ duration: 0.3 }}
+                  className="mt-6 w-full p-6 rounded-2xl bg-[#041235]/90 border border-[#CBD5E1]/25"
+                >
+                  <span className="font-mono text-[10px] uppercase tracking-widest text-amber-300 font-bold block mb-1">
+                    {sensoryProfiles[activeSensoryTab].tagline}
+                  </span>
+                  <h4 className="font-serif font-bold text-2xl text-white">
+                    {sensoryProfiles[activeSensoryTab].headline}
+                  </h4>
+                  <p className="font-sans text-xs sm:text-sm text-white/80 leading-relaxed mt-2 font-light">
+                    {sensoryProfiles[activeSensoryTab].description}
+                  </p>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-4 pt-4 border-t border-white/10">
+                    {sensoryProfiles[activeSensoryTab].notes.map((note) => (
+                      <div key={note.title} className="text-xs">
+                        <span className="font-bold text-[#CBD5E1] block">
+                          • {note.title}
+                        </span>
+                        <span className="text-white/60 text-[11px] font-light">
+                          {note.desc}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </motion.div>
+              </AnimatePresence>
+
+            </div>
+
+            {/* Right Photo Column: Spices & Tasting Elements */}
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="lg:col-span-5 relative"
+            >
+              <div className="relative rounded-3xl overflow-hidden border border-[#CBD5E1]/30 shadow-2xl bg-black/80 group">
+                <img
+                  src="/assets/story/warm_spices_vanilla.jpg"
+                  alt="Smoked vanilla beans, toasted oak, cinnamon, star anise, and warm spices"
+                  className="w-full h-[520px] sm:h-[600px] object-cover object-center group-hover:scale-105 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent" />
+                
+                <div className="absolute bottom-6 inset-x-6 p-6 rounded-2xl bg-black/85 backdrop-blur-md border border-[#CBD5E1]/30">
+                  <span className="font-mono text-[9px] uppercase tracking-[0.25em] text-amber-300 block font-bold mb-1">
+                    NATURAL FLAVOUR EXTRACTION
+                  </span>
+                  <h4 className="font-serif font-bold text-lg text-white">
+                    Rich Malt • Smoked Vanilla • Toasted Oak
+                  </h4>
+                  <p className="font-sans text-xs text-white/70 mt-1">
+                    Warm spices & dried fruits with extreme smoothness.
+                  </p>
+                </div>
+              </div>
             </motion.div>
-          </AnimatePresence>
+
+          </div>
 
         </div>
       </section>
 
       {/* =========================================================================
-          SECTION 8: ROYAL SPECIFICATIONS MATRIX
+          CHAPTER 4: THE MODERN LEGACY
+          "You do not need a crown to drink like a king.
+           Whether you are celebrating a massive business deal, sharing stories with old friends,
+           or pouring a traditional Patiala Peg at a wedding, Patiala Palace brings the royal court straight to your glass.
+           It is a timeless bridge between royal heritage and modern sophistication.
+
+           Next time you pour a glass, raise it high. Taste the history. Taste the grandeur.
+
+           Patiala Palace Whisky. Live life king-size."
           ========================================================================= */}
-      <section className="relative z-10 w-full py-24 sm:py-32 px-6 sm:px-12 border-b border-[#CBD5E1]/20 bg-[#020B1F]/60">
+      <section
+        id="modern-legacy"
+        className="relative z-10 w-full py-24 sm:py-32 px-4 sm:px-6 md:px-12 border-b border-white/10"
+      >
         <div className="max-w-7xl mx-auto">
           
-          <div className="text-center max-w-xl mx-auto mb-16">
-            <span className="font-sans text-[10px] sm:text-xs font-semibold tracking-[0.35em] text-[#CBD5E1] uppercase block mb-2">
-              SACRED STANDARDS
-            </span>
-            <h2 className="font-display font-medium text-3xl sm:text-4xl uppercase tracking-[0.12em] text-white">
-              Royal Specifications.
-            </h2>
-            <div className="w-12 h-[2px] bg-[#CBD5E1] mx-auto mt-3" />
-          </div>
-
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
-            {[
-              { label: "MALT GRIST", val: "100% Northern Barley", sub: "Two-Row & Six-Row" },
-              { label: "PROOF", val: "42.8% ABV", sub: "75° Imperial Proof" },
-              { label: "CASK TYPE", val: "Charred White Oak", sub: "First-Fill American" },
-              { label: "AQUIFER", val: "Shivalik Glacial", sub: "Subterranean Mountain Runoff" },
-              { label: "STILLS", val: "Swan-Neck Copper", sub: "Hand-Hammered Pots" },
-              { label: "FERMENTATION", val: "48-Hour Gentle", sub: "High Ester Production" },
-              { label: "COLOR", val: "Natural Amber", sub: "Non-Chill Filtered" },
-              { label: "VESSEL", val: "750 ML Crystal", sub: "Architectural Decanter" },
-            ].map((spec, sIdx) => (
-              <div
-                key={sIdx}
-                className="p-5 rounded-2xl bg-white/5 border border-white/10 hover:border-[#CBD5E1]/50 transition-all flex flex-col justify-between group"
-              >
-                <span className="font-display text-[9px] uppercase tracking-[0.22em] text-[#CBD5E1] font-semibold">
-                  {spec.label}
-                </span>
-                <div className="my-3">
-                  <span className="font-serif italic text-xl sm:text-2xl text-white group-hover:text-[#F8FAFC] transition-colors block">
-                    {spec.val}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            {/* Left Photo: Celebratory Toast */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="lg:col-span-6 relative order-2 lg:order-1"
+            >
+              <div className="relative rounded-3xl overflow-hidden border border-[#CBD5E1]/30 shadow-2xl bg-black/80 group">
+                <img
+                  src="/assets/story/royal_celebration_toast.jpg"
+                  alt="Friends celebrating with Patiala Palace glasses raised high"
+                  className="w-full h-[480px] sm:h-[560px] object-cover object-center group-hover:scale-105 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent" />
+                
+                <div className="absolute bottom-6 inset-x-6 p-6 rounded-2xl bg-black/80 backdrop-blur-md border border-[#CBD5E1]/30">
+                  <span className="font-mono text-[9px] uppercase tracking-[0.25em] text-amber-300 block font-bold mb-1">
+                    THE ROYAL TOAST
                   </span>
-                  <span className="font-sans text-[10px] text-white/50 block mt-1">
-                    {spec.sub}
+                  <p className="font-serif italic text-xl text-white font-medium">
+                    "Next time you pour a glass, raise it high. Taste the history. Taste the grandeur."
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Right Column: Narrative */}
+            <div className="lg:col-span-6 flex flex-col items-start order-1 lg:order-2">
+              
+              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/5 border border-white/15 mb-4">
+                <span className="font-mono text-[10px] font-bold tracking-[0.25em] text-[#CBD5E1] uppercase">
+                  CHAPTER 04 • LIVING KING-SIZE
+                </span>
+              </div>
+
+              <h2 className="font-serif font-normal text-3xl sm:text-5xl md:text-6xl text-white tracking-tight leading-tight">
+                The Modern Legacy
+              </h2>
+
+              <p className="font-serif italic text-2xl sm:text-3xl text-amber-300 mt-4 leading-relaxed font-normal">
+                "You do not need a crown to drink like a king."
+              </p>
+
+              <div className="mt-6 space-y-4 text-sm sm:text-base text-white/80 font-light leading-relaxed">
+                <p>
+                  Whether you are celebrating a massive business deal, sharing stories with old friends, or pouring a traditional Patiala Peg at a wedding, Patiala Palace brings the royal court straight to your glass.
+                </p>
+                <p>
+                  It is a timeless bridge between royal heritage and modern sophistication. Created for the connoisseurs of today who know that greatness is not inherited, but lived.
+                </p>
+              </div>
+
+              {/* Callout Box */}
+              <div className="mt-8 p-6 sm:p-8 rounded-2xl bg-gradient-to-br from-amber-500/15 via-black/60 to-[#041235] border border-amber-500/30 w-full">
+                <p className="font-serif text-lg sm:text-xl text-amber-100 font-medium">
+                  Next time you pour a glass, raise it high. <br />
+                  <span className="text-white font-bold">Taste the history. Taste the grandeur.</span>
+                </p>
+                <div className="mt-4 pt-4 border-t border-white/15 flex items-center justify-between">
+                  <span className="font-serif font-bold text-xl sm:text-2xl text-white tracking-wide">
+                    Patiala Palace Whisky.
+                  </span>
+                  <span className="font-mono text-xs text-amber-300 uppercase tracking-widest font-bold">
+                    Live life king-size.
                   </span>
                 </div>
               </div>
-            ))}
-          </div>
 
-        </div>
-      </section>
+              {/* Action Buttons */}
+              <div className="mt-8 flex flex-wrap gap-3">
+                {onExploreCocktails && (
+                  <button
+                    onClick={onExploreCocktails}
+                    className="px-8 py-3.5 rounded-full bg-[#E2E8F0] hover:bg-white text-[#020818] font-mono text-xs font-bold uppercase tracking-wider transition-all cursor-pointer shadow-lg hover:shadow-[0_0_25px_rgba(226,232,240,0.35)]"
+                  >
+                    Palace Cocktails ↗
+                  </button>
+                )}
+                {onExploreSessions && (
+                  <button
+                    onClick={onExploreSessions}
+                    className="px-8 py-3.5 rounded-full bg-white/10 hover:bg-white/20 text-white font-mono text-xs font-bold uppercase tracking-wider border border-white/20 transition-all cursor-pointer"
+                  >
+                    Palace Sessions 🎵
+                  </button>
+                )}
+                {onNavigateFindUs && (
+                  <button
+                    onClick={onNavigateFindUs}
+                    className="px-8 py-3.5 rounded-full bg-white/10 hover:bg-white/20 text-white font-mono text-xs font-bold uppercase tracking-wider border border-white/20 transition-all cursor-pointer"
+                  >
+                    Find In Outlets 📍
+                  </button>
+                )}
+                {onBackToHome && (
+                  <button
+                    onClick={onBackToHome}
+                    className="px-8 py-3.5 rounded-full border border-white/30 hover:border-white text-white font-mono text-xs font-bold uppercase tracking-wider transition-all cursor-pointer"
+                  >
+                    Back To Home
+                  </button>
+                )}
+              </div>
 
-      {/* =========================================================================
-          SECTION 9: CLOSING INVITATION & CALL-TO-ACTION
-          ========================================================================= */}
-      <section className="relative z-10 w-full py-24 sm:py-32 px-6 sm:px-12 text-center">
-        <div className="max-w-3xl mx-auto flex flex-col items-center">
-          
-          <div className="w-16 h-16 rounded-full border border-[#CBD5E1]/70 p-2 flex items-center justify-center bg-[#04153B] mb-6 shadow-[0_0_30px_rgba(226,232,240,0.3)]">
-            <img
-              src="/assets/logo/official_silver_seal.png"
-              alt="Patiyala Palace Sovereign Seal"
-              className="w-full h-full object-contain filter drop-shadow"
-            />
-          </div>
+            </div>
 
-          <span className="font-sans text-xs font-bold tracking-[0.3em] uppercase text-[#CBD5E1] block mb-3">
-            THE JOURNEY CONTINUES
-          </span>
-          <h2 className="font-display font-medium text-3xl sm:text-5xl uppercase tracking-[0.08em] text-white mb-6">
-            Taste The Royal Legacy.
-          </h2>
-          <p className="text-sm sm:text-base text-white/80 font-light leading-relaxed mb-10 max-w-xl">
-            Explore our curated royal cocktail serves or locate authorized state allocations of Patiyala Palace Crafted Indian Malt.
-          </p>
-
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full">
-            {onExploreCocktails && (
-              <button
-                onClick={onExploreCocktails}
-                className="w-full sm:w-auto px-8 py-3.5 rounded-full bg-[#CBD5E1] hover:bg-[#F8FAFC] text-[#03102B] font-display text-xs font-bold tracking-[0.2em] uppercase transition-all duration-300 shadow-xl cursor-pointer"
-              >
-                EXPLORE COCKTAILS
-              </button>
-            )}
-            {onExploreSessions && (
-              <button
-                onClick={onExploreSessions}
-                className="w-full sm:w-auto px-8 py-3.5 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-white font-display text-xs font-bold tracking-[0.2em] uppercase transition-all duration-300 cursor-pointer"
-              >
-                PALACE SESSIONS (GHAZALS)
-              </button>
-            )}
-            {onBackToHome && (
-              <button
-                onClick={onBackToHome}
-                className="w-full sm:w-auto px-8 py-3.5 rounded-full bg-transparent hover:bg-white/5 border border-[#CBD5E1]/50 text-[#F8FAFC] font-display text-xs font-medium tracking-[0.2em] uppercase transition-all duration-300 cursor-pointer"
-              >
-                THE DECANTER (HOME)
-              </button>
-            )}
           </div>
 
         </div>
