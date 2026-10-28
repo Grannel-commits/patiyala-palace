@@ -149,35 +149,31 @@ export const MonkeyCocktailsCarousel: React.FC<Props> = ({ onSeeAllRecipes }) =>
   }, [activeCocktail]);
 
   return (
-    <section className="relative w-full p-2 sm:p-3 md:p-4 my-2 sm:my-4 select-none">
+    <section className="relative w-full py-14 sm:py-20 md:py-24 px-3 sm:px-6 md:px-8 select-none">
       
-      {/* Outer Card in Imperial Midnight Sapphire & 24K Regal Gold */}
-      <div className="relative rounded-2xl sm:rounded-3xl lg:rounded-[36px] overflow-hidden bg-gradient-to-b from-[#030d24] via-[#05163e] to-[#020818] text-white shadow-2xl p-6 sm:p-10 md:p-14 lg:p-16 border border-[#CBD5E1]/40">
-        
-        {/* Subtle Golden Radial Glow Overlay */}
-        <div className="pointer-events-none absolute -top-40 left-1/2 -translate-x-1/2 w-[700px] h-[400px] bg-[#CBD5E1]/10 rounded-full blur-[140px]" />
-        <div className="pointer-events-none absolute -bottom-40 right-10 w-[500px] h-[300px] bg-[#0b2b6f]/25 rounded-full blur-[120px]" />
+      {/* Centered Content Container flowing directly on main silk background */}
+      <div className="relative max-w-7xl mx-auto z-10">
 
         {/* ========================================================
             1. SECTION TITLE (LUXURY EDITORIAL SERIF)
         ======================================================== */}
-        <div className="text-center mb-8 sm:mb-12 md:mb-16 select-none relative z-10">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#020818]/80 border border-[#CBD5E1]/30 mb-3 shadow-md">
+        <div className="text-center mb-10 sm:mb-14 md:mb-16 select-none relative z-10">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-black/60 backdrop-blur-md border border-[#CBD5E1]/30 mb-3.5 shadow-lg">
             <span className="w-1.5 h-1.5 rounded-full bg-[#E2E8F0] animate-pulse" />
             <span className="font-mono text-[9px] sm:text-[10px] tracking-[0.25em] uppercase text-[#E2E8F0]">
               PALACE MIXOLOGY
             </span>
           </div>
 
-          <h2 className="font-serif font-normal text-4xl sm:text-6xl md:text-7xl lg:text-8xl text-white tracking-tight leading-none drop-shadow-[0_4px_30px_rgba(0,0,0,0.9)]">
-            Palace <span className="italic font-light text-[#E2E8F0]">Cocktails</span>
+          <h2 className="font-serif font-normal text-4xl sm:text-6xl md:text-7xl lg:text-8xl text-white tracking-tight leading-none drop-shadow-[0_4px_30px_rgba(0,0,0,0.95)]">
+            Palace <span className="italic font-light text-[#E2E8F0] drop-shadow-[0_0_35px_rgba(226,232,240,0.35)]">Cocktails</span>
           </h2>
         </div>
 
         {/* ========================================================
             2. 5-PHOTO MOSAIC GRID (2 TOP, 3 BOTTOM)
         ======================================================== */}
-        <div className="max-w-7xl mx-auto flex flex-col gap-4 sm:gap-6 md:gap-8 relative z-10">
+        <div className="flex flex-col gap-4 sm:gap-6 md:gap-8 relative z-10">
           
           {/* TOP ROW: 2 Cards (Asymmetric Left ~5 cols, Right ~7 cols) */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-6 md:gap-8">
@@ -187,7 +183,7 @@ export const MonkeyCocktailsCarousel: React.FC<Props> = ({ onSeeAllRecipes }) =>
               whileHover={{ y: -4 }}
               transition={{ duration: 0.3 }}
               onClick={() => setActiveCocktail(FIVE_FEATURED_COCKTAILS[0])}
-              className="lg:col-span-5 group relative aspect-[4/5] sm:aspect-square lg:aspect-[4/5] rounded-2xl sm:rounded-3xl lg:rounded-[32px] overflow-hidden bg-[#041235] border border-[#CBD5E1]/35 hover:border-[#E2E8F0] cursor-pointer shadow-xl hover:shadow-[0_15px_45px_rgba(226,232,240,0.25)] transition-all duration-500"
+              className="lg:col-span-5 group relative aspect-[4/5] sm:aspect-square lg:aspect-[4/5] rounded-2xl sm:rounded-3xl lg:rounded-[32px] overflow-hidden bg-[#041235]/80 backdrop-blur-md border border-[#CBD5E1]/40 hover:border-[#E2E8F0] cursor-pointer shadow-2xl hover:shadow-[0_20px_50px_rgba(226,232,240,0.25)] transition-all duration-500"
             >
               <img
                 src={FIVE_FEATURED_COCKTAILS[0].image}
@@ -224,7 +220,7 @@ export const MonkeyCocktailsCarousel: React.FC<Props> = ({ onSeeAllRecipes }) =>
               whileHover={{ y: -4 }}
               transition={{ duration: 0.3 }}
               onClick={() => setActiveCocktail(FIVE_FEATURED_COCKTAILS[1])}
-              className="lg:col-span-7 group relative aspect-[16/10] sm:aspect-[16/11] lg:aspect-[16/11] rounded-2xl sm:rounded-3xl lg:rounded-[32px] overflow-hidden bg-[#041235] border border-[#CBD5E1]/35 hover:border-[#E2E8F0] cursor-pointer shadow-xl hover:shadow-[0_15px_45px_rgba(226,232,240,0.25)] transition-all duration-500"
+              className="lg:col-span-7 group relative aspect-[16/10] sm:aspect-[16/11] lg:aspect-[16/11] rounded-2xl sm:rounded-3xl lg:rounded-[32px] overflow-hidden bg-[#041235]/80 backdrop-blur-md border border-[#CBD5E1]/40 hover:border-[#E2E8F0] cursor-pointer shadow-2xl hover:shadow-[0_20px_50px_rgba(226,232,240,0.25)] transition-all duration-500"
             >
               <img
                 src={FIVE_FEATURED_COCKTAILS[1].image}
@@ -266,7 +262,7 @@ export const MonkeyCocktailsCarousel: React.FC<Props> = ({ onSeeAllRecipes }) =>
               whileHover={{ y: -4 }}
               transition={{ duration: 0.3 }}
               onClick={() => setActiveCocktail(FIVE_FEATURED_COCKTAILS[2])}
-              className="group relative aspect-square sm:aspect-[4/5] lg:aspect-square rounded-2xl sm:rounded-3xl lg:rounded-[32px] overflow-hidden bg-[#041235] border border-[#CBD5E1]/35 hover:border-[#E2E8F0] cursor-pointer shadow-xl hover:shadow-[0_15px_45px_rgba(226,232,240,0.25)] transition-all duration-500"
+              className="group relative aspect-square sm:aspect-[4/5] lg:aspect-square rounded-2xl sm:rounded-3xl lg:rounded-[32px] overflow-hidden bg-[#041235]/80 backdrop-blur-md border border-[#CBD5E1]/40 hover:border-[#E2E8F0] cursor-pointer shadow-2xl hover:shadow-[0_20px_50px_rgba(226,232,240,0.25)] transition-all duration-500"
             >
               <img
                 src={FIVE_FEATURED_COCKTAILS[2].image}
@@ -303,7 +299,7 @@ export const MonkeyCocktailsCarousel: React.FC<Props> = ({ onSeeAllRecipes }) =>
               whileHover={{ y: -4 }}
               transition={{ duration: 0.3 }}
               onClick={() => setActiveCocktail(FIVE_FEATURED_COCKTAILS[3])}
-              className="group relative aspect-square sm:aspect-[4/5] lg:aspect-square rounded-2xl sm:rounded-3xl lg:rounded-[32px] overflow-hidden bg-[#041235] border border-[#CBD5E1]/35 hover:border-[#E2E8F0] cursor-pointer shadow-xl hover:shadow-[0_15px_45px_rgba(226,232,240,0.25)] transition-all duration-500"
+              className="group relative aspect-square sm:aspect-[4/5] lg:aspect-square rounded-2xl sm:rounded-3xl lg:rounded-[32px] overflow-hidden bg-[#041235]/80 backdrop-blur-md border border-[#CBD5E1]/40 hover:border-[#E2E8F0] cursor-pointer shadow-2xl hover:shadow-[0_20px_50px_rgba(226,232,240,0.25)] transition-all duration-500"
             >
               <img
                 src={FIVE_FEATURED_COCKTAILS[3].image}
@@ -340,7 +336,7 @@ export const MonkeyCocktailsCarousel: React.FC<Props> = ({ onSeeAllRecipes }) =>
               whileHover={{ y: -4 }}
               transition={{ duration: 0.3 }}
               onClick={() => setActiveCocktail(FIVE_FEATURED_COCKTAILS[4])}
-              className="group relative aspect-square sm:aspect-[4/5] lg:aspect-square rounded-2xl sm:rounded-3xl lg:rounded-[32px] overflow-hidden bg-[#041235] border border-[#CBD5E1]/35 hover:border-[#E2E8F0] cursor-pointer shadow-xl hover:shadow-[0_15px_45px_rgba(226,232,240,0.25)] transition-all duration-500"
+              className="group relative aspect-square sm:aspect-[4/5] lg:aspect-square rounded-2xl sm:rounded-3xl lg:rounded-[32px] overflow-hidden bg-[#041235]/80 backdrop-blur-md border border-[#CBD5E1]/40 hover:border-[#E2E8F0] cursor-pointer shadow-2xl hover:shadow-[0_20px_50px_rgba(226,232,240,0.25)] transition-all duration-500"
             >
               <img
                 src={FIVE_FEATURED_COCKTAILS[4].image}
