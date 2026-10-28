@@ -5,7 +5,7 @@ interface Props {
   onNavigate: (sectionId: string) => void;
   isAudioPlaying?: boolean;
   onToggleAudio?: () => void;
-  currentPage?: "home" | "cocktails" | "story" | "sessions";
+  currentPage?: "home" | "cocktails" | "story" | "sessions" | "find-us";
 }
 
 export const Navbar: React.FC<Props> = ({
@@ -63,11 +63,13 @@ export const Navbar: React.FC<Props> = ({
           <ul className="hidden md:flex items-center gap-1.5 lg:gap-3">
             {[
               { id: "home", label: "HOME" },
+              { id: "find-us", label: "FIND US" },
               { id: "cocktails", label: "COCKTAILS" },
               { id: "story", label: "OUR STORY" },
               { id: "sessions", label: "PALACE SESSIONS" },
             ].map((link) => {
               const isActive =
+                (currentPage === "find-us" && link.id === "find-us") ||
                 (currentPage === "story" && link.id === "story") ||
                 (currentPage === "cocktails" && link.id === "cocktails") ||
                 (currentPage === "sessions" && link.id === "sessions") ||

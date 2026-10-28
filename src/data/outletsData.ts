@@ -1,0 +1,527 @@
+export interface OutletLocation {
+  id: string;
+  name: string;
+  area: string;
+  zone: "Cyber City & DLF" | "MG Road & NH-8" | "Golf Course & Sec 53-66" | "Udyog Vihar & West" | "Sohna Road & Central";
+  city: "Gurugram";
+  state: "Haryana";
+  pincode: string;
+  type: string;
+  landmark: string;
+  address: string;
+  keywords: string[];
+}
+
+export const HARYANA_OUTLETS: OutletLocation[] = [
+  {
+    id: "shankar-chowk-cyber-hub",
+    name: "Shankar Chowk — Cyber Hub",
+    area: "Cyber City, DLF Phase II",
+    zone: "Cyber City & DLF",
+    city: "Gurugram",
+    state: "Haryana",
+    pincode: "122002",
+    type: "Premium Palace Retail & Lounges",
+    landmark: "Opposite Shankar Chowk Flyover, Cyber Hub Entry",
+    address: "DLF Cyber City, Building 10 & Shankar Chowk, Gurugram, Haryana 122002",
+    keywords: ["shankar chowk", "cyber hub", "cyberhub", "cyber city", "cybercity", "dlf cyber", "phase 2", "nh 8", "nh-8"],
+  },
+  {
+    id: "jmd-central-arcade",
+    name: "JMD Central Arcade",
+    area: "Sector 28, Mehrauli-Gurgaon Road",
+    zone: "MG Road & NH-8",
+    city: "Gurugram",
+    state: "Haryana",
+    pincode: "122002",
+    type: "Luxury Liquor Boutique",
+    landmark: "Near Sikanderpur Metro, Main MG Road",
+    address: "JMD Central Arcade, Mehrauli-Gurgaon Rd, Gurugram, Haryana 122002",
+    keywords: ["jmd", "jmd central", "central arcade", "arcade", "sikanderpur", "mg road", "sector 28"],
+  },
+  {
+    id: "ambience-mall-nh8",
+    name: "Ambience Mall NH-8",
+    area: "Ambience Island, DLF Phase III",
+    zone: "MG Road & NH-8",
+    city: "Gurugram",
+    state: "Haryana",
+    pincode: "122002",
+    type: "Flagship Luxury Spirits Vault",
+    landmark: "NH-8 Delhi-Gurgaon Toll Border",
+    address: "Ambience Mall, NH-8, DLF Phase 3, Sector 24, Gurugram, Haryana 122002",
+    keywords: ["ambience mall", "ambience", "nh 8", "nh-8", "delhi border", "ambience island", "leela"],
+  },
+  {
+    id: "moulsary-arcade-dlf-2",
+    name: "Moulsary Arcade DLF Phase-II",
+    area: "DLF Phase II",
+    zone: "Cyber City & DLF",
+    city: "Gurugram",
+    state: "Haryana",
+    pincode: "122008",
+    type: "Neighbourhood Wine & Malt Merchant",
+    landmark: "Near Moulsari Avenue Rapid Metro",
+    address: "Moulsari Arcade, DLF Phase 2, Gurugram, Haryana 122008",
+    keywords: ["moulsary", "moulsari", "moulsary arcade", "dlf 2", "dlf-2", "dlf ii", "dlf-ii", "dlf phase 2"],
+  },
+  {
+    id: "dlf-hubs",
+    name: "DLF Cyber City & Commercial Hubs",
+    area: "DLF Phases I - V",
+    zone: "Cyber City & DLF",
+    city: "Gurugram",
+    state: "Haryana",
+    pincode: "122002",
+    type: "Authorised Palace Retailers",
+    landmark: "Across DLF Phase 1, 2, 3, 4, 5",
+    address: "DLF City Complex, Gurugram, Haryana 122002",
+    keywords: ["dlf", "dlef", "dlf city", "dlf phase 1", "dlf phase 2", "dlf phase 3", "dlf phase 4", "dlf phase 5"],
+  },
+  {
+    id: "udyog-vihar-phase-2-3",
+    name: "Udyog Vihar Phase-II / III (Rajokari Border)",
+    area: "Udyog Vihar",
+    zone: "Udyog Vihar & West",
+    city: "Gurugram",
+    state: "Haryana",
+    pincode: "122016",
+    type: "Highway Reserve Vault",
+    landmark: "Delhi-Gurgaon Rajokari Toll Junction",
+    address: "Udyog Vihar Phase 2/3, Adjacent to Rajokari Border, Gurugram, Haryana 122016",
+    keywords: ["udyog vihar", "udyog vihar phase 2", "udyog vihar phase 3", "rajokari", "rajokari border", "rajokri", "phase-ii", "phase-iii"],
+  },
+  {
+    id: "udyog-vihar-phase-5",
+    name: "Udyog Vihar Phase-V",
+    area: "Udyog Vihar Phase 5",
+    zone: "Udyog Vihar & West",
+    city: "Gurugram",
+    state: "Haryana",
+    pincode: "122016",
+    type: "Corporate District Cellar",
+    landmark: "Near Trident & Oberoi Junction",
+    address: "Udyog Vihar Phase 5, Gurugram, Haryana 122016",
+    keywords: ["udyog vihar phase 5", "udyog vihar v", "phase-v", "phase 5", "trident", "oberoi"],
+  },
+  {
+    id: "electronic-city",
+    name: "Electronic City, Sector 18",
+    area: "Sector 18 / Industrial Area",
+    zone: "Udyog Vihar & West",
+    city: "Gurugram",
+    state: "Haryana",
+    pincode: "122015",
+    type: "Premium Spirits Emporium",
+    landmark: "Near Airtel Centre, Sector 18",
+    address: "Electronic City, Sector 18, Gurugram, Haryana 122015",
+    keywords: ["electronic city", "sector 18", "sec 18", "airtel", "maruti"],
+  },
+  {
+    id: "hyatt-place-regency",
+    name: "Hyatt Place / Hyatt Enclave",
+    area: "Old Delhi Gurgaon Road / Sector 83",
+    zone: "Udyog Vihar & West",
+    city: "Gurugram",
+    state: "Haryana",
+    pincode: "122015",
+    type: "Luxury Hospitality & Lounge Partner",
+    landmark: "Near Iffco Chowk & Express Enclave",
+    address: "Old Delhi Gurgaon Rd, Electronic City, Gurugram, Haryana 122015",
+    keywords: ["hyatt", "hyatt palace", "hyatt place", "hyatt regency", "old delhi gurgaon"],
+  },
+  {
+    id: "bajghera-chowk",
+    name: "Bajghera Chowk (Bajgera)",
+    area: "Sector 112 / New Palam Vihar",
+    zone: "Udyog Vihar & West",
+    city: "Gurugram",
+    state: "Haryana",
+    pincode: "122017",
+    type: "Express Spirits Store",
+    landmark: "Bajghera Railway Flyover & Chowk",
+    address: "Bajghera Chowk, Near Sector 112, Gurugram, Haryana 122017",
+    keywords: ["bajgera", "bajghera", "bajgera chowk", "bajghera chowk", "palam vihar", "sector 112"],
+  },
+  {
+    id: "dwarka-expressway",
+    name: "Dwarka Expressway Hubs",
+    area: "Sectors 102 - 114 Corridor",
+    zone: "Udyog Vihar & West",
+    city: "Gurugram",
+    state: "Haryana",
+    pincode: "122017",
+    type: "Highway Palace Cellars",
+    landmark: "Northern Peripheral Road (NPR)",
+    address: "Dwarka Expressway, Sector 109/110 Junction, Gurugram, Haryana 122017",
+    keywords: ["dwarka expressway", "dwarka", "expressway", "npr", "sector 109", "sector 110", "sector 104"],
+  },
+  {
+    id: "trade-tower-hyde",
+    name: "Trade Tower (Hyde Park & Unitech)",
+    area: "Sector 47 / South City II",
+    zone: "Sohna Road & Central",
+    city: "Gurugram",
+    state: "Haryana",
+    pincode: "122018",
+    type: "Corporate Towers Vault",
+    landmark: "Unitech Trade Tower, Sohna Road",
+    address: "Trade Tower, Block C, South City II, Sector 47, Gurugram, Haryana 122018",
+    keywords: ["trade tower", "hyde", "hyde park", "unitech", "sohna road", "sector 47"],
+  },
+  {
+    id: "mehrauli-border",
+    name: "Mehrauli Border (Aya Nagar Junction)",
+    area: "Mehrauli-Gurgaon Road",
+    zone: "MG Road & NH-8",
+    city: "Gurugram",
+    state: "Haryana",
+    pincode: "122002",
+    type: "Border Express Terminal",
+    landmark: "Haryana-Delhi Toll Checkpoint",
+    address: "MG Road, Mehrauli Border, Gurugram, Haryana 122002",
+    keywords: ["mehrauli border", "mehrauli", "aya nagar", "border", "mg road border", "delhi border"],
+  },
+  {
+    id: "garden-estate-mg-road",
+    name: "Garden Estate, MG Road",
+    area: "Sector 28, Heritage Corridor",
+    zone: "MG Road & NH-8",
+    city: "Gurugram",
+    state: "Haryana",
+    pincode: "122002",
+    type: "Boutique Wine & Spirits",
+    landmark: "Directly opposite Garden Estate Condominiums",
+    address: "Garden Estate, Mehrauli-Gurgaon Rd, Gurugram, Haryana 122002",
+    keywords: ["garden estate", "mg road", "garden estate mg road", "guru dronacharya", "sector 28"],
+  },
+  {
+    id: "dlf-rapid-metro-station",
+    name: "DLF Rapid Metro Stations",
+    area: "Cyber City & Golf Course Road",
+    zone: "Cyber City & DLF",
+    city: "Gurugram",
+    state: "Haryana",
+    pincode: "122002",
+    type: "Concourse Liquor Outlets",
+    landmark: "Belvedere Towers & Phase 2 Metro concourses",
+    address: "Rapid Metro Corridors, DLF City, Gurugram, Haryana 122002",
+    keywords: ["dlf rapid metro", "rapid metro", "metro station", "belvedere", "vodafone"],
+  },
+  {
+    id: "bristol-hotel",
+    name: "The Bristol Hotel, Sikanderpur",
+    area: "Sikanderpur, DLF Phase I",
+    zone: "MG Road & NH-8",
+    city: "Gurugram",
+    state: "Haryana",
+    pincode: "122002",
+    type: "Hotel Bar & Attached Boutique",
+    landmark: "Bristol Chowk, MG Road",
+    address: "Near Sikanderpur Metro, Bristol Chowk, MG Road, Gurugram, Haryana 122002",
+    keywords: ["bristol", "bristol hotel", "bristol chowk", "sikanderpur"],
+  },
+  {
+    id: "sahara-mall",
+    name: "Sahara Mall, MG Road",
+    area: "Saraswati Vihar, Chakkarpur",
+    zone: "MG Road & NH-8",
+    city: "Gurugram",
+    state: "Haryana",
+    pincode: "122002",
+    type: "Palace Spirits Store",
+    landmark: "Next to MGF Metropolitan Mall",
+    address: "Sahara Mall, Main MG Road, Gurugram, Haryana 122002",
+    keywords: ["sahara mall", "sahara", "mg road malls", "chakkarpur"],
+  },
+  {
+    id: "sector-29",
+    name: "Sector-29 Leisure & Dining District",
+    area: "Sector 29, City Centre",
+    zone: "Sohna Road & Central",
+    city: "Gurugram",
+    state: "Haryana",
+    pincode: "122001",
+    type: "Epicentre of Bars & Boutique Retail",
+    landmark: "Near IFFCO Chowk & Huda City Centre",
+    address: "Sector 29 Commercial Market, Gurugram, Haryana 122001",
+    keywords: ["sector 29", "sector-29", "sec 29", "29", "huda city centre", "kingdom of dreams", "leisure valley"],
+  },
+  {
+    id: "signature-tower",
+    name: "Signature Tower Chowk",
+    area: "South City I, NH-8",
+    zone: "MG Road & NH-8",
+    city: "Gurugram",
+    state: "Haryana",
+    pincode: "122001",
+    type: "Executive Plaza Spirits Store",
+    landmark: "Signature Tower Crossing, NH-8",
+    address: "Near Crowne Plaza, Signature Towers, Gurugram, Haryana 122001",
+    keywords: ["signature tower", "signature", "crowne plaza", "south city 1", "iffco chowk"],
+  },
+  {
+    id: "galleria-market-dlf-4",
+    name: "Galleria Market (DLF Phase-IV)",
+    area: "DLF Phase IV",
+    zone: "Cyber City & DLF",
+    city: "Gurugram",
+    state: "Haryana",
+    pincode: "122009",
+    type: "Prestigious High-Street Boutique",
+    landmark: "Central Fountain, DLF Galleria",
+    address: "Galleria Market, DLF Phase 4, Gurugram, Haryana 122009",
+    keywords: ["galleria", "galaria", "galaria mkt", "galleria market", "dlf 4", "dlf-4", "dlf iv", "dlf-v", "dlf 5"],
+  },
+  {
+    id: "bestech-centre",
+    name: "Bestech Central Point & Park View",
+    area: "Sector 48 / Sohna Road",
+    zone: "Sohna Road & Central",
+    city: "Gurugram",
+    state: "Haryana",
+    pincode: "122018",
+    type: "Modern Retail Vault",
+    landmark: "Near Subhash Chowk, Sohna Road",
+    address: "Bestech Centre Point, Sector 48, Gurugram, Haryana 122018",
+    keywords: ["bestech", "bestech centre", "bestech central", "sohna road", "sector 48"],
+  },
+  {
+    id: "sushant-vyapar-kendra",
+    name: "Sushant Vyapar Kendra",
+    area: "Sushant Lok Phase I",
+    zone: "Cyber City & DLF",
+    city: "Gurugram",
+    state: "Haryana",
+    pincode: "122009",
+    type: "Heritage Wine & Spirit Shop",
+    landmark: "Block C, Sushant Lok 1",
+    address: "Sushant Vyapar Kendra, Sushant Lok 1, Gurugram, Haryana 122009",
+    keywords: ["sushant vyapar", "vyapar kender", "sushant vyapar kendra", "sushant lok", "block c"],
+  },
+  {
+    id: "dlf-golf-drive",
+    name: "DLF Golf Drive Corridor",
+    area: "Sector 42 / DLF Phase V",
+    zone: "Golf Course & Sec 53-66",
+    city: "Gurugram",
+    state: "Haryana",
+    pincode: "122002",
+    type: "Ultra-Luxury Estates Merchant",
+    landmark: "Adjacent to DLF Golf and Country Club",
+    address: "Golf Drive, DLF5, Sector 42, Gurugram, Haryana 122002",
+    keywords: ["dlf golf drive", "golf drive", "the camellias", "the magnolias", "the aralias", "dlf5", "sector 42"],
+  },
+  {
+    id: "round-about-sector-53-54",
+    name: "Round About Sector 53-54",
+    area: "Golf Course Road",
+    zone: "Golf Course & Sec 53-66",
+    city: "Gurugram",
+    state: "Haryana",
+    pincode: "122003",
+    type: "Luxury Wine Shop & Lounge",
+    landmark: "Between Sector 53 & 54 Metro Stations",
+    address: "Sector 53-54 Roundabout, Golf Course Road, Gurugram, Haryana 122003",
+    keywords: ["round about", "sector 53", "sector 54", "sec 53", "sec 54", "53-54", "golf course road"],
+  },
+  {
+    id: "central-plaza",
+    name: "Central Plaza Mall",
+    area: "Golf Course Road, Sector 53",
+    zone: "Golf Course & Sec 53-66",
+    city: "Gurugram",
+    state: "Haryana",
+    pincode: "122002",
+    type: "Upscale Cellar Partner",
+    landmark: "Opposite Parsvnath Exotica",
+    address: "Central Plaza Mall, Sector 53, Gurugram, Haryana 122002",
+    keywords: ["central plaza", "central plaza mall", "sector 53", "golf course road"],
+  },
+  {
+    id: "ardee-city",
+    name: "Ardee City & Ardee Mall",
+    area: "Sector 52",
+    zone: "Sohna Road & Central",
+    city: "Gurugram",
+    state: "Haryana",
+    pincode: "122003",
+    type: "Neighbourhood Premium Spirits",
+    landmark: "Ardee Mall, Sector 52",
+    address: "Ardee City, Sector 52, Gurugram, Haryana 122003",
+    keywords: ["ardee city", "ardee", "ardee mall", "sector 52", "sec 52"],
+  },
+  {
+    id: "maidawas",
+    name: "Maidawas Sector-64/65",
+    area: "Golf Course Extension Road",
+    zone: "Golf Course & Sec 53-66",
+    city: "Gurugram",
+    state: "Haryana",
+    pincode: "122102",
+    type: "Express Malt Depot",
+    landmark: "Maidawas Chowk, Extension Road",
+    address: "Maidawas, Sector 64/65, Gurugram, Haryana 122102",
+    keywords: ["maidawas", "medawas", "sector 64", "sector 65", "extension road"],
+  },
+  {
+    id: "sector-65-tigra",
+    name: "Sector-65 (Tigra / WorldMark)",
+    area: "Sector 65, Golf Course Extension",
+    zone: "Golf Course & Sec 53-66",
+    city: "Gurugram",
+    state: "Haryana",
+    pincode: "122102",
+    type: "Palace Spirits Flagship Store",
+    landmark: "Near WorldMark Gurgaon & M3M Urbana",
+    address: "Sector 65, Tigra Crossing, Gurugram, Haryana 122102",
+    keywords: ["sector 65", "sec 65", "sector-65", "tigra", "worldmark", "m3m urbana"],
+  },
+  {
+    id: "the-forest-sector-62",
+    name: "The Forest (Sector 62)",
+    area: "Sector 62, Golf Course Extension",
+    zone: "Golf Course & Sec 53-66",
+    city: "Gurugram",
+    state: "Haryana",
+    pincode: "122102",
+    type: "Boutique Fine Spirits",
+    landmark: "Near Pioneer Araya & The Forest Complex",
+    address: "Sector 62, Golf Course Ext Road, Gurugram, Haryana 122102",
+    keywords: ["the forest", "forest", "sector 62", "sec 62", "pioneer araya"],
+  },
+  {
+    id: "tigra-sector-56",
+    name: "Tigra Sector-56",
+    area: "Sector 56 / Huda Market",
+    zone: "Golf Course & Sec 53-66",
+    city: "Gurugram",
+    state: "Haryana",
+    pincode: "122011",
+    type: "Neighbourhood Vault",
+    landmark: "Sector 56 Rapid Metro terminal & Huda Market",
+    address: "Sector 56 Market & Tigra Road, Gurugram, Haryana 122011",
+    keywords: ["tigra", "sector 56", "sec 56", "tigra sector 56", "huda market 56"],
+  },
+  {
+    id: "sector-40",
+    name: "Sector 40 Market",
+    area: "Sector 40",
+    zone: "Sohna Road & Central",
+    city: "Gurugram",
+    state: "Haryana",
+    pincode: "122001",
+    type: "Local Gourmet Spirits Shop",
+    landmark: "Sector 40 Main Market",
+    address: "Commercial Complex, Sector 40, Gurugram, Haryana 122001",
+    keywords: ["sector 40", "sec 40", "sector-40", "unitech cyber park"],
+  },
+  {
+    id: "sector-47-bakhtawar-chowk",
+    name: "Sector-47 (Bakhtawar Chowk)",
+    area: "Sector 47",
+    zone: "Sohna Road & Central",
+    city: "Gurugram",
+    state: "Haryana",
+    pincode: "122018",
+    type: "High-Volume Malt Hub",
+    landmark: "Bakhtawar Chowk, Near Medanta Hospital",
+    address: "Sector 47, Bakhtawar Chowk, Gurugram, Haryana 122018",
+    keywords: ["bakhtawar", "bakhtawar chowk", "sector 47", "sec 47", "sector-47", "medanta"],
+  },
+  {
+    id: "spaze-mall-sohna-road",
+    name: "Spaze Mall / Spaze I-Tech",
+    area: "Sector 49, Sohna Road",
+    zone: "Sohna Road & Central",
+    city: "Gurugram",
+    state: "Haryana",
+    pincode: "122018",
+    type: "Modern Commercial Plaza Retailer",
+    landmark: "Spaze Edge & Spaze Mall, Sohna Road",
+    address: "Spaze Platinum / I-Tech Park, Sector 49, Gurugram, Haryana 122018",
+    keywords: ["spaze", "spaze mall", "spaze edge", "sector 49", "sohna road"],
+  },
+  {
+    id: "ramgarh-chowk-sector-65-66",
+    name: "Ramgarh Chowk Sector-65/66",
+    area: "Sector 65 / 66 Junction",
+    zone: "Golf Course & Sec 53-66",
+    city: "Gurugram",
+    state: "Haryana",
+    pincode: "122102",
+    type: "Southern Peripheral Spirits Depot",
+    landmark: "Ramgarh Crossing, Golf Course Ext Road",
+    address: "Ramgarh Chowk, Sector 65/66, Gurugram, Haryana 122102",
+    keywords: ["ramgarh", "ramgarh chowk", "sector 65", "sector 66", "sec 65", "sec 66"],
+  },
+  {
+    id: "subhash-chowk",
+    name: "Subhash Chowk, Sohna Road",
+    area: "Sector 38 / 47 Junction",
+    zone: "Sohna Road & Central",
+    city: "Gurugram",
+    state: "Haryana",
+    pincode: "122001",
+    type: "Major Junction Flagship Cellar",
+    landmark: "Subhash Chowk Underpass & Market",
+    address: "Subhash Chowk, Main Sohna Road, Gurugram, Haryana 122001",
+    keywords: ["subhash chowk", "subhash", "sohna road", "isckon", "sector 38"],
+  },
+];
+
+export function checkLocationAvailability(query: string): {
+  matched: boolean;
+  outlets: OutletLocation[];
+  cleanedQuery: string;
+} {
+  const cleaned = query.trim().toLowerCase();
+  if (!cleaned) {
+    return { matched: false, outlets: [], cleanedQuery: "" };
+  }
+
+  // Broad state/city matches:
+  if (
+    cleaned === "haryana" ||
+    cleaned === "gurugram" ||
+    cleaned === "gurgaon" ||
+    cleaned === "gurgao" ||
+    cleaned === "ggn"
+  ) {
+    return { matched: true, outlets: HARYANA_OUTLETS, cleanedQuery: query };
+  }
+
+  // Check matching outlets:
+  const matches = HARYANA_OUTLETS.filter((outlet) => {
+    // 1. Direct name match
+    if (outlet.name.toLowerCase().includes(cleaned)) return true;
+    // 2. Area match
+    if (outlet.area.toLowerCase().includes(cleaned)) return true;
+    // 3. Landmark match
+    if (outlet.landmark.toLowerCase().includes(cleaned)) return true;
+    // 4. Keywords match
+    if (outlet.keywords.some((k) => cleaned.includes(k) || k.includes(cleaned))) return true;
+
+    // Check sector number if user typed numbers e.g. "29", "40", "47", "56", "65", "62"
+    const numberMatches = cleaned.match(/\b\d{1,3}\b/g);
+    if (numberMatches) {
+      for (const num of numberMatches) {
+        if (
+          outlet.keywords.some((k) => k.includes(num)) ||
+          outlet.name.includes(num) ||
+          outlet.area.includes(num)
+        ) {
+          return true;
+        }
+      }
+    }
+
+    return false;
+  });
+
+  return {
+    matched: matches.length > 0,
+    outlets: matches,
+    cleanedQuery: query,
+  };
+}

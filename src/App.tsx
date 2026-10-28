@@ -26,14 +26,25 @@ import { MonkeyFooterSection } from "./sections/MonkeyFooterSection";
 import { OurCocktailsPage } from "./sections/OurCocktailsPage";
 import { OurStoryPage } from "./sections/OurStoryPage";
 import { PalaceSessionsPage } from "./sections/PalaceSessionsPage";
+import { FindUsPage } from "./sections/FindUsPage";
 
 gsap.registerPlugin(ScrollTrigger);
 
+type Page = "home" | "cocktails" | "story" | "sessions" | "find-us";
+
 function App() {
-  const [currentPage, setCurrentPage] = useState<"home" | "cocktails" | "story" | "sessions">(() => {
+  const [currentPage, setCurrentPage] = useState<Page>(() => {
     if (typeof window === "undefined") return "home";
     const params = new URLSearchParams(window.location.search);
     const hash = window.location.hash;
+    if (
+      params.get("page") === "find-us" ||
+      hash === "#find-us" ||
+      hash === "#outlets" ||
+      hash === "#locations"
+    ) {
+      return "find-us";
+    }
     if (
       params.get("page") === "cocktails" ||
       hash === "#cocktails" ||
@@ -75,7 +86,13 @@ function App() {
     const handlePopState = () => {
       const params = new URLSearchParams(window.location.search);
       const hash = window.location.hash;
-      if (params.get("page") === "cocktails" || hash === "#cocktails") {
+      if (
+        params.get("page") === "find-us" ||
+        hash === "#find-us" ||
+        hash === "#outlets"
+      ) {
+        setCurrentPage("find-us");
+      } else if (params.get("page") === "cocktails" || hash === "#cocktails") {
         setCurrentPage("cocktails");
       } else if (
         params.get("page") === "story" ||
@@ -133,7 +150,7 @@ function App() {
     setIsAgeVerified(false);
   };
 
-  const navigateTo = (page: "home" | "cocktails" | "story" | "sessions") => {
+  const navigateTo = (page: Page) => {
     setCurrentPage(page);
     if (page === "home") {
       window.history.pushState({}, "", "/");
@@ -161,6 +178,8 @@ function App() {
       <MonkeyHeader
         onOpenMenu={() => setIsMenuOpen(true)}
         onNavigateHome={() => navigateTo("home")}
+        onNavigateFindUs={() => navigateTo("find-us")}
+        currentPage={currentPage}
       />
 
       {/* Slide-out Menu Overlay */}
@@ -168,7 +187,8 @@ function App() {
         isOpen={isMenuOpen}
         onClose={() => setIsMenuOpen(false)}
         onNavigate={(sectionId) => {
-          if (sectionId === "story") navigateTo("story");
+          if (sectionId === "find-us") navigateTo("find-us");
+          else if (sectionId === "story") navigateTo("story");
           else if (sectionId === "cocktails") navigateTo("cocktails");
           else if (sectionId === "sessions") navigateTo("sessions");
           else navigateTo("home");
@@ -176,7 +196,14 @@ function App() {
       />
 
       {/* Main Pages Flow */}
-      {currentPage === "cocktails" ? (
+      {currentPage === "find-us" ? (
+        <main className="relative z-10 w-full pt-16">
+          <FindUsPage
+            onBackToHome={() => navigateTo("home")}
+            onExploreCocktails={() => navigateTo("cocktails")}
+          />
+        </main>
+      ) : currentPage === "cocktails" ? (
         <main className="relative z-10 w-full pt-16">
           <OurCocktailsPage
             onBackToHome={() => navigateTo("home")}
@@ -230,6 +257,7 @@ function App() {
           <MonkeyFooterSection
             onOpenAgeGate={handleResetAgeGate}
             onNavigateHome={() => navigateTo("home")}
+            onNavigateFindUs={() => navigateTo("find-us")}
           />
 
         </main>
