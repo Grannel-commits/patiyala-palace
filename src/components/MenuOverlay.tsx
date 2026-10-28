@@ -14,11 +14,11 @@ export const MenuOverlay: React.FC<Props> = ({ isOpen, onClose, onNavigate }) =>
   };
 
   const navLinks = [
-    { label: "Home", id: "home", tag: "THE ROYAL ENTRY" },
-    { label: "Our Whiskies", id: "whiskies", tag: "BATCH 27 • 100% MALT" },
-    { label: "Cocktails", id: "cocktails", tag: "MADE FOR MIXING" },
-    { label: "Our Story", id: "story", tag: "THE ROOTS & CRAFT" },
-    { label: "Palace Sessions", id: "sessions", tag: "GHAZAL MUSIC & LOUNGE" },
+    { label: "Home", id: "home", tag: "The Entry" },
+    { label: "Our Whiskies", id: "whiskies", tag: "Crafted Malt" },
+    { label: "Palace Cocktails", id: "cocktails", tag: "Mixology" },
+    { label: "Our Story", id: "story", tag: "Patrimony & Roots" },
+    { label: "Palace Sessions", id: "sessions", tag: "Ghazal & Spirit" },
   ];
 
   return (
@@ -74,13 +74,13 @@ export const MenuOverlay: React.FC<Props> = ({ isOpen, onClose, onNavigate }) =>
                     onClick={() => handleSelect(link.id)}
                     className="group flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-6 text-left cursor-pointer"
                   >
-                    <span className="font-mono text-base sm:text-lg text-[#CBD5E1] font-bold">
+                    <span className="font-mono text-sm sm:text-base text-[#CBD5E1]/60 font-medium">
                       0{idx + 1}
                     </span>
-                    <span className="font-sans font-black text-3xl sm:text-5xl md:text-6xl uppercase tracking-tight text-white group-hover:text-[#E2E8F0] group-hover:translate-x-2 transition-all duration-300">
+                    <span className="font-serif font-light text-3xl sm:text-5xl md:text-6xl text-white group-hover:text-[#E2E8F0] group-hover:italic group-hover:translate-x-3 transition-all duration-300">
                       {link.label}
                     </span>
-                    <span className="text-[10px] font-mono font-bold tracking-widest uppercase text-white/40 group-hover:text-[#E2E8F0] transition-colors sm:ml-auto">
+                    <span className="text-[10px] font-mono tracking-[0.25em] uppercase text-[#CBD5E1]/60 group-hover:text-[#E2E8F0] transition-colors sm:ml-auto">
                       {link.tag}
                     </span>
                   </button>

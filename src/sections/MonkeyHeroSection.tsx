@@ -21,27 +21,27 @@ export const MonkeyHeroSection: React.FC = () => {
         <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-black/40 pointer-events-none" />
         <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/25 to-transparent pointer-events-none" />
 
-        {/* Top Badges Bar */}
+        {/* Minimalist Luxury Badges Bar */}
         <div className="relative z-10 w-full flex items-center justify-between">
-          <div className="bg-black/60 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-[#CBD5E1]/40 flex items-center gap-2 shadow-lg">
-            <span className="w-2 h-2 rounded-full bg-[#E2E8F0] animate-pulse" />
+          <div className="bg-black/60 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-[#CBD5E1]/30 flex items-center gap-2 shadow-lg">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#E2E8F0] animate-pulse" />
             <span className="font-mono text-[9px] sm:text-[10px] font-bold text-white uppercase tracking-widest">
-              42.8% ABV • INDIAN CRAFTED MALT WHISKY
+              42.8% ABV • CRAFTED MALT
             </span>
           </div>
-          <span className="font-mono text-[9px] sm:text-[10px] font-bold tracking-widest uppercase text-white/70 bg-black/50 backdrop-blur-md px-3 py-1.5 rounded-full border border-[#CBD5E1]/30 hidden sm:inline-block">
-            BATCH NO. 01 • SAKSHAM SPIRITS
+          <span className="font-mono text-[9px] sm:text-[10px] font-bold tracking-widest uppercase text-white/60 bg-black/40 backdrop-blur-md px-3 py-1.5 rounded-full border border-[#CBD5E1]/20 hidden sm:inline-block">
+            BATCH NO. 01
           </span>
         </div>
 
-        {/* Bottom Left Bold Statement (as before) */}
+        {/* Bottom Left Statement - Aristocratic & Minimalist */}
         <div className="relative z-10 max-w-xl lg:max-w-2xl text-left">
-          <span className="font-serif tracking-[0.3em] uppercase text-xs sm:text-sm text-[#E2E8F0] font-bold block mb-2 sm:mb-3 drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)]">
+          <span className="font-serif tracking-[0.35em] uppercase text-[11px] sm:text-xs text-[#CBD5E1] font-semibold block mb-3 drop-shadow">
             WHERE ROYALTY MEETS THE BARREL
           </span>
-          <h1 className="font-sans font-black uppercase text-3xl sm:text-5xl md:text-6xl lg:text-7xl tracking-tight leading-[0.95] text-white drop-shadow-[0_4px_30px_rgba(0,0,0,0.95)]">
-            PATIYALA PALACE. <br />
-            <span className="text-[#E2E8F0]">INDIAN CRAFTED MALT WHISKY.</span>
+          <h1 className="font-serif uppercase text-4xl sm:text-6xl md:text-7xl lg:text-8xl tracking-tight leading-[0.9] text-white drop-shadow-[0_4px_30px_rgba(0,0,0,0.95)] font-bold">
+            PATIYALA <br />
+            <span className="italic font-light text-[#E2E8F0]">PALACE.</span>
           </h1>
         </div>
       </motion.div>

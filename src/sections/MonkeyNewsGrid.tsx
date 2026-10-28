@@ -8,16 +8,16 @@ export const MonkeyNewsGrid: React.FC = () => {
         
         {/* Header */}
         <div className="flex items-center justify-between mb-8 sm:mb-12 border-b border-white/15 pb-6">
-          <h2 className="font-sans font-black uppercase text-3xl sm:text-5xl text-white tracking-tight leading-none">
-            WHAT WE'RE TALKING ABOUT
+          <h2 className="font-serif font-normal text-3xl sm:text-5xl text-white tracking-tight leading-none">
+            The Dispatches
           </h2>
 
           <a
             href="#news"
-            className="group inline-flex items-center gap-2 font-sans font-black text-xs sm:text-sm uppercase tracking-[0.16em] text-[#E2E8F0] hover:text-white transition-colors"
+            className="group inline-flex items-center gap-2 font-mono text-xs sm:text-sm uppercase tracking-[0.2em] text-[#E2E8F0] hover:text-white transition-colors"
           >
-            <span className="border-b-2 border-[#E2E8F0] group-hover:border-white pb-0.5">
-              ALL NEWS
+            <span className="border-b border-[#CBD5E1]/60 group-hover:border-white pb-0.5">
+              Archive
             </span>
             <span className="text-base font-bold group-hover:translate-x-1 transition-transform">
               ↗
@@ -50,8 +50,8 @@ export const MonkeyNewsGrid: React.FC = () => {
               </div>
             </div>
 
-            <h3 className="font-sans font-black text-xl sm:text-2xl uppercase tracking-tight text-white group-hover:text-[#E2E8F0] transition-colors leading-tight">
-              PATIYALA PALACE ROYAL CONNOISSEUR SESSIONS ANNOUNCED
+            <h3 className="font-serif font-normal text-xl sm:text-2xl text-white group-hover:text-[#E2E8F0] transition-colors leading-tight">
+              Royal Connoisseur Sessions
             </h3>
           </motion.div>
 
@@ -69,7 +69,7 @@ export const MonkeyNewsGrid: React.FC = () => {
               <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-black/50 shadow-xl mb-4 border border-white/10">
                 <img
                   src="/assets/editorial/news_festival_highball.jpg"
-                  alt="Festival Cocktails & Royal Highball Recipes"
+                  alt="The Heritage Highball Ritual"
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
                 <div className="absolute bottom-4 right-4 bg-black/60 backdrop-blur-md px-3 py-1 rounded-full text-white font-mono text-[10px] font-bold">
@@ -77,8 +77,8 @@ export const MonkeyNewsGrid: React.FC = () => {
                 </div>
               </div>
 
-              <h4 className="font-sans font-black text-lg sm:text-xl uppercase tracking-tight text-white group-hover:text-[#E2E8F0] transition-colors leading-snug">
-                FESTIVAL COCKTAILS & ROYAL HIGHBALL RECIPES
+              <h4 className="font-serif font-normal text-lg sm:text-xl text-white group-hover:text-[#E2E8F0] transition-colors leading-snug">
+                The Heritage Highball Ritual
               </h4>
             </motion.div>
 
@@ -93,7 +93,7 @@ export const MonkeyNewsGrid: React.FC = () => {
               <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-black/50 shadow-xl mb-4 border border-white/10">
                 <img
                   src="/assets/editorial/news_crafted_cocktails.jpg"
-                  alt="5 Best Crafted Indian Malt Whisky Cocktails"
+                  alt="Five Crafted Malt Serves"
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
                 <div className="absolute bottom-4 right-4 bg-black/60 backdrop-blur-md px-3 py-1 rounded-full text-white font-mono text-[10px] font-bold">
@@ -101,8 +101,8 @@ export const MonkeyNewsGrid: React.FC = () => {
                 </div>
               </div>
 
-              <h4 className="font-sans font-black text-lg sm:text-xl uppercase tracking-tight text-white group-hover:text-[#E2E8F0] transition-colors leading-snug">
-                5 BEST CRAFTED INDIAN MALT WHISKY COCKTAILS
+              <h4 className="font-serif font-normal text-lg sm:text-xl text-white group-hover:text-[#E2E8F0] transition-colors leading-snug">
+                Five Crafted Malt Serves
               </h4>
             </motion.div>
 

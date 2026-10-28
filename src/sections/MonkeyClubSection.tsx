@@ -22,9 +22,9 @@ export const MonkeyClubSection: React.FC = () => {
     <section className="relative w-full p-2 sm:p-3 md:p-4 my-2 sm:my-4 select-none">
       
       {/* Background Ticker Effect */}
-      <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 overflow-hidden opacity-10 pointer-events-none">
-        <div className="animate-marquee whitespace-nowrap text-8xl font-black font-sans uppercase">
-          PATIYALA PALACE™ • WHERE ROYALTY MEETS THE BARREL • PATIYALA PALACE™ • WHERE ROYALTY MEETS THE BARREL
+      <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 overflow-hidden opacity-5 pointer-events-none">
+        <div className="animate-marquee whitespace-nowrap text-8xl font-serif font-light text-[#CBD5E1] uppercase tracking-[0.3em]">
+          RESERVE CELLAR • INDIAN CRAFTED MALT • PATIYALA PALACE • 
         </div>
       </div>
 
@@ -39,31 +39,31 @@ export const MonkeyClubSection: React.FC = () => {
         {/* Background Image of Friends Toasting at Luxury Lounge */}
         <img
           src="/assets/editorial/club_friends_toast.jpg"
-          alt="Join Club Patiyala Palace - Connoisseurs Toasting"
+          alt="The Royal Circle - Private Cellar Toasting"
           className="absolute inset-0 w-full h-full object-cover object-center filter brightness-[0.85] contrast-[1.05]"
         />
 
         <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-black/60 pointer-events-none" />
 
-        {/* Right Floating Dark Red Card */}
+        {/* Right Floating Dark Card */}
         <div className="relative z-10 w-full max-w-md p-6 sm:p-8 rounded-2xl sm:rounded-3xl bg-[#061b4c]/95 backdrop-blur-md border border-[#CBD5E1]/40 text-white shadow-2xl">
-          <span className="font-mono text-xs font-bold uppercase tracking-[0.2em] text-[#E2E8F0] block mb-2">
-            EXCLUSIVE ROYAL PRIVILEGES
+          <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-[#CBD5E1]/80 block mb-2">
+            Private Cellar
           </span>
 
-          <h3 className="font-sans font-black text-3xl sm:text-4xl uppercase tracking-tight text-white leading-none mb-3">
-            CLUB PATIYALA
+          <h3 className="font-serif font-normal text-3xl sm:text-4xl text-white tracking-tight leading-none mb-3">
+            The Royal Circle
           </h3>
 
-          <p className="font-sans text-xs sm:text-sm text-white/80 font-medium uppercase tracking-wider leading-relaxed mb-6">
-            ROYAL COCKTAILS, CONNOISSEUR TASTINGS, AND PRIVATE BATCH ALLOCATIONS
+          <p className="font-serif font-light text-sm text-[#CBD5E1]/90 leading-relaxed mb-6">
+            Ceremonial tastings, private batch reserves, and cellar access privileges.
           </p>
 
           <button
             onClick={() => setIsOpenModal(true)}
-            className="w-full py-4 rounded-full bg-[#CBD5E1] hover:bg-[#B3934F] text-black font-sans font-black text-xs uppercase tracking-[0.16em] transition-all flex items-center justify-center gap-2 cursor-pointer shadow-lg hover:scale-105"
+            className="w-full py-4 rounded-full bg-[#E2E8F0] hover:bg-white text-[#020818] font-mono font-bold text-xs uppercase tracking-[0.2em] transition-all flex items-center justify-center gap-2 cursor-pointer shadow-lg hover:shadow-[0_0_25px_rgba(226,232,240,0.3)] hover:scale-[1.02]"
           >
-            <span>JOIN CLUB PATIYALA PALACE</span>
+            <span>Request Access</span>
             <span>↗</span>
           </button>
         </div>
@@ -97,16 +97,16 @@ export const MonkeyClubSection: React.FC = () => {
                 <img src="/assets/logo/pp_logo_silver_clean.png" alt="PP Logo" className="w-full h-full object-contain" />
               </div>
 
-              <h3 className="font-serif font-black text-3xl uppercase tracking-tight mb-2 text-[#E2E8F0]">
-                CLUB PATIYALA PALACE
+              <h3 className="font-serif font-normal text-3xl text-white tracking-tight mb-2">
+                The Royal Circle
               </h3>
-              <p className="font-sans text-xs text-white/80 mb-6 font-light">
-                Sign up to receive priority royal cocktail guides, private tasting invitations, and exclusive release announcements.
+              <p className="font-serif text-xs text-[#CBD5E1]/80 mb-6 font-light">
+                Invitations to ceremonial tastings and private reserve allocations.
               </p>
 
               {isRegistered ? (
-                <div className="p-4 rounded-2xl bg-[#CBD5E1] text-black font-bold text-sm uppercase tracking-wider shadow-lg">
-                  🎉 Welcome to the Club! Check your inbox soon.
+                <div className="p-4 rounded-2xl bg-[#CBD5E1] text-[#020818] font-serif font-semibold text-sm tracking-wide shadow-lg">
+                  Welcome to The Royal Circle. We look forward to connecting with you.
                 </div>
               ) : (
                 <form onSubmit={handleRegister} className="flex flex-col gap-3">
@@ -116,15 +116,15 @@ export const MonkeyClubSection: React.FC = () => {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="Enter your email"
-                    className="px-5 py-3.5 rounded-full bg-black/60 border border-white/20 text-white placeholder-white/40 text-xs font-sans focus:outline-none focus:border-[#CBD5E1]"
+                    className="px-5 py-3.5 rounded-full bg-black/60 border border-white/20 text-white placeholder-white/40 text-xs font-mono focus:outline-none focus:border-[#CBD5E1]"
                   />
                   <button
                     type="submit"
-                    className="py-3.5 rounded-full bg-[#CBD5E1] hover:bg-[#b89547] text-black font-sans font-black text-xs uppercase tracking-wider cursor-pointer shadow-lg transition-all"
+                    className="py-3.5 rounded-full bg-[#E2E8F0] hover:bg-white text-[#020818] font-mono font-bold text-xs uppercase tracking-[0.2em] cursor-pointer shadow-lg transition-all"
                   >
-                    SIGN UP NOW
+                    Request Invitation
                   </button>
-                  <span className="text-[10px] text-white/50 uppercase mt-2 font-mono">
+                  <span className="text-[10px] text-white/50 uppercase mt-2 font-mono tracking-widest">
                     Strictly 25+ years of age. Please drink responsibly.
                   </span>
                 </form>

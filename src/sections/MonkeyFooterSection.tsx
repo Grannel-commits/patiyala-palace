@@ -27,26 +27,26 @@ export const MonkeyFooterSection: React.FC<Props> = ({ onOpenAgeGate, onNavigate
             <div className="mb-10 sm:mb-14">
               <button
                 onClick={onNavigateHome}
-                className="group inline-flex items-center gap-3 font-serif font-black text-xl sm:text-2xl md:text-3xl uppercase tracking-tight text-white hover:text-[#E2E8F0] transition-colors cursor-pointer"
+                className="group inline-flex items-center gap-3 font-serif font-normal text-xl sm:text-2xl md:text-3xl text-white hover:text-[#E2E8F0] transition-colors cursor-pointer"
               >
-                <span>JOIN CLUB PATIYALA PALACE</span>
-                <span className="group-hover:translate-x-1 transition-transform">↗</span>
+                <span>The Royal Circle</span>
+                <span className="text-xl group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform">↗</span>
               </button>
             </div>
 
             {/* Links Grid */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-y-3 gap-x-6 text-xs sm:text-sm font-sans font-bold uppercase tracking-wider text-white/85">
-              <a href="#terms" className="hover:text-[#E2E8F0] transition-colors">TERMS & CONDITIONS</a>
-              <a href="#global" className="hover:text-[#E2E8F0] transition-colors flex items-center gap-1.5">
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-y-3.5 gap-x-6 text-[11px] font-mono tracking-[0.18em] uppercase text-[#CBD5E1]/80">
+              <a href="#terms" className="hover:text-white transition-colors">TERMS & CONDITIONS</a>
+              <a href="#global" className="hover:text-white transition-colors flex items-center gap-1.5">
                 <span>🌐</span> INDIA (ORIGIN)
               </a>
-              <a href="#privacy" className="hover:text-[#E2E8F0] transition-colors">PRIVACY NOTICE</a>
-              <a href="mailto:info@sakshamspirits.com" className="hover:text-[#E2E8F0] transition-colors">CONTACT US</a>
-              <a href="#cookie" className="hover:text-[#E2E8F0] transition-colors">COOKIE POLICY</a>
-              <button onClick={onOpenAgeGate} className="text-left text-[#E2E8F0] hover:underline cursor-pointer uppercase font-bold">
+              <a href="#privacy" className="hover:text-white transition-colors">PRIVACY NOTICE</a>
+              <a href="mailto:info@sakshamspirits.com" className="hover:text-white transition-colors">CONTACT US</a>
+              <a href="#cookie" className="hover:text-white transition-colors">COOKIE POLICY</a>
+              <button onClick={onOpenAgeGate} className="text-left text-[#CBD5E1]/80 hover:text-white hover:underline cursor-pointer uppercase">
                 RESET AGE GATE
               </button>
-              <a href="#ugc" className="hover:text-[#E2E8F0] transition-colors">UGC POLICY</a>
+              <a href="#ugc" className="hover:text-white transition-colors">UGC POLICY</a>
             </div>
           </div>
 

@@ -12,25 +12,25 @@ export const MonkeyCraftSection: React.FC<Props> = ({ onExploreCraft }) => {
         
         {/* Left Column: Heading & Our Craft Link */}
         <div className="w-full lg:w-1/2 flex flex-col items-start justify-center select-none z-10">
-          <span className="font-serif text-xs sm:text-sm font-bold tracking-[0.25em] uppercase text-[#CBD5E1] mb-2">
-            INDIAN CRAFTED MALT WHISKY
+          <span className="font-mono text-[10px] sm:text-xs tracking-[0.3em] uppercase text-[#CBD5E1]/70 mb-3 block">
+            DISTILLED PATRIMONY
           </span>
           
-          <h2 className="font-sans font-black uppercase text-4xl sm:text-6xl md:text-7xl tracking-tight text-white leading-[1.05] mb-8">
-            FROM THE ROOTS <br />
-            <span className="text-[#E2E8F0] drop-shadow-[0_2px_20px_rgba(226,232,240,0.4)]">
-              OF PATIALA.
+          <h2 className="font-serif font-normal text-4xl sm:text-6xl md:text-7xl tracking-tight text-white leading-[1.05] mb-8">
+            From The Roots <br />
+            <span className="italic font-light text-[#E2E8F0] drop-shadow-[0_2px_20px_rgba(226,232,240,0.4)]">
+              Of Patiala.
             </span>
           </h2>
 
           <button
             onClick={onExploreCraft}
-            className="group inline-flex items-center gap-3 font-sans font-black text-sm sm:text-base uppercase tracking-[0.16em] text-[#E2E8F0] hover:text-white transition-colors cursor-pointer"
+            className="group inline-flex items-center gap-3 font-mono text-xs sm:text-sm uppercase tracking-[0.25em] text-[#E2E8F0] hover:text-white transition-colors cursor-pointer"
           >
-            <span className="border-b-2 border-[#E2E8F0] group-hover:border-white pb-0.5">
-              OUR CRAFT
+            <span className="border-b border-[#CBD5E1]/60 group-hover:border-white pb-1">
+              THE CRAFT
             </span>
-            <span className="text-lg font-bold group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform">
+            <span className="text-base group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform">
               ↗
             </span>
           </button>
@@ -57,14 +57,6 @@ export const MonkeyCraftSection: React.FC<Props> = ({ onExploreCraft }) => {
             <div className="absolute inset-0 bg-gradient-to-t from-[#030e28]/95 via-transparent to-[#030e28]/50 pointer-events-none" />
             <div className="absolute inset-0 bg-gradient-to-r from-[#030e28]/70 via-transparent to-[#030e28]/50 pointer-events-none" />
             <div className="absolute inset-0 mix-blend-color bg-[#071f54]/20 pointer-events-none" />
-
-            {/* Subtle Royal Accent Badge */}
-            <div className="absolute z-20 bottom-4 right-4 sm:bottom-5 sm:right-5 bg-black/85 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-[#CBD5E1]/40 flex items-center gap-2 shadow-xl">
-              <span className="w-2 h-2 rounded-full bg-[#E2E8F0] animate-pulse" />
-              <span className="font-mono text-[9px] font-bold text-white uppercase tracking-widest">
-                PATIYALA PALACE • INDIAN CRAFTED MALT WHISKY
-              </span>
-            </div>
           </motion.div>
         </div>
 
