@@ -43,17 +43,23 @@ export const MonkeyCraftSection: React.FC<Props> = ({ onExploreCraft }) => {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="relative w-full max-w-[620px] aspect-[4/3] sm:aspect-[16/11] rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl group border border-[#CBD5E1]/40 bg-black/40"
+            className="relative w-full max-w-[620px] aspect-[4/3] sm:aspect-[16/11] rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl group border border-[#CBD5E1]/30 bg-[#030e28]"
           >
+            {/* Macro Bottle Photograph with Toned Warmth */}
             <img
               src="/assets/product/patiyala_macro_gold_label.jpg"
               alt="From the Roots of Patiala - Indian Crafted Malt Whisky"
-              className="w-full h-full object-cover object-center transition-transform duration-1000 ease-out group-hover:scale-105"
+              className="w-full h-full object-cover object-center filter brightness-[0.88] contrast-[1.05] transition-transform duration-1000 ease-out group-hover:scale-105"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent pointer-events-none" />
+
+            {/* Seamless Edge Blends & Radial Vignette */}
+            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_45%,rgba(3,14,40,0.85)_100%)] pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#030e28]/95 via-transparent to-[#030e28]/50 pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#030e28]/70 via-transparent to-[#030e28]/50 pointer-events-none" />
+            <div className="absolute inset-0 mix-blend-color bg-[#071f54]/20 pointer-events-none" />
 
             {/* Subtle Royal Accent Badge */}
-            <div className="absolute bottom-4 right-4 bg-black/70 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-[#CBD5E1]/50 flex items-center gap-2 shadow-lg">
+            <div className="relative z-10 absolute bottom-4 right-4 bg-black/80 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-[#CBD5E1]/40 flex items-center gap-2 shadow-xl">
               <span className="w-2 h-2 rounded-full bg-[#E2E8F0] animate-pulse" />
               <span className="font-mono text-[9px] font-bold text-white uppercase tracking-widest">
                 PATIYALA PALACE • INDIAN CRAFTED MALT WHISKY
