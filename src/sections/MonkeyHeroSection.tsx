@@ -10,16 +10,23 @@ export const MonkeyHeroSection: React.FC = () => {
         transition={{ duration: 0.8 }}
         className="relative w-full h-[calc(100svh-4.8rem)] sm:h-[calc(100vh-6.5rem)] min-h-[440px] sm:min-h-[540px] md:min-h-[620px] max-h-[820px] rounded-2xl sm:rounded-3xl overflow-hidden bg-black group select-none shadow-2xl border border-[#CBD5E1]/30 flex flex-col justify-between p-4 sm:p-8 md:p-12"
       >
-        {/* Hero Bottle Image - Scaled up for impactful presence */}
-        <img
-          src="/assets/product/patiyala_hero_bottle_cinematic.jpg"
-          alt="Patiyala Palace Indian Crafted Malt Whisky"
-          className="absolute inset-0 w-full h-full object-cover object-[center_50%] sm:object-[center_55%] scale-110 sm:scale-120 md:scale-125 transition-transform duration-1000 ease-out group-hover:scale-[1.28]"
-        />
+        {/* Hero Bottle Image - Responsive Widescreen & Portrait Centered */}
+        <picture className="absolute inset-0 w-full h-full block">
+          <source
+            media="(max-width: 768px)"
+            srcSet="/assets/product/patiyala_hero_bottle_mobile.jpg"
+          />
+          <img
+            src="/assets/product/patiyala_hero_bottle_cinematic.jpg"
+            alt="Patiyala Palace Indian Crafted Malt Whisky"
+            className="w-full h-full object-cover object-center sm:object-[center_55%] scale-100 sm:scale-120 md:scale-125 transition-transform duration-1000 ease-out group-hover:scale-[1.03] sm:group-hover:scale-[1.28]"
+          />
+        </picture>
 
         {/* Vignette & Shadows for Depth & Contrast */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-black/40 pointer-events-none" />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/25 to-transparent pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/20 to-black/40 pointer-events-none" />
+        {/* Horizontal gradient: only on desktop to prevent one-sided dark shadow over the bottle on mobile */}
+        <div className="hidden sm:block absolute inset-0 bg-gradient-to-r from-black/85 via-black/25 to-transparent pointer-events-none" />
 
         {/* Minimalist Luxury Badges Bar */}
         <div className="relative z-10 w-full flex items-center justify-between">
