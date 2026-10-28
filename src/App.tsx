@@ -178,8 +178,6 @@ function App() {
       <MonkeyHeader
         onOpenMenu={() => setIsMenuOpen(true)}
         onNavigateHome={() => navigateTo("home")}
-        onNavigateFindUs={() => navigateTo("find-us")}
-        currentPage={currentPage}
       />
 
       {/* Slide-out Menu Overlay */}
@@ -257,7 +255,6 @@ function App() {
           <MonkeyFooterSection
             onOpenAgeGate={handleResetAgeGate}
             onNavigateHome={() => navigateTo("home")}
-            onNavigateFindUs={() => navigateTo("find-us")}
           />
 
         </main>

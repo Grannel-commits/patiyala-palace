@@ -3,13 +3,11 @@ import React from "react";
 interface Props {
   onOpenAgeGate?: () => void;
   onNavigateHome?: () => void;
-  onNavigateFindUs?: () => void;
 }
 
 export const MonkeyFooterSection: React.FC<Props> = ({
   onOpenAgeGate,
   onNavigateHome,
-  onNavigateFindUs,
 }) => {
   const currentYear = new Date().getFullYear();
 
@@ -47,18 +45,6 @@ export const MonkeyFooterSection: React.FC<Props> = ({
           <div className="relative z-10 pt-2 sm:pt-4">
             {/* Links Grid */}
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-y-4 gap-x-6 text-[11px] font-mono tracking-[0.18em] uppercase text-[#CBD5E1]/80">
-              {onNavigateFindUs ? (
-                <button
-                  onClick={onNavigateFindUs}
-                  className="text-left text-emerald-300 hover:text-white font-bold transition-colors flex items-center gap-1.5 cursor-pointer"
-                >
-                  <span>📍</span> FIND US (35+ HUBS)
-                </button>
-              ) : (
-                <a href="?page=find-us" className="text-emerald-300 hover:text-white font-bold transition-colors">
-                  📍 FIND US (STORE LOCATOR)
-                </a>
-              )}
               <a href="#terms" className="hover:text-white transition-colors">TERMS & CONDITIONS</a>
               <a href="#global" className="hover:text-white transition-colors flex items-center gap-1.5">
                 <span>🌐</span> INDIA (ORIGIN)

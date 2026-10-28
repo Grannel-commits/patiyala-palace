@@ -3,19 +3,15 @@ import React from "react";
 interface Props {
   onOpenMenu: () => void;
   onNavigateHome: () => void;
-  onNavigateFindUs?: () => void;
-  currentPage?: string;
 }
 
 export const MonkeyHeader: React.FC<Props> = ({
   onOpenMenu,
   onNavigateHome,
-  onNavigateFindUs,
-  currentPage,
 }) => {
   return (
     <header className="fixed top-0 inset-x-0 z-50 pointer-events-none px-3 sm:px-[18px] md:px-6 py-2.5 sm:py-3.5 md:py-4 flex items-center justify-between">
-      {/* Top Left: Logo Brand, Hamburger, Find Us */}
+      {/* Top Left: Logo Brand & Hamburger */}
       <div className="flex items-center gap-2 sm:gap-3 pointer-events-auto">
         {/* Brand Crest & Title Button */}
         <button
@@ -43,22 +39,6 @@ export const MonkeyHeader: React.FC<Props> = ({
           <span className="w-4 h-[2px] bg-[#E2E8F0] rounded-full" />
           <span className="w-4 h-[2px] bg-[#E2E8F0] rounded-full" />
         </button>
-
-        {/* Find Us Direct Button */}
-        {onNavigateFindUs && (
-          <button
-            onClick={onNavigateFindUs}
-            aria-label="Find Us Outlets"
-            className={`h-10 sm:h-11 px-3.5 sm:px-4 rounded-full backdrop-blur-md flex items-center gap-1.5 sm:gap-2 shadow-2xl transition-all duration-300 hover:scale-105 cursor-pointer font-mono text-[11px] sm:text-xs font-bold tracking-[0.14em] uppercase border ${
-              currentPage === "find-us"
-                ? "bg-[#CBD5E1] text-[#020818] border-white shadow-[0_0_20px_rgba(203,213,225,0.4)]"
-                : "bg-black/70 hover:bg-black/90 text-white border-[#CBD5E1]/40"
-            }`}
-          >
-            <span className="text-sm">📍</span>
-            <span>FIND US</span>
-          </button>
-        )}
       </div>
 
       {/* Top Right: Royal Circular Seal Badge */}
