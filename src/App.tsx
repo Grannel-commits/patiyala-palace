@@ -112,15 +112,16 @@ function App() {
     };
     window.addEventListener("popstate", handlePopState);
 
-    // Smooth scrolling with Lenis
+    // Smooth scrolling with Lenis (Optimized for both Desktop and Mobile Touch)
+    const isTouch = typeof window !== "undefined" && ("ontouchstart" in window || navigator.maxTouchPoints > 0);
     const lenis = new Lenis({
-      duration: 1.1,
+      duration: isTouch ? 0.9 : 1.1,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       orientation: "vertical",
       gestureOrientation: "vertical",
       smoothWheel: true,
       wheelMultiplier: 0.95,
-      touchMultiplier: 1.8,
+      touchMultiplier: 1.0, // Natural 1:1 finger track on mobile screens
     });
     lenisRef.current = lenis;
     (window as any).__lenis = lenis;
@@ -161,7 +162,7 @@ function App() {
   };
 
   return (
-    <div className="relative w-full min-h-screen bg-[#020818] text-white overflow-x-hidden selection:bg-[#CBD5E1] selection:text-black font-sans border-[4px] sm:border-[6px] md:border-[8px] border-[#CBD5E1]/30">
+    <div className="relative w-full min-h-screen bg-[#020818] text-white overflow-x-hidden selection:bg-[#CBD5E1] selection:text-black font-sans border-0 sm:border-[4px] md:border-[6px] lg:border-[8px] border-[#CBD5E1]/30">
       
       {/* Enlarged Dynamic Liquid Silk Background (Scroll-Driven Parallax) */}
       <DynamicSilkBackground />

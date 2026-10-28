@@ -13,7 +13,7 @@ export const MonkeyCraftSection: React.FC<Props> = ({ onExploreCraft }) => {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8 }}
-        className="relative w-full h-[65vh] sm:h-[75vh] md:h-[80vh] min-h-[520px] max-h-[820px] rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl border border-[#CBD5E1]/30 group select-none flex flex-col justify-between p-6 sm:p-12 md:p-16"
+        className="relative w-full h-[52vh] sm:h-[70vh] md:h-[80vh] min-h-[400px] sm:min-h-[520px] max-h-[820px] rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl border border-[#CBD5E1]/30 group select-none flex flex-col justify-between p-4 sm:p-12 md:p-16"
       >
         {/* Full-Bleed Craft Bottle Image (Responsive 2400x1200 Widescreen & Portrait) */}
         <picture className="absolute inset-0 w-full h-full block">
@@ -34,9 +34,9 @@ export const MonkeyCraftSection: React.FC<Props> = ({ onExploreCraft }) => {
 
         {/* Top Minimalist Badges */}
         <div className="relative z-10 w-full flex items-center justify-between">
-          <div className="bg-black/60 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/20 flex items-center gap-2 shadow-lg">
+          <div className="bg-black/60 backdrop-blur-md px-3 sm:px-3.5 py-1 sm:py-1.5 rounded-full border border-white/20 flex items-center gap-2 shadow-lg">
             <span className="w-1.5 h-1.5 rounded-full bg-[#E2E8F0] animate-pulse" />
-            <span className="font-mono text-[9px] sm:text-[10px] font-bold text-white uppercase tracking-widest">
+            <span className="font-mono text-[8px] sm:text-[10px] font-bold text-white uppercase tracking-widest">
               DISTILLED PATRIMONY
             </span>
           </div>
@@ -47,10 +47,10 @@ export const MonkeyCraftSection: React.FC<Props> = ({ onExploreCraft }) => {
 
         {/* Bottom Left: Heading & Action Link */}
         <div className="relative z-10 max-w-xl text-left">
-          <span className="font-mono text-[10px] sm:text-xs tracking-[0.3em] uppercase text-[#CBD5E1]/80 mb-3 block drop-shadow">
+          <span className="font-mono text-[9px] sm:text-xs tracking-[0.3em] uppercase text-[#CBD5E1]/80 mb-2 sm:mb-3 block drop-shadow">
             THE HOUSE OF PATIYALA
           </span>
-          <h2 className="font-serif font-normal text-4xl sm:text-6xl md:text-7xl lg:text-8xl tracking-tight text-white leading-[1.02] mb-6 drop-shadow-[0_4px_30px_rgba(0,0,0,0.95)]">
+          <h2 className="font-serif font-normal text-3xl sm:text-6xl md:text-7xl lg:text-8xl tracking-tight text-white leading-[1.02] mb-4 sm:mb-6 drop-shadow-[0_4px_30px_rgba(0,0,0,0.95)]">
             From The Roots <br />
             <span className="italic font-light text-[#E2E8F0] drop-shadow-[0_2px_20px_rgba(226,232,240,0.4)]">
               Of Patiala.
@@ -59,12 +59,12 @@ export const MonkeyCraftSection: React.FC<Props> = ({ onExploreCraft }) => {
 
           <button
             onClick={onExploreCraft}
-            className="group inline-flex items-center gap-3 font-mono text-xs sm:text-sm uppercase tracking-[0.25em] text-[#E2E8F0] hover:text-white transition-all cursor-pointer bg-black/60 hover:bg-black/80 backdrop-blur-md px-6 py-3 rounded-full border border-white/25 hover:border-white/60 shadow-xl"
+            className="group inline-flex items-center gap-2.5 sm:gap-3 font-mono text-[11px] sm:text-sm uppercase tracking-[0.25em] text-[#E2E8F0] hover:text-white transition-all cursor-pointer bg-black/60 hover:bg-black/80 backdrop-blur-md px-5 sm:px-6 py-2.5 sm:py-3 rounded-full border border-white/25 hover:border-white/60 shadow-xl"
           >
             <span className="border-b border-[#CBD5E1]/60 group-hover:border-white pb-0.5">
               THE CRAFT
             </span>
-            <span className="text-base group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform">
+            <span className="text-sm sm:text-base group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform">
               ↗
             </span>
           </button>

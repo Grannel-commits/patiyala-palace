@@ -66,6 +66,16 @@ body {
   }
 }
 
+/* Hide scrollbar for horizontal mobile swipe carousels and tabs */
+.no-scrollbar::-webkit-scrollbar {
+  display: none !important;
+}
+.no-scrollbar {
+  -ms-overflow-style: none !important;
+  scrollbar-width: none !important;
+  -webkit-overflow-scrolling: touch;
+}
+
 /* Glassmorphism utilities */
 .glass {
   @apply bg-white/80 backdrop-blur-md border border-[#00248B]/10 shadow-[0_8px_30px_rgba(7,23,62,0.06)];

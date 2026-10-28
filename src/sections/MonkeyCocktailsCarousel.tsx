@@ -415,10 +415,10 @@ export const MonkeyCocktailsCarousel: React.FC<Props> = ({ onSeeAllRecipes }) =>
                   modalScrollRef.current.scrollTop += e.deltaY;
                 }
               }}
-              className="relative w-full max-w-3xl bg-[#041235] text-white rounded-2xl sm:rounded-3xl overflow-hidden border-2 border-[#CBD5E1]/60 shadow-2xl max-h-[90vh] flex flex-col my-auto"
+              className="relative w-full max-w-3xl bg-[#041235] text-white rounded-2xl sm:rounded-3xl overflow-hidden border-2 border-[#CBD5E1]/60 shadow-2xl max-h-[88svh] sm:max-h-[90vh] flex flex-col my-auto"
             >
               {/* Modal Header Banner */}
-              <div className="relative h-60 sm:h-72 w-full overflow-hidden flex-shrink-0">
+              <div className="relative h-48 sm:h-64 md:h-72 w-full overflow-hidden flex-shrink-0">
                 <img
                   src={activeCocktail.image}
                   alt={activeCocktail.name}
@@ -429,25 +429,25 @@ export const MonkeyCocktailsCarousel: React.FC<Props> = ({ onSeeAllRecipes }) =>
                 {/* Close Button */}
                 <button
                   onClick={() => setActiveCocktail(null)}
-                  className="absolute top-5 right-5 z-20 w-10 h-10 rounded-full bg-black/70 hover:bg-[#CBD5E1] hover:text-black text-white flex items-center justify-center font-bold text-base transition-all border border-white/20 cursor-pointer shadow-lg"
+                  className="absolute top-3 right-3 sm:top-5 sm:right-5 z-20 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-black/70 hover:bg-[#CBD5E1] hover:text-black text-white flex items-center justify-center font-bold text-sm sm:text-base transition-all border border-white/20 cursor-pointer shadow-lg"
                   aria-label="Close Recipe"
                 >
                   ✕
                 </button>
 
                 {/* Cocktail Title */}
-                <div className="absolute bottom-6 left-6 right-6 z-10">
-                  <div className="flex flex-wrap gap-2 mb-2">
+                <div className="absolute bottom-3 sm:bottom-6 left-4 sm:left-6 right-4 sm:right-6 z-10">
+                  <div className="flex flex-wrap gap-1.5 sm:gap-2 mb-1.5 sm:mb-2">
                     {activeCocktail.tags.map((tag, idx) => (
                       <span
                         key={idx}
-                        className="px-2.5 py-0.5 rounded-full text-[9px] font-mono font-bold uppercase tracking-wider bg-black/60 text-[#E2E8F0] border border-[#CBD5E1]/40"
+                        className="px-2 sm:px-2.5 py-0.5 rounded-full text-[8px] sm:text-[9px] font-mono font-bold uppercase tracking-wider bg-black/60 text-[#E2E8F0] border border-[#CBD5E1]/40"
                       >
                         {tag}
                       </span>
                     ))}
                   </div>
-                  <h3 className="font-serif font-black text-2xl sm:text-3xl uppercase tracking-wider text-white">
+                  <h3 className="font-serif font-black text-xl sm:text-3xl uppercase tracking-wider text-white">
                     {activeCocktail.name}
                   </h3>
                 </div>
@@ -457,7 +457,7 @@ export const MonkeyCocktailsCarousel: React.FC<Props> = ({ onSeeAllRecipes }) =>
               <div
                 ref={modalScrollRef}
                 data-lenis-prevent="true"
-                className="p-6 sm:p-8 overflow-y-auto overscroll-contain space-y-6 flex-1 select-text"
+                className="p-4 sm:p-8 overflow-y-auto overscroll-contain space-y-4 sm:space-y-6 flex-1 select-text"
                 style={{ WebkitOverflowScrolling: "touch" }}
               >
                 <p className="font-sans text-sm text-white/80 leading-relaxed font-light">

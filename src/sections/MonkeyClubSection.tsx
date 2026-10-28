@@ -34,7 +34,7 @@ export const MonkeyClubSection: React.FC = () => {
         whileInView={{ opacity: 1, scale: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8 }}
-        className="relative w-full h-[65vh] sm:h-[75vh] md:h-[80vh] rounded-2xl sm:rounded-3xl overflow-hidden bg-black shadow-2xl flex items-center justify-end p-6 sm:p-12 md:p-16"
+        className="relative w-full h-[52vh] sm:h-[70vh] md:h-[80vh] min-h-[380px] sm:min-h-[500px] rounded-2xl sm:rounded-3xl overflow-hidden bg-black shadow-2xl flex items-end sm:items-center justify-center sm:justify-end p-4 sm:p-12 md:p-16"
       >
         {/* Background Image of Friends Toasting at Luxury Lounge */}
         <img
@@ -46,22 +46,22 @@ export const MonkeyClubSection: React.FC = () => {
         <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-black/60 pointer-events-none" />
 
         {/* Right Floating Dark Card */}
-        <div className="relative z-10 w-full max-w-md p-6 sm:p-8 rounded-2xl sm:rounded-3xl bg-[#061b4c]/95 backdrop-blur-md border border-[#CBD5E1]/40 text-white shadow-2xl">
-          <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-[#CBD5E1]/80 block mb-2">
+        <div className="relative z-10 w-full max-w-md p-4 sm:p-8 rounded-xl sm:rounded-3xl bg-[#061b4c]/95 backdrop-blur-md border border-[#CBD5E1]/40 text-white shadow-2xl">
+          <span className="font-mono text-[9px] sm:text-[10px] uppercase tracking-[0.25em] text-[#CBD5E1]/80 block mb-1.5 sm:mb-2">
             Private Cellar
           </span>
 
-          <h3 className="font-serif font-normal text-3xl sm:text-4xl text-white tracking-tight leading-none mb-3">
+          <h3 className="font-serif font-normal text-2xl sm:text-4xl text-white tracking-tight leading-none mb-2 sm:mb-3">
             The Royal Circle
           </h3>
 
-          <p className="font-serif font-light text-sm text-[#CBD5E1]/90 leading-relaxed mb-6">
+          <p className="font-serif font-light text-xs sm:text-sm text-[#CBD5E1]/90 leading-relaxed mb-4 sm:mb-6">
             Ceremonial tastings, private batch reserves, and cellar access privileges.
           </p>
 
           <button
             onClick={() => setIsOpenModal(true)}
-            className="w-full py-4 rounded-full bg-[#E2E8F0] hover:bg-white text-[#020818] font-mono font-bold text-xs uppercase tracking-[0.2em] transition-all flex items-center justify-center gap-2 cursor-pointer shadow-lg hover:shadow-[0_0_25px_rgba(226,232,240,0.3)] hover:scale-[1.02]"
+            className="w-full py-3.5 sm:py-4 rounded-full bg-[#E2E8F0] hover:bg-white text-[#020818] font-mono font-bold text-xs uppercase tracking-[0.2em] transition-all flex items-center justify-center gap-2 cursor-pointer shadow-lg hover:shadow-[0_0_25px_rgba(226,232,240,0.3)] hover:scale-[1.02]"
           >
             <span>Request Access</span>
             <span>↗</span>

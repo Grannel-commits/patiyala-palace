@@ -228,7 +228,7 @@ export const MonkeyNewsGrid: React.FC = () => {
               onClick={() => setSelectedArticle(HISTORICAL_DISPATCHES[1])}
               className="flex-1 rounded-2xl sm:rounded-3xl overflow-hidden group cursor-pointer flex flex-col"
             >
-              <div className="relative flex-1 min-h-[320px] rounded-2xl sm:rounded-3xl overflow-hidden bg-black/60 shadow-2xl border border-[#CBD5E1]/35 group-hover:border-[#E2E8F0] transition-all">
+              <div className="relative flex-1 min-h-[220px] sm:min-h-[280px] md:min-h-[320px] rounded-2xl sm:rounded-3xl overflow-hidden bg-black/60 shadow-2xl border border-[#CBD5E1]/35 group-hover:border-[#E2E8F0] transition-all">
                 <img
                   src={HISTORICAL_DISPATCHES[1].image}
                   alt={HISTORICAL_DISPATCHES[1].title}
@@ -267,7 +267,7 @@ export const MonkeyNewsGrid: React.FC = () => {
               onClick={() => setSelectedArticle(HISTORICAL_DISPATCHES[2])}
               className="flex-1 rounded-2xl sm:rounded-3xl overflow-hidden group cursor-pointer flex flex-col"
             >
-              <div className="relative flex-1 min-h-[320px] rounded-2xl sm:rounded-3xl overflow-hidden bg-black/60 shadow-2xl border border-[#CBD5E1]/35 group-hover:border-[#E2E8F0] transition-all">
+              <div className="relative flex-1 min-h-[220px] sm:min-h-[280px] md:min-h-[320px] rounded-2xl sm:rounded-3xl overflow-hidden bg-black/60 shadow-2xl border border-[#CBD5E1]/35 group-hover:border-[#E2E8F0] transition-all">
                 <img
                   src={HISTORICAL_DISPATCHES[2].image}
                   alt={HISTORICAL_DISPATCHES[2].title}

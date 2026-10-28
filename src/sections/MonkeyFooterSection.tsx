@@ -16,7 +16,7 @@ export const MonkeyFooterSection: React.FC<Props> = ({
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-2 sm:gap-3 md:gap-4">
         
         {/* Left Card (8 cols): Deep Royal Card with Embossed Watermark */}
-        <div className="lg:col-span-8 rounded-2xl sm:rounded-3xl p-6 sm:p-10 md:p-14 bg-[#061b4c] text-white relative overflow-hidden flex flex-col justify-between shadow-2xl min-h-[550px] border border-[#CBD5E1]/30">
+        <div className="lg:col-span-8 rounded-2xl sm:rounded-3xl p-4 sm:p-10 md:p-14 bg-[#061b4c] text-white relative overflow-hidden flex flex-col justify-between shadow-2xl min-h-[360px] sm:min-h-[460px] md:min-h-[550px] border border-[#CBD5E1]/30">
           
           {/* Whole Embossed Watermark: PATIYALA PALACE (Unclipped) */}
           <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none opacity-[0.14] px-4 sm:px-8">
@@ -44,7 +44,7 @@ export const MonkeyFooterSection: React.FC<Props> = ({
 
           <div className="relative z-10 pt-2 sm:pt-4">
             {/* Links Grid */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-y-4 gap-x-6 text-[11px] font-mono tracking-[0.18em] uppercase text-[#CBD5E1]/80">
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-y-3 sm:gap-y-4 gap-x-4 sm:gap-x-6 text-[10px] sm:text-[11px] font-mono tracking-[0.18em] uppercase text-[#CBD5E1]/80">
               <a href="#terms" className="hover:text-white transition-colors">TERMS & CONDITIONS</a>
               <a href="#global" className="hover:text-white transition-colors flex items-center gap-1.5">
                 <span>🌐</span> INDIA (ORIGIN)
@@ -60,10 +60,10 @@ export const MonkeyFooterSection: React.FC<Props> = ({
           </div>
 
           {/* Bottom Compliance & Copyright */}
-          <div className="relative z-10 pt-10 border-t border-white/15 mt-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 text-[11px] font-sans text-white/60">
+          <div className="relative z-10 pt-6 sm:pt-10 border-t border-white/15 mt-6 sm:mt-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 sm:gap-6 text-[11px] font-sans text-white/60">
             
             {/* Social Icons */}
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-2.5 sm:gap-3">
               {[
                 { name: "Instagram", url: "https://www.instagram.com/patiyalapalace/" },
                 { name: "Facebook", url: "https://facebook.com" },
@@ -74,7 +74,7 @@ export const MonkeyFooterSection: React.FC<Props> = ({
                   href={s.url}
                   target="_blank"
                   rel="noreferrer"
-                  className="px-3.5 py-1 rounded-full bg-black/40 hover:bg-[#CBD5E1] hover:text-black border border-white/20 text-[10px] font-mono font-bold uppercase transition-all"
+                  className="px-3 sm:px-3.5 py-1 rounded-full bg-black/40 hover:bg-[#CBD5E1] hover:text-black border border-white/20 text-[9px] sm:text-[10px] font-mono font-bold uppercase transition-all"
                 >
                   {s.name}
                 </a>
@@ -83,10 +83,10 @@ export const MonkeyFooterSection: React.FC<Props> = ({
 
             {/* Drink Responsibly Statement */}
             <div className="text-left sm:text-right">
-              <p className="font-bold text-[#E2E8F0] uppercase text-[11px] tracking-wider mb-1">
+              <p className="font-bold text-[#E2E8F0] uppercase text-[10px] sm:text-[11px] tracking-wider mb-1">
                 Sip with Royal Elegance. Please drink responsibly.
               </p>
-              <p className="text-[10px] text-white/50">
+              <p className="text-[9px] sm:text-[10px] text-white/50">
                 © {currentYear} Saksham Spirits Pvt. Ltd. All rights reserved. Strictly 25+.
               </p>
             </div>
@@ -96,7 +96,7 @@ export const MonkeyFooterSection: React.FC<Props> = ({
         </div>
 
         {/* Right Card (4 cols): Royal Seal Showcase Card */}
-        <div className="lg:col-span-4 rounded-2xl sm:rounded-3xl overflow-hidden bg-[#03102B] relative shadow-2xl min-h-[400px] lg:min-h-[550px] group border border-[#CBD5E1]/40 flex flex-col items-center justify-center p-8 text-center">
+        <div className="lg:col-span-4 rounded-2xl sm:rounded-3xl overflow-hidden bg-[#03102B] relative shadow-2xl min-h-[260px] sm:min-h-[380px] lg:min-h-[550px] group border border-[#CBD5E1]/40 flex flex-col items-center justify-center p-6 sm:p-8 text-center">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(226,232,240,0.2)_0%,transparent_70%)] pointer-events-none" />
 
           <div 
