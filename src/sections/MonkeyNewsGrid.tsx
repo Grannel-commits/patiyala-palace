@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 interface DispatchArticle {
@@ -128,6 +128,7 @@ const HISTORICAL_DISPATCHES: DispatchArticle[] = [
 
 export const MonkeyNewsGrid: React.FC = () => {
   const [selectedArticle, setSelectedArticle] = useState<DispatchArticle | null>(null);
+  const modalScrollRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (selectedArticle) {
@@ -320,6 +321,11 @@ export const MonkeyNewsGrid: React.FC = () => {
               transition={{ duration: 0.3 }}
               data-lenis-prevent="true"
               onClick={(e) => e.stopPropagation()}
+              onWheel={(e) => {
+                if (modalScrollRef.current && !modalScrollRef.current.contains(e.target as Node)) {
+                  modalScrollRef.current.scrollTop += e.deltaY;
+                }
+              }}
               className="relative w-full max-w-4xl bg-[#030d24] text-white rounded-2xl sm:rounded-3xl overflow-hidden border-2 border-[#CBD5E1]/50 shadow-2xl max-h-[92vh] flex flex-col my-auto"
             >
               {/* Sticky Top Header Bar */}
@@ -346,6 +352,7 @@ export const MonkeyNewsGrid: React.FC = () => {
 
               {/* Scrollable Article Body with Full Image */}
               <div
+                ref={modalScrollRef}
                 data-lenis-prevent="true"
                 className="p-5 sm:p-8 md:p-10 overflow-y-auto overscroll-contain space-y-8 select-text flex-1"
                 style={{ WebkitOverflowScrolling: "touch" }}

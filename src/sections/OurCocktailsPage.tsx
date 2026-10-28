@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   ROYAL_COCKTAILS,
@@ -16,6 +16,7 @@ export const OurCocktailsPage = ({
   onBackToHome,
   initialRecipeId,
 }: Props) => {
+  const modalScrollRef = useRef<HTMLDivElement>(null);
   const [selectedRecipe, setSelectedRecipe] = useState<CocktailRecipe | null>(
     () => {
       if (typeof window !== "undefined") {
@@ -348,43 +349,56 @@ export const OurCocktailsPage = ({
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             data-lenis-prevent="true"
-            className="fixed inset-0 z-50 overflow-y-auto overscroll-contain bg-black/75 backdrop-blur-md flex items-start justify-center p-3 sm:p-6 lg:p-10"
+            className="fixed inset-0 z-[140] bg-black/85 backdrop-blur-2xl flex items-center justify-center p-2 sm:p-4 md:p-6 lg:p-8 overflow-y-auto overscroll-contain"
+            onClick={handleCloseRecipe}
           >
             <motion.div
-              initial={{ y: 40, scale: 0.96 }}
-              animate={{ y: 0, scale: 1 }}
-              exit={{ y: 40, scale: 0.96 }}
+              initial={{ y: 30, scale: 0.97, opacity: 0 }}
+              animate={{ y: 0, scale: 1, opacity: 1 }}
+              exit={{ y: 30, scale: 0.97, opacity: 0 }}
               transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
               data-lenis-prevent="true"
-              className="relative w-full max-w-4xl bg-[#04153B]/95 rounded-3xl overflow-hidden shadow-2xl my-auto text-white border border-[#62A4C6]/30 backdrop-blur-2xl"
+              onClick={(e) => e.stopPropagation()}
+              onWheel={(e) => {
+                if (modalScrollRef.current && !modalScrollRef.current.contains(e.target as Node)) {
+                  modalScrollRef.current.scrollTop += e.deltaY;
+                }
+              }}
+              className="relative w-full max-w-4xl bg-[#04153B] text-white rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl border border-[#CBD5E1]/40 backdrop-blur-2xl max-h-[92vh] flex flex-col my-auto"
             >
-              {/* Top Action Bar */}
-              <div className="p-6 sm:px-10 sm:pt-8 flex items-center justify-between border-b border-[#62A4C6]/20 bg-[#04153B]/90">
+              {/* Sticky Top Action Bar */}
+              <div className="p-4 sm:px-8 sm:py-4 flex items-center justify-between border-b border-[#CBD5E1]/20 bg-[#04153B]/95 z-20 flex-shrink-0">
                 <button
                   onClick={handleCloseRecipe}
-                  className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-[#CBD5E1] hover:text-white transition-colors"
+                  className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-[#CBD5E1] hover:text-white transition-colors cursor-pointer"
                 >
                   <span>←</span> BACK TO COCKTAILS
                 </button>
                 <button
                   onClick={handleCloseRecipe}
-                  className="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors text-lg font-light"
+                  className="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors text-lg font-light cursor-pointer shadow-md"
                   aria-label="Close modal"
                 >
                   ✕
                 </button>
               </div>
 
-              {/* Recipe Hero Media & Info */}
-              <div className="p-6 sm:p-10 bg-[#04153B]/90">
+              {/* Scrollable Recipe Content (The Blue Section) */}
+              <div
+                ref={modalScrollRef}
+                data-lenis-prevent="true"
+                className="p-6 sm:p-10 overflow-y-auto overscroll-contain space-y-8 flex-1 select-text bg-[#04153B]"
+                style={{ WebkitOverflowScrolling: "touch" }}
+              >
+                {/* Recipe Hero Media & Info */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-                  <div className="relative aspect-[1.3] sm:aspect-[1.25] overflow-hidden rounded-2xl shadow-lg bg-[#092F5C]/40 border border-[#62A4C6]/25">
+                  <div className="relative aspect-[1.3] sm:aspect-[1.25] overflow-hidden rounded-2xl shadow-lg bg-[#092F5C]/40 border border-[#CBD5E1]/25">
                     <img
                       src={selectedRecipe.image}
                       alt={selectedRecipe.name}
                       className="w-full h-full object-cover"
                     />
-                    <div className="absolute top-3 left-3 bg-[#04153B]/90 backdrop-blur-sm px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-widest text-white border border-[#62A4C6]/30 shadow-sm">
+                    <div className="absolute top-3 left-3 bg-[#04153B]/90 backdrop-blur-sm px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-widest text-white border border-[#CBD5E1]/30 shadow-sm">
                       {selectedRecipe.classicName}
                     </div>
                   </div>
@@ -404,10 +418,10 @@ export const OurCocktailsPage = ({
                     </p>
 
                     {/* Quick Specs */}
-                    <div className="mt-6 grid grid-cols-2 sm:grid-cols-3 gap-3 pt-4 border-t border-[#62A4C6]/20">
-                      <div className="bg-[#092F5C]/50 p-3 rounded-xl border border-[#62A4C6]/20 flex items-center gap-2.5">
+                    <div className="mt-6 grid grid-cols-2 sm:grid-cols-3 gap-3 pt-4 border-t border-[#CBD5E1]/20">
+                      <div className="bg-[#092F5C]/50 p-3 rounded-xl border border-[#CBD5E1]/20 flex items-center gap-2.5">
                         {selectedRecipe.vectorIcon && (
-                          <div className="w-8 h-8 flex-shrink-0 flex items-center justify-center bg-[#092F5C] rounded-lg p-1 border border-[#62A4C6]/25">
+                          <div className="w-8 h-8 flex-shrink-0 flex items-center justify-center bg-[#092F5C] rounded-lg p-1 border border-[#CBD5E1]/25">
                             <img
                               src={selectedRecipe.vectorIcon}
                               alt={selectedRecipe.glassware}
@@ -445,7 +459,7 @@ export const OurCocktailsPage = ({
                 </div>
 
                 {/* Ingredients & Preparation Verbatim from PPTX */}
-                <div className="mt-10 grid grid-cols-1 md:grid-cols-12 gap-8 pt-8 border-t border-white/10">
+                <div className="grid grid-cols-1 md:grid-cols-12 gap-8 pt-8 border-t border-white/10">
                   {/* Ingredients (5 cols) */}
                   <div className="md:col-span-5 bg-white/10 p-6 rounded-2xl border border-white/10">
                     <h3 className="font-serif text-2xl uppercase tracking-tight text-white mb-4 pb-2 border-b border-white/10 flex items-center justify-between">
@@ -517,17 +531,17 @@ export const OurCocktailsPage = ({
                 </div>
 
                 {/* Footer Controls: Print, Share */}
-                <div className="mt-8 pt-6 border-t border-white/10 flex flex-wrap items-center justify-between gap-4">
+                <div className="pt-6 border-t border-white/10 flex flex-wrap items-center justify-between gap-4">
                   <div className="flex items-center gap-3">
                     <button
                       onClick={handlePrintRecipe}
-                      className="px-5 py-2.5 rounded-full border border-white/30 text-white text-xs font-bold uppercase tracking-widest hover:bg-white hover:text-black transition-all"
+                      className="px-5 py-2.5 rounded-full border border-white/30 text-white text-xs font-bold uppercase tracking-widest hover:bg-white hover:text-black transition-all cursor-pointer"
                     >
                       Print Recipe
                     </button>
                     <button
                       onClick={() => handleShareRecipe(selectedRecipe)}
-                      className="px-5 py-2.5 rounded-full bg-[#CBD5E1] text-black text-xs font-bold uppercase tracking-widest hover:bg-white transition-all shadow-md"
+                      className="px-5 py-2.5 rounded-full bg-[#CBD5E1] text-black text-xs font-bold uppercase tracking-widest hover:bg-white transition-all shadow-md cursor-pointer"
                     >
                       Share Cocktail
                     </button>
@@ -535,7 +549,7 @@ export const OurCocktailsPage = ({
 
                   <button
                     onClick={handleCloseRecipe}
-                    className="text-xs font-bold uppercase tracking-[0.2em] underline text-white hover:text-[#CBD5E1]"
+                    className="text-xs font-bold uppercase tracking-[0.2em] underline text-white hover:text-[#CBD5E1] cursor-pointer"
                   >
                     Back to All Cocktails
                   </button>

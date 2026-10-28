@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 interface CocktailItem {
@@ -134,6 +134,7 @@ interface Props {
 
 export const MonkeyCocktailsCarousel: React.FC<Props> = ({ onSeeAllRecipes }) => {
   const [activeCocktail, setActiveCocktail] = useState<CocktailItem | null>(null);
+  const modalScrollRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (activeCocktail) {
@@ -413,6 +414,11 @@ export const MonkeyCocktailsCarousel: React.FC<Props> = ({ onSeeAllRecipes }) =>
               transition={{ duration: 0.3 }}
               data-lenis-prevent="true"
               onClick={(e) => e.stopPropagation()}
+              onWheel={(e) => {
+                if (modalScrollRef.current && !modalScrollRef.current.contains(e.target as Node)) {
+                  modalScrollRef.current.scrollTop += e.deltaY;
+                }
+              }}
               className="relative w-full max-w-3xl bg-[#041235] text-white rounded-2xl sm:rounded-3xl overflow-hidden border-2 border-[#CBD5E1]/60 shadow-2xl max-h-[90vh] flex flex-col my-auto"
             >
               {/* Modal Header Banner */}
@@ -453,6 +459,7 @@ export const MonkeyCocktailsCarousel: React.FC<Props> = ({ onSeeAllRecipes }) =>
 
               {/* Scrollable Modal Body */}
               <div
+                ref={modalScrollRef}
                 data-lenis-prevent="true"
                 className="p-6 sm:p-8 overflow-y-auto overscroll-contain space-y-6 flex-1 select-text"
                 style={{ WebkitOverflowScrolling: "touch" }}
