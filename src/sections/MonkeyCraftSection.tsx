@@ -8,15 +8,49 @@ interface Props {
 export const MonkeyCraftSection: React.FC<Props> = ({ onExploreCraft }) => {
   return (
     <section className="relative w-full p-2 sm:p-3 md:p-4 my-2 sm:my-4">
-      <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden bg-gradient-to-r from-[#030e28] via-[#071f54] to-[#0b2b6f] border border-[#CBD5E1]/40 shadow-2xl p-6 sm:p-12 md:p-16 flex flex-col lg:flex-row items-center justify-between gap-8 sm:gap-12 min-h-[70vh] sm:min-h-[75vh]">
-        
-        {/* Left Column: Heading & Our Craft Link */}
-        <div className="w-full lg:w-1/2 flex flex-col items-start justify-center select-none z-10">
-          <span className="font-mono text-[10px] sm:text-xs tracking-[0.3em] uppercase text-[#CBD5E1]/70 mb-3 block">
-            DISTILLED PATRIMONY
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8 }}
+        className="relative w-full h-[65vh] sm:h-[75vh] md:h-[80vh] min-h-[520px] max-h-[820px] rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl border border-[#CBD5E1]/30 group select-none flex flex-col justify-between p-6 sm:p-12 md:p-16"
+      >
+        {/* Full-Bleed Craft Bottle Image (Responsive 2400x1200 Widescreen & Portrait) */}
+        <picture className="absolute inset-0 w-full h-full block">
+          <source
+            media="(max-width: 768px)"
+            srcSet="/assets/product/patiyala_macro_gold_label_original.jpg"
+          />
+          <img
+            src="/assets/product/patiyala_craft_full_widescreen.jpg"
+            alt="From The Roots Of Patiala - Indian Crafted Malt Whisky"
+            className="w-full h-full object-cover object-[center_right] sm:object-right filter brightness-[0.95] contrast-[1.05] transition-transform duration-1000 ease-out group-hover:scale-105"
+          />
+        </picture>
+
+        {/* Cinematic Vignette Gradients for Text Contrast */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/40 to-transparent pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/30 pointer-events-none" />
+
+        {/* Top Minimalist Badges */}
+        <div className="relative z-10 w-full flex items-center justify-between">
+          <div className="bg-black/60 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/20 flex items-center gap-2 shadow-lg">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#E2E8F0] animate-pulse" />
+            <span className="font-mono text-[9px] sm:text-[10px] font-bold text-white uppercase tracking-widest">
+              DISTILLED PATRIMONY
+            </span>
+          </div>
+          <span className="font-mono text-[9px] sm:text-[10px] font-bold tracking-widest uppercase text-white/60 bg-black/40 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/10 hidden sm:inline-block">
+            INDIAN CRAFTED MALT
           </span>
-          
-          <h2 className="font-serif font-normal text-4xl sm:text-6xl md:text-7xl tracking-tight text-white leading-[1.05] mb-8">
+        </div>
+
+        {/* Bottom Left: Heading & Action Link */}
+        <div className="relative z-10 max-w-xl text-left">
+          <span className="font-mono text-[10px] sm:text-xs tracking-[0.3em] uppercase text-[#CBD5E1]/80 mb-3 block drop-shadow">
+            THE HOUSE OF PATIYALA
+          </span>
+          <h2 className="font-serif font-normal text-4xl sm:text-6xl md:text-7xl lg:text-8xl tracking-tight text-white leading-[1.02] mb-6 drop-shadow-[0_4px_30px_rgba(0,0,0,0.95)]">
             From The Roots <br />
             <span className="italic font-light text-[#E2E8F0] drop-shadow-[0_2px_20px_rgba(226,232,240,0.4)]">
               Of Patiala.
@@ -25,9 +59,9 @@ export const MonkeyCraftSection: React.FC<Props> = ({ onExploreCraft }) => {
 
           <button
             onClick={onExploreCraft}
-            className="group inline-flex items-center gap-3 font-mono text-xs sm:text-sm uppercase tracking-[0.25em] text-[#E2E8F0] hover:text-white transition-colors cursor-pointer"
+            className="group inline-flex items-center gap-3 font-mono text-xs sm:text-sm uppercase tracking-[0.25em] text-[#E2E8F0] hover:text-white transition-all cursor-pointer bg-black/60 hover:bg-black/80 backdrop-blur-md px-6 py-3 rounded-full border border-white/25 hover:border-white/60 shadow-xl"
           >
-            <span className="border-b border-[#CBD5E1]/60 group-hover:border-white pb-1">
+            <span className="border-b border-[#CBD5E1]/60 group-hover:border-white pb-0.5">
               THE CRAFT
             </span>
             <span className="text-base group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform">
@@ -35,32 +69,7 @@ export const MonkeyCraftSection: React.FC<Props> = ({ onExploreCraft }) => {
             </span>
           </button>
         </div>
-
-        {/* Right Column: Patiyala Palace Handcrafted Bottle with Charred Oak & Botanicals */}
-        <div className="w-full lg:w-1/2 flex items-center justify-center relative">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="relative w-full max-w-[620px] aspect-[4/3] sm:aspect-[16/11] rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl group border border-[#CBD5E1]/30 bg-[#030e28]"
-          >
-            {/* Macro Bottle Photograph with Toned Warmth */}
-            <img
-              src="/assets/product/patiyala_macro_gold_label.jpg"
-              alt="From the Roots of Patiala - Indian Crafted Malt Whisky"
-              className="w-full h-full object-cover object-center filter brightness-[0.88] contrast-[1.05] transition-transform duration-1000 ease-out group-hover:scale-105"
-            />
-
-            {/* Seamless Edge Blends & Radial Vignette */}
-            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_45%,rgba(3,14,40,0.85)_100%)] pointer-events-none" />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#030e28]/95 via-transparent to-[#030e28]/50 pointer-events-none" />
-            <div className="absolute inset-0 bg-gradient-to-r from-[#030e28]/70 via-transparent to-[#030e28]/50 pointer-events-none" />
-            <div className="absolute inset-0 mix-blend-color bg-[#071f54]/20 pointer-events-none" />
-          </motion.div>
-        </div>
-
-      </div>
+      </motion.div>
     </section>
   );
 };
