@@ -6,6 +6,7 @@ import { AnimatePresence } from "framer-motion";
 
 // Core Components
 import { CustomCursor } from "./components/CustomCursor";
+import { DynamicSilkBackground } from "./components/DynamicSilkBackground";
 import { AgeGate } from "./components/AgeGate";
 import { MenuOverlay } from "./components/MenuOverlay";
 import { MonkeyHeader } from "./components/MonkeyHeader";
@@ -143,8 +144,11 @@ function App() {
   };
 
   return (
-    <div className="relative w-full min-h-screen bg-gradient-to-b from-[#020818] via-[#041235] to-[#020818] text-white overflow-x-hidden selection:bg-[#CBD5E1] selection:text-black font-sans border-[4px] sm:border-[6px] md:border-[8px] border-[#CBD5E1]/30">
+    <div className="relative w-full min-h-screen bg-[#020818] text-white overflow-x-hidden selection:bg-[#CBD5E1] selection:text-black font-sans border-[4px] sm:border-[6px] md:border-[8px] border-[#CBD5E1]/30">
       
+      {/* Enlarged Dynamic Liquid Silk Background (Scroll-Driven Parallax) */}
+      <DynamicSilkBackground />
+
       {/* Luxury Custom Cursor */}
       <CustomCursor />
 
