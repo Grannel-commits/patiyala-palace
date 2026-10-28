@@ -174,7 +174,7 @@ export const MonkeyNewsGrid: React.FC = () => {
         </div>
 
         {/* 3-Card Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-stretch">
           
           {/* Card 1: Large Left Feature (The Patiala Peg Origin) */}
           <motion.div
@@ -183,9 +183,9 @@ export const MonkeyNewsGrid: React.FC = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
             onClick={() => setSelectedArticle(HISTORICAL_DISPATCHES[0])}
-            className="lg:col-span-6 rounded-2xl sm:rounded-3xl overflow-hidden bg-transparent group cursor-pointer flex flex-col justify-between"
+            className="lg:col-span-6 rounded-2xl sm:rounded-3xl overflow-hidden bg-transparent group cursor-pointer flex flex-col"
           >
-            <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-black/50 shadow-xl mb-4 border border-white/15">
+            <div className="relative flex-1 min-h-[320px] rounded-2xl overflow-hidden bg-black/50 shadow-xl border border-white/15">
               <img
                 src={HISTORICAL_DISPATCHES[0].image}
                 alt={HISTORICAL_DISPATCHES[0].title}
@@ -202,7 +202,7 @@ export const MonkeyNewsGrid: React.FC = () => {
               </div>
             </div>
 
-            <div>
+            <div className="flex-shrink-0 pt-3.5">
               <span className="font-mono text-[10px] tracking-[0.25em] text-[#CBD5E1]/70 uppercase block mb-1">
                 {HISTORICAL_DISPATCHES[0].category}
               </span>
@@ -225,9 +225,9 @@ export const MonkeyNewsGrid: React.FC = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.1 }}
               onClick={() => setSelectedArticle(HISTORICAL_DISPATCHES[1])}
-              className="flex-1 rounded-2xl overflow-hidden group cursor-pointer flex flex-col justify-between"
+              className="flex-1 rounded-2xl overflow-hidden group cursor-pointer flex flex-col"
             >
-              <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-black/50 shadow-xl mb-4 border border-white/15">
+              <div className="relative flex-1 min-h-[320px] rounded-2xl overflow-hidden bg-black/50 shadow-xl border border-white/15">
                 <img
                   src={HISTORICAL_DISPATCHES[1].image}
                   alt={HISTORICAL_DISPATCHES[1].title}
@@ -244,7 +244,7 @@ export const MonkeyNewsGrid: React.FC = () => {
                 </div>
               </div>
 
-              <div>
+              <div className="flex-shrink-0 pt-3.5">
                 <span className="font-mono text-[9px] tracking-[0.2em] text-[#CBD5E1]/70 uppercase block mb-1">
                   {HISTORICAL_DISPATCHES[1].category}
                 </span>
@@ -264,9 +264,9 @@ export const MonkeyNewsGrid: React.FC = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
               onClick={() => setSelectedArticle(HISTORICAL_DISPATCHES[2])}
-              className="flex-1 rounded-2xl overflow-hidden group cursor-pointer flex flex-col justify-between"
+              className="flex-1 rounded-2xl overflow-hidden group cursor-pointer flex flex-col"
             >
-              <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-black/50 shadow-xl mb-4 border border-white/15">
+              <div className="relative flex-1 min-h-[320px] rounded-2xl overflow-hidden bg-black/50 shadow-xl border border-white/15">
                 <img
                   src={HISTORICAL_DISPATCHES[2].image}
                   alt={HISTORICAL_DISPATCHES[2].title}
@@ -283,7 +283,7 @@ export const MonkeyNewsGrid: React.FC = () => {
                 </div>
               </div>
 
-              <div>
+              <div className="flex-shrink-0 pt-3.5">
                 <span className="font-mono text-[9px] tracking-[0.2em] text-[#CBD5E1]/70 uppercase block mb-1">
                   {HISTORICAL_DISPATCHES[2].category}
                 </span>
