@@ -143,16 +143,16 @@ export const MonkeyNewsGrid: React.FC = () => {
   }, [selectedArticle]);
 
   return (
-    <section id="dispatches" className="relative w-full p-2 sm:p-3 md:p-4 my-2 sm:my-4 select-none">
-      <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden bg-gradient-to-b from-[#030d24] via-[#061842] to-[#030d24] border border-[#CBD5E1]/35 shadow-2xl p-6 sm:p-10 md:p-14">
+    <section id="dispatches" className="relative w-full py-14 sm:py-20 md:py-24 px-3 sm:px-6 md:px-8 select-none">
+      <div className="relative max-w-7xl mx-auto z-10">
         
         {/* Header */}
         <div className="flex items-center justify-between mb-8 sm:mb-12 border-b border-white/15 pb-6">
           <div>
-            <span className="font-mono text-[9px] sm:text-[10px] tracking-[0.25em] uppercase text-[#CBD5E1]/70 block mb-1">
+            <span className="font-mono text-[9px] sm:text-[10px] tracking-[0.25em] uppercase text-[#CBD5E1]/80 block mb-1 drop-shadow">
               HERITAGE & CHRONICLES
             </span>
-            <h2 className="font-serif font-normal text-3xl sm:text-5xl text-white tracking-tight leading-none">
+            <h2 className="font-serif font-normal text-3xl sm:text-5xl md:text-6xl text-white tracking-tight leading-none drop-shadow-[0_4px_30px_rgba(0,0,0,0.95)]">
               The Dispatches
             </h2>
           </div>
@@ -163,7 +163,7 @@ export const MonkeyNewsGrid: React.FC = () => {
               e.preventDefault();
               setSelectedArticle(HISTORICAL_DISPATCHES[0]);
             }}
-            className="group inline-flex items-center gap-2 font-mono text-xs sm:text-sm uppercase tracking-[0.2em] text-[#E2E8F0] hover:text-white transition-colors cursor-pointer"
+            className="group inline-flex items-center gap-2 font-mono text-xs sm:text-sm uppercase tracking-[0.2em] text-[#E2E8F0] hover:text-white transition-colors cursor-pointer px-4 py-2 rounded-full bg-black/60 backdrop-blur-md border border-[#CBD5E1]/40 shadow-lg hover:border-white"
           >
             <span className="border-b border-[#CBD5E1]/60 group-hover:border-white pb-0.5">
               Archive
@@ -186,15 +186,15 @@ export const MonkeyNewsGrid: React.FC = () => {
             onClick={() => setSelectedArticle(HISTORICAL_DISPATCHES[0])}
             className="lg:col-span-6 rounded-2xl sm:rounded-3xl overflow-hidden bg-transparent group cursor-pointer flex flex-col"
           >
-            <div className="relative flex-1 min-h-[320px] rounded-2xl overflow-hidden bg-black/50 shadow-xl border border-white/15">
+            <div className="relative flex-1 min-h-[320px] rounded-2xl sm:rounded-3xl overflow-hidden bg-black/60 shadow-2xl border border-[#CBD5E1]/35 group-hover:border-[#E2E8F0] transition-all">
               <img
                 src={HISTORICAL_DISPATCHES[0].image}
                 alt={HISTORICAL_DISPATCHES[0].title}
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/20 pointer-events-none" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-black/20 pointer-events-none" />
               
-              <div className="absolute bottom-4 left-4 bg-black/70 backdrop-blur-md px-3.5 py-1.5 rounded-full text-white font-mono text-[9px] sm:text-[10px] tracking-widest uppercase border border-white/15">
+              <div className="absolute bottom-4 left-4 bg-black/75 backdrop-blur-md px-3.5 py-1.5 rounded-full text-white font-mono text-[9px] sm:text-[10px] tracking-widest uppercase border border-white/20 shadow-md">
                 {HISTORICAL_DISPATCHES[0].tag} • {HISTORICAL_DISPATCHES[0].readTime}
               </div>
 
@@ -204,13 +204,13 @@ export const MonkeyNewsGrid: React.FC = () => {
             </div>
 
             <div className="flex-shrink-0 pt-3.5">
-              <span className="font-mono text-[10px] tracking-[0.25em] text-[#CBD5E1]/70 uppercase block mb-1">
+              <span className="font-mono text-[10px] tracking-[0.25em] text-[#CBD5E1]/80 uppercase block mb-1 drop-shadow">
                 {HISTORICAL_DISPATCHES[0].category}
               </span>
-              <h3 className="font-serif font-normal text-xl sm:text-2xl md:text-3xl text-white group-hover:text-[#E2E8F0] transition-colors leading-tight mb-2">
+              <h3 className="font-serif font-normal text-xl sm:text-2xl md:text-3xl text-white group-hover:text-[#E2E8F0] transition-colors leading-tight mb-2 drop-shadow-[0_2px_15px_rgba(0,0,0,0.9)]">
                 {HISTORICAL_DISPATCHES[0].title}
               </h3>
-              <p className="font-serif font-light text-xs sm:text-sm text-[#CBD5E1]/80 line-clamp-2 leading-relaxed">
+              <p className="font-serif font-light text-xs sm:text-sm text-[#CBD5E1]/90 line-clamp-2 leading-relaxed drop-shadow">
                 {HISTORICAL_DISPATCHES[0].excerpt}
               </p>
             </div>
@@ -226,17 +226,17 @@ export const MonkeyNewsGrid: React.FC = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.1 }}
               onClick={() => setSelectedArticle(HISTORICAL_DISPATCHES[1])}
-              className="flex-1 rounded-2xl overflow-hidden group cursor-pointer flex flex-col"
+              className="flex-1 rounded-2xl sm:rounded-3xl overflow-hidden group cursor-pointer flex flex-col"
             >
-              <div className="relative flex-1 min-h-[320px] rounded-2xl overflow-hidden bg-black/50 shadow-xl border border-white/15">
+              <div className="relative flex-1 min-h-[320px] rounded-2xl sm:rounded-3xl overflow-hidden bg-black/60 shadow-2xl border border-[#CBD5E1]/35 group-hover:border-[#E2E8F0] transition-all">
                 <img
                   src={HISTORICAL_DISPATCHES[1].image}
                   alt={HISTORICAL_DISPATCHES[1].title}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/20 pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-black/20 pointer-events-none" />
                 
-                <div className="absolute bottom-4 left-4 bg-black/70 backdrop-blur-md px-3 py-1 rounded-full text-white font-mono text-[9px] tracking-widest uppercase border border-white/15">
+                <div className="absolute bottom-4 left-4 bg-black/75 backdrop-blur-md px-3.5 py-1.5 rounded-full text-white font-mono text-[9px] tracking-widest uppercase border border-white/20 shadow-md">
                   {HISTORICAL_DISPATCHES[1].tag}
                 </div>
 
@@ -246,13 +246,13 @@ export const MonkeyNewsGrid: React.FC = () => {
               </div>
 
               <div className="flex-shrink-0 pt-3.5">
-                <span className="font-mono text-[9px] tracking-[0.2em] text-[#CBD5E1]/70 uppercase block mb-1">
+                <span className="font-mono text-[9px] tracking-[0.2em] text-[#CBD5E1]/80 uppercase block mb-1 drop-shadow">
                   {HISTORICAL_DISPATCHES[1].category}
                 </span>
-                <h4 className="font-serif font-normal text-lg sm:text-xl text-white group-hover:text-[#E2E8F0] transition-colors leading-snug mb-1">
+                <h4 className="font-serif font-normal text-lg sm:text-xl text-white group-hover:text-[#E2E8F0] transition-colors leading-snug mb-1 drop-shadow-[0_2px_15px_rgba(0,0,0,0.9)]">
                   {HISTORICAL_DISPATCHES[1].title}
                 </h4>
-                <p className="font-serif font-light text-xs text-[#CBD5E1]/80 line-clamp-2 leading-relaxed">
+                <p className="font-serif font-light text-xs text-[#CBD5E1]/90 line-clamp-2 leading-relaxed drop-shadow">
                   {HISTORICAL_DISPATCHES[1].excerpt}
                 </p>
               </div>
@@ -265,17 +265,17 @@ export const MonkeyNewsGrid: React.FC = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
               onClick={() => setSelectedArticle(HISTORICAL_DISPATCHES[2])}
-              className="flex-1 rounded-2xl overflow-hidden group cursor-pointer flex flex-col"
+              className="flex-1 rounded-2xl sm:rounded-3xl overflow-hidden group cursor-pointer flex flex-col"
             >
-              <div className="relative flex-1 min-h-[320px] rounded-2xl overflow-hidden bg-black/50 shadow-xl border border-white/15">
+              <div className="relative flex-1 min-h-[320px] rounded-2xl sm:rounded-3xl overflow-hidden bg-black/60 shadow-2xl border border-[#CBD5E1]/35 group-hover:border-[#E2E8F0] transition-all">
                 <img
                   src={HISTORICAL_DISPATCHES[2].image}
                   alt={HISTORICAL_DISPATCHES[2].title}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/20 pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-black/20 pointer-events-none" />
                 
-                <div className="absolute bottom-4 left-4 bg-black/70 backdrop-blur-md px-3 py-1 rounded-full text-white font-mono text-[9px] tracking-widest uppercase border border-white/15">
+                <div className="absolute bottom-4 left-4 bg-black/75 backdrop-blur-md px-3.5 py-1.5 rounded-full text-white font-mono text-[9px] tracking-widest uppercase border border-white/20 shadow-md">
                   {HISTORICAL_DISPATCHES[2].tag}
                 </div>
 
@@ -285,13 +285,13 @@ export const MonkeyNewsGrid: React.FC = () => {
               </div>
 
               <div className="flex-shrink-0 pt-3.5">
-                <span className="font-mono text-[9px] tracking-[0.2em] text-[#CBD5E1]/70 uppercase block mb-1">
+                <span className="font-mono text-[9px] tracking-[0.2em] text-[#CBD5E1]/80 uppercase block mb-1 drop-shadow">
                   {HISTORICAL_DISPATCHES[2].category}
                 </span>
-                <h4 className="font-serif font-normal text-lg sm:text-xl text-white group-hover:text-[#E2E8F0] transition-colors leading-snug mb-1">
+                <h4 className="font-serif font-normal text-lg sm:text-xl text-white group-hover:text-[#E2E8F0] transition-colors leading-snug mb-1 drop-shadow-[0_2px_15px_rgba(0,0,0,0.9)]">
                   {HISTORICAL_DISPATCHES[2].title}
                 </h4>
-                <p className="font-serif font-light text-xs text-[#CBD5E1]/80 line-clamp-2 leading-relaxed">
+                <p className="font-serif font-light text-xs text-[#CBD5E1]/90 line-clamp-2 leading-relaxed drop-shadow">
                   {HISTORICAL_DISPATCHES[2].excerpt}
                 </p>
               </div>
