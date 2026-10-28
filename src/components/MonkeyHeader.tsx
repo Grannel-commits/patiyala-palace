@@ -7,7 +7,7 @@ interface Props {
 
 export const MonkeyHeader: React.FC<Props> = ({ onOpenMenu, onNavigateHome }) => {
   return (
-    <header className="fixed top-0 inset-x-0 z-50 pointer-events-none p-3 sm:p-5 flex items-center justify-between">
+    <header className="fixed top-0 inset-x-0 z-50 pointer-events-none px-3 sm:px-[18px] md:px-6 py-2.5 sm:py-3.5 md:py-4 flex items-center justify-between">
       {/* Top Left: Logo Brand, Hamburger, Tagline */}
       <div className="flex items-center gap-2 sm:gap-3 pointer-events-auto">
         {/* Brand Crest & Title Button */}
@@ -42,7 +42,7 @@ export const MonkeyHeader: React.FC<Props> = ({ onOpenMenu, onNavigateHome }) =>
       <div className="pointer-events-auto flex items-center">
         <button
           onClick={onNavigateHome}
-          className="relative w-11 h-11 sm:w-12 sm:h-12 rounded-full p-1 bg-black/60 hover:bg-black/90 border border-[#CBD5E1]/50 backdrop-blur-md flex items-center justify-center cursor-pointer group shadow-2xl transition-all duration-300 hover:scale-110"
+          className="relative w-10 h-10 sm:w-11 sm:h-11 rounded-full p-1 bg-black/70 hover:bg-black/90 border border-[#CBD5E1]/40 backdrop-blur-md flex items-center justify-center cursor-pointer group shadow-2xl transition-all duration-300 hover:scale-105"
           aria-label="Patiyala Palace Seal"
         >
           <img

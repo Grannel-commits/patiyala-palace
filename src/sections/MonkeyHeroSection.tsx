@@ -3,8 +3,8 @@ import { motion } from "framer-motion";
 
 export const MonkeyHeroSection: React.FC = () => {
   return (
-    <section className="relative w-full p-2 sm:p-3 md:p-4 pt-16 sm:pt-20">
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-2 sm:gap-3 md:gap-4 h-[86vh] sm:h-[88vh] md:h-[90vh]">
+    <section className="relative w-full p-2 sm:p-3 md:p-4 pt-20 sm:pt-24 md:pt-28">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-2 sm:gap-3 md:gap-4 h-[calc(100vh-7.5rem)] min-h-[580px] max-h-[820px]">
         
         {/* Left Column (8 cols): Hero Bottle on Rock */}
         <motion.div
@@ -45,13 +45,16 @@ export const MonkeyHeroSection: React.FC = () => {
           <div className="absolute -inset-10 bg-[radial-gradient(circle_at_center,rgba(226,232,240,0.25)_0%,transparent_70%)] pointer-events-none" />
 
           {/* Top subtle badge overlay */}
-          <div className="relative z-10 w-full flex justify-end">
-            <div className="bg-black/60 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-[#CBD5E1]/50 flex items-center gap-2">
+          <div className="relative z-10 w-full flex items-center justify-between">
+            <div className="bg-black/60 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-[#CBD5E1]/50 flex items-center gap-2 shadow-lg">
               <span className="w-2 h-2 rounded-full bg-[#E2E8F0] animate-pulse" />
               <span className="font-mono text-[10px] font-bold text-white uppercase tracking-widest">
                 42.8% ABV • INDIAN CRAFTED MALT WHISKY
               </span>
             </div>
+            <span className="font-mono text-[9px] font-bold tracking-widest uppercase text-white/50 hidden sm:inline-block">
+              BATCH NO. 01
+            </span>
           </div>
 
           {/* New Official Royal Emblem Badge */}
