@@ -56,7 +56,7 @@ export const MonkeyFooterSection: React.FC<Props> = ({
                 </button>
               ) : (
                 <a href="?page=find-us" className="text-emerald-300 hover:text-white font-bold transition-colors">
-                  📍 FIND US (HARYANA)
+                  📍 FIND US (STORE LOCATOR)
                 </a>
               )}
               <a href="#terms" className="hover:text-white transition-colors">TERMS & CONDITIONS</a>

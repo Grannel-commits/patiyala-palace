@@ -49,7 +49,7 @@ export const MonkeyHeader: React.FC<Props> = ({
           <button
             onClick={onNavigateFindUs}
             aria-label="Find Us Outlets"
-            className={`h-10 sm:h-11 px-3 sm:px-4 rounded-full backdrop-blur-md flex items-center gap-1.5 sm:gap-2 shadow-2xl transition-all duration-300 hover:scale-105 cursor-pointer font-mono text-[11px] sm:text-xs font-bold tracking-[0.14em] uppercase border ${
+            className={`h-10 sm:h-11 px-3.5 sm:px-4 rounded-full backdrop-blur-md flex items-center gap-1.5 sm:gap-2 shadow-2xl transition-all duration-300 hover:scale-105 cursor-pointer font-mono text-[11px] sm:text-xs font-bold tracking-[0.14em] uppercase border ${
               currentPage === "find-us"
                 ? "bg-[#CBD5E1] text-[#020818] border-white shadow-[0_0_20px_rgba(203,213,225,0.4)]"
                 : "bg-black/70 hover:bg-black/90 text-white border-[#CBD5E1]/40"
@@ -57,9 +57,6 @@ export const MonkeyHeader: React.FC<Props> = ({
           >
             <span className="text-sm">📍</span>
             <span>FIND US</span>
-            <span className="hidden sm:inline-block text-[9px] px-1.5 py-0.2 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
-              HARYANA
-            </span>
           </button>
         )}
       </div>

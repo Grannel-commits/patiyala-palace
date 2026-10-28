@@ -1,9 +1,10 @@
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState, useEffect, useMemo, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
-  HARYANA_OUTLETS,
+  PALACE_OUTLETS,
   OutletLocation,
   checkLocationAvailability,
+  sortOutletsByDistance,
 } from "../data/outletsData";
 
 interface Props {
@@ -24,12 +25,44 @@ export const FindUsPage: React.FC<Props> = ({
     query: string;
   } | null>(null);
 
+  // Geolocation state for "Closest to Me"
+  const [userCoords, setUserCoords] = useState<{ lat: number; lng: number } | null>(null);
+  const [geoStatus, setGeoStatus] = useState<"idle" | "detecting" | "granted" | "denied">("idle");
+  const [sortByDistanceActive, setSortByDistanceActive] = useState<boolean>(false);
+
   const [notifyInput, setNotifyInput] = useState("");
   const [notifySubmitted, setNotifySubmitted] = useState(false);
 
+  // Request user location automatically on mount to show closest area first
+  const detectUserLocation = useCallback((isManual = false) => {
+    if (!navigator.geolocation) {
+      if (isManual) alert("Geolocation is not supported by your browser.");
+      return;
+    }
+    setGeoStatus("detecting");
+
+    navigator.geolocation.getCurrentPosition(
+      (pos) => {
+        const coords = {
+          lat: pos.coords.latitude,
+          lng: pos.coords.longitude,
+        };
+        setUserCoords(coords);
+        setGeoStatus("granted");
+        setSortByDistanceActive(true);
+      },
+      () => {
+        setGeoStatus("denied");
+      },
+      { enableHighAccuracy: true, timeout: 10000, maximumAge: 60000 }
+    );
+  }, []);
+
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
-  }, []);
+    // Attempt automatic proximity detection
+    detectUserLocation(false);
+  }, [detectUserLocation]);
 
   const zones = useMemo(() => {
     return [
@@ -42,10 +75,27 @@ export const FindUsPage: React.FC<Props> = ({
     ];
   }, []);
 
+  // Compute all outlets, sorted by distance if user coords are available
+  const allSortedOutlets = useMemo(() => {
+    if (userCoords && sortByDistanceActive) {
+      return sortOutletsByDistance(PALACE_OUTLETS, userCoords.lat, userCoords.lng);
+    }
+    return PALACE_OUTLETS;
+  }, [userCoords, sortByDistanceActive]);
+
+  // Filtered outlets based on selected zone tab
   const filteredOutlets = useMemo(() => {
-    if (activeZone === "All") return HARYANA_OUTLETS;
-    return HARYANA_OUTLETS.filter((o) => o.zone === activeZone);
-  }, [activeZone]);
+    if (activeZone === "All") return allSortedOutlets;
+    return allSortedOutlets.filter((o) => o.zone === activeZone);
+  }, [activeZone, allSortedOutlets]);
+
+  // Nearest outlet to the user
+  const nearestOutlet = useMemo(() => {
+    if (userCoords && allSortedOutlets.length > 0 && (allSortedOutlets[0].distanceKm !== undefined)) {
+      return allSortedOutlets[0];
+    }
+    return null;
+  }, [userCoords, allSortedOutlets]);
 
   const handleSearch = (queryOverride?: string) => {
     const q = (queryOverride !== undefined ? queryOverride : searchQuery).trim();
@@ -54,7 +104,7 @@ export const FindUsPage: React.FC<Props> = ({
       setSearchResult(null);
       return;
     }
-    const result = checkLocationAvailability(q);
+    const result = checkLocationAvailability(q, userCoords ?? undefined);
     setSearchResult({
       matched: result.matched,
       outlets: result.outlets,
@@ -83,35 +133,12 @@ export const FindUsPage: React.FC<Props> = ({
     }
   };
 
-  const handleUseCurrentLocation = () => {
-    if (!navigator.geolocation) {
-      alert("Geolocation is not supported by your browser.");
-      return;
+  const formatDistance = (km?: number) => {
+    if (km === undefined) return null;
+    if (km < 1) {
+      return `${Math.round(km * 1000)} m away`;
     }
-    navigator.geolocation.getCurrentPosition(
-      (pos) => {
-        // Haryana / NCR latitude: ~28.4 to 28.5, longitude: ~77.0 to 77.1
-        const lat = pos.coords.latitude;
-        const lng = pos.coords.longitude;
-        const isNearGurugram =
-          lat >= 28.2 && lat <= 28.65 && lng >= 76.8 && lng <= 77.25;
-
-        if (isNearGurugram) {
-          handleQuickChip("Gurugram");
-        } else {
-          setSearchQuery("My Location");
-          setSearchResult({
-            matched: false,
-            outlets: [],
-            query: "Your Current Location",
-          });
-          setHasSearched(true);
-        }
-      },
-      () => {
-        alert("Unable to retrieve your location. Please enter your sector or landmark manually.");
-      }
-    );
+    return `${km.toFixed(1)} km away`;
   };
 
   return (
@@ -139,7 +166,7 @@ export const FindUsPage: React.FC<Props> = ({
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/60 backdrop-blur-md border border-[#CBD5E1]/40 mb-4 shadow-lg">
               <span className="w-1.5 h-1.5 rounded-full bg-[#E2E8F0] animate-pulse" />
               <span className="font-mono text-[9px] sm:text-[10px] tracking-[0.25em] uppercase text-[#E2E8F0]">
-                HARYANA STATE OFFICIAL DISTRIBUTION
+                OFFICIAL DISTRIBUTION NETWORK
               </span>
             </div>
 
@@ -150,8 +177,8 @@ export const FindUsPage: React.FC<Props> = ({
               </span>
             </h1>
 
-            <p className="font-serif font-light text-base sm:text-xl text-[#CBD5E1]/90 leading-relaxed mt-6 max-w-2xl drop-shadow">
-              Patiyala Palace Crafted Indian Malt Whisky (42.8% ABV) is currently exclusively available across 35+ prestigious liquor boutiques, hotel bars, and lifestyle clubs in Haryana.
+            <p className="mt-5 font-sans text-sm sm:text-base md:text-lg text-white/80 max-w-2xl font-light leading-relaxed">
+              Patiyala Palace Crafted Indian Malt Whisky (42.8% ABV) is available across 35+ prestigious partner retail boutiques, hotel lounges, and premium vaults. Enter your location below to check availability or explore outlets closest to you.
             </p>
           </div>
 
@@ -159,21 +186,99 @@ export const FindUsPage: React.FC<Props> = ({
       </section>
 
       {/* ========================================================
-          2. INTERACTIVE LOCATION CHECKER
+          2. CLOSEST TO ME STATUS & INTERACTIVE CHECKER
           ======================================================== */}
-      <section className="relative w-full py-10 sm:py-14 md:py-16 px-4 sm:px-6 md:px-8 z-20">
-        <div className="max-w-4xl mx-auto">
-          
-          {/* Search Box Card */}
-          <div className="p-6 sm:p-10 rounded-2xl sm:rounded-3xl bg-[#041235]/85 backdrop-blur-2xl border border-[#CBD5E1]/40 shadow-2xl">
-            
-            <label
-              htmlFor="location-input"
-              className="font-mono text-xs sm:text-sm uppercase tracking-[0.2em] text-[#E2E8F0] font-bold block mb-3"
-            >
-              Check Availability In Your Location
-            </label>
+      <section className="relative w-full py-10 sm:py-14 px-4 sm:px-6 md:px-8 z-20">
+        <div className="max-w-5xl mx-auto">
 
+          {/* Closest to Me Banner (if location granted) */}
+          {nearestOutlet && (
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="mb-6 p-4 sm:p-5 rounded-2xl bg-emerald-950/40 border border-emerald-500/40 backdrop-blur-xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 shadow-[0_10px_30px_rgba(16,185,129,0.15)]"
+            >
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center text-lg">
+                  📍
+                </div>
+                <div>
+                  <div className="flex items-center gap-2">
+                    <span className="font-mono text-[9px] uppercase tracking-widest text-emerald-300 font-bold px-2 py-0.5 rounded-full bg-emerald-500/20 border border-emerald-500/30">
+                      Closest Outlet To You
+                    </span>
+                    <span className="font-mono text-xs text-white font-bold">
+                      {formatDistance(nearestOutlet.distanceKm)}
+                    </span>
+                  </div>
+                  <h4 className="font-serif font-bold text-base sm:text-lg text-white mt-0.5">
+                    {nearestOutlet.name}
+                  </h4>
+                  <p className="font-sans text-xs text-white/70">
+                    {nearestOutlet.landmark} • {nearestOutlet.address}
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-2 w-full sm:w-auto">
+                <a
+                  href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+                    nearestOutlet.name + " " + nearestOutlet.address
+                  )}`}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="flex-1 sm:flex-none text-center px-4 py-2 rounded-full bg-emerald-500 hover:bg-emerald-400 text-black font-mono text-xs font-bold uppercase tracking-wider transition-all"
+                >
+                  Directions ↗
+                </a>
+                <button
+                  onClick={() => {
+                    const el = document.getElementById(nearestOutlet.id);
+                    el?.scrollIntoView({ behavior: "smooth", block: "center" });
+                  }}
+                  className="px-4 py-2 rounded-full bg-white/10 hover:bg-white/20 text-white font-mono text-xs font-bold uppercase tracking-wider border border-white/20 transition-all cursor-pointer"
+                >
+                  View Details
+                </button>
+              </div>
+            </motion.div>
+          )}
+
+          {/* Location Checker Card */}
+          <div className="p-6 sm:p-10 rounded-3xl bg-[#041235]/90 border border-[#CBD5E1]/30 backdrop-blur-2xl shadow-2xl">
+            
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6">
+              <div>
+                <span className="font-mono text-[10px] sm:text-xs uppercase tracking-[0.25em] text-[#CBD5E1] block">
+                  AVAILABILITY VERIFICATION
+                </span>
+                <h2 className="font-serif font-normal text-2xl sm:text-3xl text-white mt-1">
+                  Enter Your Location
+                </h2>
+              </div>
+
+              {/* Show Closest Area To Me Button */}
+              <button
+                type="button"
+                onClick={() => detectUserLocation(true)}
+                className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-mono font-bold uppercase tracking-wider transition-all cursor-pointer border ${
+                  geoStatus === "granted"
+                    ? "bg-emerald-500/20 text-emerald-300 border-emerald-500/40"
+                    : "bg-white/10 hover:bg-white/20 text-[#CBD5E1] hover:text-white border-white/20"
+                }`}
+              >
+                <span className="text-sm">📍</span>
+                <span>
+                  {geoStatus === "detecting"
+                    ? "Locating..."
+                    : geoStatus === "granted"
+                    ? "Closest Area Active"
+                    : "Show Closest Area To Me"}
+                </span>
+              </button>
+            </div>
+
+            {/* Location Search Bar */}
             <form
               onSubmit={(e) => {
                 e.preventDefault();
@@ -183,17 +288,12 @@ export const FindUsPage: React.FC<Props> = ({
             >
               <div className="relative flex-1">
                 <input
-                  id="location-input"
                   type="text"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  placeholder="Enter location, sector, or landmark (e.g., Cyber Hub, Sector 29, Galleria)..."
-                  className="w-full h-14 pl-12 pr-10 rounded-full bg-black/60 border border-white/20 text-white placeholder-white/40 text-sm sm:text-base focus:outline-none focus:border-[#CBD5E1] transition-all shadow-inner"
+                  placeholder="Enter your sector, mall, or landmark (e.g. Cyber Hub, Sector 29, Galleria)..."
+                  className="w-full h-14 pl-5 pr-12 rounded-full bg-black/60 border border-white/25 text-white placeholder-white/40 text-sm focus:outline-none focus:border-[#CBD5E1] transition-colors shadow-inner"
                 />
-                <span className="absolute left-4 top-1/2 -translate-y-1/2 text-lg text-[#CBD5E1]">
-                  🔍
-                </span>
-
                 {searchQuery && (
                   <button
                     type="button"
@@ -215,8 +315,8 @@ export const FindUsPage: React.FC<Props> = ({
 
                 <button
                   type="button"
-                  onClick={handleUseCurrentLocation}
-                  title="Detect My Location"
+                  onClick={() => detectUserLocation(true)}
+                  title="Detect Closest to Me"
                   className="w-14 h-14 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-white flex items-center justify-center transition-all cursor-pointer text-lg shadow-md"
                 >
                   📍
@@ -283,7 +383,7 @@ export const FindUsPage: React.FC<Props> = ({
                       </div>
 
                       <span className="font-mono text-xs text-emerald-200">
-                        {searchResult.outlets.length} Hub{searchResult.outlets.length > 1 ? "s" : ""} in Gurugram, Haryana
+                        {searchResult.outlets.length} Authorised Location{searchResult.outlets.length > 1 ? "s" : ""} Available
                       </span>
                     </div>
 
@@ -291,9 +391,9 @@ export const FindUsPage: React.FC<Props> = ({
                       Great news! Patiyala Palace Indian Crafted Malt Whisky is available at the following authorised partner outlet{searchResult.outlets.length > 1 ? "s" : ""} matching <span className="font-bold underline text-white">"{searchResult.query}"</span>:
                     </p>
 
-                    {/* Matched Outlets Grid */}
+                    {/* Matched Outlets Grid (Sorted with closest first) */}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      {searchResult.outlets.map((outlet) => (
+                      {searchResult.outlets.map((outlet, idx) => (
                         <div
                           key={outlet.id}
                           className="p-5 rounded-2xl bg-black/60 border border-emerald-500/30 flex flex-col justify-between hover:border-emerald-400 transition-colors"
@@ -303,9 +403,18 @@ export const FindUsPage: React.FC<Props> = ({
                               <span className="font-mono text-[10px] uppercase tracking-wider text-emerald-300 font-bold">
                                 {outlet.zone}
                               </span>
-                              <span className="font-mono text-[10px] text-white/50">
-                                PIN: {outlet.pincode}
-                              </span>
+                              <div className="flex items-center gap-2">
+                                {idx === 0 && (
+                                  <span className="font-mono text-[9px] px-2 py-0.5 rounded-full bg-emerald-500/30 text-emerald-200 font-bold">
+                                    ★ Top Match
+                                  </span>
+                                )}
+                                {formatDistance(outlet.distanceKm) && (
+                                  <span className="font-mono text-[10px] text-emerald-300 font-bold">
+                                    📍 {formatDistance(outlet.distanceKm)}
+                                  </span>
+                                )}
+                              </div>
                             </div>
                             <h4 className="font-serif font-bold text-lg text-white">
                               {outlet.name}
@@ -357,8 +466,30 @@ export const FindUsPage: React.FC<Props> = ({
                     </div>
 
                     <p className="font-sans text-sm sm:text-base text-white/80 leading-relaxed font-light mt-3">
-                      We could not find an authorised retailer directly matching <span className="font-bold underline text-white">"{searchResult.query}"</span>. Patiyala Palace Crafted Indian Malt is currently available exclusively at 35+ landmark locations in <span className="font-bold text-[#E2E8F0]">Haryana (Gurugram)</span>. We are expanding rapidly across India and will arrive in your city soon.
+                      We could not find an authorised retailer directly matching <span className="font-bold underline text-white">"{searchResult.query}"</span>. Patiyala Palace Crafted Indian Malt is currently available across our selected flagship outlets. We are expanding rapidly across India and will arrive in your area soon.
                     </p>
+
+                    {/* Nearest Available Outlet Notice */}
+                    {nearestOutlet && (
+                      <div className="mt-5 p-4 rounded-xl bg-white/5 border border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs font-mono">
+                        <div>
+                          <span className="text-[#CBD5E1] block">Your nearest available outlet:</span>
+                          <span className="font-bold text-white text-sm font-serif">
+                            {nearestOutlet.name} ({formatDistance(nearestOutlet.distanceKm)})
+                          </span>
+                        </div>
+                        <a
+                          href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+                            nearestOutlet.name + " " + nearestOutlet.address
+                          )}`}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="px-3.5 py-1.5 rounded-full bg-white/10 hover:bg-white text-white hover:text-black transition-all text-center"
+                        >
+                          View Directions ↗
+                        </a>
+                      </div>
+                    )}
 
                     {/* Notify Form */}
                     <div className="mt-8 pt-6 border-t border-white/10">
@@ -395,7 +526,7 @@ export const FindUsPage: React.FC<Props> = ({
 
                     {/* Fallback Action */}
                     <div className="mt-6 flex flex-wrap items-center justify-between gap-3 text-xs font-mono text-[#CBD5E1]/80">
-                      <span>Visiting Haryana? View our full directory below:</span>
+                      <span>Explore our full directory of authorised locations:</span>
                       <button
                         onClick={() => {
                           const el = document.getElementById("all-outlets");
@@ -403,7 +534,7 @@ export const FindUsPage: React.FC<Props> = ({
                         }}
                         className="text-white underline hover:text-[#CBD5E1] cursor-pointer"
                       >
-                        Explore 35+ Haryana Outlets ↓
+                        Explore All Outlets ↓
                       </button>
                     </div>
 
@@ -417,7 +548,7 @@ export const FindUsPage: React.FC<Props> = ({
       </section>
 
       {/* ========================================================
-          3. FULL VERIFIED HARYANA OUTLETS DIRECTORY
+          3. FULL VERIFIED OUTLETS DIRECTORY (Closest First)
           ======================================================== */}
       <section id="all-outlets" className="relative w-full py-12 sm:py-16 md:py-20 px-4 sm:px-6 md:px-8 z-20">
         <div className="max-w-7xl mx-auto">
@@ -425,14 +556,21 @@ export const FindUsPage: React.FC<Props> = ({
           {/* Header Row & Filter Tabs */}
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10 pb-6 border-b border-white/10">
             <div>
-              <span className="font-mono text-xs uppercase tracking-[0.25em] text-[#CBD5E1]/70 block mb-1">
-                COMPLETE DIRECTORY
-              </span>
+              <div className="flex items-center gap-2 mb-1">
+                <span className="font-mono text-xs uppercase tracking-[0.25em] text-[#CBD5E1]/70">
+                  COMPLETE DIRECTORY
+                </span>
+                {sortByDistanceActive && userCoords && (
+                  <span className="px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-[10px] font-mono font-bold tracking-wider uppercase">
+                    Sorted: Closest First
+                  </span>
+                )}
+              </div>
               <h2 className="font-serif font-normal text-3xl sm:text-5xl text-white">
-                All Haryana Locations ({HARYANA_OUTLETS.length})
+                All Outlets ({PALACE_OUTLETS.length})
               </h2>
               <p className="font-sans text-xs sm:text-sm text-white/60 mt-2">
-                All 35 retail vaults, mall stores, and luxury venues in Gurugram, Haryana.
+                All 35 retail vaults, mall stores, and luxury partner venues. Showing the closest areas first.
               </p>
             </div>
 
@@ -456,65 +594,83 @@ export const FindUsPage: React.FC<Props> = ({
 
           {/* Outlets Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filteredOutlets.map((outlet, index) => (
-              <motion.div
-                key={outlet.id}
-                initial={{ opacity: 0, y: 15 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.35, delay: (index % 6) * 0.05 }}
-                className="group p-6 rounded-2xl sm:rounded-3xl bg-[#041235]/75 backdrop-blur-md border border-[#CBD5E1]/30 hover:border-[#E2E8F0] transition-all duration-300 shadow-xl hover:shadow-[0_15px_35px_rgba(226,232,240,0.15)] flex flex-col justify-between"
-              >
-                <div>
-                  <div className="flex items-center justify-between text-xs mb-3">
-                    <span className="font-mono text-[9px] uppercase tracking-widest px-2.5 py-0.5 rounded-full bg-white/10 text-[#CBD5E1] border border-white/10 font-bold">
-                      {outlet.zone}
-                    </span>
-                    <span className="font-mono text-[10px] text-white/50">
-                      {outlet.city}, Haryana
-                    </span>
-                  </div>
+            {filteredOutlets.map((outlet, index) => {
+              const isClosest = index === 0 && sortByDistanceActive && userCoords;
+              return (
+                <motion.div
+                  id={outlet.id}
+                  key={outlet.id}
+                  initial={{ opacity: 0, y: 15 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.35, delay: (index % 6) * 0.05 }}
+                  className={`group p-6 rounded-2xl sm:rounded-3xl bg-[#041235]/75 backdrop-blur-md border transition-all duration-300 shadow-xl hover:shadow-[0_15px_35px_rgba(226,232,240,0.15)] flex flex-col justify-between ${
+                    isClosest
+                      ? "border-emerald-500/60 ring-2 ring-emerald-500/30 shadow-[0_0_30px_rgba(16,185,129,0.2)]"
+                      : "border-[#CBD5E1]/30 hover:border-[#E2E8F0]"
+                  }`}
+                >
+                  <div>
+                    <div className="flex items-center justify-between text-xs mb-3">
+                      <span className="font-mono text-[9px] uppercase tracking-widest px-2.5 py-0.5 rounded-full bg-white/10 text-[#CBD5E1] border border-white/10 font-bold">
+                        {outlet.zone}
+                      </span>
+                      
+                      <div className="flex items-center gap-1.5">
+                        {isClosest && (
+                          <span className="font-mono text-[9px] px-2 py-0.5 rounded-full bg-emerald-500/25 text-emerald-300 font-bold border border-emerald-500/30">
+                            ★ Closest To You
+                          </span>
+                        )}
+                        {formatDistance(outlet.distanceKm) && (
+                          <span className="font-mono text-[10px] text-emerald-300 font-bold bg-black/40 px-2 py-0.5 rounded-full border border-emerald-500/20">
+                            📍 {formatDistance(outlet.distanceKm)}
+                          </span>
+                        )}
+                      </div>
+                    </div>
 
-                  <h3 className="font-serif font-bold text-xl text-white group-hover:text-[#E2E8F0] transition-colors leading-snug">
-                    {outlet.name}
-                  </h3>
+                    <h3 className="font-serif font-bold text-xl text-white group-hover:text-[#E2E8F0] transition-colors leading-snug">
+                      {outlet.name}
+                    </h3>
 
-                  <p className="font-sans text-xs text-white/75 mt-2 leading-relaxed">
-                    {outlet.address}
-                  </p>
-
-                  <div className="mt-3 pt-3 border-t border-white/10">
-                    <span className="text-[10px] font-mono uppercase tracking-wider text-[#CBD5E1]/70 block">
-                      Landmark
-                    </span>
-                    <p className="text-xs text-white/90 font-medium mt-0.5">
-                      {outlet.landmark}
+                    <p className="font-sans text-xs text-white/75 mt-2 leading-relaxed">
+                      {outlet.address}
                     </p>
-                  </div>
-                </div>
 
-                <div className="mt-6 pt-4 border-t border-white/10 flex items-center justify-between">
-                  <div className="flex items-center gap-1.5">
-                    <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                    <span className="font-mono text-[10px] uppercase tracking-widest text-white/80 font-bold">
-                      Available
-                    </span>
+                    <div className="mt-3 pt-3 border-t border-white/10">
+                      <span className="text-[10px] font-mono uppercase tracking-wider text-[#CBD5E1]/70 block">
+                        Landmark
+                      </span>
+                      <p className="text-xs text-white/90 font-medium mt-0.5">
+                        {outlet.landmark}
+                      </p>
+                    </div>
                   </div>
 
-                  <a
-                    href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
-                      outlet.name + " " + outlet.address
-                    )}`}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="inline-flex items-center gap-1 text-xs font-mono font-bold uppercase tracking-wider text-[#E2E8F0] hover:text-white hover:underline transition-colors cursor-pointer"
-                  >
-                    <span>Directions</span>
-                    <span>↗</span>
-                  </a>
-                </div>
-              </motion.div>
-            ))}
+                  <div className="mt-6 pt-4 border-t border-white/10 flex items-center justify-between">
+                    <div className="flex items-center gap-1.5">
+                      <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                      <span className="font-mono text-[10px] uppercase tracking-widest text-white/80 font-bold">
+                        Available
+                      </span>
+                    </div>
+
+                    <a
+                      href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+                        outlet.name + " " + outlet.address
+                      )}`}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex items-center gap-1 text-xs font-mono font-bold uppercase tracking-wider text-[#E2E8F0] hover:text-white hover:underline transition-colors cursor-pointer"
+                    >
+                      <span>Directions</span>
+                      <span>↗</span>
+                    </a>
+                  </div>
+                </motion.div>
+              );
+            })}
           </div>
 
           {/* Bottom Call to Action */}
