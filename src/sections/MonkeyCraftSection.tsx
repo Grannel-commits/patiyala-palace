@@ -13,13 +13,13 @@ export const MonkeyCraftSection: React.FC<Props> = ({ onExploreCraft }) => {
         {/* Left Column: Heading & Our Craft Link */}
         <div className="w-full lg:w-1/2 flex flex-col items-start justify-center select-none z-10">
           <span className="font-serif text-xs sm:text-sm font-bold tracking-[0.25em] uppercase text-[#C6A865] mb-2">
-            HERITAGE & DISTILLERY
+            INDIAN CRAFTED MALT WHISKY
           </span>
           
-          <h2 className="font-sans font-black uppercase text-4xl sm:text-6xl md:text-7xl tracking-tight text-white leading-none mb-8">
-            BORN IN <br />
+          <h2 className="font-sans font-black uppercase text-4xl sm:text-6xl md:text-7xl tracking-tight text-white leading-[1.05] mb-8">
+            FROM THE ROOTS <br />
             <span className="text-[#E7C97C] drop-shadow-[0_2px_20px_rgba(212,175,55,0.4)]">
-              PATIYALA.
+              OF PATIALA.
             </span>
           </h2>
 
@@ -47,7 +47,7 @@ export const MonkeyCraftSection: React.FC<Props> = ({ onExploreCraft }) => {
           >
             <img
               src="/assets/product/patiyala_macro_gold_label.jpg"
-              alt="Born in Patiyala - Handcrafted Oak & Malt"
+              alt="From the Roots of Patiala - Indian Crafted Malt Whisky"
               className="w-full h-full object-cover object-center transition-transform duration-1000 ease-out group-hover:scale-105"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent pointer-events-none" />
@@ -56,7 +56,7 @@ export const MonkeyCraftSection: React.FC<Props> = ({ onExploreCraft }) => {
             <div className="absolute bottom-4 right-4 bg-black/70 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-[#C6A865]/50 flex items-center gap-2 shadow-lg">
               <span className="w-2 h-2 rounded-full bg-[#E7C97C] animate-pulse" />
               <span className="font-mono text-[9px] font-bold text-white uppercase tracking-widest">
-                PATIYALA PALACE • 42.8% V/V
+                PATIYALA PALACE • INDIAN CRAFTED MALT WHISKY
               </span>
             </div>
           </motion.div>

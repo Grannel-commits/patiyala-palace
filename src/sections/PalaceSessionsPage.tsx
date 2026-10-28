@@ -22,7 +22,7 @@ interface GhazalTrack {
 const GHAZAL_CATALOG: GhazalTrack[] = [
   {
     id: "woh-kagaz-ki-kashti",
-    youtubeId: "NEYRKTy5OgY",
+    youtubeId: "0h8rhAO-GWM",
     title: "Woh Kagaz Ki Kashti",
     hindiTitle: "वो कागज़ की कश्ती",
     artist: "Jagjit Singh & Chitra Singh",
@@ -56,7 +56,7 @@ const GHAZAL_CATALOG: GhazalTrack[] = [
   },
   {
     id: "chupke-chupke-raat-din",
-    youtubeId: "MWjaK_nW72E",
+    youtubeId: "9I-NvZZqHIU",
     title: "Chupke Chupke Raat Din",
     hindiTitle: "चुपके चुपके रात दिन",
     artist: "Ustad Ghulam Ali",
@@ -73,10 +73,10 @@ const GHAZAL_CATALOG: GhazalTrack[] = [
   },
   {
     id: "ranjish-hi-sahi",
-    youtubeId: "Xc6uwbXpmUY",
+    youtubeId: "pba_YmWDAIU",
     title: "Ranjish Hi Sahi",
     hindiTitle: "रंजिश ही सही",
-    artist: "Mehdi Hassan (King of Ghazals)",
+    artist: "Mehdi Hassan / Ali Sethi",
     category: "classic",
     categoryLabel: "The Shehanshah of Ghazal",
     duration: "6:40",
@@ -86,11 +86,11 @@ const GHAZAL_CATALOG: GhazalTrack[] = [
     coupletEnglish: "Even if in resentment, come to break my heart again... Come, even if only to leave me behind once more.",
     whiskyPairing: "Patiyala Palace Vintage Cask",
     tastingNote: "Deep amber layers of Oloroso sherry cask warmth, dark cocoa, and lingering toasted spice.",
-    description: "The undisputed monarch of ghazals. Ahmed Faraz's poignant verse brought to life by Mehdi Hassan's resonant, velvet baritone.",
+    description: "The undisputed monarch of ghazals. Ahmed Faraz's poignant verse brought to life with resonant, velvet soul.",
   },
   {
     id: "aaj-jane-ki-zid-na-karo",
-    youtubeId: "uBbAOwzbAsE",
+    youtubeId: "KDJL2FyRDeA",
     title: "Aaj Jane Ki Zid Na Karo",
     hindiTitle: "आज जाने की ज़िद न करो",
     artist: "Farida Khanum (Malika-e-Ghazal)",
@@ -107,7 +107,7 @@ const GHAZAL_CATALOG: GhazalTrack[] = [
   },
   {
     id: "chandi-jaisa-rang-hai-tera",
-    youtubeId: "5iekzA7p0V0",
+    youtubeId: "5aJgC8eyCNI",
     title: "Chandi Jaisa Rang Hai Tera",
     hindiTitle: "चाँदी जैसा रंग है तेरा",
     artist: "Pankaj Udhas",
@@ -332,7 +332,17 @@ export const PalaceSessionsPage: React.FC<Props> = ({
               </div>
 
               <div className="flex items-center gap-2">
-                <span className="px-3 py-1 rounded-full bg-black/60 border border-[#C6A865]/40 text-[#E7C97C] font-mono text-[10px] font-bold tracking-widest uppercase">
+                <a
+                  href={`https://www.youtube.com/watch?v=${activeTrack.youtubeId}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-3.5 py-1 rounded-full bg-[#E7C97C]/15 hover:bg-[#E7C97C] hover:text-black border border-[#C6A865]/50 text-[#E7C97C] font-mono text-[10px] font-bold tracking-widest uppercase transition-all shadow cursor-pointer flex items-center gap-1.5"
+                  title="Open Video on YouTube"
+                >
+                  <span>YOUTUBE</span>
+                  <span className="text-xs">↗</span>
+                </a>
+                <span className="px-3 py-1 rounded-full bg-black/60 border border-[#C6A865]/40 text-[#E7C97C] font-mono text-[10px] font-bold tracking-widest uppercase hidden sm:inline-block">
                   {activeTrack.categoryLabel}
                 </span>
                 <span className="px-3 py-1 rounded-full bg-[#E7C97C]/10 border border-[#E7C97C]/30 text-white font-mono text-[10px] tracking-widest uppercase">
@@ -346,7 +356,7 @@ export const PalaceSessionsPage: React.FC<Props> = ({
               <iframe
                 ref={iframeRef}
                 key={activeTrack.youtubeId}
-                src={`https://www.youtube-nocookie.com/embed/${activeTrack.youtubeId}?enablejsapi=1&autoplay=1&rel=0&modestbranding=1&controls=1&playsinline=1`}
+                src={`https://www.youtube.com/embed/${activeTrack.youtubeId}?enablejsapi=1&autoplay=1&rel=0&playsinline=1`}
                 title={`${activeTrack.title} by ${activeTrack.artist}`}
                 className="interactive-iframe absolute inset-0 w-full h-full border-0 pointer-events-auto z-10"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"

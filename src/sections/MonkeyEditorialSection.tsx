@@ -97,7 +97,7 @@ export const MonkeyEditorialSection: React.FC = () => {
             <div className="bg-black/60 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-[#C6A865]/40 flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-[#E7C97C] animate-pulse" />
               <span className="font-mono text-[9px] font-bold text-white uppercase tracking-widest">
-                PATIYALA PALACE • INDIAN CRAFTED MALT
+                PATIYALA PALACE • INDIAN CRAFTED MALT WHISKY
               </span>
             </div>
             <span className="font-mono text-[10px] text-white/60 uppercase tracking-widest hidden sm:inline-block">

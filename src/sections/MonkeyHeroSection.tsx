@@ -29,7 +29,7 @@ export const MonkeyHeroSection: React.FC = () => {
             </span>
             <h1 className="font-sans font-black uppercase text-3xl sm:text-5xl md:text-6xl lg:text-7xl tracking-tight leading-[0.95] text-white drop-shadow-[0_4px_20px_rgba(0,0,0,0.9)]">
               PATIYALA PALACE. <br />
-              <span className="text-[#E7C97C]">INDIAN CRAFTED MALT.</span>
+              <span className="text-[#E7C97C]">INDIAN CRAFTED MALT WHISKY.</span>
             </h1>
           </div>
         </motion.div>
@@ -49,7 +49,7 @@ export const MonkeyHeroSection: React.FC = () => {
             <div className="bg-black/60 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-[#C6A865]/50 flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-[#E7C97C] animate-pulse" />
               <span className="font-mono text-[10px] font-bold text-white uppercase tracking-widest">
-                42.8% ABV • INDIAN MALT
+                42.8% ABV • INDIAN CRAFTED MALT WHISKY
               </span>
             </div>
           </div>
