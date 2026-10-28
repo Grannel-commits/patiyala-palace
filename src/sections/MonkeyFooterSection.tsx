@@ -2,7 +2,7 @@ import React from "react";
 
 interface Props {
   onOpenAgeGate?: () => void;
-  onNavigateHome: () => void;
+  onNavigateHome?: () => void;
 }
 
 export const MonkeyFooterSection: React.FC<Props> = ({ onOpenAgeGate, onNavigateHome }) => {
@@ -15,27 +15,33 @@ export const MonkeyFooterSection: React.FC<Props> = ({ onOpenAgeGate, onNavigate
         {/* Left Card (8 cols): Deep Royal Card with Embossed Watermark */}
         <div className="lg:col-span-8 rounded-2xl sm:rounded-3xl p-6 sm:p-10 md:p-14 bg-[#061b4c] text-white relative overflow-hidden flex flex-col justify-between shadow-2xl min-h-[550px] border border-[#CBD5E1]/30">
           
-          {/* Giant Embossed Watermark: PATIYALA PALACE */}
-          <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden opacity-10">
-            <span className="font-serif font-black text-[10vw] tracking-wider uppercase text-[#E2E8F0] leading-none whitespace-nowrap">
-              PATIYALA PALACE
-            </span>
+          {/* Whole Embossed Watermark: PATIYALA PALACE (Unclipped) */}
+          <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none opacity-[0.14] px-4 sm:px-8">
+            <svg
+              viewBox="0 0 1200 180"
+              className="w-full h-auto max-h-[160px]"
+              preserveAspectRatio="xMidYMid meet"
+            >
+              <text
+                x="50%"
+                y="55%"
+                dominantBaseline="middle"
+                textAnchor="middle"
+                className="fill-[#E2E8F0] font-serif font-black"
+                style={{
+                  fontSize: "105px",
+                  letterSpacing: "0.16em",
+                  fontWeight: 900,
+                }}
+              >
+                PATIYALA PALACE
+              </text>
+            </svg>
           </div>
 
-          <div className="relative z-10">
-            {/* Join Club Button */}
-            <div className="mb-10 sm:mb-14">
-              <button
-                onClick={onNavigateHome}
-                className="group inline-flex items-center gap-3 font-serif font-normal text-xl sm:text-2xl md:text-3xl text-white hover:text-[#E2E8F0] transition-colors cursor-pointer"
-              >
-                <span>The Royal Circle</span>
-                <span className="text-xl group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform">↗</span>
-              </button>
-            </div>
-
+          <div className="relative z-10 pt-2 sm:pt-4">
             {/* Links Grid */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-y-3.5 gap-x-6 text-[11px] font-mono tracking-[0.18em] uppercase text-[#CBD5E1]/80">
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-y-4 gap-x-6 text-[11px] font-mono tracking-[0.18em] uppercase text-[#CBD5E1]/80">
               <a href="#terms" className="hover:text-white transition-colors">TERMS & CONDITIONS</a>
               <a href="#global" className="hover:text-white transition-colors flex items-center gap-1.5">
                 <span>🌐</span> INDIA (ORIGIN)
@@ -90,7 +96,10 @@ export const MonkeyFooterSection: React.FC<Props> = ({ onOpenAgeGate, onNavigate
         <div className="lg:col-span-4 rounded-2xl sm:rounded-3xl overflow-hidden bg-[#03102B] relative shadow-2xl min-h-[400px] lg:min-h-[550px] group border border-[#CBD5E1]/40 flex flex-col items-center justify-center p-8 text-center">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(226,232,240,0.2)_0%,transparent_70%)] pointer-events-none" />
 
-          <div className="relative z-10 w-48 h-48 sm:w-56 sm:h-56 my-auto flex items-center justify-center">
+          <div 
+            onClick={onNavigateHome}
+            className="relative z-10 w-48 h-48 sm:w-56 sm:h-56 my-auto flex items-center justify-center cursor-pointer"
+          >
             <img
               src="/assets/logo/pp_logo_silver_clean.png"
               alt="Patiyala Palace Official Crest"
@@ -100,7 +109,10 @@ export const MonkeyFooterSection: React.FC<Props> = ({ onOpenAgeGate, onNavigate
 
           {/* Floating Royal Motto Badge */}
           <div className="relative z-10 pt-4 border-t border-[#CBD5E1]/30 w-full text-center">
-            <h4 className="font-serif font-black text-base uppercase tracking-[0.2em] text-[#E2E8F0]">
+            <h4 
+              onClick={onNavigateHome}
+              className="font-serif font-black text-base uppercase tracking-[0.2em] text-[#E2E8F0] cursor-pointer hover:text-white transition-colors"
+            >
               PATIYALA PALACE
             </h4>
             <span className="font-mono text-[9px] font-bold uppercase tracking-[0.25em] text-white/80 block mt-1">
