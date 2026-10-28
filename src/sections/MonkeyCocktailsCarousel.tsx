@@ -138,25 +138,38 @@ export const MonkeyCocktailsCarousel: React.FC<Props> = ({ onSeeAllRecipes }) =>
   return (
     <section className="relative w-full p-2 sm:p-3 md:p-4 my-2 sm:my-4 select-none">
       
-      {/* Outer Card with Exact Luxury Linen / Sand Background Matching Reference */}
-      <div className="relative rounded-2xl sm:rounded-3xl lg:rounded-[36px] overflow-hidden bg-[#E0D7CE] text-black shadow-2xl p-6 sm:p-10 md:p-14 lg:p-16 border border-[#C6A865]/30">
+      {/* Outer Card in Imperial Midnight Sapphire & 24K Regal Gold */}
+      <div className="relative rounded-2xl sm:rounded-3xl lg:rounded-[36px] overflow-hidden bg-gradient-to-b from-[#030d24] via-[#05163e] to-[#020818] text-white shadow-2xl p-6 sm:p-10 md:p-14 lg:p-16 border border-[#C6A865]/40">
         
+        {/* Subtle Golden Radial Glow Overlay */}
+        <div className="pointer-events-none absolute -top-40 left-1/2 -translate-x-1/2 w-[700px] h-[400px] bg-[#C6A865]/10 rounded-full blur-[140px]" />
+        <div className="pointer-events-none absolute -bottom-40 right-10 w-[500px] h-[300px] bg-[#0b2b6f]/25 rounded-full blur-[120px]" />
+
         {/* ========================================================
-            1. SECTION TITLE (EXACT DON JULIO / LUXURY COMPACT STYLE)
+            1. SECTION TITLE (EXACT DON JULIO HIERARCHY IN REGAL GOLD)
         ======================================================== */}
-        <div className="text-center mb-8 sm:mb-12 md:mb-16">
-          <span className="font-sans font-black text-lg sm:text-xl md:text-2xl uppercase tracking-wider text-black block mb-0 leading-none">
-            OUR
-          </span>
-          <h2 className="font-sans font-black text-5xl sm:text-7xl md:text-8xl lg:text-9xl uppercase tracking-[-0.04em] text-black leading-[0.9]">
-            COCKTAILS
-          </h2>
+        <div className="text-center mb-8 sm:mb-12 md:mb-16 select-none relative z-10">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#020818]/80 border border-[#C6A865]/40 mb-3 shadow-md">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#E7C97C] animate-pulse" />
+            <span className="font-mono text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.25em] text-[#E7C97C]">
+              PALACE MIXOLOGY COLLECTION
+            </span>
+          </div>
+
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-4 md:gap-5">
+            <span className="font-sans font-black text-2xl sm:text-3xl md:text-5xl lg:text-6xl uppercase tracking-wider text-[#E7C97C] drop-shadow-[0_2px_12px_rgba(231,201,124,0.35)] leading-none">
+              OUR
+            </span>
+            <h2 className="font-sans font-black text-5xl sm:text-7xl md:text-8xl lg:text-9xl uppercase tracking-[-0.04em] text-white drop-shadow-[0_4px_30px_rgba(0,0,0,0.9)] leading-none">
+              COCKTAILS
+            </h2>
+          </div>
         </div>
 
         {/* ========================================================
             2. 5-PHOTO MOSAIC GRID (2 TOP, 3 BOTTOM)
         ======================================================== */}
-        <div className="max-w-7xl mx-auto flex flex-col gap-4 sm:gap-6 md:gap-8">
+        <div className="max-w-7xl mx-auto flex flex-col gap-4 sm:gap-6 md:gap-8 relative z-10">
           
           {/* TOP ROW: 2 Cards (Asymmetric Left ~5 cols, Right ~7 cols) */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-6 md:gap-8">
@@ -166,7 +179,7 @@ export const MonkeyCocktailsCarousel: React.FC<Props> = ({ onSeeAllRecipes }) =>
               whileHover={{ y: -4 }}
               transition={{ duration: 0.3 }}
               onClick={() => setActiveCocktail(FIVE_FEATURED_COCKTAILS[0])}
-              className="lg:col-span-5 group relative aspect-[4/5] sm:aspect-square lg:aspect-[4/5] rounded-2xl sm:rounded-3xl lg:rounded-[32px] overflow-hidden bg-[#D4CBC2] cursor-pointer shadow-lg"
+              className="lg:col-span-5 group relative aspect-[4/5] sm:aspect-square lg:aspect-[4/5] rounded-2xl sm:rounded-3xl lg:rounded-[32px] overflow-hidden bg-[#041235] border border-[#C6A865]/35 hover:border-[#E7C97C] cursor-pointer shadow-xl hover:shadow-[0_15px_45px_rgba(212,175,55,0.25)] transition-all duration-500"
             >
               <img
                 src={FIVE_FEATURED_COCKTAILS[0].image}
@@ -174,19 +187,24 @@ export const MonkeyCocktailsCarousel: React.FC<Props> = ({ onSeeAllRecipes }) =>
                 className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
               />
 
-              {/* Hover Dark Gradient Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6 sm:p-8">
+              {/* Corner Pill Badge */}
+              <div className="absolute top-4 right-4 w-8 h-8 rounded-full bg-[#020818]/70 backdrop-blur-md border border-[#C6A865]/50 flex items-center justify-center text-[#E7C97C] font-mono text-xs font-bold shadow-md group-hover:bg-[#C6A865] group-hover:text-black transition-all duration-300">
+                +
+              </div>
+
+              {/* Permanent Elegant Gradient & Overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-[#020818]/90 via-[#020818]/30 to-transparent group-hover:from-black/95 transition-all duration-300 flex flex-col justify-end p-6 sm:p-8">
                 <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-[#E7C97C] mb-1">
                   PATIYALA SIGNATURE
                 </span>
                 <h3 className="font-serif font-black text-lg sm:text-xl text-white uppercase tracking-wider leading-tight">
                   {FIVE_FEATURED_COCKTAILS[0].name}
                 </h3>
-                <p className="font-sans text-xs text-white/80 font-light mt-1">
+                <p className="font-sans text-xs text-white/80 font-light mt-1 line-clamp-2">
                   {FIVE_FEATURED_COCKTAILS[0].subtitle}
                 </p>
                 <div className="mt-3">
-                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#E7C97C] text-black font-mono text-[10px] font-bold uppercase tracking-wider shadow">
+                  <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#C6A865] group-hover:bg-[#E7C97C] text-black font-mono text-[10px] font-bold uppercase tracking-wider shadow-md transition-colors">
                     <span>+</span> VIEW RECIPE
                   </span>
                 </div>
@@ -198,7 +216,7 @@ export const MonkeyCocktailsCarousel: React.FC<Props> = ({ onSeeAllRecipes }) =>
               whileHover={{ y: -4 }}
               transition={{ duration: 0.3 }}
               onClick={() => setActiveCocktail(FIVE_FEATURED_COCKTAILS[1])}
-              className="lg:col-span-7 group relative aspect-[16/10] sm:aspect-[16/11] lg:aspect-[16/11] rounded-2xl sm:rounded-3xl lg:rounded-[32px] overflow-hidden bg-[#D4CBC2] cursor-pointer shadow-lg"
+              className="lg:col-span-7 group relative aspect-[16/10] sm:aspect-[16/11] lg:aspect-[16/11] rounded-2xl sm:rounded-3xl lg:rounded-[32px] overflow-hidden bg-[#041235] border border-[#C6A865]/35 hover:border-[#E7C97C] cursor-pointer shadow-xl hover:shadow-[0_15px_45px_rgba(212,175,55,0.25)] transition-all duration-500"
             >
               <img
                 src={FIVE_FEATURED_COCKTAILS[1].image}
@@ -206,19 +224,24 @@ export const MonkeyCocktailsCarousel: React.FC<Props> = ({ onSeeAllRecipes }) =>
                 className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
               />
 
-              {/* Hover Dark Gradient Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6 sm:p-8">
+              {/* Corner Pill Badge */}
+              <div className="absolute top-4 right-4 w-8 h-8 rounded-full bg-[#020818]/70 backdrop-blur-md border border-[#C6A865]/50 flex items-center justify-center text-[#E7C97C] font-mono text-xs font-bold shadow-md group-hover:bg-[#C6A865] group-hover:text-black transition-all duration-300">
+                +
+              </div>
+
+              {/* Permanent Elegant Gradient & Overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-[#020818]/90 via-[#020818]/30 to-transparent group-hover:from-black/95 transition-all duration-300 flex flex-col justify-end p-6 sm:p-8">
                 <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-[#E7C97C] mb-1">
                   HIGHBALL RITUAL
                 </span>
                 <h3 className="font-serif font-black text-lg sm:text-2xl text-white uppercase tracking-wider leading-tight">
                   {FIVE_FEATURED_COCKTAILS[1].name}
                 </h3>
-                <p className="font-sans text-xs text-white/80 font-light mt-1">
+                <p className="font-sans text-xs text-white/80 font-light mt-1 line-clamp-2">
                   {FIVE_FEATURED_COCKTAILS[1].subtitle}
                 </p>
                 <div className="mt-3">
-                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#E7C97C] text-black font-mono text-[10px] font-bold uppercase tracking-wider shadow">
+                  <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#C6A865] group-hover:bg-[#E7C97C] text-black font-mono text-[10px] font-bold uppercase tracking-wider shadow-md transition-colors">
                     <span>+</span> VIEW RECIPE
                   </span>
                 </div>
@@ -235,7 +258,7 @@ export const MonkeyCocktailsCarousel: React.FC<Props> = ({ onSeeAllRecipes }) =>
               whileHover={{ y: -4 }}
               transition={{ duration: 0.3 }}
               onClick={() => setActiveCocktail(FIVE_FEATURED_COCKTAILS[2])}
-              className="group relative aspect-square sm:aspect-[4/5] lg:aspect-square rounded-2xl sm:rounded-3xl lg:rounded-[32px] overflow-hidden bg-[#D4CBC2] cursor-pointer shadow-lg"
+              className="group relative aspect-square sm:aspect-[4/5] lg:aspect-square rounded-2xl sm:rounded-3xl lg:rounded-[32px] overflow-hidden bg-[#041235] border border-[#C6A865]/35 hover:border-[#E7C97C] cursor-pointer shadow-xl hover:shadow-[0_15px_45px_rgba(212,175,55,0.25)] transition-all duration-500"
             >
               <img
                 src={FIVE_FEATURED_COCKTAILS[2].image}
@@ -243,19 +266,24 @@ export const MonkeyCocktailsCarousel: React.FC<Props> = ({ onSeeAllRecipes }) =>
                 className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
               />
 
-              {/* Hover Dark Gradient Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-5 sm:p-6">
+              {/* Corner Pill Badge */}
+              <div className="absolute top-4 right-4 w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-[#020818]/70 backdrop-blur-md border border-[#C6A865]/50 flex items-center justify-center text-[#E7C97C] font-mono text-xs font-bold shadow-md group-hover:bg-[#C6A865] group-hover:text-black transition-all duration-300">
+                +
+              </div>
+
+              {/* Permanent Elegant Gradient & Overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-[#020818]/90 via-[#020818]/30 to-transparent group-hover:from-black/95 transition-all duration-300 flex flex-col justify-end p-5 sm:p-6">
                 <span className="text-[9px] font-mono font-bold uppercase tracking-widest text-[#E7C97C] mb-1">
                   CLASSIC CONNOISSEUR
                 </span>
                 <h3 className="font-serif font-black text-base sm:text-lg text-white uppercase tracking-wider leading-tight">
                   {FIVE_FEATURED_COCKTAILS[2].name}
                 </h3>
-                <p className="font-sans text-[11px] text-white/80 font-light mt-0.5">
+                <p className="font-sans text-[11px] text-white/80 font-light mt-0.5 line-clamp-1">
                   {FIVE_FEATURED_COCKTAILS[2].subtitle}
                 </p>
                 <div className="mt-2.5">
-                  <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-[#E7C97C] text-black font-mono text-[9px] font-bold uppercase tracking-wider shadow">
+                  <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-[#C6A865] group-hover:bg-[#E7C97C] text-black font-mono text-[9px] font-bold uppercase tracking-wider shadow-md transition-colors">
                     <span>+</span> RECIPE
                   </span>
                 </div>
@@ -267,7 +295,7 @@ export const MonkeyCocktailsCarousel: React.FC<Props> = ({ onSeeAllRecipes }) =>
               whileHover={{ y: -4 }}
               transition={{ duration: 0.3 }}
               onClick={() => setActiveCocktail(FIVE_FEATURED_COCKTAILS[3])}
-              className="group relative aspect-square sm:aspect-[4/5] lg:aspect-square rounded-2xl sm:rounded-3xl lg:rounded-[32px] overflow-hidden bg-[#D4CBC2] cursor-pointer shadow-lg"
+              className="group relative aspect-square sm:aspect-[4/5] lg:aspect-square rounded-2xl sm:rounded-3xl lg:rounded-[32px] overflow-hidden bg-[#041235] border border-[#C6A865]/35 hover:border-[#E7C97C] cursor-pointer shadow-xl hover:shadow-[0_15px_45px_rgba(212,175,55,0.25)] transition-all duration-500"
             >
               <img
                 src={FIVE_FEATURED_COCKTAILS[3].image}
@@ -275,19 +303,24 @@ export const MonkeyCocktailsCarousel: React.FC<Props> = ({ onSeeAllRecipes }) =>
                 className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
               />
 
-              {/* Hover Dark Gradient Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-5 sm:p-6">
+              {/* Corner Pill Badge */}
+              <div className="absolute top-4 right-4 w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-[#020818]/70 backdrop-blur-md border border-[#C6A865]/50 flex items-center justify-center text-[#E7C97C] font-mono text-xs font-bold shadow-md group-hover:bg-[#C6A865] group-hover:text-black transition-all duration-300">
+                +
+              </div>
+
+              {/* Permanent Elegant Gradient & Overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-[#020818]/90 via-[#020818]/30 to-transparent group-hover:from-black/95 transition-all duration-300 flex flex-col justify-end p-5 sm:p-6">
                 <span className="text-[9px] font-mono font-bold uppercase tracking-widest text-[#E7C97C] mb-1">
                   AFTER DARK DIGESTIF
                 </span>
                 <h3 className="font-serif font-black text-base sm:text-lg text-white uppercase tracking-wider leading-tight">
                   {FIVE_FEATURED_COCKTAILS[3].name}
                 </h3>
-                <p className="font-sans text-[11px] text-white/80 font-light mt-0.5">
+                <p className="font-sans text-[11px] text-white/80 font-light mt-0.5 line-clamp-1">
                   {FIVE_FEATURED_COCKTAILS[3].subtitle}
                 </p>
                 <div className="mt-2.5">
-                  <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-[#E7C97C] text-black font-mono text-[9px] font-bold uppercase tracking-wider shadow">
+                  <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-[#C6A865] group-hover:bg-[#E7C97C] text-black font-mono text-[9px] font-bold uppercase tracking-wider shadow-md transition-colors">
                     <span>+</span> RECIPE
                   </span>
                 </div>
@@ -299,7 +332,7 @@ export const MonkeyCocktailsCarousel: React.FC<Props> = ({ onSeeAllRecipes }) =>
               whileHover={{ y: -4 }}
               transition={{ duration: 0.3 }}
               onClick={() => setActiveCocktail(FIVE_FEATURED_COCKTAILS[4])}
-              className="group relative aspect-square sm:aspect-[4/5] lg:aspect-square rounded-2xl sm:rounded-3xl lg:rounded-[32px] overflow-hidden bg-[#D4CBC2] cursor-pointer shadow-lg"
+              className="group relative aspect-square sm:aspect-[4/5] lg:aspect-square rounded-2xl sm:rounded-3xl lg:rounded-[32px] overflow-hidden bg-[#041235] border border-[#C6A865]/35 hover:border-[#E7C97C] cursor-pointer shadow-xl hover:shadow-[0_15px_45px_rgba(212,175,55,0.25)] transition-all duration-500"
             >
               <img
                 src={FIVE_FEATURED_COCKTAILS[4].image}
@@ -307,19 +340,24 @@ export const MonkeyCocktailsCarousel: React.FC<Props> = ({ onSeeAllRecipes }) =>
                 className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
               />
 
-              {/* Hover Dark Gradient Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-5 sm:p-6">
+              {/* Corner Pill Badge */}
+              <div className="absolute top-4 right-4 w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-[#020818]/70 backdrop-blur-md border border-[#C6A865]/50 flex items-center justify-center text-[#E7C97C] font-mono text-xs font-bold shadow-md group-hover:bg-[#C6A865] group-hover:text-black transition-all duration-300">
+                +
+              </div>
+
+              {/* Permanent Elegant Gradient & Overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-[#020818]/90 via-[#020818]/30 to-transparent group-hover:from-black/95 transition-all duration-300 flex flex-col justify-end p-5 sm:p-6">
                 <span className="text-[9px] font-mono font-bold uppercase tracking-widest text-[#E7C97C] mb-1">
                   MANHATTAN TWIST
                 </span>
                 <h3 className="font-serif font-black text-base sm:text-lg text-white uppercase tracking-wider leading-tight">
                   {FIVE_FEATURED_COCKTAILS[4].name}
                 </h3>
-                <p className="font-sans text-[11px] text-white/80 font-light mt-0.5">
+                <p className="font-sans text-[11px] text-white/80 font-light mt-0.5 line-clamp-1">
                   {FIVE_FEATURED_COCKTAILS[4].subtitle}
                 </p>
                 <div className="mt-2.5">
-                  <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-[#E7C97C] text-black font-mono text-[9px] font-bold uppercase tracking-wider shadow">
+                  <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-[#C6A865] group-hover:bg-[#E7C97C] text-black font-mono text-[9px] font-bold uppercase tracking-wider shadow-md transition-colors">
                     <span>+</span> RECIPE
                   </span>
                 </div>
@@ -331,16 +369,16 @@ export const MonkeyCocktailsCarousel: React.FC<Props> = ({ onSeeAllRecipes }) =>
         </div>
 
         {/* ========================================================
-            3. EXACT HORIZONTAL DIVIDER + CENTER PILL BUTTON
+            3. EXACT HORIZONTAL DIVIDER + CENTER PILL BUTTON (REGAL GOLD)
         ======================================================== */}
-        <div className="relative w-full max-w-7xl mx-auto flex items-center justify-center my-10 sm:my-14 md:my-16">
-          {/* Thin horizontal line */}
-          <div className="absolute inset-x-0 h-[1.5px] bg-black/40" />
+        <div className="relative w-full max-w-7xl mx-auto flex items-center justify-center my-10 sm:my-14 md:my-16 z-10">
+          {/* Thin horizontal gold divider line */}
+          <div className="absolute inset-x-0 h-[1px] bg-gradient-to-r from-transparent via-[#C6A865]/50 to-transparent" />
 
-          {/* Centered Pill Button matching reference */}
+          {/* Centered Pill Button matching reference with royal gold styling */}
           <button
             onClick={onSeeAllRecipes}
-            className="relative z-10 px-8 sm:px-12 py-3 rounded-full border border-black bg-[#E0D7CE] hover:bg-black text-black hover:text-white font-sans text-xs sm:text-sm font-black tracking-[0.2em] uppercase transition-all duration-300 shadow-sm hover:scale-105 cursor-pointer"
+            className="relative z-10 px-8 sm:px-12 py-3 rounded-full border border-[#C6A865] bg-[#020818]/95 hover:bg-[#C6A865] text-[#E7C97C] hover:text-black font-sans text-xs sm:text-sm font-black tracking-[0.2em] uppercase transition-all duration-300 shadow-[0_0_25px_rgba(198,168,101,0.2)] hover:shadow-[0_0_35px_rgba(231,201,124,0.4)] hover:scale-105 cursor-pointer"
           >
             BROWSE ALL RECIPES
           </button>
