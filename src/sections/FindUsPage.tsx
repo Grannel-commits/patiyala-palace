@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect, useMemo, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
@@ -6,6 +7,7 @@ import {
   checkLocationAvailability,
   sortOutletsByDistance,
 } from "../data/outletsData";
+import { submitWaitlistNotification } from "../services/api";
 
 interface Props {
   onBackToHome: () => void;
@@ -126,10 +128,12 @@ export const FindUsPage: React.FC<Props> = ({
     setNotifySubmitted(false);
   };
 
-  const handleNotifySubmit = (e: React.FormEvent) => {
+  const handleNotifySubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (notifyInput.trim()) {
+    const contact = notifyInput.trim();
+    if (contact) {
       setNotifySubmitted(true);
+      await submitWaitlistNotification(searchResult?.query || searchQuery || "Unspecified Area", contact);
     }
   };
 

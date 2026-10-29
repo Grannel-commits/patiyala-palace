@@ -1,17 +1,19 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { submitRoyalCircleMember } from "../services/api";
 
 export const MonkeyClubSection: React.FC = () => {
   const [email, setEmail] = useState("");
   const [isRegistered, setIsRegistered] = useState(false);
   const [isOpenModal, setIsOpenModal] = useState(false);
 
-  const handleRegister = (e: React.FormEvent) => {
+  const handleRegister = async (e: React.FormEvent) => {
     e.preventDefault();
     const cleanEmail = email.trim();
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (cleanEmail && emailRegex.test(cleanEmail)) {
       setIsRegistered(true);
+      await submitRoyalCircleMember(cleanEmail);
       setTimeout(() => {
         setIsOpenModal(false);
         setIsRegistered(false);
