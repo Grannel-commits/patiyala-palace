@@ -42,7 +42,7 @@ export const Footer: React.FC<Props> = ({ onNavigate, onOpenAgeGate }) => {
                 key={s.name}
                 href={s.url}
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 className="px-4 py-1.5 rounded-full bg-white/5 hover:bg-[#E6501E] hover:text-black border border-white/15 text-[11px] font-sans font-bold uppercase tracking-wider transition-all"
               >
                 {s.name}

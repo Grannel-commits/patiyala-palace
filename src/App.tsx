@@ -75,7 +75,7 @@ function App() {
     if (typeof window === "undefined") return false;
     return (
       localStorage.getItem("patiala_age_verified") === "true" ||
-      new URLSearchParams(window.location.search).get("verified") === "true"
+      (import.meta.env.DEV && new URLSearchParams(window.location.search).get("verified") === "true")
     );
   });
 

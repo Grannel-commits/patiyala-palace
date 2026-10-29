@@ -226,7 +226,7 @@ export const FindUsPage: React.FC<Props> = ({
                     nearestOutlet.name + " " + nearestOutlet.address
                   )}`}
                   target="_blank"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                   className="flex-1 sm:flex-none text-center px-4 py-2 rounded-full bg-emerald-500 hover:bg-emerald-400 text-black font-mono text-[11px] sm:text-xs font-bold uppercase tracking-wider transition-all"
                 >
                   Directions ↗
@@ -289,6 +289,7 @@ export const FindUsPage: React.FC<Props> = ({
               <div className="relative flex-1">
                 <input
                   type="text"
+                  maxLength={80}
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   placeholder="Enter your sector, mall, or landmark..."
@@ -436,7 +437,7 @@ export const FindUsPage: React.FC<Props> = ({
                                 outlet.name + " " + outlet.address
                               )}`}
                               target="_blank"
-                              rel="noreferrer"
+                              rel="noopener noreferrer"
                               className="px-3 sm:px-3.5 py-1.5 rounded-full bg-emerald-500/20 hover:bg-emerald-500 hover:text-black text-emerald-200 text-[11px] sm:text-xs font-mono font-bold uppercase transition-all"
                             >
                               Directions ↗
@@ -483,7 +484,7 @@ export const FindUsPage: React.FC<Props> = ({
                             nearestOutlet.name + " " + nearestOutlet.address
                           )}`}
                           target="_blank"
-                          rel="noreferrer"
+                          rel="noopener noreferrer"
                           className="px-3.5 py-1.5 rounded-full bg-white/10 hover:bg-white text-white hover:text-black transition-all text-center text-xs"
                         >
                           View Directions ↗
@@ -509,6 +510,7 @@ export const FindUsPage: React.FC<Props> = ({
                           <input
                             type="text"
                             required
+                            maxLength={100}
                             value={notifyInput}
                             onChange={(e) => setNotifyInput(e.target.value)}
                             placeholder="Enter your email or phone number..."
@@ -661,7 +663,7 @@ export const FindUsPage: React.FC<Props> = ({
                         outlet.name + " " + outlet.address
                       )}`}
                       target="_blank"
-                      rel="noreferrer"
+                      rel="noopener noreferrer"
                       className="inline-flex items-center gap-1 text-[11px] sm:text-xs font-mono font-bold uppercase tracking-wider text-[#E2E8F0] hover:text-white hover:underline transition-colors cursor-pointer"
                     >
                       <span>Directions</span>

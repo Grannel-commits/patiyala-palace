@@ -361,6 +361,8 @@ export const PalaceSessionsPage: React.FC<Props> = ({
                 className="interactive-iframe absolute inset-0 w-full h-full border-0 pointer-events-auto z-10"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowFullScreen
+                loading="lazy"
+                referrerPolicy="strict-origin-when-cross-origin"
               />
             </div>
 

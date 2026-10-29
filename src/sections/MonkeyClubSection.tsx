@@ -8,7 +8,9 @@ export const MonkeyClubSection: React.FC = () => {
 
   const handleRegister = (e: React.FormEvent) => {
     e.preventDefault();
-    if (email.trim()) {
+    const cleanEmail = email.trim();
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (cleanEmail && emailRegex.test(cleanEmail)) {
       setIsRegistered(true);
       setTimeout(() => {
         setIsOpenModal(false);
@@ -113,6 +115,7 @@ export const MonkeyClubSection: React.FC = () => {
                   <input
                     type="email"
                     required
+                    maxLength={100}
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="Enter your email"

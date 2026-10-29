@@ -73,7 +73,7 @@ export const MonkeyFooterSection: React.FC<Props> = ({
                   key={s.name}
                   href={s.url}
                   target="_blank"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                   className="px-3 sm:px-3.5 py-1 rounded-full bg-black/40 hover:bg-[#CBD5E1] hover:text-black border border-white/20 text-[9px] sm:text-[10px] font-mono font-bold uppercase transition-all"
                 >
                   {s.name}

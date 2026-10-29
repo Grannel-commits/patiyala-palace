@@ -293,7 +293,7 @@ export const OurCocktailsPage = ({
               <a
                 href="https://www.instagram.com/patiyalapalace/"
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 className="w-12 h-12 rounded-full bg-[#07173E] text-white flex items-center justify-center hover:bg-[#00248B] hover:scale-110 transition-all shadow-sm"
                 aria-label="Instagram"
               >
@@ -304,7 +304,7 @@ export const OurCocktailsPage = ({
               <a
                 href="https://facebook.com"
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 className="w-12 h-12 rounded-full bg-[#07173E] text-white flex items-center justify-center hover:bg-[#00248B] hover:scale-110 transition-all shadow-sm"
                 aria-label="Facebook"
               >

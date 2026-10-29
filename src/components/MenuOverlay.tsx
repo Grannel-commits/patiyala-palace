@@ -95,11 +95,11 @@ export const MenuOverlay: React.FC<Props> = ({ isOpen, onClose, onNavigate }) =>
               SAKSHAM SPIRITS PVT. LTD. • STRICTLY 25+ ENJOY RESPONSIBLY
             </span>
             <div className="flex gap-6 font-mono text-xs uppercase tracking-wider">
-              <a href="https://www.instagram.com/patiyalapalace/" target="_blank" rel="noreferrer" className="hover:text-[#E2E8F0] transition-colors flex items-center gap-1.5 font-bold">
+              <a href="https://www.instagram.com/patiyalapalace/" target="_blank" rel="noopener noreferrer" className="hover:text-[#E2E8F0] transition-colors flex items-center gap-1.5 font-bold">
                 <span>Instagram</span>
                 <span className="text-[10px] text-[#E2E8F0]">(@patiyalapalace)</span>
               </a>
-              <a href="https://facebook.com" target="_blank" rel="noreferrer" className="hover:text-[#E2E8F0] transition-colors font-bold">
+              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="hover:text-[#E2E8F0] transition-colors font-bold">
                 Facebook
               </a>
             </div>

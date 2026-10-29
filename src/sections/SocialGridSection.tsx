@@ -42,7 +42,7 @@ export const SocialGridSection: React.FC = () => {
           <a
             href="https://www.instagram.com/patiyalapalace/"
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
             className="font-mono text-xs font-bold tracking-[0.2em] uppercase text-[#E6501E] hover:text-[#FF6B00] transition-colors flex items-center gap-2"
           >
             <span>FOLLOW @PATIYALAPALACE</span>
@@ -57,7 +57,7 @@ export const SocialGridSection: React.FC = () => {
               key={idx}
               href="https://www.instagram.com/patiyalapalace/"
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               whileHover={{ y: -4 }}
               className="group relative aspect-square rounded-2xl overflow-hidden block bg-[#1A1A1A] border-2 border-white/10 hover:border-[#E6501E]/70 transition-all duration-300 shadow-xl"
             >

@@ -609,7 +609,9 @@ export function checkLocationAvailability(
   outlets: OutletLocation[];
   cleanedQuery: string;
 } {
-  const cleaned = query.trim().toLowerCase();
+  // Input sanitization: truncate to 80 chars, strip dangerous symbols for ReDoS safety
+  const sanitizedQuery = query.slice(0, 80).replace(/[^\w\s\-/]/g, " ").trim();
+  const cleaned = sanitizedQuery.toLowerCase();
   if (!cleaned) {
     return { matched: false, outlets: [], cleanedQuery: "" };
   }

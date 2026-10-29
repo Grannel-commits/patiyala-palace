@@ -30,4 +30,13 @@ generate_luxury_pdf.py
 generate_pbr_maps.js
 mask_textures.js
 process_textures.js
+# Environment & Secrets
+.env
+.env.local
+.env.*.local
+*.pem
+*.key
+*.cert
+*.crt
+
 3d-source/

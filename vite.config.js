@@ -7,12 +7,12 @@ export default defineConfig({
         port: 5174,
         host: '0.0.0.0',
         open: false,
-        allowedHosts: true,
+        allowedHosts: ['.trycloudflare.com', 'localhost', '127.0.0.1'],
     },
     preview: {
         port: 5174,
         host: '0.0.0.0',
         open: false,
-        allowedHosts: true,
+        allowedHosts: ['.trycloudflare.com', 'localhost', '127.0.0.1'],
     }
 });

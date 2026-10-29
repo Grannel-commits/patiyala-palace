@@ -106,7 +106,7 @@ export const PalaceSessionsSection: React.FC = () => {
                   <a
                     href="https://spotify.com"
                     target="_blank"
-                    rel="noreferrer"
+                    rel="noopener noreferrer"
                     className="w-full py-3.5 rounded-full text-xs font-sans font-black uppercase tracking-wider bg-[#E6501E] hover:bg-[#FF6B00] text-black shadow-[0_4px_15px_rgba(230,80,30,0.35)] transition-all text-center flex items-center justify-center gap-2 cursor-pointer"
                   >
                     <span>LISTEN ON SPOTIFY</span>

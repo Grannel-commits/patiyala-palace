@@ -111,7 +111,7 @@ export const Navbar: React.FC<Props> = ({
             <a
               href="https://www.instagram.com/patiyalapalace/"
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               aria-label="Patiyala Palace Instagram"
               className="hidden lg:flex items-center justify-center w-8 h-8 rounded-full bg-white/5 hover:bg-[#E6501E] hover:text-black border border-white/15 text-white/80 transition-all cursor-pointer"
             >
